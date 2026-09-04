@@ -82,13 +82,17 @@
   }
   .tagline .mark { width: 260px; flex: none; }
   .tagline h2 {
-    display: grid; grid-template-columns: max-content max-content; column-gap: 0.3em;
+    display: grid; grid-template-columns: max-content max-content; column-gap: 0;
     font-size: clamp(2rem, 3.9vw, 3.5rem);
     line-height: 1.12;
     letter-spacing: -0.015em;
   }
-  .tagline h2 .hi { color: var(--tangerine); text-align: right; }
+  .tagline h2 .hi { color: var(--tangerine); text-align: right; padding-right: 0.3em; }
   .tagline h2 .t { text-align: left; }
+  .tagline h2 .sm { font-size: 0.8em; }
+  .tagline h2 .box { background: var(--navy); margin-top: 0.2em; padding-top: 0.08em; padding-bottom: 0.12em; }
+  .tagline h2 .hi.box { padding-left: 0.35em; border-radius: 8px 0 0 8px; }
+  .tagline h2 .t.box { color: var(--bone); padding-right: 0.35em; border-radius: 0 8px 8px 0; justify-self: start; }
 
   /* Outcome */
   .tagline { padding-bottom: 72px; }
@@ -165,10 +169,10 @@
     <div class="wrap">
       <svg class="mark" viewBox="2.77 9.37 84.62 86.34" role="img" aria-label="Align the Future mark"><path d="M40.56,46 L50,93" fill="none" stroke="#0B3C5D" stroke-width="9.5" stroke-linecap="butt"/><path d="M15.14,81 A118,118 0 0 1 71.51,63.23" fill="none" stroke="#FF8C42" stroke-width="9.5" stroke-linecap="butt"/><polygon points="85.9,63.36 70.17,73.28 71.7,51.34" fill="#FF8C42"/><path d="M9,93 A118,118 0 0 1 66.33,28.21" fill="none" stroke="#0B3C5D" stroke-width="9.5" stroke-linecap="butt"/><polygon points="79.53,22.47 69.19,37.94 61.67,17.27" fill="#0B3C5D"/></svg>
       <h2>
-        <span class="hi">Think</span><span class="t">robotics competition</span>
+        <span class="hi">think</span><span class="t">robotics competition</span>
         <span class="hi">meets</span><span class="t">Sim City</span>
         <span class="hi">meets</span><span class="t">Model UN</span>
-        <span class="hi">but for</span><span class="t">AI alignment.</span>
+        <span class="hi box"><span class="sm">but for</span></span><span class="t box">AI alignment.</span>
       </h2>
     </div>
   </section>
