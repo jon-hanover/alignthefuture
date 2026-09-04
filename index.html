@@ -78,17 +78,17 @@
   /* Tagline */
   .tagline { padding-top: 96px; padding-bottom: 8px; }
   .tagline .wrap {
-    display: flex; justify-content: flex-end; align-items: center; gap: 40px;
+    display: flex; justify-content: center; align-items: center; gap: 40px;
   }
   .tagline .mark { width: 260px; flex: none; }
-  .tagline h2 { flex: 0 1 auto; }
   .tagline h2 {
+    display: grid; grid-template-columns: max-content max-content; column-gap: 0.3em;
     font-size: clamp(2rem, 3.9vw, 3.5rem);
     line-height: 1.12;
     letter-spacing: -0.015em;
-    text-align: right;
   }
-  .tagline h2 .hi { color: var(--tangerine); }
+  .tagline h2 .hi { color: var(--tangerine); text-align: right; }
+  .tagline h2 .t { text-align: left; }
 
   /* Sections */
   .sections { padding-top: 96px; padding-bottom: 120px; }
@@ -119,7 +119,6 @@
     .sections .wrap { grid-template-columns: 1fr; }
     .tagline .wrap { flex-direction: column; align-items: flex-start; gap: 28px; }
     .tagline .mark { width: 180px; }
-    .tagline h2 { text-align: left; }
   }
   @media (max-width: 600px) {
     .wrap { padding-left: 20px; padding-right: 20px; }
@@ -168,7 +167,12 @@
   <section class="tagline" aria-label="The program in one line">
     <div class="wrap">
       <svg class="mark" viewBox="2.77 9.37 84.62 86.34" role="img" aria-label="Align the Future mark"><path d="M40.56,46 L50,93" fill="none" stroke="#0B3C5D" stroke-width="9.5" stroke-linecap="butt"/><path d="M15.14,81 A118,118 0 0 1 71.51,63.23" fill="none" stroke="#FF8C42" stroke-width="9.5" stroke-linecap="butt"/><polygon points="85.9,63.36 70.17,73.28 71.7,51.34" fill="#FF8C42"/><path d="M9,93 A118,118 0 0 1 66.33,28.21" fill="none" stroke="#0B3C5D" stroke-width="9.5" stroke-linecap="butt"/><polygon points="79.53,22.47 69.19,37.94 61.67,17.27" fill="#0B3C5D"/></svg>
-      <h2><span class="hi">Think</span> robotics competition<br><span class="hi">meets</span> Sim City<br><span class="hi">meets</span> Model UN<br><span class="hi">but for</span> AI alignment.</h2>
+      <h2>
+        <span class="hi">Think</span><span class="t">robotics competition</span>
+        <span class="hi">meets</span><span class="t">Sim City</span>
+        <span class="hi">meets</span><span class="t">Model UN</span>
+        <span class="hi">but for</span><span class="t">AI alignment.</span>
+      </h2>
     </div>
   </section>
 
