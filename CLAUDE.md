@@ -71,3 +71,9 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000. Check the page at a phone width too, not just
 desktop.
+
+## Docs
+
+`docs/` holds working documents about the project itself, starting with
+`docs/VISION.md`, the cleaned-up statement of the core idea and the open
+questions behind it. Nothing in `docs/` is linked from the site.
