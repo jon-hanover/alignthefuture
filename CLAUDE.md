@@ -1,7 +1,9 @@
 # alignthefuture.org
 
-Static site for **alignthefuture.org**. Currently a placeholder page. The real
-design has not been built yet.
+Static site for **alignthefuture.org**. `index.html` is the homepage, built on
+the brand kit in `brand/` (palette, Fraunces and Manrope, the mark and lockup).
+The design source lives on a Claude Design canvas; the page is hand-written
+responsive HTML with no build step.
 
 ## How it deploys
 
