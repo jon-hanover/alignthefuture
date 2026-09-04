@@ -5,6 +5,24 @@ the brand kit in `brand/` (palette, Fraunces and Manrope, the mark and lockup).
 The design source lives on a Claude Design canvas; the page is hand-written
 responsive HTML with no build step.
 
+## Working agreement
+
+Jon is not an engineer and does not work in GitHub directly. No one else is
+watching this repo, so the stakes on any single change are low.
+
+**Default to shipping.** When Jon asks for something, take it all the way to
+production: commit it, get it onto `main`, and tell him the live site is
+updated. Do not stop at a branch or an open pull request waiting on a review he
+did not ask for. If he wants to see it first he will say so, and then hold at a
+branch or PR until he approves it.
+
+This applies to work that lands in the repo. Research, analysis and drafts that
+are not repo changes still come back to him in chat or as an artifact.
+
+The four items under "Things that will break the site" still get checked before
+a structural change ships. That is a verification step on the way out the door,
+not a reason to stop and ask.
+
 ## How it deploys
 
 GitHub Pages, "Deploy from a branch", `main` branch, `/ (root)` folder. Push to
