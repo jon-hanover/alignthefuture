@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Align the Future</title>
-<meta name="description" content="Preparing the next generation to secure the future of humanity. A program for high schoolers to experience AI alignment through simulation and debate.">
+<meta name="description" content="Preparing the next generation to secure the future of humanity. A program where high schoolers experience AI alignment firsthand.">
 <meta property="og:title" content="Align the Future">
 <meta property="og:description" content="Prepare the next generation to secure the future of humanity.">
 <meta property="og:type" content="website">
@@ -53,24 +53,10 @@
   img { max-width: 100%; height: auto; display: block; }
   .wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
 
-  /* Buttons */
-  .btn {
-    display: inline-flex; align-items: center; gap: 12px;
-    padding: 14px 24px; border-radius: 6px;
-    font-family: var(--sans); font-size: 16px; font-weight: 700; line-height: 1.2;
-    text-decoration: none; white-space: nowrap;
-    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  }
-  .btn svg { width: 18px; height: 18px; flex: none; }
-  .btn-outline { padding: 11px 18px; font-size: 15px; font-weight: 600; border: 1px solid var(--bone); color: var(--bone); }
-  .btn-outline:hover, .btn-outline:focus-visible { background: rgba(244, 248, 250, 0.1); }
-  .btn-bone { background: var(--bone); color: var(--navy); }
-  .btn-bone:hover, .btn-bone:focus-visible { background: #ffffff; }
-  .btn:focus-visible { outline: 2px solid var(--tangerine); outline-offset: 3px; }
 
   /* Hero */
   .hero { background: var(--navy); color: var(--bone); }
-  .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+  .nav { display: flex; align-items: center; padding-top: 28px; padding-bottom: 28px; }
   .nav .lockup { width: 232px; }
   .hero-body {
     display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -92,9 +78,10 @@
   /* Tagline */
   .tagline { padding-top: 96px; padding-bottom: 8px; }
   .tagline .wrap {
-    display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 48px; align-items: center;
+    display: flex; justify-content: flex-end; align-items: center; gap: 40px;
   }
-  .tagline .mark { width: 160px; }
+  .tagline .mark { width: 260px; flex: none; }
+  .tagline h2 { flex: 0 1 auto; }
   .tagline h2 {
     font-size: clamp(2rem, 3.9vw, 3.5rem);
     line-height: 1.12;
@@ -130,17 +117,17 @@
   }
   @media (max-width: 900px) {
     .sections .wrap { grid-template-columns: 1fr; }
-    .tagline .wrap { grid-template-columns: 1fr; gap: 32px; }
-    .tagline .mark { width: 120px; }
+    .tagline .wrap { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .tagline .mark { width: 180px; }
     .tagline h2 { text-align: left; }
   }
   @media (max-width: 600px) {
     .wrap { padding-left: 20px; padding-right: 20px; }
     .nav { padding-top: 20px; padding-bottom: 20px; }
     .nav .lockup { width: 176px; }
-    .btn-outline { padding: 10px 14px; font-size: 14px; }
     .hero-body { padding-top: 48px; padding-bottom: 72px; gap: 28px; text-align: left; align-items: flex-start; }
-    .hero h1 { font-size: clamp(2.25rem, 10vw, 2.75rem); }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.5rem); }
+    .hero h1 .hi { display: block; }
     .hero-copy { align-items: flex-start; font-size: 18px; }
     .tagline { padding-top: 64px; }
     .tagline h2 { font-size: clamp(1.9rem, 8.5vw, 2.5rem); }
@@ -162,8 +149,7 @@
 
 <header class="hero">
   <div class="wrap nav">
-    <a href="/" aria-label="Align the Future home"><img class="lockup" src="/brand/lockup-reversed.svg" alt="Align the Future" width="232" height="51"></a>
-    <a class="btn btn-outline" href="mailto:jon@hawthorneducation.com">Get in touch</a>
+    <a href="/" aria-label="Align the Future home"><img class="lockup" src="/brand/lockup-reversed.svg" alt="Align the Future" width="232" height="52"></a>
   </div>
   <div class="wrap hero-body">
     <h1>
@@ -171,14 +157,10 @@
       <span class="line">to secure the <span class="hi">future of humanity.</span></span>
     </h1>
     <div class="hero-copy">
-      <p class="lead">Whether AI ends up serving human interests may be the biggest question facing the next generation.</p>
-      <p>We can't rely on the labs. Or on Washington. Alignment is a democratic project for tomorrow's leaders.</p>
-      <p>We are building a program for high schoolers to experience AI alignment, to build technical expertise through engaging simulations and debate their peers about the future they want to secure for humanity.</p>
+      <p class="lead">Whether or not AI serves human interests is the biggest question facing us.</p>
+      <p>We can't rely on the labs. Or Washington. AI alignment has to be a democratic project. And we have to start now.</p>
+      <p>We envision a program where high schoolers experience AI alignment firsthand, conduct simulated safety research, run scenarios, and discuss with their peers how to secure the future for humanity.</p>
     </div>
-    <a class="btn btn-bone" href="mailto:jon@hawthorneducation.com">
-      <span>Start a conversation</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
-    </a>
   </div>
 </header>
 
@@ -220,7 +202,7 @@
 
 <footer>
   <div class="wrap">
-    <img class="lockup" src="/brand/lockup-reversed.svg" alt="Align the Future" width="180" height="39">
+    <img class="lockup" src="/brand/lockup-reversed.svg" alt="Align the Future" width="180" height="41">
     <a href="https://alignthefuture.org/">alignthefuture.org</a>
   </div>
 </footer>
