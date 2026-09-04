@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Align the Future</title>
+<meta name="description" content="Align the Future. Something new is being built here.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Align the Future">
+<meta property="og:description" content="Something new is being built here.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alignthefuture.org/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f1115'/><path d='M8 21.5 16 9l8 12.5' fill='none' stroke='%23e8e4dc' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<style>
+  :root {
+    --bg: #0f1115;
+    --ink: #e8e4dc;
+    --muted: #8f9299;
+    --rule: #23262d;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8vh 24px;
+  }
+  main {
+    width: 100%;
+    max-width: 34rem;
+    text-align: center;
+  }
+  .mark {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 2rem;
+    display: block;
+    opacity: 0.9;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 7vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+  .rule {
+    width: 56px;
+    height: 1px;
+    background: var(--rule);
+    border: 0;
+    margin: 2rem auto;
+  }
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .kicker {
+    margin-top: 2.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5c6068;
+  }
+  a { color: var(--ink); }
+  @media (prefers-reduced-motion: no-preference) {
+    main { animation: rise 0.7s ease-out both; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: none; }
+    }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M6 23 16 7l10 16" fill="none" stroke="#e8e4dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h1>Align the Future</h1>
+    <hr class="rule">
+    <p>Hello, world. Something new is being built here.</p>
+    <p class="kicker">alignthefuture.org</p>
+  </main>
+</body>
+</html>
