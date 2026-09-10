@@ -94,6 +94,8 @@ desktop.
 
 ## Docs
 
-`docs/` holds working documents about the project itself, starting with
-`docs/VISION.md`, the cleaned-up statement of the core idea and the open
-questions behind it. Nothing in `docs/` is linked from the site.
+`docs/` holds working documents about the project itself. `docs/VISION.md` is
+the cleaned-up statement of the core idea and the open questions behind it.
+`docs/WORKING-DOCS.md` points at the live Google files (the Ecosystem Map and
+the internal collab doc) where the day-to-day work actually happens. Nothing in
+`docs/` is linked from the site.
