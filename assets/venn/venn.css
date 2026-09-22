@@ -1,6 +1,7 @@
-/* Align the Future: the Humans / AI Venn animation.
-   Markup lives in align/index.html. Without JavaScript the final, merged
-   state shows; venn.js adds .is-live and drives the animation. */
+/* Align the Future: the Humans / Align / AI Venn and program table.
+   Markup lives in align/index.html. Static, no JavaScript.
+   Wide screens: the Venn sits above a table with the categories down the left.
+   Phones: the Venn sits above the rows, each row stacked into tagged items. */
 
 .atf-venn {
   --v-blue: #3A67AD;
@@ -11,29 +12,23 @@
   --v-yellow-ink: #7A6900;
   --v-ai-text: #1F2A36;
   --v-bar: #E6E2D8;
+  --v-rule: #DCD6C8;
   --v-label: #2B3A4A;
   --v-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 
-  position: relative;
   font-family: var(--v-sans);
   color: var(--v-label);
 }
 
-.atf-venn .stage {
-  position: relative;
-  overflow: hidden;
-  padding: 8px 16px 40px;
+/* The Venn */
+.atf-venn .diagram {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto 40px;
 }
-
-.atf-venn svg.circles {
-  position: absolute;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-.atf-venn svg.circles circle { mix-blend-mode: multiply; }
-.atf-venn svg.circles text {
+.atf-venn .diagram text {
   font-family: var(--v-sans);
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -41,112 +36,85 @@
   dominant-baseline: central;
 }
 
-.atf-venn .grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+/* The table */
+.atf-venn table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
-
-/* Header: HUMANS -> | ALIGN | <- AI */
-.atf-venn .mhead { display: none; }
-.atf-venn .pill {
-  display: flex; align-items: center; gap: 14px;
-  min-height: 60px;
-  padding: 8px 20px;
+.atf-venn col.rowhead { width: 190px; }
+.atf-venn th, .atf-venn td {
+  padding: 16px 20px;
+  vertical-align: top;
+  text-align: left;
+  text-wrap: pretty;
+  border-bottom: 1px solid var(--v-rule);
+}
+.atf-venn thead th {
+  padding: 14px 20px;
+  border-bottom: 0;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  vertical-align: middle;
 }
-.atf-venn .pill.h { background: var(--v-blue); color: #fff; border-radius: 12px 0 0 12px; }
-.atf-venn .pill.a {
-  background: var(--v-green); color: #fff;
-  flex-direction: column; justify-content: center; gap: 0;
-  text-align: center; line-height: 1.1;
-  transform-origin: 50% 50%;
-  margin: 0 -1px;
+.atf-venn thead th.h { background: var(--v-blue); color: #fff; border-radius: 12px 0 0 0; }
+.atf-venn thead th.a { background: var(--v-green); color: #fff; }
+.atf-venn thead th.i { background: var(--v-yellow); color: var(--v-ai-text); border-radius: 0 12px 0 0; }
+.atf-venn thead th .for {
+  display: block;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  margin-top: 2px;
 }
-.atf-venn .pill.a .big { font-size: 22px; letter-spacing: 0.1em; }
-.atf-venn .pill.a .small { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; margin-top: 3px; }
-.atf-venn .pill.i { background: var(--v-yellow); color: var(--v-ai-text); border-radius: 0 12px 12px 0; justify-content: flex-end; }
-.atf-venn .pill .word { font-size: 20px; }
-.atf-venn .arrow { position: relative; flex: 1; max-width: 170px; height: 2px; background: currentColor; }
-.atf-venn .arrow::before {
-  content: ""; position: absolute; top: 50%; width: 10px; height: 10px;
-  border-radius: 50%; background: currentColor; transform: translateY(-50%);
-}
-.atf-venn .arrow::after {
-  content: ""; position: absolute; top: 50%; width: 0; height: 0;
-  border-top: 6px solid transparent; border-bottom: 6px solid transparent;
-  transform: translateY(-50%);
-}
-.atf-venn .pill.h .arrow::before { left: -2px; }
-.atf-venn .pill.h .arrow::after { right: -2px; border-left: 11px solid currentColor; }
-.atf-venn .pill.i .arrow::before { right: -2px; }
-.atf-venn .pill.i .arrow::after { left: -2px; border-right: 11px solid currentColor; }
-
-/* Section bars: a label between two grey segments that close into one bar */
-.atf-venn .bar {
-  grid-column: 1 / -1;
-  position: relative;
-  display: flex; justify-content: center; align-items: center;
-  min-height: 34px;
-  margin-top: 12px; margin-bottom: 8px;
-  font-size: 17px; font-weight: 600;
+.atf-venn tbody th {
+  font-weight: 700;
   color: var(--v-label);
+  background: var(--v-bar);
 }
-.atf-venn .bar .segs { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); z-index: -1; }
-.atf-venn .bar .seg { background: var(--v-bar); }
-.atf-venn .bar .seg.a { transform-origin: 50% 50%; margin: 0 -1px; }
-.atf-venn .pill + .pill + .pill + .bar { margin-top: 10px; }
+.atf-venn td.h { color: var(--v-blue-ink); background: rgba(58, 103, 173, 0.06); }
+.atf-venn td.a { color: var(--v-green-ink); background: rgba(94, 138, 72, 0.08); }
+.atf-venn td.i { color: var(--v-yellow-ink); background: rgba(239, 217, 85, 0.14); }
+.atf-venn tbody tr:last-child > * { border-bottom: 0; }
+.atf-venn tbody tr:last-child th { border-radius: 0 0 0 12px; }
+.atf-venn tbody tr:last-child td.i { border-radius: 0 0 12px 0; }
 
-/* Cells */
-.atf-venn .cell { padding: 2px 18px 4px; text-wrap: pretty; }
-.atf-venn .cell p { margin: 0; }
-.atf-venn .cell.h { color: var(--v-blue-ink); text-align: left; }
-.atf-venn .cell.a { color: var(--v-green-ink); text-align: center; }
-.atf-venn .cell.i { color: var(--v-yellow-ink); text-align: right; }
 .atf-venn .tag {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
 
-.atf-venn .h, .atf-venn .i, .atf-venn .a { will-change: transform, opacity; }
-
-.atf-venn .replay {
-  position: absolute; right: 0; bottom: 4px; z-index: 2;
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 8px;
-  border: 0; border-radius: 6px;
-  background: transparent;
-  font: 600 13px/1 var(--v-sans);
-  color: var(--v-label); opacity: 0.6;
-  cursor: pointer;
+/* Tablet: narrower category column */
+@media (max-width: 1000px) {
+  .atf-venn col.rowhead { width: 140px; }
+  .atf-venn th, .atf-venn td { padding: 14px 14px; }
+  .atf-venn table { font-size: 15px; }
 }
-.atf-venn .replay:hover, .atf-venn .replay:focus-visible { opacity: 1; background: var(--v-bar); }
-.atf-venn .replay[hidden] { display: none; }
-.atf-venn .replay svg { width: 14px; height: 14px; }
 
-/* Phone and narrow tablet: a compact Venn on top, rows stacked below */
+/* Phone: stack each row */
 @media (max-width: 759px) {
-  .atf-venn .stage { padding: 0 0 40px; }
-  .atf-venn svg.circles { height: 250px; }
-  .atf-venn .grid { grid-template-columns: minmax(0, 1fr); font-size: 16px; }
-  .atf-venn .mhead { display: block; height: 250px; }
-  .atf-venn .pill { display: none; }
-  .atf-venn .bar { margin-top: 20px; margin-bottom: 10px; justify-content: flex-start; padding: 0 12px; background: var(--v-bar); }
-  .atf-venn .bar .segs { display: none; }
-  .atf-venn .cell, .atf-venn .cell.a, .atf-venn .cell.i {
-    text-align: left;
+  .atf-venn .diagram { margin-bottom: 28px; }
+  .atf-venn table, .atf-venn tbody, .atf-venn tr, .atf-venn th, .atf-venn td { display: block; width: auto; }
+  .atf-venn thead, .atf-venn colgroup { display: none; }
+  .atf-venn tbody tr { margin-bottom: 20px; }
+  .atf-venn tbody th, .atf-venn tbody tr:last-child th {
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    border: 0; border-radius: 0;
+  }
+  .atf-venn td, .atf-venn td.h, .atf-venn td.a, .atf-venn td.i,
+  .atf-venn tbody tr:last-child td.i {
+    background: none;
     padding: 2px 0 2px 14px;
     margin: 0 0 12px;
+    border: 0; border-radius: 0;
     border-left: 3px solid;
   }
-  .atf-venn .cell.h { border-color: var(--v-blue); }
-  .atf-venn .cell.a { border-color: var(--v-green); }
-  .atf-venn .cell.i { border-color: var(--v-yellow); }
+  .atf-venn td.h { border-left-color: var(--v-blue); }
+  .atf-venn td.a { border-left-color: var(--v-green); }
+  .atf-venn td.i, .atf-venn tbody tr:last-child td.i { border-left-color: var(--v-yellow); }
   .atf-venn .tag {
     position: static; width: auto; height: auto; overflow: visible;
     clip: auto; clip-path: none;

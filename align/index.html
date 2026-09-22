@@ -20,42 +20,65 @@
 <body>
 <main class="page">
 
-<!-- Venn animation. Needs /assets/venn/venn.css, /assets/venn/venn.js and Manrope. -->
-<section class="atf-venn" data-atf-venn aria-label="Align for human flourishing: where understanding humans and understanding AI meet">
-  <div class="stage">
-    <svg class="circles" aria-hidden="true" focusable="false"></svg>
-    <div class="grid">
-      <div class="mhead" aria-hidden="true"></div>
+<!-- Humans / Align / AI. Needs /assets/venn/venn.css and Manrope. -->
+<section class="atf-venn" aria-label="Align for human flourishing">
+  <svg class="diagram" viewBox="-4 -4 308 236" role="img" aria-label="Venn diagram: a blue Humans circle and a yellow AI circle overlap, and the green overlap is Align, for human flourishing">
+    <defs>
+      <radialGradient id="atfv-b"><stop offset="0" stop-color="#6F97C4"/><stop offset="0.72" stop-color="#4675B3"/><stop offset="0.93" stop-color="#1F55A2"/><stop offset="1" stop-color="#11479A"/></radialGradient>
+      <radialGradient id="atfv-y"><stop offset="0" stop-color="#F4E27A"/><stop offset="0.75" stop-color="#EFDA55"/><stop offset="1" stop-color="#E6CC3C"/></radialGradient>
+      <radialGradient id="atfv-g"><stop offset="0" stop-color="#5F9A55"/><stop offset="0.7" stop-color="#3D7C3D"/><stop offset="1" stop-color="#2F6A34"/></radialGradient>
+      <clipPath id="atfv-clip"><circle cx="100" cy="100" r="100"/></clipPath>
+    </defs>
+    <g opacity="0.92">
+      <circle cx="100" cy="100" r="100" fill="url(#atfv-b)"/>
+      <circle cx="200" cy="100" r="100" fill="url(#atfv-y)" style="mix-blend-mode: multiply"/>
+      <circle cx="200" cy="100" r="100" fill="url(#atfv-g)" clip-path="url(#atfv-clip)" opacity="0.85"/>
+    </g>
+    <text x="50" y="100" fill="#fff" font-size="12">HUMANS</text>
+    <text x="150" y="100" fill="#fff" font-size="12">ALIGN</text>
+    <text x="250" y="100" fill="#1F2A36" font-size="13">AI</text>
+    <text x="150" y="220" fill="#4C6E36" font-size="10">FOR HUMAN FLOURISHING</text>
+  </svg>
 
-      <div class="pill h"><span class="word">Humans</span><span class="arrow"></span></div>
-      <div class="pill a"><span class="big">Align</span><span class="small">for human flourishing</span></div>
-      <div class="pill i"><span class="arrow"></span><span class="word">AI</span></div>
-
-      <div class="bar"><div class="segs"><span class="seg h"></span><span class="seg a"></span><span class="seg i"></span></div>Guiding Questions</div>
-      <div class="cell h"><span class="tag">Humans</span><p>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</p></div>
-      <div class="cell a"><span class="tag">Align</span><p>What can we do together to ensure humans flourish in the Age of AI? What are the biggest risks and opportunities? What laws do we need? What research do we need? Where is international cooperation most needed and most possible?</p></div>
-      <div class="cell i"><span class="tag">AI</span><p>What is AI, really? How do models learn? Where do their goals come from? How do we know what they’re doing? What works for goal alignment? What remains unsolved?</p></div>
-
-      <div class="bar"><div class="segs"><span class="seg h"></span><span class="seg a"></span><span class="seg i"></span></div>Experiential Learning</div>
-      <div class="cell h"><span class="tag">Humans</span><p>Engage in the “Great Conversation”; read great thinkers, experience good life traditions, write, discuss with peers and experts</p></div>
-      <div class="cell a"><span class="tag">Align</span><p>Draft policies, debate, refine, compromise on AI governance; set a learning agenda for further research and civic action plans</p></div>
-      <div class="cell i"><span class="tag">AI</span><p>Train small, open weight models; try different alignment techniques; conduct real research against real open questions in alignment science</p></div>
-
-      <div class="bar"><div class="segs"><span class="seg h"></span><span class="seg a"></span><span class="seg i"></span></div>Capstone</div>
-      <div class="cell h"><span class="tag">Humans</span><p>Thesis on human flourishing</p></div>
-      <div class="cell a"><span class="tag">Align</span><p>AI governance framework</p></div>
-      <div class="cell i"><span class="tag">AI</span><p>Research paper for publication</p></div>
-
-      <div class="bar"><div class="segs"><span class="seg h"></span><span class="seg a"></span><span class="seg i"></span></div>Mentors</div>
-      <div class="cell h"><span class="tag">Humans</span><p>Humanities Professors</p></div>
-      <div class="cell a"><span class="tag">Align</span><p>Policy Makers</p></div>
-      <div class="cell i"><span class="tag">AI</span><p>AI Researchers</p></div>
-    </div>
-    <button class="replay" type="button" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.6 1.6v3.2H9.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Replay</button>
-  </div>
+  <table>
+    <colgroup><col class="rowhead"><col><col><col></colgroup>
+    <thead>
+      <tr>
+        <td></td>
+        <th scope="col" class="h">Humans</th>
+        <th scope="col" class="a">Align<span class="for">for human flourishing</span></th>
+        <th scope="col" class="i">AI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Guiding Questions</th>
+        <td class="h"><span class="tag">Humans</span>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</td>
+        <td class="a"><span class="tag">Align</span>What can we do together to ensure humans flourish in the Age of AI? What are the biggest risks and opportunities? What laws do we need? What research do we need? Where is international cooperation most needed and most possible?</td>
+        <td class="i"><span class="tag">AI</span>What is AI, really? How do models learn? Where do their goals come from? How do we know what they’re doing? What works for goal alignment? What remains unsolved?</td>
+      </tr>
+      <tr>
+        <th scope="row">Experiential Learning</th>
+        <td class="h"><span class="tag">Humans</span>Engage in the “Great Conversation”; read great thinkers, experience good life traditions, write, discuss with peers and experts</td>
+        <td class="a"><span class="tag">Align</span>Draft policies, debate, refine, compromise on AI governance; set a learning agenda for further research and civic action plans</td>
+        <td class="i"><span class="tag">AI</span>Train small, open weight models; try different alignment techniques; conduct real research against real open questions in alignment science</td>
+      </tr>
+      <tr>
+        <th scope="row">Capstone</th>
+        <td class="h"><span class="tag">Humans</span>Thesis on human flourishing</td>
+        <td class="a"><span class="tag">Align</span>AI governance framework</td>
+        <td class="i"><span class="tag">AI</span>Research paper for publication</td>
+      </tr>
+      <tr>
+        <th scope="row">Mentors</th>
+        <td class="h"><span class="tag">Humans</span>Humanities Professors</td>
+        <td class="a"><span class="tag">Align</span>Policy Makers</td>
+        <td class="i"><span class="tag">AI</span>AI Researchers</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 </main>
-<script src="/assets/venn/venn.js" defer></script>
 </body>
 </html>
