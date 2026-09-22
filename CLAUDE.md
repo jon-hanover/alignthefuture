@@ -5,6 +5,10 @@ the brand kit in `brand/` (palette, Fraunces and Manrope, the mark and lockup).
 The design source lives on a Claude Design canvas; the page is hand-written
 responsive HTML with no build step.
 
+`align/` is the animated Humans / AI Venn (slide 1 of the program deck): blue
+and yellow circles glide together and the green Align column emerges. Its CSS
+and JS live in `assets/venn/`, so the same markup can be dropped into any page.
+
 ## Working agreement
 
 Jon is not an engineer and does not work in GitHub directly. No one else is
