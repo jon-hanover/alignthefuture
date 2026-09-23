@@ -45,7 +45,7 @@ in git history if wanted again.
 the two-pager as a graphic, built from a grid Aaron drafted and simplified at
 Jon's request. Ten organizations run across the top, each name a link with an
 "i" bubble holding a short description and a few facts (hover on desktop, tap
-on phones). The rows are ten features of Align the Future, phrased as what the
+on phones). The rows are eleven features of Align the Future, phrased as what the
 program is ("Built for high schoolers"), and each cell is a single check or
 blank, with no partial marks. Align the Future is the first, highlighted
 column. Below desktop width the grid scrolls sideways under pinned feature and
