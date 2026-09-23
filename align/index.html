@@ -22,54 +22,22 @@
 
 <!-- Humans / Align / AI. Needs /assets/venn/venn.css and Manrope. -->
 <section class="atf-venn" aria-label="Align for human flourishing">
-  <svg class="diagram" viewBox="-6 -6 297 240" role="img" aria-label="Venn diagram: a blue Humans circle and a yellow AI circle overlap, and the green overlap is Align, for human flourishing">
+  <svg class="diagram" viewBox="-4 -4 308 236" role="img" aria-label="Venn diagram: a blue Humans circle and a yellow AI circle overlap, and the green overlap is Align, for human flourishing">
     <defs>
-      <radialGradient id="atfv-b" gradientUnits="userSpaceOnUse" cx="138" cy="100" r="140"><stop offset="0" stop-color="#BACDE5"/><stop offset="0.36" stop-color="#96B4DB"/><stop offset="0.5" stop-color="#5F89C4"/><stop offset="0.66" stop-color="#2A58A5"/><stop offset="0.78" stop-color="#1D4D9D"/><stop offset="0.9" stop-color="#4A76B8"/><stop offset="1" stop-color="#5A82C0"/></radialGradient>
-      <radialGradient id="atfv-y" gradientUnits="userSpaceOnUse" cx="148" cy="100" r="140"><stop offset="0" stop-color="#F7EDB6"/><stop offset="0.38" stop-color="#F5E487"/><stop offset="0.6" stop-color="#F0D530"/><stop offset="0.74" stop-color="#F1D944"/><stop offset="0.88" stop-color="#F5E691"/><stop offset="1" stop-color="#F7EBAA"/></radialGradient>
-      <radialGradient id="atfv-g" gradientUnits="userSpaceOnUse" cx="160" cy="102" r="95"><stop offset="0" stop-color="#2E6D35"/><stop offset="0.35" stop-color="#3A7A3D"/><stop offset="0.68" stop-color="#6A975D"/><stop offset="0.9" stop-color="#9DBC8B"/><stop offset="1" stop-color="#B4CBA3"/></radialGradient>
-      <clipPath id="atfv-cb"><circle cx="100" cy="100" r="100"/></clipPath>
-      <clipPath id="atfv-cy"><circle cx="185" cy="100" r="100"/></clipPath>
-      <!-- Watercolor: a slightly wobbly edge, a soft wash, and darker pigment flecks -->
-      <filter id="atfv-paint" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="11" result="warp"/>
-        <feDisplacementMap in="SourceGraphic" in2="warp" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="wobbly"/>
-        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="blot"/>
-        <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.3 0 0 0 0.8" result="blotA"/>
-        <feComposite in="wobbly" in2="blotA" operator="in" result="washed"/>
-        <feComponentTransfer in="wobbly" result="dark"><feFuncR type="linear" slope="0.78"/><feFuncG type="linear" slope="0.78"/><feFuncB type="linear" slope="0.72"/></feComponentTransfer>
-        <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="3" seed="9" result="fleck"/>
-        <feColorMatrix in="fleck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.3 0 0 0 -0.5" result="fleckA"/>
-        <feComposite in="dark" in2="fleckA" operator="in" result="flecks"/>
-        <feMerge result="painted"><feMergeNode in="washed"/><feMergeNode in="flecks"/></feMerge>
-        <feComposite in="painted" in2="wobbly" operator="in"/>
-      </filter>
-      <filter id="atfv-paint-y" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="5" result="warp"/>
-        <feDisplacementMap in="SourceGraphic" in2="warp" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="wobbly"/>
-        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="blot"/>
-        <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.3 0 0 0 0.8" result="blotA"/>
-        <feComposite in="wobbly" in2="blotA" operator="in" result="washed"/>
-        <feComponentTransfer in="wobbly" result="dark"><feFuncR type="linear" slope="0.96"/><feFuncG type="linear" slope="0.86"/><feFuncB type="linear" slope="0.45"/></feComponentTransfer>
-        <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="3" seed="9" result="fleck"/>
-        <feColorMatrix in="fleck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 -0.38" result="fleckA"/>
-        <feComposite in="dark" in2="fleckA" operator="in" result="flecks"/>
-        <feMerge result="painted"><feMergeNode in="washed"/><feMergeNode in="flecks"/></feMerge>
-        <feComposite in="painted" in2="wobbly" operator="in"/>
-      </filter>
-      <filter id="atfv-soft"><feGaussianBlur stdDeviation="0.9"/></filter>
-      <filter id="atfv-lift" x="-20%" y="-50%" width="140%" height="200%"><feDropShadow dx="0" dy="0" stdDeviation="1.4" flood-color="#0B2E5C" flood-opacity="0.55"/></filter>
+      <radialGradient id="atfv-b"><stop offset="0" stop-color="#6F97C4"/><stop offset="0.72" stop-color="#4675B3"/><stop offset="0.93" stop-color="#1F55A2"/><stop offset="1" stop-color="#11479A"/></radialGradient>
+      <radialGradient id="atfv-y"><stop offset="0" stop-color="#F4E27A"/><stop offset="0.75" stop-color="#EFDA55"/><stop offset="1" stop-color="#E6CC3C"/></radialGradient>
+      <radialGradient id="atfv-g"><stop offset="0" stop-color="#5F9A55"/><stop offset="0.7" stop-color="#3D7C3D"/><stop offset="1" stop-color="#2F6A34"/></radialGradient>
+      <clipPath id="atfv-clip"><circle cx="100" cy="100" r="100"/></clipPath>
     </defs>
-    <circle cx="185" cy="100" r="100" fill="url(#atfv-y)" filter="url(#atfv-paint-y)"/>
-    <g filter="url(#atfv-paint)">
+    <g opacity="0.92">
       <circle cx="100" cy="100" r="100" fill="url(#atfv-b)"/>
-      <circle cx="185" cy="100" r="100" fill="url(#atfv-g)" clip-path="url(#atfv-cb)"/>
-      <g clip-path="url(#atfv-cy)" filter="url(#atfv-soft)"><circle cx="100" cy="100" r="99" fill="none" stroke="#1F5028" stroke-width="1.8" opacity="0.6"/></g>
-      <g clip-path="url(#atfv-cb)" filter="url(#atfv-soft)"><circle cx="185" cy="100" r="99.5" fill="none" stroke="#88AC78" stroke-width="1.4" opacity="0.45"/></g>
+      <circle cx="200" cy="100" r="100" fill="url(#atfv-y)" style="mix-blend-mode: multiply"/>
+      <circle cx="200" cy="100" r="100" fill="url(#atfv-g)" clip-path="url(#atfv-clip)" opacity="0.85"/>
     </g>
-    <text x="41" y="100" fill="#fff" font-size="12" filter="url(#atfv-lift)">HUMANS</text>
-    <text x="142.5" y="100" fill="#fff" font-size="13" filter="url(#atfv-lift)">ALIGN</text>
-    <text x="242.5" y="100" fill="#1F2A36" font-size="13">AI</text>
-    <text x="142.5" y="222" fill="#4C6E36" font-size="10">FOR HUMAN FLOURISHING</text>
+    <text x="50" y="100" fill="#fff" font-size="12">HUMANS</text>
+    <text x="150" y="100" fill="#fff" font-size="12">ALIGN</text>
+    <text x="250" y="100" fill="#1F2A36" font-size="13">AI</text>
+    <text x="150" y="220" fill="#4C6E36" font-size="10">FOR HUMAN FLOURISHING</text>
   </svg>
 
   <table>
