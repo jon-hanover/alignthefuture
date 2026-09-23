@@ -103,40 +103,41 @@
   .question h1 .ramp-text { font-weight: 800; }
 
   /* Situation */
-  .situation { border-top: 1px solid var(--rule); }
+  .situation { background: var(--deep); color: var(--on-deep); }
   .situation .wrap { padding-top: 88px; padding-bottom: 96px; }
   .situation .copy { max-width: 780px; display: flex; flex-direction: column; gap: 24px; }
   .situation h2 {
     font-size: clamp(2.2rem, 4.8vw, 3.75rem);
     line-height: 1.06;
-    color: var(--blue);
+    color: #fff;
   }
-  .situation .lead { font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.5; color: var(--ink); }
-  .situation .more { color: var(--muted); max-width: 700px; }
+  .situation .lead { font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.5; color: var(--on-deep); }
+  .situation .more { color: var(--on-deep-muted); max-width: 700px; }
+  .situation strong { color: var(--gold); }
 
   /* Complication */
-  .complication { background: var(--deep); color: var(--on-deep); }
   .complication .wrap { padding-top: 88px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 28px; }
   .complication .eyebrow + .kicker { margin-top: -14px; }
-  .complication .eyebrow { color: var(--gold); font-size: 15px; }
-  .complication .kicker { font-size: clamp(1.15rem, 1.8vw, 1.35rem); color: var(--on-deep-muted); }
+  .complication .eyebrow { font-size: 15px; }
+  .complication .kicker { font-size: clamp(1.15rem, 1.8vw, 1.35rem); color: var(--muted); }
   .complication h2 {
     font-size: clamp(2rem, 4.2vw, 3.25rem);
     line-height: 1.12;
-    color: #fff;
+    color: var(--blue);
   }
-  .complication p.body { color: var(--on-deep-muted); max-width: 700px; }
+  .complication p.body { color: var(--muted); max-width: 700px; }
   .complication .despair {
     margin-top: 8px;
     padding-left: 20px;
     border-left: 3px solid var(--gold);
     font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-    color: var(--on-deep);
+    color: var(--ink);
     max-width: 700px;
   }
 
-  /* The turn */
-  .turn .wrap { padding-top: 104px; padding-bottom: 88px; display: flex; flex-direction: column; gap: 24px; }
+  /* The turn, washed in the logo colors */
+  .turn { background: linear-gradient(135deg, rgba(45, 94, 147, 0.07), rgba(117, 158, 117, 0.08) 55%, rgba(214, 178, 70, 0.12)); }
+  .turn .wrap { padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 24px; }
   .turn h2 { font-size: clamp(2.2rem, 4.8vw, 3.75rem); line-height: 1.08; padding-bottom: 0.06em; }
   .turn p { font-size: clamp(1.1rem, 1.6vw, 1.25rem); max-width: 740px; }
 
