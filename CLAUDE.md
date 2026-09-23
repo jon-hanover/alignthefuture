@@ -12,7 +12,7 @@ and is no longer used anywhere.
 
 The two faded circles at the top of the homepage animate once on load (a small
 inline script at the bottom of `index.html`): they drift in from either side,
-flirt along the top and settle into the same overlap the static CSS draws, which
+flirt along the top for about 20 seconds and settle into the same overlap the static CSS draws, which
 is also what no-script and reduced-motion visitors see. Keep the script's final
 keyframe and the `.situation .circles` CSS in step if either moves.
 

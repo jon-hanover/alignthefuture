@@ -367,7 +367,9 @@
 
 <script>
 /* The hero circles: blue and yellow drift in from either side, flirt their way
-   along the top of the page, and settle into the overlap of the static layout.
+   along the top of the page (brushing, overlapping, twice passing right through
+   each other and swapping sides) and settle into the overlap of the static
+   layout after about 20 seconds.
    Plays once on load. Reduced motion, or no script, shows the settled pair. */
 (function () {
   var hero = document.querySelector(".situation");
@@ -383,18 +385,21 @@
   function keys(W, r) {
     return [
       [0.0, -1.3 * r, 0.25, W + 1.3 * r, -0.25],
-      [1.5, 0.24 * W, -0.15, 0.8 * W, 0.2],
-      [2.5, 0.5 * W - 1.2 * r, 0.12, 0.5 * W + 1.2 * r, -0.08],
-      [3.3, 0.4 * W - r, -0.22, 0.62 * W + 0.6 * r, 0.25],
-      [4.2, 0.48 * W - 0.95 * r, 0.15, 0.48 * W + 0.95 * r, -0.15],
-      [5.0, 0.44 * W - 0.6 * r, -0.12, 0.7 * W, 0.3],
-      [5.8, 0.62 * W - 0.8 * r, 0.2, 0.84 * W - 0.2 * r, -0.2],
-      [6.7, W - 1.6 * r, 0.1, W - 0.05 * r, -0.15],
-      [7.4, W - 1.2 * r, -0.05, W - 0.3 * r, 0.05],
-      [8.0, W - 1.25 * r, 0, W - 0.25 * r, 0]
+      [2.5, 0.22 * W, -0.15, 0.8 * W, 0.2],
+      [4.5, 0.5 * W - 0.7 * r, 0.1, 0.5 * W + 0.7 * r, -0.1],
+      [6.2, 0.38 * W - 0.4 * r, -0.2, 0.64 * W + 0.4 * r, 0.25],
+      [8.2, 0.5 * W, 0.05, 0.5 * W, -0.05],
+      [9.8, 0.66 * W + 0.3 * r, -0.15, 0.34 * W - 0.3 * r, 0.2],
+      [11.4, 0.78 * W, 0.2, 0.2 * W, -0.2],
+      [13.2, 0.6 * W, -0.1, 0.4 * W, 0.1],
+      [14.7, 0.5 * W + 0.1 * r, 0.1, 0.5 * W - 0.1 * r, -0.1],
+      [16.3, 0.4 * W - 0.6 * r, -0.15, 0.62 * W + 0.4 * r, 0.2],
+      [18.3, W - 1.7 * r, 0.1, W + 0.1 * r, -0.15],
+      [19.6, W - 1.1 * r, -0.05, W - 0.4 * r, 0.05],
+      [20.5, W - 1.25 * r, 0, W - 0.25 * r, 0]
     ];
   }
-  var END = 8.0;
+  var END = 20.5;
 
   // Smooth path through the keyframes (cubic Hermite, Catmull-Rom tangents,
   // at rest at both ends) so the pair drifts rather than stops at each point.
@@ -428,10 +433,7 @@
     blue.setAttribute("cy", rest + at(K, t, 2) * r);
     yellow.setAttribute("cx", at(K, t, 3));
     yellow.setAttribute("cy", rest + at(K, t, 4) * r);
-    // A little more visible while they move, easing back to the resting shade.
-    var settled = small ? 0.12 : 0.16;
-    var o = t < 0.8 ? 0.2 * t / 0.8 : t < END - 1 ? 0.2 : 0.2 + (settled - 0.2) * (t - (END - 1));
-    group.setAttribute("opacity", o);
+    group.setAttribute("opacity", small ? 0.12 : 0.16);
     if (t < END) requestAnimationFrame(draw);
   }
 
