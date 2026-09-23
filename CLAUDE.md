@@ -14,8 +14,11 @@ The two faded circles at the top of the homepage animate once on load (a small
 inline script at the bottom of `index.html`): they drift in from either side,
 flirt along the top for about 20 seconds and settle into the same overlap the static CSS draws, which
 is also what no-script and reduced-motion visitors see. Each circle carries a
-hand-lettered name in Caveat Brush ("Humanities" and "AI") that fades almost
-out whenever it passes over a line of the hero text. Keep the script's final
+hand-lettered name in Caveat Brush ("Humanities" and "AI"), fixed at the
+circle's center so it moves only with its own circle (an earlier version slid
+the names apart where the circles overlapped, which read as the circles
+bumping each other; Jon rejected that). Each name fades almost out whenever it
+passes over a line of the hero text. Keep the script's final
 keyframe and the `.situation .circles` CSS in step if either moves.
 
 `align/` is the Humans / Align / AI Venn (slide 1 of the program deck): a static
