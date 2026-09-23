@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Who Else Is Doing This · Align the Future</title>
-<meta name="description" content="The nearest analogs to Align the Future, and how each compares on the program’s key features.">
+<meta name="description" content="The nearest analogs to Align the Future, and which of its defining features each one shares.">
 <link rel="icon" href="/brand/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/brand/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="icon" href="/brand/favicon.ico" sizes="any">
@@ -16,40 +16,31 @@
   :root {
     --blue: #2D5E93;
     --teal: #487C89;
+    --sage: #759E75;
+    --gold: #D6B246;
     --deep: #1B3553;
     --paper: #FBFAF6;
     --ink: #1F2D3D;
     --muted: #556474;
-    --rule: #E3DFD4;
+    --rule: #ECE8DF;
     --ramp: linear-gradient(90deg, #2D5E93, #487C89, #759E75, #D6B246);
     --display: "Raleway", ui-sans-serif, system-ui, sans-serif;
     --sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-  }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
   .page { max-width: 1232px; margin: 0 auto; padding: 28px 24px 64px; }
   .top { margin-bottom: 28px; }
   .top img { width: 240px; height: auto; display: block; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 
   /* The graphic. Everything inside .landscape is the part to screenshot. */
   .landscape {
-    /* Row colors: the Venn's Humanities / Align / AI, plus the logo's teal and deep blue */
-    --who: #487C89;  --who-ink: #3B6874;
-    --hum: #3A67AD;  --hum-ink: #2A5BA6;
-    --gov: #5E8A48;  --gov-ink: #4C6E36;
-    --ai:  #EFD955;  --ai-ink:  #7A6900;  --ai-on: #1F2A36; --ai-ring: #CDB02E;
-    --path: #1B3553; --path-ink: #1B3553;
-
+    --atf-bg: #F1F5F3;
     margin: 0;
     background: #fff;
-    border: 1px solid var(--rule);
+    border: 1px solid #E3DFD4;
     border-radius: 18px;
     padding: 40px 40px 30px;
     box-shadow: 0 1px 2px rgba(31, 45, 61, 0.04), 0 12px 32px -12px rgba(31, 45, 61, 0.10);
@@ -57,18 +48,13 @@
   }
   .landscape::before {
     content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
-    border-radius: 18px 18px 0 0;
-    background: var(--ramp);
+    border-radius: 18px 18px 0 0; background: var(--ramp);
   }
-
-  .landscape header {
-    display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;
-    margin-bottom: 18px;
-  }
+  .landscape header { margin-bottom: 26px; }
   .landscape .eyebrow {
+    margin: 0 0 8px;
     font-family: var(--display); font-size: 13px; font-weight: 700;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal);
-    margin: 0 0 8px;
   }
   .landscape h1 {
     margin: 0 0 10px;
@@ -76,159 +62,89 @@
     font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; letter-spacing: -0.01em;
     color: var(--blue); text-wrap: balance;
   }
-  .landscape .intro { margin: 0; max-width: 640px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty; }
-
-  .legend { display: flex; gap: 18px; flex-shrink: 0; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--muted); }
-  .legend li { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
-  .legend i { --c: #6B7785; --on: #fff; --ring: #6B7785; width: 18px; height: 18px; }
-  .legend .none { width: 18px; height: 18px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--rule); display: inline-block; }
-  .legend .i { pointer-events: none; }
-
+  .landscape .intro { margin: 0; max-width: 680px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty; }
   .swipe { display: none; }
+  .scroll { position: relative; }
 
   /* Table */
   .landscape table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-  .landscape col.c-crit { width: 290px; }
-  .landscape col.c-atf { width: 74px; }
-  .landscape th, .landscape td { padding: 0; font-weight: inherit; text-align: left; vertical-align: middle; }
-  .landscape .first { border-left: 1px solid var(--rule); }
+  .landscape col.c-dim { width: 262px; }
+  .landscape col.c-atf { width: 98px; }
+  .landscape th, .landscape td { padding: 0; font-weight: inherit; text-align: center; vertical-align: middle; }
 
-  /* Header: categories, the Kairos bracket, then names */
-  .landscape thead th.cat {
-    padding: 0 6px 9px;
-    text-align: center; vertical-align: bottom;
-    font-family: var(--display); font-size: 11.5px; font-weight: 800; line-height: 1.25;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal);
-    border-bottom: 2px solid rgba(72, 124, 137, 0.45);
+  .landscape thead th { vertical-align: bottom; padding: 0 2px 14px; border-bottom: 1.5px solid #D9D3C6; }
+  .landscape thead td.corner { border-bottom: 1.5px solid #D9D3C6; }
+  .landscape .org { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .landscape .org-name {
+    font-family: var(--display); font-size: 14.5px; font-weight: 700; line-height: 1.2;
+    color: var(--ink); text-decoration: none; white-space: nowrap;
   }
-  .landscape thead th.cat.first { border-left: 0; }
-  .landscape thead th.cat + th.cat { box-shadow: inset 8px 0 #fff; }
-  .landscape th.bracket { padding: 10px 8px 0; text-align: center; }
-  .landscape .bracket-in {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    padding-bottom: 6px;
-    border-bottom: 1.5px solid rgba(72, 124, 137, 0.5);
-    font-family: var(--display); font-size: 13px; font-weight: 700;
+  .landscape th.atf .org-name { white-space: normal; text-wrap: balance; }
+  .landscape a.org-name:hover { color: var(--blue); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
+  .landscape tbody th {
+    padding: 0 20px 0 0; text-align: left;
+    font-family: var(--display); font-size: 15.5px; font-weight: 700; line-height: 1.3;
+    color: var(--ink);
+  }
+  .landscape tbody td, .landscape tbody th { height: 52px; border-bottom: 1px solid var(--rule); }
+  .landscape tbody tr:last-child > * { border-bottom: 0; }
+  .landscape tbody tr:hover > th, .landscape tbody tr:hover > td:not(.atf) { background: #FAF8F3; }
+
+  /* Everyone else: a plain check */
+  .landscape tbody td i {
+    display: inline-block; width: 22px; height: 22px; vertical-align: middle;
+    background: var(--teal);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* Align the Future: a highlighted column, checks in the logo's colors */
+  .landscape .atf { background: var(--atf-bg); }
+  .landscape thead th.atf { border-radius: 14px 14px 0 0; padding-top: 18px; border-bottom-color: transparent; box-shadow: inset 0 -1.5px #D9D3C6; }
+  .landscape tbody tr:last-child td.atf { border-radius: 0 0 14px 14px; }
+  .landscape tbody td.atf { border-bottom-color: #E2E9E5; }
+  .landscape th.atf img { width: 40px; height: auto; margin-bottom: 2px; }
+  .landscape th.atf .org-name { color: var(--blue); font-size: 15.5px; font-weight: 800; }
+  .landscape tbody td.atf i {
+    width: 30px; height: 30px; border-radius: 50%;
+    -webkit-mask: none; mask: none;
+    background: var(--blue);
     position: relative;
   }
-  .landscape .bracket-in::before, .landscape .bracket-in::after {
-    content: ""; position: absolute; bottom: -6px; width: 1.5px; height: 6px; background: rgba(72, 124, 137, 0.5);
+  .landscape tbody td.atf i::after {
+    content: ""; position: absolute; inset: 22%; background: #fff;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
   }
-  .landscape .bracket-in::before { left: 0; }
-  .landscape .bracket-in::after { right: 0; }
-  .landscape .bracket-in > a { color: var(--blue); text-decoration: none; }
-  .landscape thead th.org, .landscape thead th.atf-top { vertical-align: bottom; border-bottom: 1px solid var(--rule); }
-  .landscape .org-in { display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 12px 0 12px; }
-  .landscape .vname {
-    writing-mode: vertical-rl; transform: rotate(180deg);
-    max-height: 158px;
-    font-family: var(--display); font-size: 14.5px; font-weight: 700; line-height: 1.15;
-    color: var(--blue); text-decoration: none; text-wrap: balance;
-  }
-  .landscape a.vname:hover, .landscape .bracket-in > a:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* Align the Future column */
-  .landscape .atf-top, .landscape td.atf {
-    background: linear-gradient(90deg, #F0F4F7, #F1F5F1);
-  }
-  .landscape .atf-top { border-radius: 14px 14px 0 0; }
-  .landscape .atf-top .org-in { padding-top: 16px; }
-  .landscape .atf-top img { width: 34px; height: auto; margin-bottom: 2px; }
-  .landscape .atf-top .vname { font-size: 16px; font-weight: 800; }
-  .landscape tbody tr:last-child td.atf { border-radius: 0 0 14px 14px; }
-  .landscape td.atf i { width: 28px; height: 28px; box-shadow: 0 0 0 3px #fff; }
-  .landscape td.atf + td.first { border-left: 0; }
-  .landscape thead th.atf-top { border-bottom-color: transparent; }
-
-  /* Criteria rows */
-  .landscape tbody td { text-align: center; height: 58px; border-bottom: 1px solid var(--rule); }
-  .landscape tbody th.crit { padding: 11px 24px 11px 0; border-bottom: 1px solid var(--rule); }
-  .landscape tbody tr.last > * { border-bottom: 0; }
-  .landscape tbody td.atf { border-bottom-color: rgba(255, 255, 255, 0.7); }
-  .landscape .crit-label { display: block; font-family: var(--display); font-size: 15.5px; font-weight: 700; line-height: 1.3; }
-  .landscape .crit-expl { display: block; margin-top: 2px; font-size: 13px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
-  .landscape tr.c-hs .crit-label, .landscape tr.c-res .crit-label, .landscape tr.c-intl .crit-label { color: var(--who-ink); }
-  .landscape tr.c-hum .crit-label { color: var(--hum-ink); }
-  .landscape tr.c-gov .crit-label { color: var(--gov-ink); }
-  .landscape tr.c-ai .crit-label { color: var(--ai-ink); }
-  .landscape tr.c-path .crit-label { color: var(--path-ink); }
-
-  /* Faint row tints so each criterion reads across */
-  .landscape tr.c-hs td:not(.atf), .landscape tr.c-res td:not(.atf), .landscape tr.c-intl td:not(.atf) { background: rgba(72, 124, 137, 0.035); }
-  .landscape tr.c-hum td:not(.atf) { background: rgba(58, 103, 173, 0.045); }
-  .landscape tr.c-gov td:not(.atf) { background: rgba(94, 138, 72, 0.055); }
-  .landscape tr.c-ai td:not(.atf) { background: rgba(239, 217, 85, 0.11); }
-  .landscape tr.c-path td:not(.atf) { background: rgba(27, 53, 83, 0.035); }
-
-  /* Group rows */
-  .landscape tr.grp th { padding: 18px 24px 8px 0; vertical-align: bottom; }
-  .landscape tr.grp th span {
-    display: inline-block; padding-bottom: 5px;
-    font-family: var(--display); font-size: 11.5px; font-weight: 800;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink);
-    border-bottom: 3px solid;
-  }
-  .landscape tr.g-who th span { border-color: var(--who); }
-  .landscape tr.g-learn th span { border-image: linear-gradient(90deg, var(--hum) 0 33.3%, var(--gov) 33.3% 66.6%, var(--ai) 66.6%) 1; }
-  .landscape tr.g-path th span { border-color: var(--path); }
-  .landscape tr.grp td { border-bottom: 1px solid var(--rule); }
-  .landscape tr.grp td.atf { border-bottom-color: rgba(255, 255, 255, 0.7); }
-  .landscape tr.grp th { border-bottom: 1px solid var(--rule); }
-  .landscape tbody tr.grp:first-child th { padding-top: 14px; }
-
-  /* Marks */
-  .landscape i {
-    --c: #6B7785; --on: #fff; --ring: var(--c);
-    position: relative; display: inline-block; vertical-align: middle;
-    width: 24px; height: 24px; border-radius: 50%;
-  }
-  .landscape i.y { background: var(--c); }
-  .landscape i.y::after {
-    content: ""; position: absolute; inset: 22%;
-    background: var(--on);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.6l3.4 3.3 7.6-7.8' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.6l3.4 3.3 7.6-7.8' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-  }
-  .landscape i.p { background: linear-gradient(90deg, var(--c) 50%, #fff 50%); box-shadow: inset 0 0 0 2px var(--ring); }
-  .landscape tr.c-hs i, .landscape tr.c-res i, .landscape tr.c-intl i { --c: var(--who); }
-  .landscape tr.c-hum i { --c: var(--hum); }
-  .landscape tr.c-gov i { --c: var(--gov); }
-  .landscape tr.c-ai i { --c: var(--ai); --on: var(--ai-on); --ring: var(--ai-ring); }
-  .landscape tr.c-path i { --c: var(--path); }
 
   /* The i bubbles */
   .landscape .info { position: relative; display: inline-flex; }
   .landscape button.i {
-    width: 20px; height: 20px; padding: 0; border-radius: 50%;
-    border: 1.5px solid rgba(72, 124, 137, 0.55); background: #fff; color: var(--teal);
-    font: italic 700 12px/1 Georgia, "Times New Roman", serif;
+    width: 19px; height: 19px; padding: 0; border-radius: 50%;
+    border: 1.5px solid rgba(72, 124, 137, 0.5); background: #fff; color: var(--teal);
+    font: italic 700 11.5px/1 Georgia, "Times New Roman", serif;
     display: inline-flex; align-items: center; justify-content: center;
     cursor: pointer; transition: background-color .15s, color .15s, border-color .15s;
   }
   .landscape .info.open button.i, .landscape button.i:focus-visible { background: var(--teal); border-color: var(--teal); color: #fff; outline: none; }
   .landscape button.i:focus-visible { box-shadow: 0 0 0 3px rgba(72, 124, 137, 0.3); }
-  .legend .i { width: 17px; height: 17px; border-radius: 50%; border: 1.5px solid rgba(72, 124, 137, 0.55); color: var(--teal); font: italic 700 11px/1 Georgia, serif; display: inline-flex; align-items: center; justify-content: center; }
-
   .landscape .tip {
     position: absolute; z-index: 30;
     top: calc(100% + 11px); left: 50%;
-    width: 310px;
+    width: 300px;
     transform: translate(-50%, 4px);
-    padding: 15px 17px 16px;
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 12px;
+    padding: 15px 17px 15px;
+    background: #fff; border: 1px solid #E3DFD4; border-radius: 12px;
     box-shadow: 0 18px 40px -12px rgba(31, 45, 61, 0.30), 0 2px 6px rgba(31, 45, 61, 0.06);
-    text-align: left; white-space: normal;
-    font-family: var(--sans);
+    text-align: left; font-family: var(--sans);
     opacity: 0; visibility: hidden; pointer-events: none;
     transition: opacity .15s, transform .15s, visibility .15s;
   }
   .landscape .tip::before {
     content: ""; position: absolute; top: -7px; left: calc(50% - 6px);
     width: 12px; height: 12px; background: #fff;
-    border-left: 1px solid var(--rule); border-top: 1px solid var(--rule);
-    transform: rotate(45deg);
+    border-left: 1px solid #E3DFD4; border-top: 1px solid #E3DFD4; transform: rotate(45deg);
   }
   .landscape .tip::after { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 13px; }
   .landscape .tip-r .tip { left: auto; right: -14px; transform: translateY(4px); }
@@ -246,54 +162,51 @@
   .landscape .tip-name { display: block; margin-bottom: 5px; font-family: var(--display); font-size: 16px; font-weight: 700; line-height: 1.25; color: var(--blue); text-decoration: none; }
   .landscape .tip-name::after { content: " ↗"; font-family: var(--sans); font-size: 0.8em; color: var(--teal); }
   .landscape .tip-name:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .landscape .tip-desc { display: block; font-size: 13.5px; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; color: var(--muted); text-wrap: pretty; }
+  .landscape .tip-desc { display: block; font-size: 13.5px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
   .landscape .tip-desc a { color: var(--blue); text-decoration: underline; text-decoration-color: rgba(45, 94, 147, 0.35); text-underline-offset: 2px; }
+  .landscape .tip-facts { display: flex; flex-wrap: wrap; gap: 6px; margin: 11px 0 0; padding: 0; list-style: none; }
+  .landscape .tip-facts li { padding: 3px 9px; border-radius: 999px; background: #F1F4F5; font-size: 12px; font-weight: 600; line-height: 1.4; color: #3B6874; }
 
   .landscape figcaption {
     display: flex; justify-content: space-between; align-items: center; gap: 24px;
-    margin-top: 22px;
+    margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--rule);
     font-size: 13.5px; line-height: 1.5; color: var(--muted);
   }
   .landscape figcaption a { color: var(--blue); font-weight: 700; text-decoration: none; }
   .landscape figcaption img { width: 150px; height: auto; flex-shrink: 0; }
 
-  /* Tablet */
-  @media (max-width: 1100px) {
+  /* Narrower screens: the grid scrolls sideways under pinned dimension and
+     Align the Future columns; on phones the i bubbles open as a card along
+     the bottom of the screen */
+  @media (max-width: 1179px) {
     .landscape { padding: 32px 24px 26px; }
-    .landscape col.c-crit { width: 200px; }
-    .landscape col.c-atf { width: 60px; }
-    .landscape .crit-expl { font-size: 12px; }
-    .landscape .vname { font-size: 13px; }
-    .landscape thead th.cat { font-size: 10.5px; letter-spacing: 0.08em; }
-    .landscape header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .swipe { display: block; margin: -10px 0 10px; font-size: 12.5px; font-weight: 600; color: var(--teal); }
+    .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+    .landscape table { min-width: 980px; }
+    .landscape col.c-dim { width: 190px; }
+    .landscape col.c-atf { width: 88px; }
+    .landscape thead td.corner, .landscape tbody th { position: sticky; left: 0; z-index: 3; background: #fff; }
+    .landscape th.atf, .landscape td.atf { position: sticky; left: 190px; z-index: 2; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.18); }
+    .landscape thead th.atf { border-radius: 0; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.18), inset 0 -1.5px #D9D3C6; }
+    .landscape tbody tr:last-child td.atf { border-radius: 0; }
+    .landscape tbody th { padding-right: 12px; font-size: 14px; }
+    .landscape .org-name, .landscape th.atf .org-name { font-size: 13.5px; }
   }
-
-  /* Phone: the matrix scrolls sideways under a pinned criteria column;
-     the i bubbles open as a card along the bottom of the screen */
   @media (max-width: 759px) {
     .page { padding: 20px 16px 48px; }
     .top img { width: 190px; }
     .landscape { padding: 26px 0 22px; border-radius: 14px; }
-    .landscape header, .landscape figcaption, .swipe { padding-left: 16px; padding-right: 16px; }
-    .legend { flex-wrap: wrap; gap: 8px 16px; }
-    .swipe { display: block; margin: 0 0 6px; font-size: 12.5px; font-weight: 600; color: var(--teal); }
-    .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; padding-right: 16px; }
-    .landscape table { width: 780px; }
-    .landscape col.c-crit { width: 124px; }
-    .landscape col.c-atf { width: 54px; }
-    .landscape td.corner, .landscape tbody th { position: sticky; left: 0; z-index: 3; background: #fff; padding-left: 16px !important; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.14); }
-    .landscape .atf-top, .landscape td.atf { position: sticky; left: 124px; z-index: 2; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.16); }
-    .landscape .atf-top { border-radius: 0; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.16), 0 -40px 0 #fff; }
-    .landscape td.corner, .landscape tbody th { box-shadow: none; }
-    .landscape tbody th.crit { padding-right: 10px; }
-    .landscape tr.grp th { padding-right: 8px; }
-    .landscape .crit-label { font-size: 13px; }
-    .landscape .crit-expl { display: none; }
-    .landscape tbody td { height: 50px; }
-    .landscape .vname { font-size: 13px; max-height: 140px; }
+    .landscape header, .landscape figcaption, .swipe { margin-left: 16px; margin-right: 16px; }
+    .landscape table { min-width: 0; width: 830px; margin-right: 16px; }
+    .landscape col.c-dim { width: 136px; }
+    .landscape col.c-atf { width: 74px; }
+    .landscape thead td.corner, .landscape tbody th { padding-left: 16px; }
+    .landscape th.atf, .landscape td.atf { left: 136px; }
+    .landscape tbody th { padding-right: 10px; font-size: 13px; }
+    .landscape tbody td, .landscape tbody th { height: 48px; }
+    .landscape .org-name, .landscape th.atf .org-name { font-size: 13px; }
     .landscape .tip, .landscape .tip-r .tip, .landscape .tip-l .tip {
-      position: fixed; top: auto; left: 16px; right: 16px; bottom: 16px; width: auto;
-      transform: translateY(8px);
+      position: fixed; top: auto; left: 16px; right: 16px; bottom: 16px; width: auto; transform: translateY(8px);
     }
     .landscape .info.open .tip { transform: none; }
     .landscape .tip::before { display: none; }
@@ -307,39 +220,29 @@
 
   <figure class="landscape" aria-labelledby="landscape-title">
     <header>
-      <div>
-        <p class="eyebrow">The landscape</p>
-        <h1 id="landscape-title">Is anyone else doing this already?</h1>
-        <p class="intro">We are not aware of any comparable initiative. These are the nearest analogs we know of, all of which strike us more as potential partners than competitors.</p>
-      </div>
-      <ul class="legend" aria-label="Key">
-        <li><i class="y"></i>Yes</li>
-        <li><i class="p"></i>In part</li>
-        <li><span class="none"></span>Not that we can find</li>
-        <li><span class="i" aria-hidden="true">i</span>More about each</li>
-      </ul>
+      <p class="eyebrow">The landscape</p>
+      <h1 id="landscape-title">Is anyone else doing this already?</h1>
+      <p class="intro">We are not aware of any comparable initiative. These are the nearest analogs we know of, all of which strike us more as potential partners than competitors. A check means the program shares that feature of Align the Future.</p>
     </header>
 
     <p class="swipe">Swipe to see every program →</p>
     <div class="scroll">
     <table>
-      <colgroup><col class="c-crit"><col class="c-atf"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"><col class="c-org"></colgroup>
+      <colgroup><col class="c-dim"><col class="c-atf"><col><col><col><col><col><col><col><col><col><col></colgroup>
       <thead>
-        <tr class="cats"><td class="corner" rowspan="3"></td><th scope="col" class="atf-top" rowspan="3"><span class="org-in"><img src="/brand/logo-circles.png" alt="" width="180" height="137"><a class="vname" href="/">Align the Future</a><span class="info tip-l"><button type="button" class="i" aria-label="About Align the Future" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="/">Align the Future</a><span class="tip-desc">An international, experiential and cross-disciplinary summer program for ~100 rising high school seniors, hosted by a top university, that places graduates directly into labs, think tanks and government.</span></span></span></span></th><th scope="colgroup" colspan="6" class="cat first">Nearest analogs</th><th scope="colgroup" colspan="3" class="cat first">Advocacy or civics only</th><th scope="colgroup" colspan="3" class="cat first">Virtual programs</th></tr>
-        <tr class="brackets"><td class="nob first"></td><th scope="colgroup" colspan="2" class="bracket"><span class="bracket-in"><a href="https://kairos-project.org/">Kairos</a><span class="info"><button type="button" class="i" aria-label="About Kairos" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://kairos-project.org/">Kairos</a><span class="tip-desc">A new but very well capitalized nonprofit connected to the effective altruism movement, creating talent pipelines into AI safety. Growing fast with a diversity of programs, none for high school as far as we can tell. The two most notable:</span></span></span></span></th><td class="nob"></td><td class="nob"></td><td class="nob"></td><td class="nob first"></td><td class="nob"></td><td class="nob"></td><td class="nob first"></td><td class="nob"></td><td class="nob"></td></tr>
-        <tr class="names"><th scope="col" class="org first"><span class="org-in"><a class="vname" href="https://en.wikipedia.org/wiki/Research_Science_Institute">Research Science Institute</a><span class="info"><button type="button" class="i" aria-label="About Research Science Institute" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://en.wikipedia.org/wiki/Research_Science_Institute">Research Science Institute</a><span class="tip-desc">The world’s premier international youth research program. Its flagship, a six-week summer research fellowship at MIT for ~100 of the world’s top young scientists, has run continuously since 1984. Focused on science talent and international cooperation broadly, not AI safety.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://pathfinder.kairos-project.org/">Pathfinder Fellowship</a><span class="info"><button type="button" class="i" aria-label="About Pathfinder Fellowship" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://pathfinder.kairos-project.org/">Pathfinder Fellowship</a><span class="tip-desc">Helps universities launch student-run AI safety and policy communities for undergraduate and graduate students. Its fall 2026 round has 94 fellows at 73 universities across 17 countries, e.g. <a href="https://waisi.org/programs">Wisconsin</a>. <a href="https://aialignment.mit.edu/">MIT</a>’s and <a href="https://aisst.ai/">Harvard</a>’s appear to predate Kairos but be affiliated.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://sparai.org/">SPAR</a><span class="info"><button type="button" class="i" aria-label="About SPAR" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://sparai.org/">SPAR</a><span class="tip-desc">Remote research fellowship that connects rising research talent with mentors.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://www.fabric.camp/">FABRIC</a><span class="info"><button type="button" class="i" aria-label="About FABRIC" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.fabric.camp/">FABRIC</a><span class="tip-desc">Prague nonprofit that runs free residential summer camps for talented, analytical students from around the world. Its Program on AI and Reasoning explores how minds work, artificial and human, more as a matter of scientific understanding than of alignment or policy.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://ml4good.org/">ML4Good</a><span class="info"><button type="button" class="i" aria-label="About ML4Good" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://ml4good.org/">ML4Good</a><span class="tip-desc">Bootcamps that equip technical and governance talent to join the AI safety field, running across Europe, Asia and Brazil.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://www.matsprogram.org/">MATS</a><span class="info"><button type="button" class="i" aria-label="About MATS" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.matsprogram.org/">MATS</a><span class="tip-desc">Independent research fellowship that pairs talented researchers with top mentors in AI alignment, transparency and security. Twelve weeks in Berkeley or London, with the chance of a funded 6 to 12 month extension.</span></span></span></span></th><th scope="col" class="org first"><span class="org-in"><a class="vname" href="https://datasociety.net/ai-civics/">Data &amp; Society</a><span class="info"><button type="button" class="i" aria-label="About Data &amp; Society, AI Civics" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://datasociety.net/ai-civics/">Data &amp; Society, AI Civics</a><span class="tip-desc">A public education program on AI and society, launched in 2026 with a $2M grant from Humanity AI. It starts by convening communities in libraries across the US.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://encodeai.org/">Encode</a><span class="info"><button type="button" class="i" aria-label="About Encode" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://encodeai.org/">Encode</a><span class="tip-desc">The most prominent youth voice in US AI regulation. An advocacy vehicle, with no program or capacity building component that we can find.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://yaigf.org/">Youth AI Governance Forum</a><span class="info tip-r"><button type="button" class="i" aria-label="About Youth AI Governance Forum" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://yaigf.org/">Youth AI Governance Forum</a><span class="tip-desc">Youth-led advocacy organization for mitigating AI risk. Advocacy only, with no youth program or capacity building component that we can find.</span></span></span></span></th><th scope="col" class="org first"><span class="org-in"><a class="vname" href="https://www.non-trivial.org/">Non-Trivial</a><span class="info tip-r"><button type="button" class="i" aria-label="About Non-Trivial" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.non-trivial.org/">Non-Trivial</a><span class="tip-desc">Virtual research incubator for talented youth ages 14 to 20, with mentorship from researchers at top universities. A sister program of Leaf.</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://leaf.courses/dilemmas-and-dangers-in-ai">Leaf</a><span class="info tip-r"><button type="button" class="i" aria-label="About Leaf" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://leaf.courses/dilemmas-and-dangers-in-ai">Leaf</a><span class="tip-desc">Nonprofit running four five-week online fellowships for teens, free for those who need it, one of which is “Dilemmas and Dangers in AI.”</span></span></span></span></th><th scope="col" class="org"><span class="org-in"><a class="vname" href="https://bluedot.org/">BlueDot</a><span class="info tip-r"><button type="button" class="i" aria-label="About BlueDot" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://bluedot.org/">BlueDot</a><span class="tip-desc">Virtual talent accelerator for beneficial AI and societal resilience. Runs courses, funds talented people and brings ambitious teams together through intensive in-person programs.</span></span></span></span></th></tr>
+        <tr><td class="corner"></td><th scope="col" class="atf"><span class="org"><img src="/brand/logo-circles.png" alt="" width="180" height="137"><a class="org-name" href="/">Align the Future</a><span class="info tip-l"><button type="button" class="i" aria-label="About Align the Future" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="/">Align the Future</a><span class="tip-desc">An international, experiential and cross-disciplinary summer program that equips young people to align and govern AI, and places graduates directly into labs, think tanks and government.</span><ul class="tip-facts"><li>~100 rising seniors</li><li>8 to 10 weeks at a top university</li><li>Pilot summer 2027</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://en.wikipedia.org/wiki/Research_Science_Institute">RSI</a><span class="info"><button type="button" class="i" aria-label="About Research Science Institute" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://en.wikipedia.org/wiki/Research_Science_Institute">Research Science Institute</a><span class="tip-desc">The world’s premier international youth research program. Focused on science talent and international cooperation broadly, not AI safety.</span><ul class="tip-facts"><li>~100 rising seniors</li><li>6 weeks at MIT</li><li>Free</li><li>Since 1984</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://kairos-project.org/">Kairos</a><span class="info"><button type="button" class="i" aria-label="About Kairos" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://kairos-project.org/">Kairos</a><span class="tip-desc">A new but very well capitalized nonprofit connected to the effective altruism movement, building talent pipelines into AI safety. Its programs include the <a href="https://pathfinder.kairos-project.org/">Pathfinder Fellowship</a> for university AI safety clubs and <a href="https://sparai.org/">SPAR</a>, a remote research fellowship.</span><ul class="tip-facts"><li>University students and early career</li><li>Founded 2024</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.fabric.camp/">FABRIC</a><span class="info"><button type="button" class="i" aria-label="About FABRIC" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.fabric.camp/">FABRIC</a><span class="tip-desc">Prague nonprofit running free residential summer camps for talented, analytical students from around the world. Its Program on AI and Reasoning explores how minds work, artificial and human, as science rather than alignment or policy.</span><ul class="tip-facts"><li>Ages 16 to 21</li><li>About 10 days, in the UK</li><li>Free</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://ml4good.org/">ML4Good</a><span class="info"><button type="button" class="i" aria-label="About ML4Good" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://ml4good.org/">ML4Good</a><span class="tip-desc">Bootcamps that equip technical and governance talent to join the AI safety field, running across Europe, Asia and Latin America.</span><ul class="tip-facts"><li>Early career</li><li>8 to 10 day residential bootcamps</li><li>Free</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.matsprogram.org/">MATS</a><span class="info"><button type="button" class="i" aria-label="About MATS" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.matsprogram.org/">MATS</a><span class="tip-desc">Independent research fellowship that pairs talented researchers with top mentors in AI alignment, transparency and security, with a funded extension for many fellows.</span><ul class="tip-facts"><li>Researchers 18 and up</li><li>12 weeks in Berkeley or London</li><li>Stipend</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://datasociety.net/ai-civics/">AI Civics</a><span class="info"><button type="button" class="i" aria-label="About Data &amp; Society, AI Civics" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://datasociety.net/ai-civics/">Data &amp; Society, AI Civics</a><span class="tip-desc">A public education program on AI and society from Data &amp; Society, launched in 2026 with a $2M grant from Humanity AI. It starts by convening communities in libraries across the US.</span><ul class="tip-facts"><li>General public</li><li>Community convenings</li><li>US only</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://encodeai.org/">Encode</a><span class="info"><button type="button" class="i" aria-label="About Encode" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://encodeai.org/">Encode</a><span class="tip-desc">The most prominent youth voice in US AI regulation. An advocacy network, with no program or capacity building component that we can find.</span><ul class="tip-facts"><li>High school and college volunteers</li><li>40+ US states</li><li>Since 2020</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.non-trivial.org/">Non-Trivial</a><span class="info tip-r"><button type="button" class="i" aria-label="About Non-Trivial" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.non-trivial.org/">Non-Trivial</a><span class="tip-desc">Virtual research incubator for talented youth, with mentorship from researchers at top universities. A sister program of Leaf.</span><ul class="tip-facts"><li>Ages 14 to 20</li><li>Online</li><li>Free, with scholarships</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://leaf.courses/dilemmas-and-dangers-in-ai">Leaf</a><span class="info tip-r"><button type="button" class="i" aria-label="About Leaf" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://leaf.courses/dilemmas-and-dangers-in-ai">Leaf</a><span class="tip-desc">Nonprofit running four online fellowships for teens, one of which is “Dilemmas and Dangers in AI.”</span><ul class="tip-facts"><li>Ages 14 to 19</li><li>Online, five weeks</li><li>Sliding scale, free if needed</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://bluedot.org/">BlueDot</a><span class="info tip-r"><button type="button" class="i" aria-label="About BlueDot" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://bluedot.org/">BlueDot</a><span class="tip-desc">Talent accelerator for beneficial AI and societal resilience. Runs online courses, funds talented people and brings ambitious teams together in person.</span><ul class="tip-facts"><li>Professionals</li><li>Online courses</li><li>Free or pay what you want</li></ul></span></span></span></th></tr>
       </thead>
       <tbody>
-        <tr class="grp g-who"><th scope="rowgroup"><span>Who &amp; where</span></th><td class="atf"></td><td class="first"></td><td></td><td></td><td></td><td></td><td></td><td class="first"></td><td></td><td></td><td class="first"></td><td></td><td></td></tr>
-        <tr class="c-hs"><th scope="row" class="crit"><span class="crit-label">Built for high schoolers</span><span class="crit-expl">High school students are a core audience</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i class="y" role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i role="img" aria-label="No"></i></td><td class="first"><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="No"></i></td></tr>
-        <tr class="c-res"><th scope="row" class="crit"><span class="crit-label">In person, living together</span><span class="crit-expl">Participants live and learn together for a stretch</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i class="y" role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i class="p" role="img" aria-label="In part"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td></tr>
-        <tr class="c-intl last"><th scope="row" class="crit"><span class="crit-label">International cohort</span><span class="crit-expl">Participants come from many countries</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td class="first"><i class="y" role="img" aria-label="Yes"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td></tr>
-        <tr class="grp g-learn"><th scope="rowgroup"><span>What they learn</span></th><td class="atf"></td><td class="first"></td><td></td><td></td><td></td><td></td><td></td><td class="first"></td><td></td><td></td><td class="first"></td><td></td><td></td></tr>
-        <tr class="c-hum"><th scope="row" class="crit"><span class="crit-label">Humanities</span><span class="crit-expl">Philosophy, ethics, history and the question of a good life, as a real part of the program</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td><i role="img" aria-label="No"></i></td><td class="first"><i class="p" role="img" aria-label="In part"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i role="img" aria-label="No"></i></td></tr>
-        <tr class="c-gov"><th scope="row" class="crit"><span class="crit-label">AI policy &amp; governance</span><span class="crit-expl">Drafting, debating and advocating for how AI is governed</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="No"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td class="first"><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td></tr>
-        <tr class="c-ai last"><th scope="row" class="crit"><span class="crit-label">AI alignment research</span><span class="crit-expl">How models learn and how to align them, technical or conceptual</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td class="first"><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td></tr>
-        <tr class="grp g-path"><th scope="rowgroup"><span>Leads to</span></th><td class="atf"></td><td class="first"></td><td></td><td></td><td></td><td></td><td></td><td class="first"></td><td></td><td></td><td class="first"></td><td></td><td></td></tr>
-        <tr class="c-path last"><th scope="row" class="crit"><span class="crit-label">Placement in labs &amp; government</span><span class="crit-expl">A direct path into AI labs, research roles, think tanks or government</span></th><td class="atf"><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i class="p" role="img" aria-label="In part"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="y" role="img" aria-label="Yes"></i></td><td class="first"><i role="img" aria-label="No"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i role="img" aria-label="No"></i></td><td class="first"><i class="p" role="img" aria-label="In part"></i></td><td><i class="p" role="img" aria-label="In part"></i></td><td><i class="p" role="img" aria-label="In part"></i></td></tr>
+        <tr><th scope="row">Built for high schoolers</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td></tr>
+        <tr><th scope="row">Centered on AI safety &amp; alignment</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
+        <tr><th scope="row">Hands-on technical AI research</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
+        <tr><th scope="row">AI policy &amp; governance</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td></tr>
+        <tr><th scope="row">Grounded in the humanities</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td></tr>
+        <tr><th scope="row">Experiential &amp; project-based</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td></tr>
+        <tr><th scope="row">Residential program</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td></tr>
+        <tr><th scope="row">International cohort</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
+        <tr><th scope="row">Placement into AI safety work</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
+        <tr><th scope="row">Shapes public discourse</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
       </tbody>
     </table>
     </div>

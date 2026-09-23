@@ -42,17 +42,17 @@ version and a textured watercolor version were both tried and dropped; they are
 in git history if wanted again.
 
 `landscape/` is the "Is anyone else doing this already?" appendix question of
-the two-pager as a graphic. The organizations run across the top under the
-appendix's three headings (Kairos as a bracket over Pathfinder and SPAR), with
-Align the Future pinned as the first column. The criteria run down the left
-(full disc yes, half disc in part, blank no). Each organization's link and
-short description sit in an "i" bubble under its name: hover on desktop, tap on
-phones, where the matrix scrolls sideways under the pinned criteria and Align
-the Future columns. The whole graphic is the `figure.landscape` element, sized
-so a desktop screenshot of it drops into the Google Doc. Row colors follow the
-Venn: teal for who and where, then Humanities blue, Align green and AI yellow,
-and deep blue for placement. Keep the organizations and their descriptions in
-step with the two-pager appendix. It is not linked from the homepage.
+the two-pager as a graphic, built from a grid Aaron drafted and simplified at
+Jon's request. Ten organizations run across the top, each name a link with an
+"i" bubble holding a short description and a few facts (hover on desktop, tap
+on phones). The rows are ten features of Align the Future, phrased as what the
+program is ("Built for high schoolers"), and each cell is a single check or
+blank, with no partial marks. Align the Future is the first, highlighted
+column. Below desktop width the grid scrolls sideways under pinned feature and
+Align the Future columns. The whole graphic is the `figure.landscape` element,
+sized so a desktop screenshot of it drops into the Google Doc. Keep the
+organizations and their descriptions in step with the two-pager appendix. It
+is not linked from the homepage.
 
 ## Working agreement
 
