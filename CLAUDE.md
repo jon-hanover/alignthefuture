@@ -2,8 +2,8 @@
 
 Static site for **alignthefuture.org**. `index.html` is the homepage: the
 content of the two-pager (the "Two Pager" tab of the internal collab doc, see
-`docs/WORKING-DOCS.md`), with its TEAM section as the contact block, followed
-by one appendix question as the last section (see the landscape graphic
+`docs/WORKING-DOCS.md`), with its TEAM section as the contact block at the
+bottom. One appendix question sits just above TEAM (see the landscape graphic
 below); the rest of the appendix is left out. The one reordering: the KEY QUESTION ("What if
 we gathered...") opens the page as the hero, ahead of the SITUATION
 ("Researchers and regulators..."), and everything else follows the doc's
@@ -42,8 +42,8 @@ static Venn. Keep the table text in both copies in step. An animated
 version and a textured watercolor version were both tried and dropped; they are
 in git history if wanted again.
 
-The last homepage section, "Who else is doing this work?" (`#landscape`, just
-above the footer), is the "Is anyone else doing this already?" appendix question of
+The homepage section "Who else is doing this work?" (`#landscape`, between
+"The experience" and Team) is the "Is anyone else doing this already?" appendix question of
 the two-pager as a graphic, built from a grid Aaron drafted and simplified at
 Jon's request. Ten organizations run across the top, each name a link with an
 "i" bubble holding a short description and a few facts (hover on desktop, tap
