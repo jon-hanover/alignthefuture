@@ -34,6 +34,21 @@ Research"; the longer name is why the names are sized at 0.21 of the radius
 and the hero pair rests 1.1 radii in from the right edge, so the two names
 clear each other and "AI Research" stays on screen.
 
+`team/` and `faqs/` carry the rest of the two-pager appendix. `team/` is the
+"Who is behind Align the Future?" answer (intro plus a card per co-founder,
+names linking to LinkedIn). `faqs/` is every other appendix question, in the
+doc's order, with a jump list at the top; its "Who else is doing this work?"
+answer links to `/landscape/`. The doc's "[tug boat analogy]" placeholder in
+"What's the point if they don't?" is a drafting note and stays off the site.
+Keep both pages in step with the appendix.
+
+Every page except `align/` shares one header: the logo (home) on the left and
+a nav with Team and FAQs on the right, with `aria-current="page"` on the page
+you are on. The markup is repeated in each page's HTML, so change it
+everywhere at once. Brand tokens, base type, the header, the footer and the
+text-page layout live in `assets/site/site.css`, which every page loads; page
+specific styles stay inline.
+
 `align/` is the Humanities / Align / AI Research table (slide 1 of the program deck)
 under a static flat-color Venn, with the categories down the left, stacking
 into tagged rows on phones. Its CSS lives in `assets/venn/`. The same table

@@ -12,39 +12,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&display=swap">
+<link rel="stylesheet" href="/assets/site/site.css">
 <link rel="stylesheet" href="/assets/landscape/landscape.css">
 <style>
-  :root {
-    --blue: #2D5E93;
-    --teal: #487C89;
-    --sage: #759E75;
-    --gold: #D6B246;
-    --deep: #1B3553;
-    --paper: #FBFAF6;
-    --ink: #1F2D3D;
-    --muted: #556474;
-    --ramp: linear-gradient(90deg, #2D5E93, #487C89, #759E75, #D6B246);
-    --display: "Raleway", ui-sans-serif, system-ui, sans-serif;
-    --sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
-  .page { max-width: 1232px; margin: 0 auto; padding: 28px 24px 64px; }
-  .top { margin-bottom: 28px; }
-  .top img { width: 240px; height: auto; display: block; }
+  .page { max-width: 1232px; margin: 0 auto; padding: 20px 24px 64px; }
   .slot { min-height: 60vh; }
   .fallback { font-size: 16px; color: var(--muted); }
   .fallback a { color: var(--blue); font-weight: 700; }
   @media (max-width: 759px) {
-    .page { padding: 20px 16px 48px; }
-    .top img { width: 190px; }
+    .page { padding: 16px 16px 48px; }
   }
 </style>
 </head>
 <body>
+<header class="wrap wide top">
+  <a class="brand" href="/" aria-label="Align the Future home"><img src="/brand/logo.png" alt="Align the Future" width="939" height="137"></a>
+  <nav class="nav" aria-label="Site"><a href="/team/">Team</a><a href="/faqs/">FAQs</a></nav>
+</header>
 <main class="page">
-  <div class="top"><a href="/" aria-label="Align the Future home"><img src="/brand/logo.png" alt="Align the Future" width="939" height="137"></a></div>
   <!-- The graphic is written once, in the homepage (figure.landscape in
        /index.html). This page loads it from there, so the two never drift. -->
   <div class="slot" id="slot">
