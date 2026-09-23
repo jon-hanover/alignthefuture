@@ -89,6 +89,10 @@
     opacity: 0.16;
     pointer-events: none;
   }
+  /* The animated pair replaces the static one once the script runs */
+  .situation .dance { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: none; }
+  .situation.is-dancing .dance { display: block; }
+  .situation.is-dancing .circles { display: none; }
   .situation .copy { position: relative; z-index: 1; max-width: 780px; display: flex; flex-direction: column; gap: 24px; }
   .situation h1 {
     font-size: clamp(2.4rem, 5.4vw, 4.25rem);
@@ -199,7 +203,7 @@
     .top { padding-top: 20px; }
     .top img { width: 220px; }
     .situation .wrap { padding-top: 40px; padding-bottom: 64px; }
-    .situation .circles { display: none; }
+    .situation .circles { width: 300px; right: -75px; top: 10px; opacity: 0.12; }
     .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
     .pillars .atf-venn .diagram { max-width: 300px; margin-bottom: 28px; }
     .question .wrap { padding-top: 64px; padding-bottom: 72px; text-align: left; align-items: flex-start; }
@@ -221,6 +225,12 @@
     <svg class="circles" viewBox="0 0 300 200" aria-hidden="true" focusable="false">
       <circle cx="100" cy="100" r="100" fill="#2D5E93"/>
       <circle cx="200" cy="100" r="100" fill="#D6B246" style="mix-blend-mode: multiply"/>
+    </svg>
+    <svg class="dance" aria-hidden="true" focusable="false">
+      <g>
+        <circle class="b" r="0" fill="#2D5E93"/>
+        <circle class="y" r="0" fill="#D6B246" style="mix-blend-mode: multiply"/>
+      </g>
     </svg>
     <div class="wrap">
       <div class="copy">
@@ -355,5 +365,80 @@
   </div>
 </footer>
 
+<script>
+/* The hero circles: blue and yellow drift in from either side, flirt their way
+   along the top of the page, and settle into the overlap of the static layout.
+   Plays once on load. Reduced motion, or no script, shows the settled pair. */
+(function () {
+  var hero = document.querySelector(".situation");
+  var svg = hero.querySelector(".dance");
+  var group = svg.querySelector("g");
+  var blue = svg.querySelector(".b");
+  var yellow = svg.querySelector(".y");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  // Keyframes: [seconds, blue x, blue y, yellow x, yellow y]. x in pixels from
+  // the section width W and circle radius r; y as a fraction of r above (-) or
+  // below (+) the resting line.
+  function keys(W, r) {
+    return [
+      [0.0, -1.3 * r, 0.25, W + 1.3 * r, -0.25],
+      [1.5, 0.24 * W, -0.15, 0.8 * W, 0.2],
+      [2.5, 0.5 * W - 1.2 * r, 0.12, 0.5 * W + 1.2 * r, -0.08],
+      [3.3, 0.4 * W - r, -0.22, 0.62 * W + 0.6 * r, 0.25],
+      [4.2, 0.48 * W - 0.95 * r, 0.15, 0.48 * W + 0.95 * r, -0.15],
+      [5.0, 0.44 * W - 0.6 * r, -0.12, 0.7 * W, 0.3],
+      [5.8, 0.62 * W - 0.8 * r, 0.2, 0.84 * W - 0.2 * r, -0.2],
+      [6.7, W - 1.6 * r, 0.1, W - 0.05 * r, -0.15],
+      [7.4, W - 1.2 * r, -0.05, W - 0.3 * r, 0.05],
+      [8.0, W - 1.25 * r, 0, W - 0.25 * r, 0]
+    ];
+  }
+  var END = 8.0;
+
+  // Smooth path through the keyframes (cubic Hermite, Catmull-Rom tangents,
+  // at rest at both ends) so the pair drifts rather than stops at each point.
+  function at(K, t, i) {
+    var n = K.length - 1, k = 0;
+    if (t >= K[n][0]) return K[n][i];
+    while (t > K[k + 1][0]) k++;
+    function tan(j) {
+      if (j === 0 || j === n) return 0;
+      return (K[j + 1][i] - K[j - 1][i]) / (K[j + 1][0] - K[j - 1][0]);
+    }
+    var h = K[k + 1][0] - K[k][0], u = (t - K[k][0]) / h, u2 = u * u, u3 = u2 * u;
+    return (2 * u3 - 3 * u2 + 1) * K[k][i] + (u3 - 2 * u2 + u) * h * tan(k) +
+      (-2 * u3 + 3 * u2) * K[k + 1][i] + (u3 - u2) * h * tan(k + 1);
+  }
+
+  var start = null;
+  function draw(now) {
+    if (start === null) start = now;
+    var t = Math.min((now - start) / 1000, END);
+    var W = hero.clientWidth, H = hero.clientHeight;
+    // Same size and resting spot as the static pair in the CSS.
+    var small = W <= 600;
+    var r = small ? 100 : 187;
+    var rest = 10 + r;
+    var K = keys(W, r);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    blue.setAttribute("r", r);
+    yellow.setAttribute("r", r);
+    blue.setAttribute("cx", at(K, t, 1));
+    blue.setAttribute("cy", rest + at(K, t, 2) * r);
+    yellow.setAttribute("cx", at(K, t, 3));
+    yellow.setAttribute("cy", rest + at(K, t, 4) * r);
+    // A little more visible while they move, easing back to the resting shade.
+    var settled = small ? 0.12 : 0.16;
+    var o = t < 0.8 ? 0.2 * t / 0.8 : t < END - 1 ? 0.2 : 0.2 + (settled - 0.2) * (t - (END - 1));
+    group.setAttribute("opacity", o);
+    if (t < END) requestAnimationFrame(draw);
+  }
+
+  hero.classList.add("is-dancing");
+  window.addEventListener("resize", function () { if (start !== null) draw(start + END * 1000); });
+  requestAnimationFrame(draw);
+})();
+</script>
 </body>
 </html>

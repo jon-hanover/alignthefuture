@@ -10,6 +10,12 @@ Raleway headings, Manrope body) and is hand-written responsive HTML with no
 build step. The earlier marine/tangerine brand kit is kept in `brand/retired/`
 and is no longer used anywhere.
 
+The two faded circles at the top of the homepage animate once on load (a small
+inline script at the bottom of `index.html`): they drift in from either side,
+flirt along the top and settle into the same overlap the static CSS draws, which
+is also what no-script and reduced-motion visitors see. Keep the script's final
+keyframe and the `.situation .circles` CSS in step if either moves.
+
 `align/` is the Humans / Align / AI Venn (slide 1 of the program deck): a static
 Venn in flat colors taken from the deck's watercolor logo, above a table with the
 categories down the left, stacking into tagged rows on phones. Its CSS lives in
