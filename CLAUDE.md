@@ -10,22 +10,23 @@ Raleway headings, Manrope body) and is hand-written responsive HTML with no
 build step. The earlier marine/tangerine brand kit is kept in `brand/retired/`
 and is no longer used anywhere.
 
-The two faded circles at the top of the homepage animate once on load (a small
-inline script at the bottom of `index.html`): they drift in from either side,
-flirt along the top for about 20 seconds and settle into the same overlap the static CSS draws, which
-is also what no-script and reduced-motion visitors see. Each circle carries a
-hand-lettered name in Caveat Brush ("Humanities" and "AI"), fixed at the
-circle's center so it moves only with its own circle (an earlier version slid
-the names apart where the circles overlapped, which read as the circles
-bumping each other; Jon rejected that). Each name fades almost out whenever it
-passes over a line of the hero text. Keep the script's final
-keyframe and the `.situation .circles` CSS in step if either moves.
+The Humanities / AI circle duet is one inline script at the bottom of
+`index.html`, used twice. The two circles drift in from either side, flirt for
+about 20 seconds (overlapping, twice passing through each other) and settle
+overlapping. Behind the hero text it is faint and settles top right, the same
+spot the static `.situation .circles` CSS draws for no-script and
+reduced-motion visitors; keep those in step. In the experience section it is
+stronger, plays when scrolled into view and settles centered above the table.
+Each circle carries its name in Caveat Brush, fixed at the circle's center so
+it moves only with its own circle (an earlier version slid the names apart
+where the circles overlapped, which read as the circles bumping each other;
+Jon rejected that). In the hero the names fade almost out over lines of text.
 
-`align/` is the Humans / Align / AI Venn (slide 1 of the program deck): a static
-Venn in flat colors taken from the deck's watercolor logo, above a table with the
-categories down the left, stacking into tagged rows on phones. Its CSS lives in
-`assets/venn/`, and the same markup also sits on the homepage below the concept
-section. Edit both copies together. An animated
+`align/` is the Humanities / Align / AI table (slide 1 of the program deck)
+under a static flat-color Venn, with the categories down the left, stacking
+into tagged rows on phones. Its CSS lives in `assets/venn/`. The same table
+sits on the homepage in "The experience" section, where the duet replaces the
+static Venn. Keep the table text in both copies in step. An animated
 version and a textured watercolor version were both tried and dropped; they are
 in git history if wanted again.
 

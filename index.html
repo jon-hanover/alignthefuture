@@ -93,7 +93,6 @@
   .situation .dance { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: none; }
   .situation.is-dancing .dance { display: block; }
   .situation.is-dancing .circles { display: none; }
-  .situation .dance text { font-family: "Caveat Brush", "Caveat", cursive; text-anchor: middle; dominant-baseline: central; }
   .situation .copy { position: relative; z-index: 1; max-width: 780px; display: flex; flex-direction: column; gap: 24px; }
   .situation h1 {
     font-size: clamp(2.4rem, 5.4vw, 4.25rem);
@@ -167,7 +166,10 @@
   /* Three pillars (the Venn) */
   .pillars { border-top: 1px solid var(--rule); }
   .pillars .wrap { padding-top: 96px; padding-bottom: 104px; }
-  .pillars .atf-venn .diagram { max-width: 380px; margin-bottom: 36px; }
+  .pillars { overflow: hidden; }
+  .pillars header { margin-bottom: 8px; }
+  .pillars .duet { display: block; width: 100%; height: 300px; overflow: visible; margin-bottom: 32px; }
+  .dance text, .duet text { font-family: "Caveat Brush", "Caveat", cursive; text-anchor: middle; dominant-baseline: central; }
 
   /* Team */
   .team { background: var(--deep); color: var(--on-deep); }
@@ -206,7 +208,7 @@
     .situation .wrap { padding-top: 40px; padding-bottom: 64px; }
     .situation .circles { width: 300px; right: -75px; top: 10px; opacity: 0.12; }
     .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
-    .pillars .atf-venn .diagram { max-width: 300px; margin-bottom: 28px; }
+    .pillars .duet { height: 200px; margin-bottom: 24px; }
     .question .wrap { padding-top: 64px; padding-bottom: 72px; text-align: left; align-items: flex-start; }
     .question img { width: 96px; }
     .team .wrap { text-align: left; align-items: flex-start; }
@@ -290,33 +292,27 @@
       </div>
     </div>
   </section>
-  <section class="pillars" aria-label="Humans, AI and aligning for human flourishing">
+  <section class="pillars" aria-labelledby="pillars-title">
     <div class="wrap">
+      <header>
+        <h2 class="eyebrow" id="pillars-title">The experience</h2>
+      </header>
       <section class="atf-venn" aria-label="Align for human flourishing">
-        <svg class="diagram" viewBox="-4 -4 308 236" role="img" aria-label="Venn diagram: a blue Humans circle and a yellow AI circle overlap, and the green overlap is Align, for human flourishing">
-          <defs>
-            <radialGradient id="atfv-b"><stop offset="0" stop-color="#6F97C4"/><stop offset="0.72" stop-color="#4675B3"/><stop offset="0.93" stop-color="#1F55A2"/><stop offset="1" stop-color="#11479A"/></radialGradient>
-            <radialGradient id="atfv-y"><stop offset="0" stop-color="#F4E27A"/><stop offset="0.75" stop-color="#EFDA55"/><stop offset="1" stop-color="#E6CC3C"/></radialGradient>
-            <radialGradient id="atfv-g"><stop offset="0" stop-color="#5F9A55"/><stop offset="0.7" stop-color="#3D7C3D"/><stop offset="1" stop-color="#2F6A34"/></radialGradient>
-            <clipPath id="atfv-clip"><circle cx="100" cy="100" r="100"/></clipPath>
-          </defs>
-          <g opacity="0.92">
-            <circle cx="100" cy="100" r="100" fill="url(#atfv-b)"/>
-            <circle cx="200" cy="100" r="100" fill="url(#atfv-y)" style="mix-blend-mode: multiply"/>
-            <circle cx="200" cy="100" r="100" fill="url(#atfv-g)" clip-path="url(#atfv-clip)" opacity="0.85"/>
+        <svg class="duet" viewBox="0 0 400 270" role="img" aria-label="A blue Humanities circle and a yellow AI circle drift together and settle overlapping">
+          <g opacity="0.3">
+            <circle class="b" cx="150" cy="135" r="100" fill="#2D5E93"/>
+            <circle class="y" cx="250" cy="135" r="100" fill="#D6B246" style="mix-blend-mode: multiply"/>
           </g>
-          <text x="50" y="100" fill="#fff" font-size="12">HUMANS</text>
-          <text x="150" y="100" fill="#fff" font-size="12">ALIGN</text>
-          <text x="250" y="100" fill="#1F2A36" font-size="13">AI</text>
-          <text x="150" y="220" fill="#4C6E36" font-size="10">FOR HUMAN FLOURISHING</text>
+          <text class="lb" x="150" y="135" font-size="26" fill="#2D5E93" opacity="0.9">Humanities</text>
+          <text class="ly" x="250" y="135" font-size="26" fill="#A8892A" opacity="0.9">AI</text>
         </svg>
-      
+
         <table>
           <colgroup><col class="rowhead"><col><col><col></colgroup>
           <thead>
             <tr>
               <td></td>
-              <th scope="col" class="h">Humans</th>
+              <th scope="col" class="h">Humanities</th>
               <th scope="col" class="a">Align<span class="for">for human flourishing</span></th>
               <th scope="col" class="i">AI</th>
             </tr>
@@ -324,25 +320,25 @@
           <tbody>
             <tr>
               <th scope="row">Guiding Questions</th>
-              <td class="h"><span class="tag">Humans</span>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</td>
+              <td class="h"><span class="tag">Humanities</span>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</td>
               <td class="a"><span class="tag">Align</span>What can we do together to ensure humans flourish in the Age of AI? What are the biggest risks and opportunities? What laws do we need? What research do we need? Where is international cooperation most needed and most possible?</td>
               <td class="i"><span class="tag">AI</span>What is AI, really? How do models learn? Where do their goals come from? How do we know what they’re doing? What works for goal alignment? What remains unsolved?</td>
             </tr>
             <tr>
               <th scope="row">Experiential Learning</th>
-              <td class="h"><span class="tag">Humans</span>Engage in the “Great Conversation”; read great thinkers, experience good life traditions, write, discuss with peers and experts</td>
+              <td class="h"><span class="tag">Humanities</span>Engage in the “Great Conversation”; read great thinkers, experience good life traditions, write, discuss with peers and experts</td>
               <td class="a"><span class="tag">Align</span>Draft policies, debate, refine, compromise on AI governance; set a learning agenda for further research and civic action plans</td>
               <td class="i"><span class="tag">AI</span>Train small, open weight models; try different alignment techniques; conduct real research against real open questions in alignment science</td>
             </tr>
             <tr>
               <th scope="row">Capstone</th>
-              <td class="h"><span class="tag">Humans</span>Thesis on human flourishing</td>
+              <td class="h"><span class="tag">Humanities</span>Thesis on human flourishing</td>
               <td class="a"><span class="tag">Align</span>AI governance framework</td>
               <td class="i"><span class="tag">AI</span>Research paper for publication</td>
             </tr>
             <tr>
               <th scope="row">Mentors</th>
-              <td class="h"><span class="tag">Humans</span>Humanities Professors</td>
+              <td class="h"><span class="tag">Humanities</span>Humanities Professors</td>
               <td class="a"><span class="tag">Align</span>Policy Makers</td>
               <td class="i"><span class="tag">AI</span>AI Researchers</td>
             </tr>
@@ -369,28 +365,22 @@
 </footer>
 
 <script>
-/* The hero circles: blue and yellow drift in from either side, flirt their way
-   along the top of the page (brushing, overlapping, twice passing right through
-   each other and swapping sides) and settle into the overlap of the static
-   layout after about 20 seconds.
-   Plays once on load. Reduced motion, or no script, shows the settled pair. */
+/* The circle duet. Blue (Humanities) and yellow (AI) drift in from either side,
+   flirt for about 20 seconds (brushing, overlapping, twice passing right through
+   each other and swapping sides) and settle overlapping. Used twice: faintly
+   behind the hero text, settling top right where the static CSS pair sits, and
+   in the experience section, settling centered above the table. Each plays
+   once. Reduced motion, or no script, shows the settled pair. */
 (function () {
-  var hero = document.querySelector(".situation");
-  var svg = hero.querySelector(".dance");
-  var group = svg.querySelector("g");
-  var blue = svg.querySelector(".b");
-  var yellow = svg.querySelector(".y");
-  var labelB = svg.querySelector(".lb");
-  var labelY = svg.querySelector(".ly");
-  var copy = hero.querySelector(".copy");
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Keyframes: [seconds, blue x, blue y, yellow x, yellow y]. x in pixels from
-  // the section width W and circle radius r; y as a fraction of r above (-) or
-  // below (+) the resting line.
-  function keys(W, r) {
+  // the stage width W, circle radius r, the resting midpoint c and the page's
+  // left and right edges L and R (so both start fully off screen); y as a
+  // fraction of r above (-) or below (+) the resting line.
+  function keys(W, r, c, L, R) {
     return [
-      [0.0, -1.3 * r, 0.25, W + 1.3 * r, -0.25],
+      [0.0, L - 1.1 * r, 0.25, R + 1.1 * r, -0.25],
       [2.5, 0.22 * W, -0.15, 0.8 * W, 0.2],
       [4.5, 0.5 * W - 0.7 * r, 0.1, 0.5 * W + 0.7 * r, -0.1],
       [6.2, 0.38 * W - 0.4 * r, -0.2, 0.64 * W + 0.4 * r, 0.25],
@@ -400,9 +390,9 @@
       [13.2, 0.6 * W, -0.1, 0.4 * W, 0.1],
       [14.7, 0.5 * W + 0.1 * r, 0.1, 0.5 * W - 0.1 * r, -0.1],
       [16.3, 0.4 * W - 0.6 * r, -0.15, 0.62 * W + 0.4 * r, 0.2],
-      [18.3, W - 1.7 * r, 0.1, W + 0.1 * r, -0.15],
-      [19.6, W - 1.1 * r, -0.05, W - 0.4 * r, 0.05],
-      [20.5, W - 1.25 * r, 0, W - 0.25 * r, 0]
+      [18.3, c - 0.95 * r, 0.1, c + 0.85 * r, -0.15],
+      [19.6, c - 0.35 * r, -0.05, c + 0.35 * r, 0.05],
+      [20.5, c - 0.5 * r, 0, c + 0.5 * r, 0]
     ];
   }
   var END = 20.5;
@@ -422,23 +412,9 @@
       (-2 * u3 + 3 * u2) * K[k + 1][i] + (u3 - u2) * h * tan(k + 1);
   }
 
-  // The boxes of the actual lines of text in the hero, relative to it.
-  var range = document.createRange();
-  function textLines() {
-    var hr = hero.getBoundingClientRect(), out = [];
-    for (var i = 0; i < copy.children.length; i++) {
-      range.selectNodeContents(copy.children[i]);
-      var rs = range.getClientRects();
-      for (var j = 0; j < rs.length; j++) {
-        out.push({ l: rs[j].left - hr.left, r: rs[j].right - hr.left, t: rs[j].top - hr.top, b: rs[j].bottom - hr.top });
-      }
-    }
-    return out;
-  }
-
-  // Position one label, tilt it with its motion, and fade it almost out while
-  // it sits over the headline or paragraphs so it never fights the words.
-  function place(label, x, y, dx, r, lines) {
+  // Position one name at its circle's center, tilt it with its motion, and
+  // fade it almost out while it sits over a line of text (lines, if any).
+  function place(label, x, y, dx, r, lines, full) {
     var size = Math.round(r * 0.26);
     label.setAttribute("font-size", size);
     var hw = label.getComputedTextLength() / 2 || 0.8 * r, hh = size / 2;
@@ -454,41 +430,89 @@
     label.setAttribute("x", x);
     label.setAttribute("y", y);
     label.setAttribute("transform", "rotate(" + tilt.toFixed(2) + " " + x + " " + y + ")");
-    label.setAttribute("opacity", (0.06 + 0.44 * clear).toFixed(3));
+    label.setAttribute("opacity", (0.06 + (full - 0.06) * clear).toFixed(3));
   }
 
-  var start = null;
-  function draw(now) {
-    if (start === null) start = now;
-    var t = Math.min((now - start) / 1000, END);
-    var W = hero.clientWidth, H = hero.clientHeight;
-    // Same size and resting spot as the static pair in the CSS.
-    var small = W <= 600;
-    var r = small ? 100 : 187;
-    var rest = 10 + r;
-    var K = keys(W, r);
-    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
-    blue.setAttribute("r", r);
-    yellow.setAttribute("r", r);
-    blue.setAttribute("cx", at(K, t, 1));
-    blue.setAttribute("cy", rest + at(K, t, 2) * r);
-    yellow.setAttribute("cx", at(K, t, 3));
-    yellow.setAttribute("cy", rest + at(K, t, 4) * r);
-    group.setAttribute("opacity", small ? 0.12 : 0.16);
-
-    // Hand-lettered names ride at the center of each circle and move only as
-    // their own circle moves, so neither ever looks pushed aside by the other.
-    var bx = at(K, t, 1), yx = at(K, t, 3);
-    var lines = textLines();
-    place(labelB, bx, rest + at(K, t, 2) * r, at(K, t + 0.1, 1) - bx, r, lines);
-    place(labelY, yx, rest + at(K, t, 4) * r, at(K, t + 0.1, 3) - yx, r, lines);
-
-    if (t < END) requestAnimationFrame(draw);
+  // o.stage() returns { W, H, r, rest, c } for the current layout.
+  function duet(svg, o) {
+    var group = svg.querySelector("g");
+    var blue = svg.querySelector(".b"), yellow = svg.querySelector(".y");
+    var labelB = svg.querySelector(".lb"), labelY = svg.querySelector(".ly");
+    var start = null, t = 0;
+    function render() {
+      var S = o.stage(), r = S.r;
+      var box = svg.getBoundingClientRect(), page = document.documentElement.clientWidth;
+      var K = keys(S.W, r, S.c, -box.left, page - box.left);
+      if (o.sized) svg.style.height = S.H + "px";
+      svg.setAttribute("viewBox", "0 0 " + S.W + " " + S.H);
+      var bx = at(K, t, 1), by = S.rest + at(K, t, 2) * r;
+      var yx = at(K, t, 3), yy = S.rest + at(K, t, 4) * r;
+      blue.setAttribute("r", r); blue.setAttribute("cx", bx); blue.setAttribute("cy", by);
+      yellow.setAttribute("r", r); yellow.setAttribute("cx", yx); yellow.setAttribute("cy", yy);
+      group.setAttribute("opacity", S.fill);
+      var lines = o.lines ? o.lines() : [];
+      place(labelB, bx, by, at(K, t + 0.1, 1) - bx, r, lines, S.name);
+      place(labelY, yx, yy, at(K, t + 0.1, 3) - yx, r, lines, S.name);
+    }
+    function frame(now) {
+      if (start === null) start = now;
+      t = Math.min((now - start) / 1000, END);
+      render();
+      if (t < END) requestAnimationFrame(frame);
+    }
+    window.addEventListener("resize", render);
+    return {
+      prime: function () { t = 0; render(); },
+      play: function () { t = 0; render(); requestAnimationFrame(frame); },
+      settle: function () { t = END; render(); }
+    };
   }
 
-  hero.classList.add("is-dancing");
-  window.addEventListener("resize", function () { if (start !== null) draw(start + END * 1000); });
-  requestAnimationFrame(draw);
+  // Behind the hero text: faint, settling top right like the static CSS pair.
+  var hero = document.querySelector(".situation");
+  var copy = hero.querySelector(".copy");
+  var range = document.createRange();
+  if (!still) {
+    hero.classList.add("is-dancing");
+    duet(hero.querySelector(".dance"), {
+      stage: function () {
+        var W = hero.clientWidth, small = W <= 600, r = small ? 100 : 187;
+        return { W: W, H: hero.clientHeight, r: r, rest: 10 + r, c: W - 0.75 * r, fill: small ? 0.12 : 0.16, name: 0.5 };
+      },
+      // The boxes of the actual lines of text in the hero, relative to it.
+      lines: function () {
+        var hr = hero.getBoundingClientRect(), out = [];
+        for (var i = 0; i < copy.children.length; i++) {
+          range.selectNodeContents(copy.children[i]);
+          var rs = range.getClientRects();
+          for (var j = 0; j < rs.length; j++) {
+            out.push({ l: rs[j].left - hr.left, r: rs[j].right - hr.left, t: rs[j].top - hr.top, b: rs[j].bottom - hr.top });
+          }
+        }
+        return out;
+      }
+    }).play();
+  }
+
+  // Above the experience table: stronger, settling centered, played when it
+  // scrolls into view.
+  var stageSvg = document.querySelector(".pillars .duet");
+  var pair = duet(stageSvg, {
+    sized: true,
+    stage: function () {
+      var W = stageSvg.clientWidth, r = Math.min(130, 0.22 * W);
+      return { W: W, H: 2.7 * r, r: r, rest: 1.35 * r, c: W / 2, fill: 0.3, name: 0.9 };
+    }
+  });
+  if (still || !("IntersectionObserver" in window)) {
+    pair.settle();
+  } else {
+    pair.prime();
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); pair.play(); }
+    }, { rootMargin: "0px 0px -25% 0px" });
+    io.observe(stageSvg);
+  }
 })();
 </script>
 </body>
