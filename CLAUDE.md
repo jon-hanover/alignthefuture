@@ -10,7 +10,8 @@ brand kit is kept in `brand/retired/` and is no longer used anywhere.
 `align/` is the Humans / Align / AI Venn (slide 1 of the program deck): a static
 Venn in flat colors taken from the deck's watercolor logo, above a table with the
 categories down the left, stacking into tagged rows on phones. Its CSS lives in
-`assets/venn/`, so the same markup can be dropped into any page. An animated
+`assets/venn/`, and the same markup also sits on the homepage below the concept
+section. Edit both copies together. An animated
 version and a textured watercolor version were both tried and dropped; they are
 in git history if wanted again.
 

@@ -17,7 +17,8 @@
 <link rel="apple-touch-icon" href="/brand/png/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..700&display=swap">
+<link rel="stylesheet" href="/assets/venn/venn.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&display=swap">
 <style>
   :root {
     /* Sampled from the logo wordmark, left to right */
@@ -58,6 +59,7 @@
     text-wrap: balance;
   }
   p { margin: 0; text-wrap: pretty; }
+  strong { font-weight: 700; color: var(--blue); }
   img { max-width: 100%; height: auto; display: block; }
   .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
   .narrow { max-width: 820px; }
@@ -98,7 +100,9 @@
 
   /* Complication */
   .complication { background: var(--deep); color: var(--on-deep); }
-  .complication .wrap { padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 28px; }
+  .complication .wrap { padding-top: 88px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 28px; }
+  .complication .eyebrow + .kicker { margin-top: -14px; }
+  .complication .eyebrow { color: var(--gold); font-size: 15px; }
   .complication .kicker { font-size: clamp(1.15rem, 1.8vw, 1.35rem); color: var(--on-deep-muted); }
   .complication h2 {
     font-size: clamp(2rem, 4.2vw, 3.25rem);
@@ -119,7 +123,6 @@
   .turn .wrap { padding-top: 104px; padding-bottom: 88px; display: flex; flex-direction: column; gap: 24px; }
   .turn h2 { font-size: clamp(2.2rem, 4.8vw, 3.75rem); line-height: 1.08; padding-bottom: 0.06em; }
   .turn p { font-size: clamp(1.1rem, 1.6vw, 1.25rem); max-width: 740px; }
-  .turn strong { font-weight: 700; color: var(--blue); }
 
   /* Key question */
   .question { background: linear-gradient(135deg, rgba(45, 94, 147, 0.07), rgba(117, 158, 117, 0.08) 55%, rgba(214, 178, 70, 0.12)); }
@@ -156,6 +159,12 @@
   .facts b { display: block; font-family: var(--display); font-size: 26px; font-weight: 800; color: var(--ink); font-variant-numeric: lining-nums; }
   .facts span { color: var(--muted); font-size: 16px; }
 
+  /* Three pillars (the Venn) */
+  .pillars { border-top: 1px solid var(--rule); }
+  .pillars .wrap { padding-top: 96px; padding-bottom: 104px; }
+  .pillars header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; margin-bottom: 40px; }
+  .pillars h2 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); line-height: 1.15; color: var(--blue); }
+
   /* Footer */
   footer { border-top: 4px solid; border-image: var(--ramp) 1; background: #fff; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 36px; padding-bottom: 44px; font-size: 15px; color: var(--muted); }
@@ -173,7 +182,8 @@
     .top img { width: 220px; }
     .situation .wrap { padding-top: 40px; padding-bottom: 64px; }
     .situation .circles { display: none; }
-    .complication .wrap, .turn .wrap, .concept .wrap { padding-top: 64px; padding-bottom: 64px; }
+    .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap { padding-top: 64px; padding-bottom: 64px; }
+    .pillars header { align-items: flex-start; text-align: left; margin-bottom: 28px; }
     .question .wrap { padding-top: 64px; padding-bottom: 72px; text-align: left; align-items: flex-start; }
     .question img { width: 96px; }
     footer .wrap { flex-direction: column; align-items: flex-start; }
@@ -196,14 +206,15 @@
     <div class="wrap">
       <div class="copy">
         <h1>Researchers and regulators are losing the race against AI.</h1>
-        <p class="lead">On the current trajectory, we risk creating a self-directed superintelligence that cares little for human life or putting a weapon of mass destruction in the hands of anyone with an internet connection.</p>
-        <p class="more">Even if AI development stalls, and these extinction-level risks do not materialize, we face the prospect today of creating a less human world. Policy makers have just begun to appreciate the damage algorithmic media has done to our cognition, relationships and politics. Today’s chatbots are already capable of furthering those same harms, and today’s agentic models of creating a workplace where humans conform to the needs of the technology rather than the other way around.</p>
+        <p class="lead">On the current trajectory, we risk creating a self-directed <strong>superintelligence that cares little for human life</strong> or putting a weapon of mass destruction in the hands of anyone with an internet connection.</p>
+        <p class="more">Even if AI development stalls, and these extinction-level risks do not materialize, we face the prospect today of creating a less human world. Policy makers have just begun to appreciate the damage algorithmic media has done to our cognition, relationships and politics. <strong>Today’s chatbots are already capable of furthering those harms</strong>, and today’s agentic models of creating a workplace where humans conform to the needs of the technology rather than the other way around.</p>
       </div>
     </div>
   </section>
 
   <section class="complication" aria-label="The complication">
     <div class="wrap">
+      <p class="eyebrow">And at the same time</p>
       <p class="kicker">We have lost the will to act, to shape our world together.</p>
       <h2>To young people, in particular, this future seems to be happening to us, not through us.</h2>
       <p class="body">Our political leaders are hapless, international cooperation seems hopeless, and every day critical decisions about the future of humanity are made by a very small number of people in a lab.</p>
@@ -245,6 +256,71 @@
           <li><b>Direct impact</b><span>Graduates placed in labs, think tanks and government positions</span></li>
         </ul>
       </div>
+    </div>
+  </section>
+  <section class="pillars" aria-labelledby="pillars-title">
+    <div class="wrap">
+      <header>
+        <p class="eyebrow">The experience</p>
+        <h2 id="pillars-title">Three pillars of the Align the Future experience</h2>
+      </header>
+      <section class="atf-venn" aria-label="Align for human flourishing">
+        <svg class="diagram" viewBox="-4 -4 308 236" role="img" aria-label="Venn diagram: a blue Humans circle and a yellow AI circle overlap, and the green overlap is Align, for human flourishing">
+          <defs>
+            <radialGradient id="atfv-b"><stop offset="0" stop-color="#6F97C4"/><stop offset="0.72" stop-color="#4675B3"/><stop offset="0.93" stop-color="#1F55A2"/><stop offset="1" stop-color="#11479A"/></radialGradient>
+            <radialGradient id="atfv-y"><stop offset="0" stop-color="#F4E27A"/><stop offset="0.75" stop-color="#EFDA55"/><stop offset="1" stop-color="#E6CC3C"/></radialGradient>
+            <radialGradient id="atfv-g"><stop offset="0" stop-color="#5F9A55"/><stop offset="0.7" stop-color="#3D7C3D"/><stop offset="1" stop-color="#2F6A34"/></radialGradient>
+            <clipPath id="atfv-clip"><circle cx="100" cy="100" r="100"/></clipPath>
+          </defs>
+          <g opacity="0.92">
+            <circle cx="100" cy="100" r="100" fill="url(#atfv-b)"/>
+            <circle cx="200" cy="100" r="100" fill="url(#atfv-y)" style="mix-blend-mode: multiply"/>
+            <circle cx="200" cy="100" r="100" fill="url(#atfv-g)" clip-path="url(#atfv-clip)" opacity="0.85"/>
+          </g>
+          <text x="50" y="100" fill="#fff" font-size="12">HUMANS</text>
+          <text x="150" y="100" fill="#fff" font-size="12">ALIGN</text>
+          <text x="250" y="100" fill="#1F2A36" font-size="13">AI</text>
+          <text x="150" y="220" fill="#4C6E36" font-size="10">FOR HUMAN FLOURISHING</text>
+        </svg>
+      
+        <table>
+          <colgroup><col class="rowhead"><col><col><col></colgroup>
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col" class="h">Humans</th>
+              <th scope="col" class="a">Align<span class="for">for human flourishing</span></th>
+              <th scope="col" class="i">AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Guiding Questions</th>
+              <td class="h"><span class="tag">Humans</span>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</td>
+              <td class="a"><span class="tag">Align</span>What can we do together to ensure humans flourish in the Age of AI? What are the biggest risks and opportunities? What laws do we need? What research do we need? Where is international cooperation most needed and most possible?</td>
+              <td class="i"><span class="tag">AI</span>What is AI, really? How do models learn? Where do their goals come from? How do we know what they’re doing? What works for goal alignment? What remains unsolved?</td>
+            </tr>
+            <tr>
+              <th scope="row">Experiential Learning</th>
+              <td class="h"><span class="tag">Humans</span>Engage in the “Great Conversation”; read great thinkers, experience good life traditions, write, discuss with peers and experts</td>
+              <td class="a"><span class="tag">Align</span>Draft policies, debate, refine, compromise on AI governance; set a learning agenda for further research and civic action plans</td>
+              <td class="i"><span class="tag">AI</span>Train small, open weight models; try different alignment techniques; conduct real research against real open questions in alignment science</td>
+            </tr>
+            <tr>
+              <th scope="row">Capstone</th>
+              <td class="h"><span class="tag">Humans</span>Thesis on human flourishing</td>
+              <td class="a"><span class="tag">Align</span>AI governance framework</td>
+              <td class="i"><span class="tag">AI</span>Research paper for publication</td>
+            </tr>
+            <tr>
+              <th scope="row">Mentors</th>
+              <td class="h"><span class="tag">Humans</span>Humanities Professors</td>
+              <td class="a"><span class="tag">Align</span>Policy Makers</td>
+              <td class="i"><span class="tag">AI</span>AI Researchers</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
   </section>
 </main>
