@@ -1,0 +1,186 @@
+/* "Who else is doing this work?" landscape graphic, at the bottom of the
+   homepage. Uses the brand tokens (--blue, --teal, --ink, --muted, --ramp,
+   --display, --sans) from the page's :root. Everything inside
+   figure.landscape is the part to screenshot for the two-pager. */
+
+.landscape {
+  --atf-bg: #F1F5F3;
+  --rule: #ECE8DF;
+  font-size: 16px; line-height: normal;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #E3DFD4;
+  border-radius: 18px;
+  padding: 40px 40px 30px;
+  box-shadow: 0 1px 2px rgba(31, 45, 61, 0.04), 0 12px 32px -12px rgba(31, 45, 61, 0.10);
+  position: relative;
+}
+.landscape::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
+  border-radius: 18px 18px 0 0; background: var(--ramp);
+}
+.landscape header { margin-bottom: 26px; }
+.landscape .eyebrow {
+  margin: 0 0 8px;
+  font-family: var(--display); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal);
+}
+.landscape h2 {
+  margin: 0 0 10px;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; letter-spacing: -0.01em;
+  color: var(--blue); text-wrap: balance;
+}
+.landscape .intro { margin: 0; max-width: 680px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty; }
+.landscape .intro strong { font-weight: 700; color: var(--ink); }
+.landscape .swipe { display: none; }
+.landscape .scroll { position: relative; }
+.landscape .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+/* Table */
+.landscape table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+.landscape col.c-dim { width: 262px; }
+.landscape col.c-atf { width: 98px; }
+.landscape th, .landscape td { padding: 0; font-weight: inherit; text-align: center; vertical-align: middle; }
+
+.landscape thead th { vertical-align: bottom; padding: 0 2px 14px; border-bottom: 1.5px solid #D9D3C6; }
+.landscape thead td.corner { border-bottom: 1.5px solid #D9D3C6; }
+.landscape .org { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.landscape .org-name {
+  font-family: var(--display); font-size: 14.5px; font-weight: 700; line-height: 1.2;
+  color: var(--ink); text-decoration: none; white-space: nowrap;
+}
+.landscape th.atf .org-name { white-space: normal; text-wrap: balance; }
+.landscape a.org-name:hover { color: var(--blue); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
+.landscape tbody th {
+  padding: 0 20px 0 0; text-align: left;
+  font-family: var(--display); font-size: 15.5px; font-weight: 700; line-height: 1.3;
+  color: var(--ink);
+}
+.landscape tbody td, .landscape tbody th { height: 52px; border-bottom: 1px solid var(--rule); }
+.landscape tbody tr:last-child > * { border-bottom: 0; }
+.landscape tbody tr:hover > th, .landscape tbody tr:hover > td:not(.atf) { background: #FAF8F3; }
+
+/* Everyone else: a plain check */
+.landscape tbody td i {
+  display: inline-block; width: 22px; height: 22px; vertical-align: middle;
+  background: var(--teal);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Align the Future: a highlighted column, checks in the logo's colors */
+.landscape .atf { background: var(--atf-bg); }
+.landscape thead th.atf { border-radius: 14px 14px 0 0; padding-top: 18px; border-bottom-color: transparent; box-shadow: inset 0 -1.5px #D9D3C6; }
+.landscape tbody tr:last-child td.atf { border-radius: 0 0 14px 14px; }
+.landscape tbody td.atf { border-bottom-color: #E2E9E5; }
+.landscape th.atf img { width: 40px; height: auto; margin-bottom: 2px; }
+.landscape th.atf .org-name { color: var(--blue); font-size: 15.5px; font-weight: 800; }
+.landscape tbody td.atf i {
+  width: 30px; height: 30px; border-radius: 50%;
+  -webkit-mask: none; mask: none;
+  background: var(--blue);
+  position: relative;
+}
+.landscape tbody td.atf i::after {
+  content: ""; position: absolute; inset: 22%; background: #fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.5 12.8l4.6 4.5L19.5 6.8' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* The i bubbles */
+.landscape .info { position: relative; display: inline-flex; }
+.landscape button.i {
+  width: 19px; height: 19px; padding: 0; border-radius: 50%;
+  border: 1.5px solid rgba(72, 124, 137, 0.5); background: #fff; color: var(--teal);
+  font: italic 700 11.5px/1 Georgia, "Times New Roman", serif;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background-color .15s, color .15s, border-color .15s;
+}
+.landscape .info.open button.i, .landscape button.i:focus-visible { background: var(--teal); border-color: var(--teal); color: #fff; outline: none; }
+.landscape button.i:focus-visible { box-shadow: 0 0 0 3px rgba(72, 124, 137, 0.3); }
+.landscape .tip {
+  position: absolute; z-index: 30;
+  top: calc(100% + 11px); left: 50%;
+  width: 300px;
+  transform: translate(-50%, 4px);
+  padding: 15px 17px 15px;
+  background: #fff; border: 1px solid #E3DFD4; border-radius: 12px;
+  box-shadow: 0 18px 40px -12px rgba(31, 45, 61, 0.30), 0 2px 6px rgba(31, 45, 61, 0.06);
+  text-align: left; font-family: var(--sans);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .15s, transform .15s, visibility .15s;
+}
+.landscape .tip::before {
+  content: ""; position: absolute; top: -7px; left: calc(50% - 6px);
+  width: 12px; height: 12px; background: #fff;
+  border-left: 1px solid #E3DFD4; border-top: 1px solid #E3DFD4; transform: rotate(45deg);
+}
+.landscape .tip::after { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 13px; }
+.landscape .tip-r .tip { left: auto; right: -14px; transform: translateY(4px); }
+.landscape .tip-r .tip::before { left: auto; right: 17px; }
+.landscape .tip-l .tip { left: -14px; transform: translateY(4px); }
+.landscape .tip-l .tip::before { left: 17px; }
+.landscape .info.open .tip, .landscape .info:has(.i:focus-visible) .tip { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
+@media (hover: hover) {
+  .landscape .info:hover .tip { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
+  .landscape .tip-r:hover .tip, .landscape .tip-l:hover .tip { transform: none; }
+  .landscape button.i:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+}
+.landscape .tip-r.open .tip, .landscape .tip-l.open .tip,
+.landscape .tip-r:has(.i:focus-visible) .tip, .landscape .tip-l:has(.i:focus-visible) .tip { transform: none; }
+.landscape .tip-name { display: block; margin-bottom: 5px; font-family: var(--display); font-size: 16px; font-weight: 700; line-height: 1.25; color: var(--blue); text-decoration: none; }
+.landscape .tip-name::after { content: " ↗"; font-family: var(--sans); font-size: 0.8em; color: var(--teal); }
+.landscape .tip-name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.landscape span.tip-name::after { content: none; }
+.landscape span.tip-name:hover { text-decoration: none; }
+.landscape .tip-desc { display: block; font-size: 13.5px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+.landscape .tip-desc a { color: var(--blue); text-decoration: underline; text-decoration-color: rgba(45, 94, 147, 0.35); text-underline-offset: 2px; }
+.landscape .tip-facts { display: flex; flex-wrap: wrap; gap: 6px; margin: 11px 0 0; padding: 0; list-style: none; }
+.landscape .tip-facts li { padding: 3px 9px; border-radius: 999px; background: #F1F4F5; font-size: 12px; font-weight: 600; line-height: 1.4; color: #3B6874; }
+
+.landscape figcaption {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--rule);
+  font-size: 13.5px; line-height: 1.5; color: var(--muted);
+}
+.landscape figcaption a { color: var(--blue); font-weight: 700; text-decoration: none; }
+.landscape figcaption img { width: 150px; height: auto; flex-shrink: 0; }
+
+/* Narrower screens: the grid scrolls sideways under pinned dimension and
+   Align the Future columns; on phones the i bubbles open as a card along
+   the bottom of the screen */
+@media (max-width: 1179px) {
+  .landscape { padding: 32px 24px 26px; }
+  .landscape .swipe { display: block; margin: -10px 0 10px; font-size: 12.5px; font-weight: 600; color: var(--teal); }
+  .landscape .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+  .landscape table { min-width: 980px; }
+  .landscape col.c-dim { width: 190px; }
+  .landscape col.c-atf { width: 88px; }
+  .landscape thead td.corner, .landscape tbody th { position: sticky; left: 0; z-index: 3; background: #fff; }
+  .landscape th.atf, .landscape td.atf { position: sticky; left: 190px; z-index: 2; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.18); }
+  .landscape thead th.atf { border-radius: 0; box-shadow: 6px 0 8px -6px rgba(31, 45, 61, 0.18), inset 0 -1.5px #D9D3C6; z-index: 4; }
+  /* z-index 4 keeps Align the Future's own i card above the pinned cells below it */
+  .landscape tbody tr:last-child td.atf { border-radius: 0; }
+  .landscape tbody th { padding-right: 12px; font-size: 14px; }
+  .landscape .org-name, .landscape th.atf .org-name { font-size: 13.5px; }
+}
+@media (max-width: 759px) {
+  .landscape { padding: 26px 0 22px; border-radius: 14px; }
+  .landscape header, .landscape figcaption, .landscape .swipe { margin-left: 16px; margin-right: 16px; }
+  .landscape table { min-width: 0; width: 830px; margin-right: 16px; }
+  .landscape col.c-dim { width: 136px; }
+  .landscape col.c-atf { width: 74px; }
+  .landscape thead td.corner, .landscape tbody th { padding-left: 16px; }
+  .landscape th.atf, .landscape td.atf { left: 136px; }
+  .landscape tbody th { padding-right: 10px; font-size: 13px; }
+  .landscape tbody td, .landscape tbody th { height: 48px; }
+  .landscape .org-name, .landscape th.atf .org-name { font-size: 13px; }
+  .landscape .tip, .landscape .tip-r .tip, .landscape .tip-l .tip {
+    position: fixed; top: auto; left: 16px; right: 16px; bottom: 16px; width: auto; transform: translateY(8px);
+  }
+  .landscape .info.open .tip { transform: none; }
+  .landscape .tip::before { display: none; }
+  .landscape figcaption { flex-direction: column; align-items: flex-start; }
+}

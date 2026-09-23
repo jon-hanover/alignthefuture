@@ -2,8 +2,9 @@
 
 Static site for **alignthefuture.org**. `index.html` is the homepage: the
 content of the two-pager (the "Two Pager" tab of the internal collab doc, see
-`docs/WORKING-DOCS.md`), appendix left out, with its TEAM section as the
-contact block at the bottom. The one reordering: the KEY QUESTION ("What if
+`docs/WORKING-DOCS.md`), with its TEAM section as the contact block, followed
+by one appendix question as the last section (see the landscape graphic
+below); the rest of the appendix is left out. The one reordering: the KEY QUESTION ("What if
 we gathered...") opens the page as the hero, ahead of the SITUATION
 ("Researchers and regulators..."), and everything else follows the doc's
 order. The hero question also drops the doc's "from across the country and
@@ -41,7 +42,8 @@ static Venn. Keep the table text in both copies in step. An animated
 version and a textured watercolor version were both tried and dropped; they are
 in git history if wanted again.
 
-`landscape/` is the "Is anyone else doing this already?" appendix question of
+The last homepage section, "Who else is doing this work?" (`#landscape`, just
+above the footer), is the "Is anyone else doing this already?" appendix question of
 the two-pager as a graphic, built from a grid Aaron drafted and simplified at
 Jon's request. Ten organizations run across the top, each name a link with an
 "i" bubble holding a short description and a few facts (hover on desktop, tap
@@ -51,8 +53,10 @@ blank, with no partial marks. Align the Future is the first, highlighted
 column. Below desktop width the grid scrolls sideways under pinned feature and
 Align the Future columns. The whole graphic is the `figure.landscape` element,
 sized so a desktop screenshot of it drops into the Google Doc. Keep the
-organizations and their descriptions in step with the two-pager appendix. It
-is not linked from the homepage.
+organizations and their descriptions in step with the two-pager appendix. Its
+CSS lives in `assets/landscape/`, and its tap-to-open script is the last
+script in `index.html`. It used to be its own page; `landscape/index.html` is
+now only a redirect to `/#landscape` so old links keep working.
 
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and

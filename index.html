@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/venn/venn.css">
+<link rel="stylesheet" href="/assets/landscape/landscape.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&family=Caveat+Brush&display=swap">
 <style>
   :root {
@@ -190,6 +191,10 @@
   }
   .team .button:hover, .team .button:focus-visible { background: #E4C45F; }
 
+  /* Who else is doing this work (the graphic itself is in assets/landscape) */
+  .others .wrap { padding-top: 96px; padding-bottom: 104px; }
+  .wrap.wide { max-width: 1232px; }
+
   /* Footer */
   footer { border-top: 4px solid; border-image: var(--ramp) 1; background: #fff; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 36px; padding-bottom: 44px; font-size: 15px; color: var(--muted); }
@@ -207,7 +212,7 @@
     .top img { width: 220px; }
     .question .wrap { padding-top: 40px; padding-bottom: 64px; }
     .question .circles { width: 300px; right: -40px; top: 10px; opacity: 0.12; }
-    .situation .wrap, .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
+    .situation .wrap, .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap, .others .wrap { padding-top: 64px; padding-bottom: 64px; }
     .pillars .duet { height: 200px; margin-bottom: 24px; }
     .team .wrap { text-align: left; align-items: flex-start; }
     footer .wrap { flex-direction: column; align-items: flex-start; }
@@ -351,6 +356,45 @@
       <p class="coalition">A growing coalition of educators, entrepreneurs, philanthropic and technology leaders who believe it is not too late for the next generation to take charge of humanity’s future.</p>
       <p class="contact">Contact <a href="mailto:team@alignthefuture.org">team@alignthefuture.org</a> with questions, ideas, feedback and offers to help.</p>
       <a class="button" href="mailto:team@alignthefuture.org">Get in touch</a>
+    </div>
+  </section>
+  <section class="others" id="landscape" aria-labelledby="landscape-title">
+    <div class="wrap wide">
+      <figure class="landscape" aria-labelledby="landscape-title">
+        <header>
+          <p class="eyebrow">The landscape</p>
+          <h2 id="landscape-title">Who else is doing this work?</h2>
+          <p class="intro">From what we can tell, there is no comparable <strong>international, residential youth program that combines the humanities and AI research</strong>. But there is a robust, emerging ecosystem of organizations tackling related problems, and we hope many of them will be partners in this effort.</p>
+        </header>
+
+        <p class="swipe">Swipe to see every program →</p>
+        <div class="scroll">
+        <table>
+          <colgroup><col class="c-dim"><col class="c-atf"><col><col><col><col><col><col><col><col><col><col></colgroup>
+          <thead>
+            <tr><td class="corner"></td><th scope="col" class="atf"><span class="org"><img src="/brand/logo-circles.png" alt="" width="180" height="137"><span class="org-name">Align the Future</span><span class="info tip-l"><button type="button" class="i" aria-label="About Align the Future" aria-expanded="false">i</button><span class="tip" role="tooltip"><span class="tip-name">Align the Future</span><span class="tip-desc">An international, experiential and cross-disciplinary summer program that equips young people to align and govern AI, and places graduates directly into labs, think tanks and government.</span><ul class="tip-facts"><li>~100 rising seniors</li><li>8 to 10 weeks at a top university</li><li>Pilot summer 2027</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://kairos-project.org/" target="_blank" rel="noopener">Kairos</a><span class="info"><button type="button" class="i" aria-label="About Kairos" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://kairos-project.org/" target="_blank" rel="noopener">Kairos</a><span class="tip-desc">A young nonprofit building talent pipelines into AI safety, funded with $50M from Coefficient Giving in 2026. Its programs include the <a href="https://pathfinder.kairos-project.org/" target="_blank" rel="noopener">Pathfinder Fellowship</a> for university AI safety groups, <a href="https://sparai.org/" target="_blank" rel="noopener">SPAR</a>, a remote research fellowship, and the <a href="https://generatorresidency.org/" target="_blank" rel="noopener">Generator Residency</a> in Berkeley.</span><ul class="tip-facts"><li>University students and early career</li><li>Founded 2024</li><li>SPAR admits about 1 in 5</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.cee.org/programs/research-science-institute" target="_blank" rel="noopener">RSI</a><span class="info"><button type="button" class="i" aria-label="About Research Science Institute" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.cee.org/programs/research-science-institute" target="_blank" rel="noopener">Research Science Institute</a><span class="tip-desc">One of the world’s most selective summer research programs for high schoolers. Focused on science talent and international cooperation broadly, with no AI safety content.</span><ul class="tip-facts"><li>~100 rising seniors</li><li>6 weeks at MIT</li><li>Free</li><li>Since 1984</li><li>About 2.5% admitted</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.fabric.camp/" target="_blank" rel="noopener">FABRIC</a><span class="info"><button type="button" class="i" aria-label="About FABRIC" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.fabric.camp/" target="_blank" rel="noopener">FABRIC</a><span class="tip-desc">Prague nonprofit running free residential camps for talented, analytical students from around the world. Its Program on AI and Reasoning explores how minds work, artificial and human, as science, with attention to the ethics and safety of AI.</span><ul class="tip-facts"><li>Ages 16 to 21</li><li>About 10 days, mostly in the UK</li><li>Free</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://ml4good.org/" target="_blank" rel="noopener">ML4Good</a><span class="info"><button type="button" class="i" aria-label="About ML4Good" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://ml4good.org/" target="_blank" rel="noopener">ML4Good</a><span class="tip-desc">Bootcamps that equip technical and governance talent to join the AI safety field, run on five continents.</span><ul class="tip-facts"><li>Early to late career</li><li>8 to 10 day residential bootcamps</li><li>Free</li><li>About 15% admitted</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.matsprogram.org/" target="_blank" rel="noopener">MATS</a><span class="info"><button type="button" class="i" aria-label="About MATS" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.matsprogram.org/" target="_blank" rel="noopener">MATS</a><span class="tip-desc">Independent research fellowship that pairs talented researchers with top mentors in AI alignment, transparency and security, with a funded extension for many fellows.</span><ul class="tip-facts"><li>Researchers 18 and up</li><li>12 weeks in Berkeley or London</li><li>Stipend</li><li>About 5% admitted</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://datasociety.net/ai-civics/" target="_blank" rel="noopener">AI Civics</a><span class="info"><button type="button" class="i" aria-label="About Data &amp; Society, AI Civics" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://datasociety.net/ai-civics/" target="_blank" rel="noopener">Data &amp; Society, AI Civics</a><span class="tip-desc">A public education program on AI and society from Data &amp; Society, launched in 2026 with $3M from Humanity AI. It starts by convening communities in libraries across the US, with the Digital Public Library of America.</span><ul class="tip-facts"><li>General public</li><li>Community convenings</li><li>US only</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://encodeai.org/" target="_blank" rel="noopener">Encode</a><span class="info"><button type="button" class="i" aria-label="About Encode" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://encodeai.org/" target="_blank" rel="noopener">Encode</a><span class="tip-desc">A small AI safety policy advocacy team, founded in 2020 as the youth-led Encode Justice. A sponsor of California’s SB 53, the first US law on frontier AI safety.</span><ul class="tip-facts"><li>Professional staff</li><li>US policy</li><li>Since 2020</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://www.non-trivial.org/" target="_blank" rel="noopener">Non-Trivial</a><span class="info tip-r"><button type="button" class="i" aria-label="About Non-Trivial" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://www.non-trivial.org/" target="_blank" rel="noopener">Non-Trivial</a><span class="tip-desc">Virtual research incubator where talented teens take on the world’s most pressing problems, AI among them, mentored by trained facilitators from top universities. Run by Leaf.</span><ul class="tip-facts"><li>Ages 14 to 20</li><li>Online</li><li>Free</li><li>Prize scholarships up to $10,000</li><li>Fellowship admits about 1.5%</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://leaf.courses/dilemmas-and-dangers-in-ai" target="_blank" rel="noopener">Leaf</a><span class="info tip-r"><button type="button" class="i" aria-label="About Leaf" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://leaf.courses/dilemmas-and-dangers-in-ai" target="_blank" rel="noopener">Leaf</a><span class="tip-desc">Nonprofit running four online fellowships for teens. “Dilemmas and Dangers in AI” pairs AI risk and governance with ethics and history. Leaf also runs Non-Trivial.</span><ul class="tip-facts"><li>Ages 14 to 19</li><li>Online, five weeks</li><li>Sliding scale, free if needed</li><li>About 15% admitted</li></ul></span></span></span></th><th scope="col"><span class="org"><a class="org-name" href="https://bluedot.org/" target="_blank" rel="noopener">BlueDot</a><span class="info tip-r"><button type="button" class="i" aria-label="About BlueDot" aria-expanded="false">i</button><span class="tip" role="tooltip"><a class="tip-name" href="https://bluedot.org/" target="_blank" rel="noopener">BlueDot</a><span class="tip-desc">Talent accelerator for beneficial AI and societal resilience. Runs online courses, funds talented people and brings ambitious teams together in person.</span><ul class="tip-facts"><li>Professionals</li><li>Online courses</li><li>Free or pay what you want</li><li>27 to 70% admitted, by course</li></ul></span></span></span></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Aligning AI with human ends</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td></tr>
+            <tr><th scope="row">Grounded in the humanities</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">Conducts technical research</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">Highly selective</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">Residential program</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">International relationship building</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">AI policy &amp; diplomacy</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td></tr>
+            <tr><th scope="row">Built for high schoolers</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">Experiential &amp; project-based</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td></tr>
+            <tr><th scope="row">Placement into AI safety work</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
+            <tr><th scope="row">Shapes public discourse</th><td class="atf"><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td><td><i role="img" aria-label="Yes"></i></td><td><span class="sr">No</span></td><td><span class="sr">No</span></td><td><i role="img" aria-label="Yes"></i></td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <figcaption>
+          <span>A check means the program shares that feature of Align the Future. As of September 2026. This space is developing fast, so please tell us who we are missing: <a href="mailto:team@alignthefuture.org">team@alignthefuture.org</a></span>
+          <img src="/brand/logo.png" alt="" width="939" height="137">
+        </figcaption>
+      </figure>
     </div>
   </section>
 </main>
@@ -527,6 +571,30 @@
     io.observe(stageSvg);
   }
 })();
+</script>
+<script>
+  // Tap or click an i to pin its card open; tap anywhere else, or Escape, to close.
+  (function () {
+    var infos = document.querySelectorAll('.landscape .info');
+    function closeAll(except) {
+      infos.forEach(function (el) {
+        if (el !== except) { el.classList.remove('open'); el.querySelector('.i').setAttribute('aria-expanded', 'false'); }
+      });
+    }
+    infos.forEach(function (el) {
+      var b = el.querySelector('.i');
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = !el.classList.contains('open');
+        closeAll(el);
+        el.classList.toggle('open', open);
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      el.querySelector('.tip').addEventListener('click', function (e) { e.stopPropagation(); });
+    });
+    document.addEventListener('click', function () { closeAll(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  })();
 </script>
 </body>
 </html>
