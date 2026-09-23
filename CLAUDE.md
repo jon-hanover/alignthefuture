@@ -1,9 +1,11 @@
 # alignthefuture.org
 
-Static site for **alignthefuture.org**. `index.html` is the homepage, built on
-the brand kit in `brand/` (palette, Fraunces and Manrope, the mark and lockup).
-The design source lives on a Claude Design canvas; the page is hand-written
-responsive HTML with no build step.
+Static site for **alignthefuture.org**. `index.html` is the homepage: the
+content of the two-pager ("Align the Future (WIP)" in Drive, appendix left
+out), on the watercolor logo brand described in `brand/README.md` (colors
+sampled from the wordmark, Raleway headings, Manrope body). The page is
+hand-written responsive HTML with no build step. The earlier marine/tangerine
+brand kit is kept in `brand/retired/` and is no longer used anywhere.
 
 `align/` is the Humans / Align / AI Venn (slide 1 of the program deck): a static
 Venn in flat colors taken from the deck's watercolor logo, above a table with the
