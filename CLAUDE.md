@@ -54,6 +54,10 @@ sized so a desktop screenshot of it drops into the Google Doc. Keep the
 organizations and their descriptions in step with the two-pager appendix. It
 is not linked from the homepage.
 
+**Links, site-wide:** any link to another site opens in a new tab
+(`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and
+`mailto:` links, open in the same tab. Follow this on every new page.
+
 ## Working agreement
 
 Jon is not an engineer and does not work in GitHub directly. No one else is
