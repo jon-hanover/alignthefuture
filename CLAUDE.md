@@ -53,10 +53,15 @@ blank, with no partial marks. Align the Future is the first, highlighted
 column. Below desktop width the grid scrolls sideways under pinned feature and
 Align the Future columns. The whole graphic is the `figure.landscape` element,
 sized so a desktop screenshot of it drops into the Google Doc. Keep the
-organizations and their descriptions in step with the two-pager appendix. Its
-CSS lives in `assets/landscape/`, and its tap-to-open script is the last
-script in `index.html`. It used to be its own page; `landscape/index.html` is
-now only a redirect to `/#landscape` so old links keep working.
+organizations and their descriptions in step with the two-pager appendix.
+
+The graphic is also its own page at `/landscape/`, which the homepage does not
+link to; Jon links to it directly elsewhere. Its markup is written once, in
+`index.html`. `landscape/index.html` is only a frame (logo plus an empty slot)
+that fetches the homepage and copies `figure.landscape` in, so editing the
+homepage updates both. Do not paste the table into `landscape/index.html`. The
+CSS (`assets/landscape/landscape.css`) and the tap-to-open script
+(`assets/landscape/landscape.js`) are shared by both pages.
 
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and
