@@ -18,8 +18,9 @@ partner pipeline.
 
 https://docs.google.com/document/d/1FWnez43yAabdoFMgFJaaYwiyBpLyf9JWgHECNglRD3U/edit
 
-Tabbed working doc. The tabs hold the internal concept paper, the external copy
-bank, and running notes on the last tab.
+Tabbed working doc. The tabs hold the two-pager (the source for the homepage
+copy), the internal concept paper, the external copy bank, and running notes on
+the last tab.
 
 The concept paper and the copy bank are curated by hand. Leave both alone unless
 asked directly. Running notes is the call and meeting log and is safe to append

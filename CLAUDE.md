@@ -1,11 +1,14 @@
 # alignthefuture.org
 
 Static site for **alignthefuture.org**. `index.html` is the homepage: the
-content of the two-pager ("Align the Future (WIP)" in Drive, appendix left
-out), on the watercolor logo brand described in `brand/README.md` (colors
-sampled from the wordmark, Raleway headings, Manrope body). The page is
-hand-written responsive HTML with no build step. The earlier marine/tangerine
-brand kit is kept in `brand/retired/` and is no longer used anywhere.
+content of the two-pager (the "Two Pager" tab of the internal collab doc, see
+`docs/WORKING-DOCS.md`), appendix left out, with its TEAM section as the
+contact block at the bottom. An older copy in a separate "Align the Future
+(WIP)" doc is stale; do not work from it. The page uses the watercolor logo
+brand described in `brand/README.md` (colors sampled from the wordmark,
+Raleway headings, Manrope body) and is hand-written responsive HTML with no
+build step. The earlier marine/tangerine brand kit is kept in `brand/retired/`
+and is no longer used anywhere.
 
 `align/` is the Humans / Align / AI Venn (slide 1 of the program deck): a static
 Venn in flat colors taken from the deck's watercolor logo, above a table with the
@@ -84,6 +87,12 @@ under the **Advanced DNS** tab. Both domains are configured identically:
 | A | `@` | `185.199.110.153` |
 | A | `@` | `185.199.111.153` |
 | CNAME | `www` | `jon-hanover.github.io.` |
+
+Email for `alignthefuture.org` uses Namecheap's free email forwarding (MX
+records `eforward1` to `eforward5.registrar-servers.com` plus an SPF TXT
+record). The site publishes `team@alignthefuture.org`, which only works if a
+forward for it exists in Namecheap under Domain → Redirect Email. Leave those MX records alone
+when touching DNS.
 
 Those four A records are GitHub's published Pages addresses. No AAAA records
 are set, so the site is IPv4 only. That is fine, and adding the four AAAA

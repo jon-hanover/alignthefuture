@@ -162,8 +162,26 @@
   /* Three pillars (the Venn) */
   .pillars { border-top: 1px solid var(--rule); }
   .pillars .wrap { padding-top: 96px; padding-bottom: 104px; }
-  .pillars header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; margin-bottom: 40px; }
-  .pillars h2 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); line-height: 1.15; color: var(--blue); }
+  .pillars .atf-venn .diagram { max-width: 380px; margin-bottom: 36px; }
+
+  /* Team */
+  .team { background: var(--deep); color: var(--on-deep); }
+  .team .wrap { padding-top: 88px; padding-bottom: 96px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
+  .team .eyebrow { color: var(--gold); }
+  .team .coalition { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 2.9vw, 2.2rem); line-height: 1.28; color: #fff; max-width: 860px; text-wrap: balance; }
+  .team .contact { color: var(--on-deep-muted); font-size: clamp(1.05rem, 1.5vw, 1.2rem); max-width: 640px; }
+  .team .contact a { color: #fff; font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+  .team .button {
+    margin-top: 6px;
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--deep);
+    font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .team .button:hover, .team .button:focus-visible { background: #E4C45F; }
 
   /* Footer */
   footer { border-top: 4px solid; border-image: var(--ramp) 1; background: #fff; }
@@ -182,10 +200,11 @@
     .top img { width: 220px; }
     .situation .wrap { padding-top: 40px; padding-bottom: 64px; }
     .situation .circles { display: none; }
-    .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap { padding-top: 64px; padding-bottom: 64px; }
-    .pillars header { align-items: flex-start; text-align: left; margin-bottom: 28px; }
+    .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
+    .pillars .atf-venn .diagram { max-width: 300px; margin-bottom: 28px; }
     .question .wrap { padding-top: 64px; padding-bottom: 72px; text-align: left; align-items: flex-start; }
     .question img { width: 96px; }
+    .team .wrap { text-align: left; align-items: flex-start; }
     footer .wrap { flex-direction: column; align-items: flex-start; }
     footer img { width: 180px; }
   }
@@ -206,8 +225,8 @@
     <div class="wrap">
       <div class="copy">
         <h1>Researchers and regulators are losing the race against AI.</h1>
-        <p class="lead">On the current trajectory, we risk creating a self-directed <strong>superintelligence that cares little for human life</strong> or putting a weapon of mass destruction in the hands of anyone with an internet connection.</p>
-        <p class="more">Even if AI development stalls, and these extinction-level risks do not materialize, we face the prospect today of creating a less human world. Policy makers have just begun to appreciate the damage algorithmic media has done to our cognition, relationships and politics. <strong>Today’s chatbots are already capable of furthering those harms</strong>, and today’s agentic models of creating a workplace where humans conform to the needs of the technology rather than the other way around.</p>
+        <p class="lead">On the current trajectory, we risk putting a weapon of mass destruction in the hands of anyone with an internet connection, or worse, creating a self-directed <strong>superintelligence that cares little for human life</strong>.</p>
+        <p class="more">If AI development stalls, and these extinction-level risks do not materialize, without timely intervention we will create a less human world for our children. Policy makers have begun to appreciate the damage algorithmic media did to our cognition, relationships and politics. <strong>Today’s chatbots are already furthering those harms</strong>, and deployment of today’s agentic models risks creating a workplace where humans conform to the needs of the technology rather than the other way around.</p>
       </div>
     </div>
   </section>
@@ -217,7 +236,7 @@
       <p class="eyebrow">And at the same time</p>
       <p class="kicker">We have lost the will to act, to shape our world together.</p>
       <h2>To young people, in particular, this future seems to be happening to us, not through us.</h2>
-      <p class="body">Our political leaders are hapless, international cooperation seems hopeless, and every day critical decisions about the future of humanity are made by a very small number of people in a lab.</p>
+      <p class="body">Our political leaders are hapless, international cooperation seems hopeless, and every day critical decisions about the future of humanity are made by a very small number of people in a lab: a scientific subculture with a niche and highly quantitative worldview, disconnected from the humanities, and alien to how most of us think about human flourishing.</p>
       <p class="despair">The public is despondent. Some are in denial. Others see no option but to embrace a post-human future or to rage against it.</p>
     </div>
   </section>
@@ -240,30 +259,26 @@
   <section class="concept" aria-labelledby="concept-title">
     <div class="wrap">
       <header>
-        <p class="eyebrow">The concept</p>
+        <p class="eyebrow">Emerging concept</p>
         <h2 id="concept-title">An international, experiential and cross-disciplinary youth program.</h2>
       </header>
       <div class="cols">
         <div class="text">
           <p>We propose a program that equips young adults with the knowledge, skills and dispositions required to build AI resilience. By ensuring technical alignment with human values and strengthening democratic and diplomatic processes, we can create a world where they, their children, their children’s children flourish. The program will place graduates directly into labs, think tanks, and government positions where they can make a direct and immediate impact, while raising the level of political discourse and civic engagement for the long haul.</p>
-          <p>The initial concept is an 8 to 10 week summer program for about 100 rising seniors in high school, hosted by a top university. Students will be mentored by scientists, educators and policy makers at the top of their field.</p>
+          <p>The initial concept is an 8 to 10 week summer program for about 100 rising high school seniors, hosted by a top university. Students will be mentored by scientists, educators and policy makers at the top of their field.</p>
           <p>If successful, this flagship program will be a launchpad for a youth program with broader distribution and an awareness campaign that melts cynicism and helps the public recapture a sense of urgency and agency to build a more human future.</p>
         </div>
         <ul class="facts" aria-label="The initial concept at a glance">
           <li><b>8–10 weeks</b><span>A summer program, hosted by a top university</span></li>
-          <li><b>~100 students</b><span>Rising seniors in high school</span></li>
+          <li><b>~100 students</b><span>Rising high school seniors</span></li>
           <li><b>Top mentors</b><span>Scientists, educators and policy makers at the top of their field</span></li>
           <li><b>Direct impact</b><span>Graduates placed in labs, think tanks and government positions</span></li>
         </ul>
       </div>
     </div>
   </section>
-  <section class="pillars" aria-labelledby="pillars-title">
+  <section class="pillars" aria-label="Humans, AI and aligning for human flourishing">
     <div class="wrap">
-      <header>
-        <p class="eyebrow">The experience</p>
-        <h2 id="pillars-title">Three pillars of the Align the Future experience</h2>
-      </header>
       <section class="atf-venn" aria-label="Align for human flourishing">
         <svg class="diagram" viewBox="-4 -4 308 236" role="img" aria-label="Venn diagram: a blue Humans circle and a yellow AI circle overlap, and the green overlap is Align, for human flourishing">
           <defs>
@@ -321,6 +336,14 @@
           </tbody>
         </table>
       </section>
+    </div>
+  </section>
+  <section class="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <h2 class="eyebrow" id="team-title">Team</h2>
+      <p class="coalition">A growing coalition of educators, entrepreneurs, philanthropic and technology leaders who believe it is not too late for the next generation to take charge of humanity’s future.</p>
+      <p class="contact">Contact <a href="mailto:team@alignthefuture.org">team@alignthefuture.org</a> with questions, ideas, feedback and offers to help.</p>
+      <a class="button" href="mailto:team@alignthefuture.org">Get in touch</a>
     </div>
   </section>
 </main>
