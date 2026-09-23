@@ -365,12 +365,14 @@
 </footer>
 
 <script>
-/* The circle duet. Blue (Humanities) and yellow (AI) drift in from either side,
-   flirt for about 20 seconds (brushing, overlapping, twice passing right through
-   each other and swapping sides) and settle overlapping. Used twice: faintly
-   behind the hero text, settling top right where the static CSS pair sits, and
-   in the experience section, settling centered above the table. Each plays
-   once. Reduced motion, or no script, shows the settled pair. */
+/* The circle duet. Blue (Humanities) and yellow (AI) flirt for about 20
+   seconds (brushing, overlapping, twice passing right through each other and
+   swapping sides) and settle overlapping. Used twice. Faintly behind the hero
+   text, the pair starts at rest top right (where the static CSS pair sits),
+   holds there with its names for 2 seconds, then dances with the names hidden
+   and shows them again once it settles back. In the experience section the
+   circles drift in from either side and settle centered above the table. Each
+   plays once. Reduced motion, or no script, shows the settled pair. */
 (function () {
   var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -396,6 +398,7 @@
     ];
   }
   var END = 20.5;
+  var FADE_OUT = 0.6, FADE_IN = 0.8; // name fades for a quiet duet, in seconds
 
   // Smooth path through the keyframes (cubic Hermite, Catmull-Rom tangents,
   // at rest at both ends) so the pair drifts rather than stops at each point.
@@ -414,7 +417,8 @@
 
   // Position one name at its circle's center, tilt it with its motion, and
   // fade it almost out while it sits over a line of text (lines, if any).
-  function place(label, x, y, dx, r, lines, full) {
+  // show (0 to 1) scales the result, to hide names while a quiet duet moves.
+  function place(label, x, y, dx, r, lines, full, show) {
     var size = Math.round(r * 0.26);
     label.setAttribute("font-size", size);
     var hw = label.getComputedTextLength() / 2 || 0.8 * r, hh = size / 2;
@@ -430,19 +434,28 @@
     label.setAttribute("x", x);
     label.setAttribute("y", y);
     label.setAttribute("transform", "rotate(" + tilt.toFixed(2) + " " + x + " " + y + ")");
-    label.setAttribute("opacity", (0.06 + (full - 0.06) * clear).toFixed(3));
+    label.setAttribute("opacity", ((0.06 + (full - 0.06) * clear) * show).toFixed(3));
   }
 
-  // o.stage() returns { W, H, r, rest, c } for the current layout.
+  // o.stage() returns { W, H, r, rest, c } for the current layout. o.home
+  // starts the pair at its resting spot instead of off screen, o.hold waits
+  // that many seconds before moving, and o.quiet hides the names while moving.
   function duet(svg, o) {
     var group = svg.querySelector("g");
     var blue = svg.querySelector(".b"), yellow = svg.querySelector(".y");
     var labelB = svg.querySelector(".lb"), labelY = svg.querySelector(".ly");
-    var start = null, t = 0;
+    var hold = o.hold || 0, total = hold + END + (o.quiet ? FADE_IN : 0);
+    var start = null, T = 0;
     function render() {
       var S = o.stage(), r = S.r;
       var box = svg.getBoundingClientRect(), page = document.documentElement.clientWidth;
       var K = keys(S.W, r, S.c, -box.left, page - box.left);
+      if (o.home) K[0] = [0].concat(K[K.length - 1].slice(1));
+      var t = Math.min(Math.max(T - hold, 0), END), show = 1;
+      if (o.quiet) {
+        show = Math.max(1 - (T - hold) / FADE_OUT, (T - hold - END) / FADE_IN);
+        show = Math.min(Math.max(show, 0), 1);
+      }
       if (o.sized) svg.style.height = S.H + "px";
       svg.setAttribute("viewBox", "0 0 " + S.W + " " + S.H);
       var bx = at(K, t, 1), by = S.rest + at(K, t, 2) * r;
@@ -451,30 +464,32 @@
       yellow.setAttribute("r", r); yellow.setAttribute("cx", yx); yellow.setAttribute("cy", yy);
       group.setAttribute("opacity", S.fill);
       var lines = o.lines ? o.lines() : [];
-      place(labelB, bx, by, at(K, t + 0.1, 1) - bx, r, lines, S.name);
-      place(labelY, yx, yy, at(K, t + 0.1, 3) - yx, r, lines, S.name);
+      place(labelB, bx, by, at(K, t + 0.1, 1) - bx, r, lines, S.name, show);
+      place(labelY, yx, yy, at(K, t + 0.1, 3) - yx, r, lines, S.name, show);
     }
     function frame(now) {
       if (start === null) start = now;
-      t = Math.min((now - start) / 1000, END);
+      T = Math.min((now - start) / 1000, total);
       render();
-      if (t < END) requestAnimationFrame(frame);
+      if (T < total) requestAnimationFrame(frame);
     }
     window.addEventListener("resize", render);
     return {
-      prime: function () { t = 0; render(); },
-      play: function () { t = 0; render(); requestAnimationFrame(frame); },
-      settle: function () { t = END; render(); }
+      prime: function () { T = 0; render(); },
+      play: function () { T = 0; render(); requestAnimationFrame(frame); },
+      settle: function () { T = total; render(); }
     };
   }
 
-  // Behind the hero text: faint, settling top right like the static CSS pair.
+  // Behind the hero text: faint, starting and settling top right like the
+  // static CSS pair, names hidden while it moves.
   var hero = document.querySelector(".situation");
   var copy = hero.querySelector(".copy");
   var range = document.createRange();
   if (!still) {
     hero.classList.add("is-dancing");
     duet(hero.querySelector(".dance"), {
+      home: true, hold: 2, quiet: true,
       stage: function () {
         var W = hero.clientWidth, small = W <= 600, r = small ? 100 : 187;
         return { W: W, H: hero.clientHeight, r: r, rest: 10 + r, c: W - 0.75 * r, fill: small ? 0.12 : 0.16, name: 0.5 };

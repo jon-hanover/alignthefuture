@@ -11,12 +11,15 @@ build step. The earlier marine/tangerine brand kit is kept in `brand/retired/`
 and is no longer used anywhere.
 
 The Humanities / AI circle duet is one inline script at the bottom of
-`index.html`, used twice. The two circles drift in from either side, flirt for
-about 20 seconds (overlapping, twice passing through each other) and settle
-overlapping. Behind the hero text it is faint and settles top right, the same
-spot the static `.situation .circles` CSS draws for no-script and
-reduced-motion visitors; keep those in step. In the experience section it is
-stronger, plays when scrolled into view and settles centered above the table.
+`index.html`, used twice. The two circles flirt for about 20 seconds
+(overlapping, twice passing through each other) and settle overlapping. Behind
+the hero text it is faint: the pair starts at rest top right with its names
+showing, holds about 2 seconds, then dances with the names hidden and settles
+back in the same spot, where the names return. That spot is where the static
+`.situation .circles` CSS draws the pair for no-script and reduced-motion
+visitors; keep those in step. In the experience section it is stronger, the
+circles drift in from either side when scrolled into view, and they settle
+centered above the table.
 Each circle carries its name in Caveat Brush, fixed at the circle's center so
 it moves only with its own circle (an earlier version slid the names apart
 where the circles overlapped, which read as the circles bumping each other;
