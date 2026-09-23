@@ -79,10 +79,10 @@
   .top { padding-top: 28px; padding-bottom: 8px; }
   .top img { width: 300px; }
 
-  /* Situation */
-  .situation { position: relative; overflow: hidden; }
-  .situation .wrap { position: relative; padding-top: 72px; padding-bottom: 96px; }
-  .situation .circles {
+  /* Key question: the hero */
+  .question { position: relative; overflow: hidden; }
+  .question .wrap { position: relative; padding-top: 72px; padding-bottom: 96px; }
+  .question .circles {
     position: absolute; z-index: 0;
     right: -140px; top: 10px;
     width: 560px; height: auto;
@@ -90,12 +90,24 @@
     pointer-events: none;
   }
   /* The animated pair replaces the static one once the script runs */
-  .situation .dance { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: none; }
-  .situation.is-dancing .dance { display: block; }
-  .situation.is-dancing .circles { display: none; }
-  .situation .copy { position: relative; z-index: 1; max-width: 780px; display: flex; flex-direction: column; gap: 24px; }
-  .situation h1 {
-    font-size: clamp(2.4rem, 5.4vw, 4.25rem);
+  .question .dance { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: none; }
+  .question.is-dancing .dance { display: block; }
+  .question.is-dancing .circles { display: none; }
+  .question .copy { position: relative; z-index: 1; max-width: 780px; }
+  .question h1 {
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    line-height: 1.14;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .question h1 .ramp-text { font-weight: 800; }
+
+  /* Situation */
+  .situation { border-top: 1px solid var(--rule); }
+  .situation .wrap { padding-top: 88px; padding-bottom: 96px; }
+  .situation .copy { max-width: 780px; display: flex; flex-direction: column; gap: 24px; }
+  .situation h2 {
+    font-size: clamp(2.2rem, 4.8vw, 3.75rem);
     line-height: 1.06;
     color: var(--blue);
   }
@@ -127,19 +139,6 @@
   .turn .wrap { padding-top: 104px; padding-bottom: 88px; display: flex; flex-direction: column; gap: 24px; }
   .turn h2 { font-size: clamp(2.2rem, 4.8vw, 3.75rem); line-height: 1.08; padding-bottom: 0.06em; }
   .turn p { font-size: clamp(1.1rem, 1.6vw, 1.25rem); max-width: 740px; }
-
-  /* Key question */
-  .question { background: linear-gradient(135deg, rgba(45, 94, 147, 0.07), rgba(117, 158, 117, 0.08) 55%, rgba(214, 178, 70, 0.12)); }
-  .question .wrap { padding-top: 88px; padding-bottom: 96px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
-  .question img { width: 120px; }
-  .question p.display {
-    font-size: clamp(1.75rem, 3.6vw, 2.75rem);
-    line-height: 1.22;
-    font-weight: 600;
-    color: var(--ink);
-    max-width: 920px;
-  }
-  .question p.display .ramp-text { font-weight: 800; }
 
   /* Concept */
   .concept .wrap { padding-top: 104px; padding-bottom: 104px; }
@@ -205,12 +204,10 @@
     .wrap { padding-left: 20px; padding-right: 20px; }
     .top { padding-top: 20px; }
     .top img { width: 220px; }
-    .situation .wrap { padding-top: 40px; padding-bottom: 64px; }
-    .situation .circles { width: 300px; right: -75px; top: 10px; opacity: 0.12; }
-    .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
+    .question .wrap { padding-top: 40px; padding-bottom: 64px; }
+    .question .circles { width: 300px; right: -75px; top: 10px; opacity: 0.12; }
+    .situation .wrap, .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
     .pillars .duet { height: 200px; margin-bottom: 24px; }
-    .question .wrap { padding-top: 64px; padding-bottom: 72px; text-align: left; align-items: flex-start; }
-    .question img { width: 96px; }
     .team .wrap { text-align: left; align-items: flex-start; }
     footer .wrap { flex-direction: column; align-items: flex-start; }
     footer img { width: 180px; }
@@ -224,7 +221,7 @@
 </header>
 
 <main>
-  <section class="situation" aria-label="The situation">
+  <section class="question" aria-label="The key question">
     <svg class="circles" viewBox="0 0 300 200" aria-hidden="true" focusable="false">
       <circle cx="100" cy="100" r="100" fill="#2D5E93"/>
       <circle cx="200" cy="100" r="100" fill="#D6B246" style="mix-blend-mode: multiply"/>
@@ -239,7 +236,15 @@
     </svg>
     <div class="wrap">
       <div class="copy">
-        <h1>Researchers and regulators are losing the race against AI.</h1>
+        <h1>What if we gathered the best minds of the next generation, from across the country and around the world, and <span class="ramp-text">prepared them to lead us into an aligned future together?</span></h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="situation" aria-label="The situation">
+    <div class="wrap">
+      <div class="copy">
+        <h2>Researchers and regulators are losing the race against AI.</h2>
         <p class="lead">On the current trajectory, we risk putting a weapon of mass destruction in the hands of anyone with an internet connection, or worse, creating a self-directed <strong>superintelligence that cares little for human life</strong>.</p>
         <p class="more">If AI development stalls, and these extinction-level risks do not materialize, without timely intervention we will create a less human world for our children. Policy makers have begun to appreciate the damage algorithmic media did to our cognition, relationships and politics. <strong>Today’s chatbots are already furthering those harms</strong>, and deployment of today’s agentic models risks creating a workplace where humans conform to the needs of the technology rather than the other way around.</p>
       </div>
@@ -251,7 +256,7 @@
       <p class="eyebrow">And at the same time</p>
       <p class="kicker">We have lost the will to act, to shape our world together.</p>
       <h2>To young people, in particular, this future seems to be happening to us, not through us.</h2>
-      <p class="body">Our political leaders are hapless, international cooperation seems hopeless, and every day critical decisions about the future of humanity are made by a very small number of people in a lab: a scientific subculture with a niche and highly quantitative worldview, disconnected from the humanities, and alien to how most of us think about human flourishing.</p>
+      <p class="body">Our political leaders are hapless, international cooperation seems hopeless, and every day critical decisions about the future of humanity are made by a very small number of people in a lab: a scientific subculture with a narrow view of human flourishing, disconnected from the humanities and the general public.</p>
       <p class="despair">The public is despondent. Some are in denial. Others see no option but to embrace a post-human future or to rage against it.</p>
     </div>
   </section>
@@ -264,13 +269,6 @@
     </div>
   </section>
 
-  <section class="question" aria-label="The key question">
-    <div class="wrap">
-      <img src="/brand/logo-circles.png" alt="" width="180" height="137">
-      <p class="display">What if we gathered the best minds of the next generation, from across the country and around the world, and <span class="ramp-text">prepared them to lead us into an aligned future together?</span></p>
-    </div>
-  </section>
-
   <section class="concept" aria-labelledby="concept-title">
     <div class="wrap">
       <header>
@@ -280,8 +278,7 @@
       <div class="cols">
         <div class="text">
           <p>We propose a program that equips young adults with the knowledge, skills and dispositions required to build AI resilience. By ensuring technical alignment with human values and strengthening democratic and diplomatic processes, we can create a world where they, their children, their children’s children flourish. The program will place graduates directly into labs, think tanks, and government positions where they can make a direct and immediate impact, while raising the level of political discourse and civic engagement for the long haul.</p>
-          <p>The initial concept is an 8 to 10 week summer program for about 100 rising high school seniors, hosted by a top university. Students will be mentored by scientists, educators and policy makers at the top of their field.</p>
-          <p>If successful, this flagship program will be a launchpad for a youth program with broader distribution and an awareness campaign that melts cynicism and helps the public recapture a sense of urgency and agency to build a more human future.</p>
+          <p>The initial concept is an 8 to 10 week summer program for about 100 rising high school seniors, hosted by a top university. Students will be mentored by scientists, educators and policy makers at the top of their field. If successful, this flagship program will be a launchpad for a youth program with broader distribution and an awareness campaign that melts cynicism and helps the public recapture a sense of urgency and agency to build a more human future.</p>
         </div>
         <ul class="facts" aria-label="The initial concept at a glance">
           <li><b>8–10 weeks</b><span>A summer program, hosted by a top university</span></li>
@@ -483,7 +480,7 @@
 
   // Behind the hero text: faint, starting and settling top right like the
   // static CSS pair, names hidden while it moves.
-  var hero = document.querySelector(".situation");
+  var hero = document.querySelector(".question");
   var copy = hero.querySelector(".copy");
   var range = document.createRange();
   if (!still) {

@@ -3,7 +3,10 @@
 Static site for **alignthefuture.org**. `index.html` is the homepage: the
 content of the two-pager (the "Two Pager" tab of the internal collab doc, see
 `docs/WORKING-DOCS.md`), appendix left out, with its TEAM section as the
-contact block at the bottom. An older copy in a separate "Align the Future
+contact block at the bottom. The one reordering: the KEY QUESTION ("What if
+we gathered...") opens the page as the hero, ahead of the SITUATION
+("Researchers and regulators..."), and everything else follows the doc's
+order. An older copy in a separate "Align the Future
 (WIP)" doc is stale; do not work from it. The page uses the watercolor logo
 brand described in `brand/README.md` (colors sampled from the wordmark,
 Raleway headings, Manrope body) and is hand-written responsive HTML with no
@@ -16,7 +19,7 @@ The Humanities / AI circle duet is one inline script at the bottom of
 the hero text it is faint: the pair starts at rest top right with its names
 showing, holds about 2 seconds, then dances with the names hidden and settles
 back in the same spot, where the names return. That spot is where the static
-`.situation .circles` CSS draws the pair for no-script and reduced-motion
+`.question .circles` CSS draws the pair for no-script and reduced-motion
 visitors; keep those in step. In the experience section it is stronger, the
 circles drift in from either side when scrolled into view, and they settle
 centered above the table.
