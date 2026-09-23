@@ -6,7 +6,8 @@ content of the two-pager (the "Two Pager" tab of the internal collab doc, see
 contact block at the bottom. The one reordering: the KEY QUESTION ("What if
 we gathered...") opens the page as the hero, ahead of the SITUATION
 ("Researchers and regulators..."), and everything else follows the doc's
-order. An older copy in a separate "Align the Future
+order. The hero question also drops the doc's "from across the country and
+around the world" (Jon's call); leave it out when syncing copy. An older copy in a separate "Align the Future
 (WIP)" doc is stale; do not work from it. The page uses the watercolor logo
 brand described in `brand/README.md` (colors sampled from the wordmark,
 Raleway headings, Manrope body) and is hand-written responsive HTML with no
