@@ -84,7 +84,7 @@
   .question .wrap { position: relative; padding-top: 72px; padding-bottom: 96px; }
   .question .circles {
     position: absolute; z-index: 0;
-    right: -140px; top: 10px;
+    right: -74px; top: 10px;
     width: 560px; height: auto;
     opacity: 0.16;
     pointer-events: none;
@@ -206,7 +206,7 @@
     .top { padding-top: 20px; }
     .top img { width: 220px; }
     .question .wrap { padding-top: 40px; padding-bottom: 64px; }
-    .question .circles { width: 300px; right: -75px; top: 10px; opacity: 0.12; }
+    .question .circles { width: 300px; right: -40px; top: 10px; opacity: 0.12; }
     .situation .wrap, .complication .wrap, .turn .wrap, .concept .wrap, .pillars .wrap, .team .wrap { padding-top: 64px; padding-bottom: 64px; }
     .pillars .duet { height: 200px; margin-bottom: 24px; }
     .team .wrap { text-align: left; align-items: flex-start; }
@@ -233,7 +233,7 @@
         <circle class="y" r="0" fill="#D6B246" style="mix-blend-mode: multiply"/>
       </g>
       <text class="lb" fill="#2D5E93">Humanities</text>
-      <text class="ly" fill="#A8892A">AI</text>
+      <text class="ly" fill="#A8892A">AI Research</text>
     </svg>
     <div class="wrap">
       <div class="copy">
@@ -296,13 +296,13 @@
         <h2 class="eyebrow" id="pillars-title">The experience</h2>
       </header>
       <section class="atf-venn" aria-label="Align for human flourishing">
-        <svg class="duet" viewBox="0 0 400 270" role="img" aria-label="A blue Humanities circle and a yellow AI circle drift together and settle overlapping">
+        <svg class="duet" viewBox="0 0 400 270" role="img" aria-label="A blue Humanities circle and a yellow AI Research circle drift together and settle overlapping">
           <g opacity="0.3">
             <circle class="b" cx="150" cy="135" r="100" fill="#2D5E93"/>
             <circle class="y" cx="250" cy="135" r="100" fill="#D6B246" style="mix-blend-mode: multiply"/>
           </g>
-          <text class="lb" x="150" y="135" font-size="26" fill="#2D5E93" opacity="0.9">Humanities</text>
-          <text class="ly" x="250" y="135" font-size="26" fill="#A8892A" opacity="0.9">AI</text>
+          <text class="lb" x="150" y="135" font-size="21" fill="#2D5E93" opacity="0.9">Humanities</text>
+          <text class="ly" x="250" y="135" font-size="21" fill="#A8892A" opacity="0.9">AI Research</text>
         </svg>
 
         <table>
@@ -312,7 +312,7 @@
               <td></td>
               <th scope="col" class="h">Humanities</th>
               <th scope="col" class="a">Align<span class="for">for human flourishing</span></th>
-              <th scope="col" class="i">AI</th>
+              <th scope="col" class="i">AI Research</th>
             </tr>
           </thead>
           <tbody>
@@ -320,25 +320,25 @@
               <th scope="row">Guiding Questions</th>
               <td class="h"><span class="tag">Humanities</span>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</td>
               <td class="a"><span class="tag">Align</span>What can we do together to ensure humans flourish in the Age of AI? What are the biggest risks and opportunities? What laws do we need? What research do we need? Where is international cooperation most needed and most possible?</td>
-              <td class="i"><span class="tag">AI</span>What is AI, really? How do models learn? Where do their goals come from? How do we know what they’re doing? What works for goal alignment? What remains unsolved?</td>
+              <td class="i"><span class="tag">AI Research</span>What is AI, really? How do models learn? Where do their goals come from? How do we know what they’re doing? What works for goal alignment? What remains unsolved?</td>
             </tr>
             <tr>
               <th scope="row">Experiential Learning</th>
               <td class="h"><span class="tag">Humanities</span>Engage in the “Great Conversation”; read great thinkers, experience good life traditions, write, discuss with peers and experts</td>
               <td class="a"><span class="tag">Align</span>Draft policies, debate, refine, compromise on AI governance; set a learning agenda for further research and civic action plans</td>
-              <td class="i"><span class="tag">AI</span>Train small, open weight models; try different alignment techniques; conduct real research against real open questions in alignment science</td>
+              <td class="i"><span class="tag">AI Research</span>Train small, open weight models; try different alignment techniques; conduct real research against real open questions in alignment science</td>
             </tr>
             <tr>
               <th scope="row">Capstone</th>
               <td class="h"><span class="tag">Humanities</span>Thesis on human flourishing</td>
               <td class="a"><span class="tag">Align</span>AI governance framework</td>
-              <td class="i"><span class="tag">AI</span>Research paper for publication</td>
+              <td class="i"><span class="tag">AI Research</span>Research paper for publication</td>
             </tr>
             <tr>
               <th scope="row">Mentors</th>
               <td class="h"><span class="tag">Humanities</span>Humanities Professors</td>
               <td class="a"><span class="tag">Align</span>Policy Makers</td>
-              <td class="i"><span class="tag">AI</span>AI Researchers</td>
+              <td class="i"><span class="tag">AI Research</span>AI Researchers</td>
             </tr>
           </tbody>
         </table>
@@ -417,7 +417,7 @@
   // fade it almost out while it sits over a line of text (lines, if any).
   // show (0 to 1) scales the result, to hide names while a quiet duet moves.
   function place(label, x, y, dx, r, lines, full, show) {
-    var size = Math.round(r * 0.26);
+    var size = Math.round(r * 0.21);
     label.setAttribute("font-size", size);
     var hw = label.getComputedTextLength() / 2 || 0.8 * r, hh = size / 2;
     var gap = Infinity;
@@ -490,7 +490,7 @@
       home: true, hold: 2, quiet: true,
       stage: function () {
         var W = hero.clientWidth, small = W <= 600, r = small ? 100 : 187;
-        return { W: W, H: hero.clientHeight, r: r, rest: 10 + r, c: W - 0.75 * r, fill: small ? 0.12 : 0.16, name: 0.5 };
+        return { W: W, H: hero.clientHeight, r: r, rest: 10 + r, c: W - 1.1 * r, fill: small ? 0.12 : 0.16, name: 0.5 };
       },
       // The boxes of the actual lines of text in the hero, relative to it.
       lines: function () {

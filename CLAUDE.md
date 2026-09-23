@@ -14,7 +14,7 @@ Raleway headings, Manrope body) and is hand-written responsive HTML with no
 build step. The earlier marine/tangerine brand kit is kept in `brand/retired/`
 and is no longer used anywhere.
 
-The Humanities / AI circle duet is one inline script at the bottom of
+The Humanities / AI Research circle duet is one inline script at the bottom of
 `index.html`, used twice. The two circles flirt for about 20 seconds
 (overlapping, twice passing through each other) and settle overlapping. Behind
 the hero text it is faint: the pair starts at rest top right with its names
@@ -28,8 +28,12 @@ Each circle carries its name in Caveat Brush, fixed at the circle's center so
 it moves only with its own circle (an earlier version slid the names apart
 where the circles overlapped, which read as the circles bumping each other;
 Jon rejected that). In the hero the names fade almost out over lines of text.
+The yellow circle and its table column were renamed from "AI" to "AI
+Research"; the longer name is why the names are sized at 0.21 of the radius
+and the hero pair rests 1.1 radii in from the right edge, so the two names
+clear each other and "AI Research" stays on screen.
 
-`align/` is the Humanities / Align / AI table (slide 1 of the program deck)
+`align/` is the Humanities / Align / AI Research table (slide 1 of the program deck)
 under a static flat-color Venn, with the categories down the left, stacking
 into tagged rows on phones. Its CSS lives in `assets/venn/`. The same table
 sits on the homepage in "The experience" section, where the duet replaces the
