@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Else Is Doing This · Align the Future</title>
+<meta name="description" content="The nearest analogs to Align the Future, and how each compares on the program’s key features.">
+<link rel="icon" href="/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/brand/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/brand/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/brand/png/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&display=swap">
+<style>
+  :root {
+    --blue: #2D5E93;
+    --teal: #487C89;
+    --deep: #1B3553;
+    --paper: #FBFAF6;
+    --ink: #1F2D3D;
+    --muted: #556474;
+    --rule: #E3DFD4;
+    --ramp: linear-gradient(90deg, #2D5E93, #487C89, #759E75, #D6B246);
+    --display: "Raleway", ui-sans-serif, system-ui, sans-serif;
+    --sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 1232px; margin: 0 auto; padding: 28px 24px 64px; }
+  .top { margin-bottom: 28px; }
+  .top img { width: 240px; height: auto; display: block; }
+
+  /* The graphic. Everything inside .landscape is the part to screenshot. */
+  .landscape {
+    /* Column colors: the Venn's Humanities / Align / AI, plus the logo's teal and deep blue */
+    --who: #487C89;  --who-ink: #3B6874;
+    --hum: #3A67AD;  --hum-ink: #2A5BA6;
+    --gov: #5E8A48;  --gov-ink: #4C6E36;
+    --ai:  #EFD955;  --ai-ink:  #7A6900;  --ai-on: #1F2A36; --ai-ring: #CDB02E;
+    --path: #1B3553; --path-ink: #1B3553;
+
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 40px 40px 30px;
+    box-shadow: 0 1px 2px rgba(31, 45, 61, 0.04), 0 12px 32px -12px rgba(31, 45, 61, 0.10);
+    position: relative;
+    overflow: hidden;
+  }
+  .landscape::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
+    background: var(--ramp);
+  }
+
+  .landscape header {
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;
+    margin-bottom: 26px;
+  }
+  .landscape .eyebrow {
+    font-family: var(--display); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal);
+    margin: 0 0 8px;
+  }
+  .landscape h1 {
+    margin: 0 0 10px;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; letter-spacing: -0.01em;
+    color: var(--blue); text-wrap: balance;
+  }
+  .landscape .intro { margin: 0; max-width: 640px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty; }
+
+  .legend { display: flex; gap: 18px; flex-shrink: 0; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--muted); }
+  .legend li { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+  .legend i { --c: #6B7785; --on: #fff; --ring: #6B7785; width: 18px; height: 18px; }
+  .legend .none { width: 18px; height: 18px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--rule); display: inline-block; }
+
+  /* Table */
+  .landscape table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .landscape col.org { width: 42%; }
+  .landscape th, .landscape td { padding: 0; font-weight: inherit; text-align: left; vertical-align: middle; }
+
+  .landscape thead .groups th {
+    padding: 0 6px 8px;
+    text-align: center;
+    font-family: var(--display); font-size: 12px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink);
+    position: relative;
+  }
+  .landscape thead .groups th::after {
+    content: ""; position: absolute; left: 6px; right: 6px; bottom: 0; height: 3px; border-radius: 3px;
+  }
+  .landscape thead .g-who::after { background: var(--who); }
+  .landscape thead .g-learn::after { background: linear-gradient(90deg, var(--hum) 0 33.3%, var(--gov) 33.3% 66.6%, var(--ai) 66.6%); }
+  .landscape thead .g-path::after { background: var(--path); }
+  .landscape thead .cols th {
+    padding: 12px 6px 14px;
+    text-align: center; vertical-align: bottom;
+    font-size: 13px; font-weight: 700; line-height: 1.3;
+    text-wrap: balance;
+    border-bottom: 1px solid var(--rule);
+  }
+  .landscape thead .cols th.k-hs, .landscape thead .cols th.k-res, .landscape thead .cols th.k-intl { color: var(--who-ink); }
+  .landscape thead .cols th.k-hum { color: var(--hum-ink); }
+  .landscape thead .cols th.k-gov { color: var(--gov-ink); }
+  .landscape thead .cols th.k-ai { color: var(--ai-ink); }
+  .landscape thead .cols th.k-path { color: var(--path-ink); }
+
+  /* Faint column tints so each column reads top to bottom */
+  .landscape .k-hs, .landscape .k-res, .landscape .k-intl { background: rgba(72, 124, 137, 0.045); }
+  .landscape .k-hum { background: rgba(58, 103, 173, 0.05); }
+  .landscape .k-gov { background: rgba(94, 138, 72, 0.06); }
+  .landscape .k-ai { background: rgba(239, 217, 85, 0.12); }
+  .landscape .k-path { background: rgba(27, 53, 83, 0.04); }
+  .landscape .k-res { box-shadow: inset 1px 0 rgba(72, 124, 137, 0.06), inset -1px 0 rgba(72, 124, 137, 0.06); }
+
+  .landscape tbody td { text-align: center; border-bottom: 1px solid var(--rule); }
+  .landscape tbody tr > th[scope="row"] { padding: 13px 28px 13px 0; border-bottom: 1px solid var(--rule); }
+  .landscape .name { display: block; font-family: var(--display); font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 3px; }
+  .landscape .name a { color: var(--blue); text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .2s; }
+  .landscape .name a:hover, .landscape .name a:focus-visible { background-size: 100% 1.5px; }
+  .landscape .name a::after { content: "↗"; font-family: var(--sans); font-size: 0.72em; font-weight: 700; margin-left: 4px; color: var(--teal); opacity: 0.7; }
+  .landscape .desc { display: block; font-size: 14.5px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+  .landscape .desc a { color: var(--blue); text-decoration: underline; text-decoration-color: rgba(45, 94, 147, 0.35); text-underline-offset: 2px; }
+
+  /* Section rows */
+  .landscape tr.group th {
+    padding: 26px 0 8px;
+    font-family: var(--display); font-size: 12px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal);
+    border-bottom: 1px solid var(--rule);
+    background: #fff;
+  }
+  .landscape tr.group th span { font-family: var(--sans); font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 13px; color: var(--muted); margin-left: 4px; }
+  .landscape tbody tr.group:first-child th { padding-top: 16px; }
+
+  /* Align the Future row */
+  .landscape tr.atf > * { border-bottom: 0; }
+  .landscape tr.atf th[scope="row"] {
+    padding: 18px 28px 18px 18px;
+    background: linear-gradient(90deg, rgba(45, 94, 147, 0.08), rgba(117, 158, 117, 0.07));
+    border-radius: 12px 0 0 12px;
+  }
+  .landscape tr.atf td { background-color: rgba(117, 158, 117, 0.07); }
+  .landscape tr.atf td:last-child { border-radius: 0 12px 12px 0; background-color: rgba(214, 178, 70, 0.10); }
+  .landscape tr.atf .name { display: flex; align-items: center; gap: 10px; font-size: 19px; color: var(--blue); }
+  .landscape tr.atf .name img { width: 34px; height: auto; }
+  .landscape tr.atf .desc { color: var(--ink); }
+  .landscape tbody tr.group:first-child + tr.atf ~ tr.group th { padding-top: 30px; }
+  .landscape tr.after-atf th { padding-top: 12px; }
+
+  /* Kairos and its programs */
+  .landscape tr.parent > * { border-bottom: 0; }
+  .landscape tr.parent th[scope="row"] { padding-bottom: 8px; }
+  .landscape td.family { text-align: center; vertical-align: bottom; padding-bottom: 10px; background: none; font-size: 12.5px; font-style: italic; color: var(--muted); }
+  .landscape tr.child th[scope="row"] { padding-left: 22px; position: relative; }
+  .landscape tr.child th[scope="row"]::before { content: ""; position: absolute; left: 4px; top: 16px; bottom: 16px; width: 2px; border-radius: 2px; background: rgba(72, 124, 137, 0.35); }
+  .landscape tr.child .name { font-size: 16px; }
+
+  /* Marks */
+  .landscape i {
+    --c: #6B7785; --on: #fff; --ring: var(--c);
+    position: relative; display: inline-block; vertical-align: middle;
+    width: 24px; height: 24px; border-radius: 50%;
+  }
+  .landscape i.y { background: var(--c); }
+  .landscape i.y::after {
+    content: ""; position: absolute; inset: 22%;
+    background: var(--on);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.6l3.4 3.3 7.6-7.8' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.6l3.4 3.3 7.6-7.8' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .landscape i.p { background: linear-gradient(90deg, var(--c) 50%, #fff 50%); box-shadow: inset 0 0 0 2px var(--ring); }
+  .landscape td.k-hs i, .landscape td.k-res i, .landscape td.k-intl i { --c: var(--who); }
+  .landscape td.k-hum i { --c: var(--hum); }
+  .landscape td.k-gov i { --c: var(--gov); }
+  .landscape td.k-ai i { --c: var(--ai); --on: var(--ai-on); --ring: var(--ai-ring); }
+  .landscape td.k-path i { --c: var(--path); }
+  .landscape tr.atf i { width: 28px; height: 28px; box-shadow: 0 0 0 3px #fff; }
+
+  .landscape figcaption {
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    margin-top: 22px;
+    font-size: 13.5px; line-height: 1.5; color: var(--muted);
+  }
+  .landscape figcaption a { color: var(--blue); font-weight: 700; text-decoration: none; }
+  .landscape figcaption img { width: 150px; height: auto; flex-shrink: 0; }
+
+  /* Tablet */
+  @media (max-width: 1040px) {
+    .landscape { padding: 32px 24px 26px; }
+    .landscape col.org { width: 36%; }
+    .landscape thead .cols th { font-size: 12px; padding-left: 3px; padding-right: 3px; }
+    .landscape header { flex-direction: column; align-items: flex-start; gap: 18px; }
+  }
+
+  /* Phone: each organization becomes a card with a strip of labeled marks */
+  @media (max-width: 759px) {
+    .page { padding: 20px 16px 48px; }
+    .top img { width: 190px; }
+    .landscape { padding: 26px 16px 22px; border-radius: 14px; }
+    .legend { flex-wrap: wrap; gap: 8px 16px; }
+    .landscape table, .landscape tbody, .landscape tr, .landscape th, .landscape td { display: block; }
+    .landscape thead, .landscape colgroup { display: none; }
+    .landscape tbody tr { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); row-gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+    .landscape tbody tr > * { grid-column: auto; border: 0 !important; background: none !important; box-shadow: none !important; border-radius: 0 !important; }
+    .landscape tbody tr > th[scope="row"] { grid-column: 1 / -1; padding: 0; }
+    .landscape tbody td { grid-column: span 3; }
+    .landscape tbody td.k-hs, .landscape tbody td.k-res, .landscape tbody td.k-intl { grid-column: span 4; }
+    .landscape tbody td { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 0; }
+    .landscape tbody td::after { font-size: 10.5px; font-weight: 700; line-height: 1.2; color: #8A94A0; text-align: center; }
+    .landscape tbody td:has(i.y)::after, .landscape tbody td:has(i.p)::after { color: var(--ink); }
+    .landscape td.k-hs::after { content: "High school"; }
+    .landscape td.k-res::after { content: "Residential"; }
+    .landscape td.k-intl::after { content: "International"; }
+    .landscape td.k-hum::after { content: "Humanities"; }
+    .landscape td.k-gov::after { content: "Policy"; }
+    .landscape td.k-ai::after { content: "Alignment"; }
+    .landscape td.k-path::after { content: "Placement"; }
+    .landscape tbody td i:not(.y):not(.p) { box-shadow: inset 0 0 0 1.5px var(--rule); }
+    .landscape i, .landscape tr.atf i { width: 24px; height: 24px; }
+    .landscape tr.atf i { box-shadow: none; }
+    .landscape tr.group { padding: 22px 0 6px; }
+    .landscape tr.group th { grid-column: 1 / -1; padding: 0 !important; border: 0; }
+    .landscape tr.atf { padding: 16px 14px; border-radius: 12px; border-bottom: 0; background: linear-gradient(135deg, rgba(45, 94, 147, 0.08), rgba(117, 158, 117, 0.08) 60%, rgba(214, 178, 70, 0.10)); }
+    .landscape tr.parent { padding-bottom: 4px; border-bottom: 0; }
+    .landscape td.family { display: none; }
+    .landscape tr.child { padding-left: 16px; position: relative; }
+    .landscape tr.child::before { content: ""; position: absolute; left: 2px; top: 18px; bottom: 18px; width: 2px; border-radius: 2px; background: rgba(72, 124, 137, 0.35); }
+    .landscape tr.child th[scope="row"] { padding-left: 0; }
+    .landscape tr.child th[scope="row"]::before { display: none; }
+    .landscape figcaption { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="top"><a href="/" aria-label="Align the Future home"><img src="/brand/logo.png" alt="Align the Future" width="939" height="137"></a></div>
+
+  <figure class="landscape" aria-labelledby="landscape-title">
+    <header>
+      <div>
+        <p class="eyebrow">The landscape</p>
+        <h1 id="landscape-title">Is anyone else doing this already?</h1>
+        <p class="intro">We are not aware of any comparable initiative. These are the nearest analogs we know of, all of which strike us more as potential partners than competitors.</p>
+      </div>
+      <ul class="legend" aria-label="Key">
+        <li><i class="y"></i>Yes</li>
+        <li><i class="p"></i>In part</li>
+        <li><span class="none"></span>Not that we can find</li>
+      </ul>
+    </header>
+
+    <table>
+      <colgroup><col class="org"><col><col><col><col><col><col><col></colgroup>
+      <thead>
+        <tr class="groups">
+          <td></td>
+          <th scope="colgroup" colspan="3" class="g-who">Who &amp; where</th>
+          <th scope="colgroup" colspan="3" class="g-learn">What they learn</th>
+          <th scope="colgroup" class="g-path">Leads to</th>
+        </tr>
+        <tr class="cols">
+          <td></td>
+          <th scope="col" class="k-hs"><span>Built for high schoolers</span></th><th scope="col" class="k-res"><span>In person, living together</span></th><th scope="col" class="k-intl"><span>International cohort</span></th><th scope="col" class="k-hum"><span>Humanities</span></th><th scope="col" class="k-gov"><span>AI policy &amp; governance</span></th><th scope="col" class="k-ai"><span>AI alignment research</span></th><th scope="col" class="k-path"><span>Placement in labs &amp; government</span></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr class="atf"><th scope="row"><span class="name"><img src="/brand/logo-circles.png" alt="" width="180" height="137">Align the Future</span><span class="desc">An international, experiential and cross-disciplinary summer program for ~100 rising high school seniors, hosted by a top university, that places graduates directly into labs, think tanks and government.</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i class="y" role="img" aria-label="Residential: Yes"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i class="y" role="img" aria-label="Humanities: Yes"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="y" role="img" aria-label="Alignment: Yes"></i></td><td class="k-path"><i class="y" role="img" aria-label="Placement: Yes"></i></td></tr>
+      <tr class="group"><th colspan="8" scope="colgroup">Nearest analogs <span>and potential partners</span></th></tr>
+      <tr><th scope="row"><span class="name"><a href="https://en.wikipedia.org/wiki/Research_Science_Institute">Research Science Institute</a></span><span class="desc">The world’s premier international youth research program. Its flagship, a six-week summer research fellowship at MIT for ~100 of the world’s top young scientists, has run continuously since 1984. Focused on science talent and international cooperation broadly, not AI safety.</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i class="y" role="img" aria-label="Residential: Yes"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i role="img" aria-label="Policy: No"></i></td><td class="k-ai"><i role="img" aria-label="Alignment: No"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr class="parent"><th scope="row"><span class="name"><a href="https://kairos-project.org/">Kairos</a></span><span class="desc">A new but very well capitalized nonprofit connected to the effective altruism movement, creating talent pipelines into AI safety. Growing fast with a diversity of programs, none for high school as far as we can tell. The two most notable:</span></th><td class="family" colspan="7"><span>Two programs, below</span></td></tr>
+      <tr class="child"><th scope="row"><span class="name"><a href="https://pathfinder.kairos-project.org/">Pathfinder Fellowship</a></span><span class="desc">Helps universities launch student-run AI safety and policy communities for undergraduate and graduate students: 94 fellows at 73 universities across 17 countries, e.g. <a href="https://waisi.org/programs">Wisconsin</a>. <a href="https://aialignment.mit.edu/">MIT</a>’s and <a href="https://aisst.ai/">Harvard</a>’s appear to predate Kairos but be affiliated.</span></th><td class="k-hs"><i role="img" aria-label="High school: No"></i></td><td class="k-res"><i class="p" role="img" aria-label="Residential: In part"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="y" role="img" aria-label="Alignment: Yes"></i></td><td class="k-path"><i class="p" role="img" aria-label="Placement: In part"></i></td></tr>
+      <tr class="child"><th scope="row"><span class="name"><a href="https://sparai.org/">SPAR</a></span><span class="desc">Remote research fellowship that connects rising research talent with mentors.</span></th><td class="k-hs"><i role="img" aria-label="High school: No"></i></td><td class="k-res"><i role="img" aria-label="Residential: No"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="y" role="img" aria-label="Alignment: Yes"></i></td><td class="k-path"><i class="y" role="img" aria-label="Placement: Yes"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://www.fabric.camp/">FABRIC</a></span><span class="desc">Prague nonprofit that runs two no-cost summer camps for talented young mathematicians in Europe. Its Program on AI and Reasoning explores how minds work, artificial and human, as a matter of scientific understanding rather than alignment or policy.</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i class="y" role="img" aria-label="Residential: Yes"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i role="img" aria-label="Policy: No"></i></td><td class="k-ai"><i class="p" role="img" aria-label="Alignment: In part"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://ml4good.org/">ML4Good</a></span><span class="desc">Bootcamps that equip technical and governance talent to join the AI safety field, running across Europe, Asia and Brazil.</span></th><td class="k-hs"><i role="img" aria-label="High school: No"></i></td><td class="k-res"><i class="y" role="img" aria-label="Residential: Yes"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="y" role="img" aria-label="Alignment: Yes"></i></td><td class="k-path"><i class="p" role="img" aria-label="Placement: In part"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://www.matsprogram.org/">MATS</a></span><span class="desc">Independent research fellowship that pairs talented researchers with top mentors in AI alignment, transparency and security. Twelve weeks in Berkeley or London, with the chance of a funded 6 to 12 month extension.</span></th><td class="k-hs"><i role="img" aria-label="High school: No"></i></td><td class="k-res"><i class="y" role="img" aria-label="Residential: Yes"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="p" role="img" aria-label="Policy: In part"></i></td><td class="k-ai"><i class="y" role="img" aria-label="Alignment: Yes"></i></td><td class="k-path"><i class="y" role="img" aria-label="Placement: Yes"></i></td></tr>
+      <tr class="group"><th colspan="8" scope="colgroup">Advocacy or civics only</th></tr>
+      <tr><th scope="row"><span class="name"><a href="https://datasociety.net/ai-civics/">Data &amp; Society, AI Civics</a></span><span class="desc">Nonprofit supporting organizations that build civics curriculum around AI and society, with a recent $2M grant from Humanity AI.</span></th><td class="k-hs"><i class="p" role="img" aria-label="High school: In part"></i></td><td class="k-res"><i role="img" aria-label="Residential: No"></i></td><td class="k-intl"><i role="img" aria-label="International: No"></i></td><td class="k-hum"><i class="p" role="img" aria-label="Humanities: In part"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i role="img" aria-label="Alignment: No"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://encodeai.org/">Encode</a></span><span class="desc">The most prominent youth voice in US AI regulation. An advocacy vehicle, with no program or capacity building component that we can find.</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i role="img" aria-label="Residential: No"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="p" role="img" aria-label="Alignment: In part"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://yaigf.org/">Youth AI Governance Forum</a></span><span class="desc">Youth-led advocacy organization for mitigating AI risk. Advocacy only, with no youth program or capacity building component that we can find.</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i role="img" aria-label="Residential: No"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="p" role="img" aria-label="Alignment: In part"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr class="group"><th colspan="8" scope="colgroup">Virtual programs</th></tr>
+      <tr><th scope="row"><span class="name"><a href="https://www.non-trivial.org/">Non-Trivial</a></span><span class="desc">Virtual research incubator for talented youth, with mentorship from researchers at top universities.</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i role="img" aria-label="Residential: No"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i role="img" aria-label="Policy: No"></i></td><td class="k-ai"><i class="p" role="img" aria-label="Alignment: In part"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://leaf.courses/dilemmas-and-dangers-in-ai">Leaf</a></span><span class="desc">UK nonprofit running four free five-week online fellowships for teens, one of which is “Dilemmas and Dangers in AI.”</span></th><td class="k-hs"><i class="y" role="img" aria-label="High school: Yes"></i></td><td class="k-res"><i role="img" aria-label="Residential: No"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i class="y" role="img" aria-label="Humanities: Yes"></i></td><td class="k-gov"><i class="p" role="img" aria-label="Policy: In part"></i></td><td class="k-ai"><i class="p" role="img" aria-label="Alignment: In part"></i></td><td class="k-path"><i role="img" aria-label="Placement: No"></i></td></tr>
+      <tr><th scope="row"><span class="name"><a href="https://bluedot.org/">BlueDot</a></span><span class="desc">Virtual talent accelerator for beneficial AI and societal resilience. Runs courses, funds talented people and brings ambitious teams together through intensive in-person programs.</span></th><td class="k-hs"><i role="img" aria-label="High school: No"></i></td><td class="k-res"><i class="p" role="img" aria-label="Residential: In part"></i></td><td class="k-intl"><i class="y" role="img" aria-label="International: Yes"></i></td><td class="k-hum"><i role="img" aria-label="Humanities: No"></i></td><td class="k-gov"><i class="y" role="img" aria-label="Policy: Yes"></i></td><td class="k-ai"><i class="y" role="img" aria-label="Alignment: Yes"></i></td><td class="k-path"><i class="p" role="img" aria-label="Placement: In part"></i></td></tr>
+      </tbody>
+    </table>
+
+    <figcaption>
+      <span>As of September 2026. This space is developing fast, so please tell us who we are missing: <a href="mailto:team@alignthefuture.org">team@alignthefuture.org</a></span>
+      <img src="/brand/logo.png" alt="" width="939" height="137">
+    </figcaption>
+  </figure>
+</main>
+</body>
+</html>

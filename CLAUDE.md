@@ -30,6 +30,16 @@ static Venn. Keep the table text in both copies in step. An animated
 version and a textured watercolor version were both tried and dropped; they are
 in git history if wanted again.
 
+`landscape/` is the "Is anyone else doing this already?" appendix question of
+the two-pager as a graphic: each analog organization on the left with a link
+and a short description, a feature checklist on the right (full disc yes, half
+disc in part, blank no), Align the Future on the top row. The whole graphic is
+the `figure.landscape` element, sized so a desktop screenshot of it drops into
+the Google Doc. Column colors follow the Venn: teal for who and where, then
+Humanities blue, Align green and AI yellow, and deep blue for placement. Keep
+the organizations and their descriptions in step with the two-pager appendix.
+It is not linked from the homepage.
+
 ## Working agreement
 
 Jon is not an engineer and does not work in GitHub directly. No one else is
