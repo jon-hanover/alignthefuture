@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/venn/venn.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&family=Caveat+Brush&display=swap">
 <style>
   :root {
     /* Sampled from the logo wordmark, left to right */
@@ -93,6 +93,7 @@
   .situation .dance { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: none; }
   .situation.is-dancing .dance { display: block; }
   .situation.is-dancing .circles { display: none; }
+  .situation .dance text { font-family: "Caveat Brush", "Caveat", cursive; text-anchor: middle; dominant-baseline: central; }
   .situation .copy { position: relative; z-index: 1; max-width: 780px; display: flex; flex-direction: column; gap: 24px; }
   .situation h1 {
     font-size: clamp(2.4rem, 5.4vw, 4.25rem);
@@ -231,6 +232,8 @@
         <circle class="b" r="0" fill="#2D5E93"/>
         <circle class="y" r="0" fill="#D6B246" style="mix-blend-mode: multiply"/>
       </g>
+      <text class="lb" fill="#2D5E93">Humanities</text>
+      <text class="ly" fill="#A8892A">AI</text>
     </svg>
     <div class="wrap">
       <div class="copy">
@@ -377,6 +380,9 @@
   var group = svg.querySelector("g");
   var blue = svg.querySelector(".b");
   var yellow = svg.querySelector(".y");
+  var labelB = svg.querySelector(".lb");
+  var labelY = svg.querySelector(".ly");
+  var copy = hero.querySelector(".copy");
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   // Keyframes: [seconds, blue x, blue y, yellow x, yellow y]. x in pixels from
@@ -416,6 +422,42 @@
       (-2 * u3 + 3 * u2) * K[k + 1][i] + (u3 - u2) * h * tan(k + 1);
   }
 
+  // The boxes of the actual lines of text in the hero, relative to it.
+  var range = document.createRange();
+  function textLines() {
+    var hr = hero.getBoundingClientRect(), out = [];
+    for (var i = 0; i < copy.children.length; i++) {
+      range.selectNodeContents(copy.children[i]);
+      var rs = range.getClientRects();
+      for (var j = 0; j < rs.length; j++) {
+        out.push({ l: rs[j].left - hr.left, r: rs[j].right - hr.left, t: rs[j].top - hr.top, b: rs[j].bottom - hr.top });
+      }
+    }
+    return out;
+  }
+
+  // Position one label, tilt it with its motion, and fade it almost out while
+  // it sits over the headline or paragraphs so it never fights the words.
+  function place(label, x, y, dx, r, W, lines) {
+    var size = Math.round(r * 0.26);
+    label.setAttribute("font-size", size);
+    var hw = label.getComputedTextLength() / 2 || 0.8 * r, hh = size / 2;
+    x = Math.max(hw + 8, Math.min(W - hw - 8, x));
+    var gap = Infinity;
+    for (var i = 0; i < lines.length; i++) {
+      var L = lines[i];
+      var gx = Math.max(L.l - (x + hw), (x - hw) - L.r, 0);
+      var gy = Math.max(L.t - (y + hh), (y - hh) - L.b, 0);
+      gap = Math.min(gap, Math.hypot(gx, gy));
+    }
+    var clear = Math.min(gap / 40, 1);
+    var tilt = Math.max(-9, Math.min(9, -4 + dx * 0.35));
+    label.setAttribute("x", x);
+    label.setAttribute("y", y);
+    label.setAttribute("transform", "rotate(" + tilt.toFixed(2) + " " + x + " " + y + ")");
+    label.setAttribute("opacity", (0.06 + 0.44 * clear).toFixed(3));
+  }
+
   var start = null;
   function draw(now) {
     if (start === null) start = now;
@@ -434,6 +476,17 @@
     yellow.setAttribute("cx", at(K, t, 3));
     yellow.setAttribute("cy", rest + at(K, t, 4) * r);
     group.setAttribute("opacity", small ? 0.12 : 0.16);
+
+    // Hand-lettered names ride on each circle. Where the circles overlap, each
+    // name slides toward the part of its own circle the other does not cover.
+    var bx = at(K, t, 1), yx = at(K, t, 3);
+    var d = Math.abs(bx - yx);
+    var push = Math.min(Math.max(0, r - d / 2), 0.5 * r);
+    var side = Math.tanh((bx - yx) / (0.3 * r));
+    var lines = textLines();
+    place(labelB, bx + side * push, rest + at(K, t, 2) * r, at(K, t + 0.1, 1) - bx, r, W, lines);
+    place(labelY, yx - side * push, rest + at(K, t, 4) * r, at(K, t + 0.1, 3) - yx, r, W, lines);
+
     if (t < END) requestAnimationFrame(draw);
   }
 
