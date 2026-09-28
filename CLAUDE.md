@@ -182,3 +182,10 @@ the cleaned-up statement of the core idea and the open questions behind it.
 `docs/WORKING-DOCS.md` points at the live Google files (the Ecosystem Map and
 the internal collab doc) where the day-to-day work actually happens. Nothing in
 `docs/` is linked from the site.
+
+## AGENTS.md
+
+`AGENTS.md` at the root points Codex and other agents that skip `CLAUDE.md`
+back here, with a few notes for collaborators new to the repo (preview through
+a local server, how the graphics are built). Keep those notes in step with
+this file when either changes.
