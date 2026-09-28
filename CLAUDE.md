@@ -63,7 +63,8 @@ the two-pager as a graphic, built from a grid Aaron drafted and simplified at
 Jon's request. Nine organizations run across the top, each name a link with an
 "i" bubble holding a short description and a few facts (hover on desktop, tap
 on phones). The rows are eleven features of Align the Future, phrased as what the
-program is ("Built for high schoolers"), and each cell is a single check or
+program is ("Designed for Youth", with "(Pre-College)" in small italics
+beneath it), and each cell is a single check or
 blank, with no partial marks. Align the Future is the first, highlighted
 column. Below desktop width the grid scrolls sideways under pinned feature and
 Align the Future columns. The whole graphic is the `figure.landscape` element,

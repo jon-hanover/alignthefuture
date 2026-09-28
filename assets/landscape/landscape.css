@@ -58,6 +58,7 @@
   font-family: var(--display); font-size: 15.5px; font-weight: 700; line-height: 1.3;
   color: var(--ink);
 }
+.landscape tbody th .sub { display: block; margin-top: 1px; font-family: var(--sans); font-size: 12.5px; font-style: italic; font-weight: 500; line-height: 1.3; color: var(--muted); }
 .landscape tbody td, .landscape tbody th { height: 52px; border-bottom: 1px solid var(--rule); }
 .landscape tbody tr:last-child > * { border-bottom: 0; }
 .landscape tbody tr:hover > th, .landscape tbody tr:hover > td:not(.atf) { background: #FAF8F3; }
