@@ -60,7 +60,7 @@ in git history if wanted again.
 The homepage section "Who else is doing this work?" (`#landscape`, between
 "The experience" and Team) is the "Is anyone else doing this already?" appendix question of
 the two-pager as a graphic, built from a grid Aaron drafted and simplified at
-Jon's request. Ten organizations run across the top, each name a link with an
+Jon's request. Nine organizations run across the top, each name a link with an
 "i" bubble holding a short description and a few facts (hover on desktop, tap
 on phones). The rows are eleven features of Align the Future, phrased as what the
 program is ("Built for high schoolers"), and each cell is a single check or
