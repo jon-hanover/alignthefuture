@@ -79,6 +79,18 @@ homepage updates both. Do not paste the table into `landscape/index.html`. The
 CSS (`assets/landscape/landscape.css`) and the tap-to-open script
 (`assets/landscape/landscape.js`) are shared by both pages.
 
+`studentexperience/` is a scroll-driven walk through the student's day,
+drawn as ink line over watercolor washes in hand-written SVG, all in that one
+file. It is the animation alone: no site header, footer, intro or outro, and
+nothing on the site links to it yet (Jon shares it directly). Scrolling down
+pans sideways through four washes in the logo's colors: Humanities (a student
+reading, then a Socratic seminar), AI research (a mentor and students at a
+live model run), Policy debates (a roundtable with a state senator, then
+drafting at a flip chart) and the residential experience (a campus walk, then
+a dorm common room). Each wash has a caption with a Capstone card (the last
+one is an Outcome). Wide screens stop on each wash; phones stop on each scene.
+Keep the captions in step with the program copy in the two-pager.
+
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and
 `mailto:` links, open in the same tab. Follow this on every new page.

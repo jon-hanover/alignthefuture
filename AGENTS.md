@@ -31,3 +31,6 @@ A few notes for people and agents new to the repo:
     cell.
   - `landscape/index.html` copies the grid from the homepage when it loads.
     Edit the grid in `index.html` only.
+  - `studentexperience/index.html` draws every scene in its own inline
+    script (people, furniture and washes are SVG built from helper
+    functions). Edit the scenes and captions there.
