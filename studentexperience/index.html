@@ -83,20 +83,20 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 .progress i.on { background: var(--teal); transform: scale(1.3); }
 
 /* Quiet loops, running only in the wash in focus */
-.scene svg [class*="a-"] { transform-box: fill-box; }
-.scene.live .a-gesture { animation: gesture 2.8s ease-in-out infinite; transform-origin: 0% 0%; }
+.scene svg [class*="a-"] { transform-box: view-box; transform-origin: 0 0; }
+.scene.live .a-gesture { animation: gesture 2.8s ease-in-out infinite; }
 .scene.live .a-gesture.d2 { animation-delay: -1.3s; }
-.scene.live .a-nod { animation: nod 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
+.scene.live .a-nod { animation: nod 3.4s ease-in-out infinite; }
 .scene.live .a-nod.d2 { animation-delay: -1.7s; }
-.scene.live .a-type { animation: typing 0.5s ease-in-out infinite alternate; transform-origin: 0% 0%; }
-.scene.live .a-hand { animation: handup 6s ease-in-out infinite; transform-origin: 0% 0%; }
+.scene.live .a-type { animation: typing 0.5s ease-in-out infinite alternate; }
+.scene.live .a-hand { animation: handup 6s ease-in-out infinite; }
 .scene.live .a-steam { animation: steam 3.2s ease-in-out infinite; }
 .scene.live .a-steam.d2 { animation-delay: -1.6s; }
 .scene.live .a-mote { animation: mote 7s linear infinite; }
 .scene.live .a-mote.d2 { animation-delay: -2.4s; }
 .scene.live .a-mote.d3 { animation-delay: -4.8s; }
-.scene.live .a-page { animation: page 5s ease-in-out infinite; transform-origin: 0% 50%; }
-.scene.live .a-grow { animation: grow 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
+.scene.live .a-page { animation: page 5s ease-in-out infinite; }
+.scene.live .a-grow { animation: grow 3.4s ease-in-out infinite; }
 .scene.live .a-grow.d2 { animation-delay: -1.1s; }
 .scene.live .a-grow.d3 { animation-delay: -2.2s; }
 .scene.live .a-scroll { animation: scrollup 4s linear infinite; }
@@ -104,13 +104,13 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 .scene.live .a-dot { animation: dot 1.2s ease-in-out infinite; }
 .scene.live .a-dot.d2 { animation-delay: 0.2s; }
 .scene.live .a-dot.d3 { animation-delay: 0.4s; }
-.scene.live .a-flag { animation: flag 1.6s ease-in-out infinite; transform-origin: 0% 100%; }
+.scene.live .a-flag { animation: flag 1.6s ease-in-out infinite; }
 .scene.live .a-note { animation: note 6s ease-in-out infinite; }
 .scene.live .a-leaf { animation: leaf 7s linear infinite; }
 .scene.live .a-leaf.d2 { animation-delay: -2.3s; }
 .scene.live .a-leaf.d3 { animation-delay: -4.6s; }
 .scene.live .a-bird { animation: bird 11s linear infinite; }
-.scene.live .a-wing { animation: wing 0.5s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+.scene.live .a-wing { animation: wing 0.5s ease-in-out infinite alternate; }
 .scene.live .a-bob { animation: bob 0.9s ease-in-out infinite alternate; }
 .scene.live .a-bob.d2 { animation-delay: -0.45s; }
 .scene.live .a-draw { stroke-dasharray: 90; animation: draw 4.5s ease-in-out infinite; }
@@ -305,6 +305,9 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
   const washOnly = s => MODE === 'wash' ? s : '';
   const inkOnly = s => MODE === 'ink' ? s : '';
   const g = (s, attrs = '') => s ? `<g ${attrs}>${s}</g>` : '';
+  // A moving part turns about (x, y) in its own drawing units. Explicit pivots behave the same
+  // in every browser; Safari places percentage origins on SVG parts differently.
+  const pivot = (x, y, cls, s) => s ? `<g transform="translate(${f(x)} ${f(y)})"><g class="${cls}"><g transform="translate(${f(-x)} ${f(-y)})">${s}</g></g></g>` : '';
   function obj(fn) {
     const prev = MODE;
     MODE = 'wash'; const w = fn();
@@ -455,15 +458,15 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
         if (o.earrings) headInner += circ(-2.4, 5, 1.6, P.gold, { noInk: true });
       }
       let head = g(headInner, 'transform="translate(1 -164)"');
-      if (o.headClass) head = g(head, `class="${o.headClass}"`);
+      if (o.headClass) head = pivot(1, -154, o.headClass, head);
 
       const [nearPts, farPts] = o.armPts || ARMS[o.arms || 'down'];
       const armShape = (p, c) => limb(p, 7.2, c) + ell(p[p.length - 1][0], p[p.length - 1][1], 3.3, 3.8, view === 'back' ? skinDk : skin, { iw: 0.7 });
       const sleeve = o.sleeve || top;
       let farArm = armShape(farPts, shade(sleeve, -0.18));
       let nearArm = armShape(nearPts, sleeve);
-      if (o.armClass && view !== 'back') nearArm = g(nearArm, `class="${o.armClass}"`);
-      if (o.farClass && view !== 'back') farArm = g(farArm, `class="${o.farClass}"`);
+      if (o.armClass && view !== 'back') nearArm = pivot(nearPts[0][0], nearPts[0][1], o.armClass, nearArm);
+      if (o.farClass && view !== 'back') farArm = pivot(farPts[0][0], farPts[0][1], o.farClass, farArm);
       const upper = view === 'back' ? farArm + nearArm + neck + body + head : farArm + neck + body + head + nearArm;
       const leanT = o.lean ? ` rotate(${o.lean} 0 -92)` : '';
       const shadow = washOnly(`<ellipse cx="4" cy="-1" rx="22" ry="5" fill="rgba(60,50,40,0.13)"/>`);
@@ -514,7 +517,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += `<g filter="url(#halo)"><ellipse cx="${f(lx)}" cy="${f(ly - 115)}" rx="60" ry="42" fill="#FFF0BC" opacity=".7"/></g>`;
     s += obj(() => ell(lx, ly, 12, 5, P.charcoal) + stick([[lx, ly], [lx, ly - 150]], 2.6, P.charcoal) + path(`M${f(lx - 17)},${f(ly - 140)} L${f(lx + 17)},${f(ly - 140)} L${f(lx + 10)},${f(ly - 168)} L${f(lx - 10)},${f(ly - 168)}Z`, P.cream) + dust(lx - 30, ly - 110));
     s += obj(() => box(-20, 0, 0, 62, 66, 34, P.tealDk) + box(-28, 0, 0, 12, 66, 82, P.tealDk) + box(-20, -6, 0, 62, 10, 56, shade(P.tealDk, 0.05)));
-    s += at(10, 36, { ...ME, pose: 'sit', arms: 'book', headClass: 'a-nod', held: () => openBook(22, -118, 13, P.blue) + g(poly([[22, -118], [33, -121.5], [33, -111], [22, -108]], P.paper, { iw: 0.7 }), 'class="a-page"'), s: 0.92 });
+    s += at(10, 36, { ...ME, pose: 'sit', arms: 'book', headClass: 'a-nod', held: () => openBook(22, -118, 13, P.blue) + pivot(22, -113, 'a-page', poly([[22, -118], [33, -121.5], [33, -111], [22, -108]], P.paper, { iw: 0.7 })), s: 0.92 });
     s += obj(() => box(-20, 62, 0, 62, 12, 56, shade(P.tealDk, 0.08)));
     s += obj(() => {
       let t = table(80, 40, 40, 40, 52, P.wood);
@@ -538,7 +541,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
       { a: -135, prof: true, p: { skin: SKIN[5], hair: 'afro', hairColor: HAIR.black, top: P.plum, outfit: 'blazer', shirt: P.cream, bottom: P.charcoal, glasses: true, earrings: true, arms: 'gesture', armClass: 'a-gesture' }, view: 'front', flip: false, face: '+x' },
       { a: -90, p: { skin: SKIN[0], hair: 'bob', hairColor: HAIR.blond, top: P.mustard, bottom: P.navy, arms: 'book', headClass: 'a-nod', held: () => openBook(22, -118, 11, P.blue) }, view: 'front', flip: true, face: '+y' },
       { a: -45, p: { skin: SKIN[3], hair: 'fade', hairColor: HAIR.black, top: P.slate, outfit: 'hoodie', bottom: P.charcoal, arms: 'chin' }, view: 'front', flip: true, face: '+y' },
-      { a: 180, p: { skin: SKIN[1], hair: 'hijab', hairColor: P.tealDk, top: P.cream, bottom: P.navy, arms: 'book', headClass: 'a-nod d2', held: () => openBook(22, -118, 12, P.burgundy) + g(poly([[22, -118], [34, -121.6], [34, -110], [22, -107]], P.paper, { iw: 0.7 }), 'class="a-page"') + g(pen([[24, -108], [31, -121]], 1.6, '#2E3036'), 'class="a-write"') }, view: 'front', flip: false, face: '+x' },
+      { a: 180, p: { skin: SKIN[1], hair: 'hijab', hairColor: P.tealDk, top: P.cream, bottom: P.navy, arms: 'book', headClass: 'a-nod d2', held: () => openBook(22, -118, 12, P.burgundy) + pivot(22, -112.5, 'a-page', poly([[22, -118], [34, -121.6], [34, -110], [22, -107]], P.paper, { iw: 0.7 })) + g(pen([[24, -108], [31, -121]], 1.6, '#2E3036'), 'class="a-write"') }, view: 'front', flip: false, face: '+x' },
       { a: 0, p: { skin: SKIN[4], hair: 'braids', hairColor: HAIR.black, top: P.olive, bottom: P.denim, arms: 'gesture', armClass: 'a-gesture d2' }, view: 'back', flip: true, face: '-x' },
       { a: 135, p: { ...ME, arms: 'lap', headClass: 'a-nod d2' }, view: 'back', flip: false, face: '-y' },
       { a: 90, p: { skin: SKIN[0], hair: 'curly', hairColor: HAIR.auburn, top: P.navy, bottom: P.charcoal, arms: 'pocket' }, view: 'back', flip: false, face: '-y' },
@@ -556,7 +559,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     GY = -50;
     let s = obj(() => table(-90, -70, 170, 64, 74, P.wood) + box(-46, -50, 74, 86, 8, 3, P.charcoal) + box(-8, -52, 77, 8, 6, 26, P.charcoal) + box(-60, -50, 100, 116, 5, 70, '#4A4E57'));
     s += obj(() => face([[-56, -45, 104], [52, -45, 104], [52, -45, 166], [-56, -45, 166]], P.screen, { iw: 0.8 })
-      + onLeftFace(-50, -45, 162, washOnly([0, 1, 2, 3, 4].map(i => { const h = [16, 26, 20, 38, 32][i]; return `<rect x="${6 + i * 14}" y="${50 - h}" width="9" height="${h}" fill="${i % 2 ? P.gold : P.teal}" opacity=".85" class="a-grow d${(i % 3) + 1}"/>`; }).join('')
+      + onLeftFace(-50, -45, 162, washOnly([0, 1, 2, 3, 4].map(i => { const h = [16, 26, 20, 38, 32][i]; return pivot(10.5 + i * 14, 50, `a-grow d${(i % 3) + 1}`, `<rect x="${6 + i * 14}" y="${50 - h}" width="9" height="${h}" fill="${i % 2 ? P.gold : P.teal}" opacity=".85"/>`); }).join('')
         + `<svg x="84" y="6" width="22" height="40" overflow="hidden"><g class="a-scroll">${[0, 6, 12, 18, 24, 30, 36, 42].map((y, i) => `<rect x="0" y="${y}" width="${[14, 10, 12, 8, 14, 10, 12, 9][i]}" height="2" fill="#9AA3AD"/>`).join('')}</g></svg>`
         + `<rect x="96" y="44" width="2" height="6" fill="#2B323C" class="a-blink"/>`)
         + inkOnly(`<polyline points="4,46 30,40 52,30 76,12" fill="none" stroke="${P.red}" stroke-width="1.6"/>`)));
@@ -590,20 +593,20 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += obj(() => onLeftFace(-140, -126, 192, washOnly(
         '<rect x="0" y="0" width="212" height="9" fill="#262C37"/><circle cx="6" cy="4.5" r="1.6" fill="#E06C75"/><circle cx="11" cy="4.5" r="1.6" fill="#E5C07B"/><circle cx="16" cy="4.5" r="1.6" fill="#98C379"/><rect x="26" y="3" width="26" height="3" rx="1" fill="#5A6475"/>'
       + `<svg x="2" y="12" width="104" height="112" overflow="hidden"><g class="a-scroll">${CODE}</g></svg>`
-      + `<rect x="2" y="124" width="104" height="9" fill="#11151B"/><rect x="5" y="127" width="62" height="3" rx="1.5" fill="#2B323C"/><rect x="5" y="127" width="44" height="3" rx="1.5" fill="#98C379" class="a-grow"/><rect x="72" y="127" width="3" height="3" fill="#C3E88D" class="a-blink"/>`
+      + `<rect x="2" y="124" width="104" height="9" fill="#11151B"/><rect x="5" y="127" width="62" height="3" rx="1.5" fill="#2B323C"/>${pivot(27, 130, 'a-grow', '<rect x="5" y="127" width="44" height="3" rx="1.5" fill="#98C379"/>')}<rect x="72" y="127" width="3" height="3" fill="#C3E88D" class="a-blink"/>`
       + `<g transform="translate(110 14)">${plot()}</g>`)));
     // the evaluation board on the left, facing the students
     s += obj(() => box(-206, -112, 36, 6, 104, 110, '#E9E4D8')
       + onRightFace(-199.5, -16, 136, inkOnly(`<text x="2" y="4" font-family="Caveat, 'Bradley Hand', cursive" font-size="12" fill="${P.blue}" data-max="96">What remains unsolved?</text>`))
       + [[0, 0, P.mustard], [0, 30, '#E6A99A'], [28, 4, '#AFC7DA'], [28, 34, '#B8CDA0'], [56, 14, P.mustard]].map(([dy, dz, c]) => { const y0 = -40 - dy, z0 = 118 - dz; return poly([iso(-199.5, y0, z0), iso(-199.5, y0 - 22, z0), iso(-199.5, y0 - 22, z0 - 20), iso(-199.5, y0, z0 - 20)], c, { iw: 0.7 }); }).join('')
-      + g(poly([iso(-199.5, -96, 70), iso(-199.5, -74, 70), iso(-199.5, -74, 50), iso(-199.5, -96, 50)].map(p => p), '#E6A99A', { iw: 0.7 }), 'class="a-note"'));
+      + pivot(...iso(-199.5, -85, 60), 'a-note', poly([iso(-199.5, -96, 70), iso(-199.5, -74, 70), iso(-199.5, -74, 50), iso(-199.5, -96, 50)], '#E6A99A', { iw: 0.7 })));
     s += at(-158, -18, { skin: SKIN[0], hair: 'curly', hairColor: HAIR.auburn, top: P.plum, bottom: P.charcoal, view: 'back', flip: true, armPts: [[[9.5, -142], [20, -156], [30, -170]], [[-9.5, -142], [-12, -119], [-10, -97]]], s: 0.92 });
     // the table, two laptops facing the students
     s += obj(() => {
       let t = table(-96, -24, 150, 50, 68, P.wood);
       [-74, 6].forEach(x => { t += face([[x, -6, 68.5], [x + 32, -6, 68.5], [x + 32, 12, 68.5], [x, 12, 68.5]], '#666B74', { iw: 0.8 }) + face([[x, 12, 68.5], [x + 32, 12, 68.5], [x + 32, 12, 92], [x, 12, 92]], '#DCE6EA', { iw: 0.8 }); });
       t += onLeftFace(-70, 12, 89, washOnly('<rect x="2" y="3" width="16" height="2" fill="#8E969E"/><rect x="2" y="8" width="11" height="2" fill="#8E969E"/><rect x="2" y="13" width="14" height="2" fill="#8E969E"/>'))
-        + onLeftFace(10, 12, 89, washOnly(`<rect x="3" y="12" width="4" height="7" fill="${P.teal}" class="a-grow"/><rect x="9" y="8" width="4" height="11" fill="${P.gold}" class="a-grow d2"/><rect x="15" y="4" width="4" height="15" fill="${P.teal}" class="a-grow d3"/>`));
+        + onLeftFace(10, 12, 89, washOnly(pivot(5, 19, 'a-grow', `<rect x="3" y="12" width="4" height="7" fill="${P.teal}"/>`) + pivot(11, 19, 'a-grow d2', `<rect x="9" y="8" width="4" height="11" fill="${P.gold}"/>`) + pivot(17, 19, 'a-grow d3', `<rect x="15" y="4" width="4" height="15" fill="${P.teal}"/>`)));
       return t + mug(40, -16, 68, P.tealDk);
     });
     // the researcher at the screen: grey hair, glasses, a lanyard
@@ -647,7 +650,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
       + onLeftFace(98, -100, 166, hand(0, 18, 'What policies do we need?', 15, '#3F6F3E', 92)
         + inkOnly(`<path d="M0,40 q6,-4 12,0 t12,0 t12,-1 t12,1 t12,0 t12,0 t10,0" fill="none" stroke="${INK}" stroke-width="1.3" class="a-draw"/>`)));
     s += obj(() => table(-100, -40, 44, 44, 92, P.wood) + mug(-84, -26, 92, P.paper) + mug(-70, -12, 92, P.terracotta) + face([[-96, -36, 92.5], [-74, -36, 92.5], [-74, -20, 92.5], [-96, -20, 92.5]], P.paper, { iw: 0.7 }));
-    s += at(-60, -100, { skin: SKIN[5], hair: 'fade', hairColor: HAIR.black, top: P.mustard, outfit: 'hoodie', bottom: P.charcoal, view: 'front', flip: true, arms: 'gesture', armClass: 'a-gesture', s: 0.92 });
+    s += at(-73, -87, { skin: SKIN[5], hair: 'fade', hairColor: HAIR.black, top: P.mustard, outfit: 'hoodie', bottom: P.charcoal, view: 'front', flip: true, arms: 'gesture', armClass: 'a-gesture', s: 0.92 });
     s += at(-10, -60, { skin: SKIN[1], hair: 'long', hairColor: HAIR.brown, top: P.plum, bottom: P.navy, view: 'front', flip: true, arms: 'chin', headClass: 'a-nod', s: 0.92 });
     s += at(-110, 40, { skin: SKIN[3], hair: 'hijab', hairColor: P.blue, top: P.tealDk, bottom: P.charcoal, view: 'back', flip: false, arms: 'pocket', s: 0.94 });
     s += at(70, -40, { ...ME, view: 'front', flip: false, armClass: 'a-type', armPts: [[[9.5, -142], [28, -150], [44, -160]], [[-9.5, -142], [-12, -119], [-7, -103]]], s: 0.95 });
@@ -662,8 +665,8 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += g(person({ skin: SKIN[4], hair: 'braids', hairColor: HAIR.black, top: P.mustard, outfit: 'cardigan', bottom: P.navy, x: -26, y: -14, pose: 'walk', arms: 'carry', held: () => closedBook(14, -122, P.burgundy, -70), s: 0.95 }), 'class="a-bob"');
     s += g(person({ ...ME, x: 28, y: -6, pose: 'walk', arms: 'gesture', armClass: 'a-gesture', s: 0.95 }), 'class="a-bob d2"');
     s += tree(270, -10, 120, 46, [P.leaf, P.leafDk], 13);
-    ['#C9963F', P.terracotta, P.leaf].forEach((c, i) => { s += `<g class="a-leaf d${i + 1}"><ellipse cx="${120 - i * 150}" cy="${-230 + i * 20}" rx="5" ry="3" fill="${c}"/></g>`; });
-    s += [[-60, -290], [-36, -302]].map(([x, y], i) => `<g class="a-bird" style="animation-delay:${-i * 0.6}s"><g class="a-wing"><path d="M${x},${y} q5,-5 10,0 q5,-5 10,0" fill="none" stroke="${INK}" stroke-width="1.2" stroke-linecap="round"/></g></g>`).join('');
+    ['#C9963F', P.terracotta, P.leaf].forEach((c, i) => { s += pivot(120 - i * 150, -230 + i * 20, `a-leaf d${i + 1}`, `<ellipse cx="${120 - i * 150}" cy="${-230 + i * 20}" rx="5" ry="3" fill="${c}"/>`); });
+    s += [[-60, -290], [-36, -302]].map(([x, y], i) => `<g class="a-bird" style="animation-delay:${-i * 0.6}s">${pivot(x + 10, y, 'a-wing', `<path d="M${x},${y} q5,-5 10,0 q5,-5 10,0" fill="none" stroke="${INK}" stroke-width="1.2" stroke-linecap="round"/>`)}</g>`).join('');
     return s;
   };
 
@@ -778,7 +781,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
      watercolor filters. Only the small moving parts stay live, in a thin SVG over each scene.
      Add ?live to the address to see everything drawn live (that is what the bake captures). */
   const LIVE = /[?&]live\b/.test(location.search);
-  const ART = '/studentexperience/art/', ART_V = '1';
+  const ART = '/studentexperience/art/', ART_V = '2';
   const BAND = 32;   // the timeline layers cover LINE_Y ± BAND
   const artImg = (name, alt = '', i = 1) => `<img src="${ART}${name}.webp?v=${ART_V}" alt="${alt}" decoding="async"${i ? '' : ' fetchpriority="high"'}>`;
   const bake = { washes: [], scenes: [], line: null };
@@ -941,7 +944,12 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
       // the caption follows the camera inside its own wash
       const cx = clamp(cam, lo, hi);
       capEls[j].style.transform = `translate3d(${f(cx * scale)}px,0,0) translateX(-50%)`;
-      set(capEls[j], 'opacity', String(q(clamp(1 - d * 3.2, 0, 1))));
+      // Captions stay at full strength until the camera is most of the way to the next stop,
+      // then cross-fade with the next caption around the midpoint
+      const nb = BLOBS[j + (cam < lo ? -1 : 1)];
+      const gap = !nb ? BW + BETWEEN : cam < lo ? lo - (wide ? nb.x : nb.vx[nb.vx.length - 1]) : (wide ? nb.x : nb.vx[0]) - hi;
+      const u = Math.max(0, lo - cam, cam - hi) / gap;
+      set(capEls[j], 'opacity', String(q(clamp((0.56 - u) / 0.16, 0, 1))));
     });
     if (nearest !== lastNearest) { lastNearest = nearest; dots.forEach((dEl, j) => dEl.classList.toggle('on', j === nearest)); }
 
