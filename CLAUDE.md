@@ -90,6 +90,14 @@ drafting at a flip chart) and the residential experience (a campus walk, then
 a dorm common room). Each wash has a caption with a Capstone card (the last
 one is an Outcome). Wide screens stop on each wash; phones stop on each scene.
 Keep the captions in step with the program copy in the two-pager.
+The watercolor filters are far too slow to run live while scrolling, so the
+painted art (washes, scenes, the brushed timeline) ships as WebP images in
+`studentexperience/art/`, baked from the page's own drawing code by
+`tools/bake-student-experience.js`. Only the small moving parts (gestures,
+steam, leaves, scrolling code) stay live, in a thin SVG over each scene. After
+changing any drawing, re-run the bake (instructions at the top of the script)
+and bump `ART_V` in the page. Add `?live` to the page address to see everything
+drawn live, which is what the bake captures.
 
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and

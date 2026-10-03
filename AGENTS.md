@@ -33,4 +33,6 @@ A few notes for people and agents new to the repo:
     Edit the grid in `index.html` only.
   - `studentexperience/index.html` draws every scene in its own inline
     script (people, furniture and washes are SVG built from helper
-    functions). Edit the scenes and captions there.
+    functions). Edit the scenes and captions there, then re-run
+    `tools/bake-student-experience.js` and bump `ART_V`: visitors see baked
+    images of the art, so a drawing change does not show until it is baked.
