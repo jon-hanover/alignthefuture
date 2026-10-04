@@ -94,10 +94,14 @@ The watercolor filters are far too slow to run live while scrolling, so the
 painted art (washes, scenes, the brushed timeline) ships as WebP images in
 `studentexperience/art/`, baked from the page's own drawing code by
 `tools/bake-student-experience.js`. Only the small moving parts (gestures,
-steam, leaves, scrolling code) stay live, in a thin SVG over each scene. After
-changing any drawing, re-run the bake (instructions at the top of the script)
-and bump `ART_V` in the page. Add `?live` to the page address to see everything
-drawn live, which is what the bake captures.
+steam, leaves, scrolling code) stay live, drawn in the same SVG as the scene's
+image and posed by a small script through SVG `transform` attributes (CSS
+transforms on SVG parts land in different places on Apple devices). After
+changing any drawing, re-run the bake (instructions at the top of the script).
+It also records where each scene's art sits (`ART_FIT`) and bumps `ART_V` in
+the page, so the moving parts line up with the image on every device. Add
+`?live` to the page address to see everything drawn live, which is what the
+bake captures.
 
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and

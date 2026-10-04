@@ -50,7 +50,6 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 .wash, .scene { position: absolute; will-change: opacity, filter; }
 .paint-clip > * { will-change: transform; }
 .wash img, .scene img { display: block; width: 100%; height: auto; }
-.scene > svg.fx { position: absolute; left: 0; top: 0; }
 .paint-clip img { position: absolute; left: 0; top: 0; display: block; }
 .stage.moving .scene * { animation-play-state: paused !important; }
 .wash svg, .scene > svg { display: block; width: 100%; height: auto; overflow: visible; }
@@ -734,10 +733,13 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
      watercolor filters. Only the small moving parts stay live, in a thin SVG over each scene.
      Add ?live to the address to see everything drawn live (that is what the bake captures). */
   const LIVE = /[?&]live\b/.test(location.search);
-  const ART = '/studentexperience/art/', ART_V = '4';
+  const ART = '/studentexperience/art/', ART_V = '5';
+  // Where each scene's art sits, recorded by the bake so the moving parts land exactly on the
+  // painted image on every device (measuring live can differ slightly between browsers)
+  const ART_FIT = {"0-0":"translate(-278.6 -63.4) scale(0.7173999999999999)","0-1":"translate(149.4 -53.5) scale(0.798)","1-0":"translate(-5.2 -45.1) scale(0.7841)","2-0":"translate(-249.1 -44) scale(1.0382)","2-1":"translate(176.1 -12.1) scale(1.0717)","3-0":"translate(-262 -49.1) scale(0.7736000000000001)","3-1":"translate(261.2 -85.6) scale(0.7825)"};
   const BAND = 32;   // the timeline layers cover LINE_Y ± BAND
   const artImg = (name, alt = '', i = 1) => `<img src="${ART}${name}.webp?v=${ART_V}" alt="${alt}" decoding="async"${i ? '' : ' fetchpriority="high"'}>`;
-  const bake = { washes: [], scenes: [], line: null };
+  const bake = { washes: [], scenes: [], line: null, fits: {} };
   const world = document.getElementById('world');
   const stage = document.getElementById('stage');
   const journey = document.getElementById('journey');
@@ -780,10 +782,15 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     const label = b.scenes.map(sc => sc.label).join(' ');
     el.innerHTML = `<svg viewBox="${-b.w / 2} -340 ${b.w} ${ART_H}" role="img" aria-label="${label}">${b.scenes.map((sc, j) => `<g class="art" data-cx="${f(b.vx[j] - b.x)}" data-w="${sc.w}">${sc.draw()}</g>`).join('')}</svg>`;
     world.appendChild(el);
-    el.querySelectorAll('.art').forEach(art => {
-      const bb = art.getBBox(), cx = +art.dataset.cx;
-      const k = clamp(Math.min((+art.dataset.w - 10) / bb.width, 312 / bb.height), 0.7, 1.45);
-      art.setAttribute('transform', `translate(${f(cx - (bb.x + bb.width / 2) * k)} ${f(-24 - (bb.y + bb.height) * k)}) scale(${f(k * 1000) / 1000})`);
+    el.querySelectorAll('.art').forEach((art, j) => {
+      let t = !LIVE && ART_FIT && ART_FIT[`${i}-${j}`];
+      if (!t) {
+        const bb = art.getBBox(), cx = +art.dataset.cx;
+        const k = clamp(Math.min((+art.dataset.w - 10) / bb.width, 312 / bb.height), 0.7, 1.45);
+        t = `translate(${f(cx - (bb.x + bb.width / 2) * k)} ${f(-24 - (bb.y + bb.height) * k)}) scale(${f(k * 1000) / 1000})`;
+      }
+      bake.fits[`${i}-${j}`] = t;
+      art.setAttribute('transform', t);
     });
     const svg = el.querySelector('svg');
     bake.scenes.push({ name: `scene-${i}`, svg: svg.outerHTML, w: b.w, h: ART_H });
@@ -795,9 +802,14 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
         a.querySelectorAll('*').forEach(d => keep.add(d));
       });
       [...svg.querySelectorAll('*')].forEach(n => { if (!keep.has(n)) n.remove(); });
-      svg.classList.add('fx');
-      svg.removeAttribute('role'); svg.removeAttribute('aria-label'); svg.setAttribute('aria-hidden', 'true');
-      el.insertAdjacentHTML('afterbegin', artImg(`scene-${i}`, label, i));
+      // The painted scene goes inside the same SVG, beneath the moving parts, so both share one
+      // coordinate system and cannot drift apart
+      const img = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+      img.setAttribute('href', `${ART}scene-${i}.webp?v=${ART_V}`);
+      img.setAttribute('x', -b.w / 2); img.setAttribute('y', -340);
+      img.setAttribute('width', b.w); img.setAttribute('height', ART_H);
+      img.setAttribute('preserveAspectRatio', 'none');
+      svg.prepend(img);
     }
     return el;
   });

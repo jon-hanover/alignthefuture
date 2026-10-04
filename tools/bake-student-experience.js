@@ -6,8 +6,8 @@
 // saves it as WebP. The page then shows those images, with only the small moving parts
 // (gestures, steam, leaves, scrolling code) drawn live on top.
 //
-// Run it after any change to the drawings, then bump ART_V in the page so browsers
-// fetch the new images:
+// Run it after any change to the drawings. It also records where each scene's art sits
+// (ART_FIT) and bumps ART_V in the page, so browsers fetch the new images:
 //
 //   python3 -m http.server 8000          (in the repo root, in another terminal)
 //   node tools/bake-student-experience.js [http://localhost:8000]
@@ -37,6 +37,15 @@ const QUALITY = { scene: 0.9, wash: 0.8, line: 0.9 };
     const b = window.__bake;
     return [...b.washes.map(j => ({ ...j, kind: 'wash' })), ...b.scenes.map(j => ({ ...j, kind: 'scene' })), { ...b.line, kind: 'line' }];
   });
+  // Record each scene's placement in the page, and bump the image version
+  const fits = await page.evaluate(() => window.__bake.fits);
+  const pageFile = path.join(__dirname, '..', 'studentexperience', 'index.html');
+  let html = fs.readFileSync(pageFile, 'utf8');
+  const fitLine = /const ART_FIT = .*;/;
+  const verLine = /ART_V = '(\d+)'/;
+  if (!fitLine.test(html) || !verLine.test(html)) throw new Error('ART_FIT or ART_V line not found in the page');
+  html = html.replace(fitLine, `const ART_FIT = ${JSON.stringify(fits)};`)
+    .replace(verLine, (m, v) => `ART_V = '${+v + 1}'`);
   // Drop the live page so gradient and mask ids resolve to the copy being baked
   await page.evaluate(() => document.getElementById('journey').remove());
   // A clean, transparent sheet that keeps the page's filter definitions
@@ -74,5 +83,7 @@ const QUALITY = { scene: 0.9, wash: 0.8, line: 0.9 };
     fs.writeFileSync(file, Buffer.from(webp, 'base64'));
     console.log(`${j.name}.webp  ${w}x${h}  ${(fs.statSync(file).size / 1024).toFixed(0)} KB`);
   }
+  fs.writeFileSync(pageFile, html);
+  console.log('page updated: ART_FIT recorded, ' + html.match(verLine)[0]);
   await browser.close();
 })();
