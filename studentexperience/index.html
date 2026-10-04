@@ -410,15 +410,12 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
         if (o.earrings) headInner += circ(-2.4, 5, 1.6, P.gold, { noInk: true });
       }
       let head = g(headInner, 'transform="translate(1 -164)"');
-      if (o.headClass) head = pivot(1, -154, o.headClass, head);
 
       const [nearPts, farPts] = o.armPts || ARMS[o.arms || 'down'];
       const armShape = (p, c) => limb(p, 7.2, c) + ell(p[p.length - 1][0], p[p.length - 1][1], 3.3, 3.8, view === 'back' ? skinDk : skin, { iw: 0.7 });
       const sleeve = o.sleeve || top;
       let farArm = armShape(farPts, shade(sleeve, -0.18));
       let nearArm = armShape(nearPts, sleeve);
-      if (o.armClass && view !== 'back') nearArm = pivot(nearPts[0][0], nearPts[0][1], o.armClass, nearArm);
-      if (o.farClass && view !== 'back') farArm = pivot(farPts[0][0], farPts[0][1], o.farClass, farArm);
       const upper = view === 'back' ? farArm + nearArm + neck + body + head : farArm + neck + body + head + nearArm;
       const leanT = o.lean ? ` rotate(${o.lean} 0 -92)` : '';
       const shadow = washOnly(`<ellipse cx="4" cy="-1" rx="22" ry="5" fill="rgba(60,50,40,0.13)"/>`);
@@ -469,7 +466,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += `<g filter="url(#halo)"><ellipse cx="${f(lx)}" cy="${f(ly - 115)}" rx="60" ry="42" fill="#FFF0BC" opacity=".7"/></g>`;
     s += obj(() => ell(lx, ly, 12, 5, P.charcoal) + stick([[lx, ly], [lx, ly - 150]], 2.6, P.charcoal) + path(`M${f(lx - 17)},${f(ly - 140)} L${f(lx + 17)},${f(ly - 140)} L${f(lx + 10)},${f(ly - 168)} L${f(lx - 10)},${f(ly - 168)}Z`, P.cream) + dust(lx - 30, ly - 110));
     s += obj(() => box(-20, 0, 0, 62, 66, 34, P.tealDk) + box(-28, 0, 0, 12, 66, 82, P.tealDk) + box(-20, -6, 0, 62, 10, 56, shade(P.tealDk, 0.05)));
-    s += at(10, 36, { ...ME, pose: 'sit', arms: 'book', headClass: 'a-nod', held: () => openBook(22, -118, 13, P.blue) + pivot(22, -113, 'a-page', poly([[22, -118], [33, -121.5], [33, -111], [22, -108]], P.paper, { iw: 0.7 })), s: 0.92 });
+    s += at(10, 36, { ...ME, pose: 'sit', arms: 'book', held: () => openBook(22, -118, 13, P.blue) + poly([[22, -118], [33, -121.5], [33, -111], [22, -108]], P.paper, { iw: 0.7 }), s: 0.92 });
     s += obj(() => box(-20, 62, 0, 62, 12, 56, shade(P.tealDk, 0.08)));
     s += obj(() => {
       let t = table(80, 40, 40, 40, 52, P.wood);
@@ -490,12 +487,12 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += obj(() => { const [cx, cy] = iso(0, 0, 30); return table(-26, -26, 52, 52, 30, P.wood) + closedBook(cx - 18, cy - 8, P.blue, -10) + closedBook(cx + 2, cy - 10, P.burgundy, 8) + openBook(cx - 4, cy - 4, 9, P.mustard); });
     const R = 112;
     const seats = [
-      { a: -135, prof: true, p: { skin: SKIN[5], hair: 'afro', hairColor: HAIR.black, top: P.plum, outfit: 'blazer', shirt: P.cream, bottom: P.charcoal, glasses: true, earrings: true, arms: 'gesture', armClass: 'a-gesture' }, view: 'front', flip: false, face: '+x' },
-      { a: -90, p: { skin: SKIN[0], hair: 'bob', hairColor: HAIR.blond, top: P.mustard, bottom: P.navy, arms: 'book', headClass: 'a-nod', held: () => openBook(22, -118, 11, P.blue) }, view: 'front', flip: true, face: '+y' },
+      { a: -135, prof: true, p: { skin: SKIN[5], hair: 'afro', hairColor: HAIR.black, top: P.plum, outfit: 'blazer', shirt: P.cream, bottom: P.charcoal, glasses: true, earrings: true, arms: 'gesture' }, view: 'front', flip: false, face: '+x' },
+      { a: -90, p: { skin: SKIN[0], hair: 'bob', hairColor: HAIR.blond, top: P.mustard, bottom: P.navy, arms: 'book', held: () => openBook(22, -118, 11, P.blue) }, view: 'front', flip: true, face: '+y' },
       { a: -45, p: { skin: SKIN[3], hair: 'fade', hairColor: HAIR.black, top: P.slate, outfit: 'hoodie', bottom: P.charcoal, arms: 'chin' }, view: 'front', flip: true, face: '+y' },
-      { a: 180, p: { skin: SKIN[1], hair: 'hijab', hairColor: P.tealDk, top: P.cream, bottom: P.navy, arms: 'book', headClass: 'a-nod d2', held: () => openBook(22, -118, 12, P.burgundy) + pivot(22, -112.5, 'a-page', poly([[22, -118], [34, -121.6], [34, -110], [22, -107]], P.paper, { iw: 0.7 })) + g(pen([[24, -108], [31, -121]], 1.6, '#2E3036'), 'class="a-write"') }, view: 'front', flip: false, face: '+x' },
-      { a: 0, p: { skin: SKIN[4], hair: 'braids', hairColor: HAIR.black, top: P.olive, bottom: P.denim, arms: 'gesture', armClass: 'a-gesture d2' }, view: 'back', flip: true, face: '-x' },
-      { a: 135, p: { ...ME, arms: 'lap', headClass: 'a-nod d2' }, view: 'back', flip: false, face: '-y' },
+      { a: 180, p: { skin: SKIN[1], hair: 'hijab', hairColor: P.tealDk, top: P.cream, bottom: P.navy, arms: 'book', held: () => openBook(22, -118, 12, P.burgundy) + poly([[22, -118], [34, -121.6], [34, -110], [22, -107]], P.paper, { iw: 0.7 }) + pen([[24, -108], [31, -121]], 1.6, '#2E3036') }, view: 'front', flip: false, face: '+x' },
+      { a: 0, p: { skin: SKIN[4], hair: 'braids', hairColor: HAIR.black, top: P.olive, bottom: P.denim, arms: 'gesture' }, view: 'back', flip: true, face: '-x' },
+      { a: 135, p: { ...ME, arms: 'lap' }, view: 'back', flip: false, face: '-y' },
       { a: 90, p: { skin: SKIN[0], hair: 'curly', hairColor: HAIR.auburn, top: P.navy, bottom: P.charcoal, arms: 'pocket' }, view: 'back', flip: false, face: '-y' },
       { a: 45, p: { skin: SKIN[2], hair: 'long', hairColor: HAIR.brown, top: P.blush, bottom: P.denim, arms: 'down' }, view: 'back', flip: true, face: '-x' },
     ];
@@ -518,8 +515,8 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += obj(() => face([[-30, -26, 74.5], [30, -26, 74.5], [30, -12, 74.5], [-30, -12, 74.5]], '#666B74', { iw: 0.8 }) + face([[42, -36, 74.5], [74, -36, 74.5], [74, -10, 74.5], [42, -10, 74.5]], P.paper, { iw: 0.8 })
       + face([[42, -36, 74.6], [44, -36, 74.6], [44, -10, 74.6], [42, -10, 74.6]], P.blue, { noInk: true }) + onTop(48, -32, 75, washOnly(paperLines)) + mug(70, -56, 74, P.cream));
     const ch = chair(0, 20, P.charcoal, '-y');
-    s += obj(() => ch.under) + at(0, 22, { ...ME, pose: 'sit', view: 'back', arms: 'type', armClass: 'a-type', farClass: 'a-type', flip: true, s: 0.94 }) + obj(() => ch.over);
-    s += at(96, -6, { skin: SKIN[1], hair: 'short', hairColor: HAIR.salt, glasses: true, top: P.shirt, outfit: 'cardigan', sleeve: P.slate, bottom: P.charcoal, lanyard: true, view: 'front', flip: true, lean: -14, armClass: 'a-gesture', armPts: [[[9.5, -142], [30, -150], [52, -160]], [[-9.5, -142], [-2, -121], [10, -100]]] });
+    s += obj(() => ch.under) + at(0, 22, { ...ME, pose: 'sit', view: 'back', arms: 'type', flip: true, s: 0.94 }) + obj(() => ch.over);
+    s += at(96, -6, { skin: SKIN[1], hair: 'short', hairColor: HAIR.salt, glasses: true, top: P.shirt, outfit: 'cardigan', sleeve: P.slate, bottom: P.charcoal, lanyard: true, view: 'front', flip: true, lean: -14, armPts: [[[9.5, -142], [30, -150], [52, -160]], [[-9.5, -142], [-2, -121], [10, -100]]] });
     const [nx, ny] = iso(58, -24, 75);
     s += `<path d="M${f(nx)},${f(ny - 4)} C${f(nx - 30)},${f(ny - 70)} ${f(nx - 160)},${f(ny - 120)} -190,-212" fill="none" stroke="#8B939C" stroke-width="1" stroke-dasharray="2 4"/>`;
     s += obj(() => path(blob(-212, -266, 112, 62, 0.04, 14, 4), P.paper, { iw: 1 }) + hand(-296, -282, 'H1: more data, fewer errors?') + hand(-296, -261, 'H2: it learns the rule,') + hand(-275, -243, 'not the examples') + hand(-296, -222, 'H3: ?', 15, P.blue));
@@ -562,11 +559,11 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
       return t + mug(40, -16, 68, P.tealDk);
     });
     // the researcher at the screen: grey hair, glasses, a lanyard
-    s += at(112, -74, { skin: SKIN[1], hair: 'short', hairColor: HAIR.salt, glasses: true, top: P.shirt, outfit: 'cardigan', sleeve: P.slate, bottom: P.charcoal, lanyard: true, view: 'front', flip: true, armClass: 'a-gesture', armPts: [[[9.5, -142], [28, -158], [46, -176]], [[-9.5, -142], [-12, -119], [-8, -100]]] });
+    s += at(112, -74, { skin: SKIN[1], hair: 'short', hairColor: HAIR.salt, glasses: true, top: P.shirt, outfit: 'cardigan', sleeve: P.slate, bottom: P.charcoal, lanyard: true, view: 'front', flip: true, armPts: [[[9.5, -142], [28, -158], [46, -176]], [[-9.5, -142], [-12, -119], [-8, -100]]] });
     // two students at their laptops, seen from behind
     [[-58, 62, { ...ME }], [22, 62, { skin: SKIN[3], hair: 'ponytail', hairColor: HAIR.brown, top: P.tealDk, bottom: P.charcoal }]].forEach(([gx, gy, p]) => {
       const ch = chair(gx, gy, P.charcoal, '-y');
-      s += obj(() => ch.under) + at(gx, gy, { ...p, pose: 'sit', view: 'back', arms: 'type', armClass: 'a-type', farClass: 'a-type', flip: false, s: 0.92 }) + obj(() => ch.over);
+      s += obj(() => ch.under) + at(gx, gy, { ...p, pose: 'sit', view: 'back', arms: 'type', flip: false, s: 0.92 }) + obj(() => ch.over);
     });
     return s;
   };
@@ -575,11 +572,11 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     GY = -60;
     let s = obj(() => rug(-20, 0, 125, '#E9DCC4'));
     // students on the far side, facing us
-    [[-70, -76, { skin: SKIN[0], hair: 'bob', hairColor: HAIR.brown, top: P.slate, arms: 'write' }], [-10, -76, { skin: SKIN[4], hair: 'locs', hairColor: HAIR.black, top: P.mustard, arms: 'open', headClass: 'a-nod' }], [50, -76, { skin: SKIN[1], hair: 'hijab', hairColor: P.plum, top: P.cream, arms: 'lap' }]]
+    [[-70, -76, { skin: SKIN[0], hair: 'bob', hairColor: HAIR.brown, top: P.slate, arms: 'write' }], [-10, -76, { skin: SKIN[4], hair: 'locs', hairColor: HAIR.black, top: P.mustard, arms: 'open' }], [50, -76, { skin: SKIN[1], hair: 'hijab', hairColor: P.plum, top: P.cream, arms: 'lap' }]]
       .forEach(([gx, gy, p]) => { const ch = chair(gx, gy, P.woodDk, '+y'); s += obj(() => ch.under) + at(gx, gy, { ...p, pose: 'sit', view: 'front', flip: true, s: 0.9 }); });
     // the state senator at the head of the table
     const chO = chair(-168, -12, P.woodDk, '+x');
-    s += obj(() => chO.under) + at(-168, -12, { skin: SKIN[4], hair: 'bun', hairColor: HAIR.grey, top: P.burgundy, outfit: 'blazer', shirt: P.shirt, bottom: P.burgundy, skirt: true, pin: true, pearls: true, pose: 'sit', view: 'front', arms: 'gesture', armClass: 'a-gesture', s: 0.96 });
+    s += obj(() => chO.under) + at(-168, -12, { skin: SKIN[4], hair: 'bun', hairColor: HAIR.grey, top: P.burgundy, outfit: 'blazer', shirt: P.shirt, bottom: P.burgundy, skirt: true, pin: true, pearls: true, pose: 'sit', view: 'front', arms: 'gesture', s: 0.96 });
     // the table: papers, water glasses and a name card
     s += obj(() => {
       let t = table(-110, -50, 190, 76, 66, P.wood);
@@ -588,9 +585,9 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
       t += face([[-100, -8, 66], [-100, 16, 66], [-100, 16, 78], [-100, -8, 78]], P.paper, { iw: 0.8 }) + onRightFace(-100, 14, 69, inkOnly(`<text x="1.5" y="0" font-family="Raleway, sans-serif" font-weight="700" font-size="5" letter-spacing=".5" fill="${INK}">SENATOR</text>`));
       return t;
     });
-    s += obj(() => g(pen([iso(-50, 10, 67), iso(-44, 4, 80)], 1.6), 'class="a-write"'));
+    s += obj(() => pen([iso(-50, 10, 67), iso(-44, 4, 80)], 1.6));
     // students on the near side, from behind
-    [[-40, 52, { ...ME, arms: 'open', armClass: 'a-gesture d2' }], [24, 52, { skin: SKIN[3], hair: 'fade', hairColor: HAIR.black, top: P.olive, arms: 'lap', headClass: 'a-nod d2' }]]
+    [[-40, 52, { ...ME, arms: 'open' }], [24, 52, { skin: SKIN[3], hair: 'fade', hairColor: HAIR.black, top: P.olive, arms: 'lap' }]]
       .forEach(([gx, gy, p]) => { const ch = chair(gx, gy, P.woodDk, '-y'); s += obj(() => ch.under) + at(gx, gy, { ...p, pose: 'sit', view: 'back', flip: false, s: 0.92 }) + obj(() => ch.over); });
     return s;
   };
@@ -602,10 +599,10 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
       + onLeftFace(98, -100, 166, hand(0, 18, 'What policies do we need?', 15, '#3F6F3E', 92)
         + inkOnly(`<path d="M0,40 q6,-4 12,0 t12,0 t12,-1 t12,1 t12,0 t12,0 t10,0" fill="none" stroke="${INK}" stroke-width="1.3" class="a-draw"/>`)));
     s += obj(() => table(-100, -40, 44, 44, 92, P.wood) + mug(-84, -26, 92, P.paper) + mug(-70, -12, 92, P.terracotta) + face([[-96, -36, 92.5], [-74, -36, 92.5], [-74, -20, 92.5], [-96, -20, 92.5]], P.paper, { iw: 0.7 }));
-    s += at(-73, -87, { skin: SKIN[5], hair: 'fade', hairColor: HAIR.black, top: P.mustard, outfit: 'hoodie', bottom: P.charcoal, view: 'front', flip: true, arms: 'gesture', armClass: 'a-gesture', s: 0.92 });
-    s += at(-10, -60, { skin: SKIN[1], hair: 'long', hairColor: HAIR.brown, top: P.plum, bottom: P.navy, view: 'front', flip: true, arms: 'pocket', headClass: 'a-nod', s: 0.92 });
+    s += at(-73, -87, { skin: SKIN[5], hair: 'fade', hairColor: HAIR.black, top: P.mustard, outfit: 'hoodie', bottom: P.charcoal, view: 'front', flip: true, arms: 'gesture', s: 0.92 });
+    s += at(-10, -60, { skin: SKIN[1], hair: 'long', hairColor: HAIR.brown, top: P.plum, bottom: P.navy, view: 'front', flip: true, arms: 'pocket', s: 0.92 });
     s += at(-110, 40, { skin: SKIN[3], hair: 'hijab', hairColor: P.blue, top: P.tealDk, bottom: P.charcoal, view: 'back', flip: false, arms: 'pocket', s: 0.94 });
-    s += at(70, -40, { ...ME, view: 'front', flip: false, armClass: 'a-type', armPts: [[[9.5, -142], [28, -150], [44, -160]], [[-9.5, -142], [-12, -119], [-7, -103]]], s: 0.95 });
+    s += at(70, -40, { ...ME, view: 'front', flip: false, armPts: [[[9.5, -142], [28, -150], [44, -160]], [[-9.5, -142], [-12, -119], [-7, -103]]], s: 0.95 });
     return s;
   };
 
@@ -614,8 +611,8 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     let s = `<g filter="url(#leafy)" opacity=".9"><path d="M-300,-60 C-160,-80 -60,-30 20,-10 C110,12 200,4 300,-20 L300,10 C200,34 100,40 10,22 C-70,4 -170,-46 -300,-34Z" fill="${P.path}"/></g>`;
     s += tree(-230, -60, 150, 60, [P.leafDk, P.leaf, P.leafLt], 3) + tree(-120, -96, 190, 70, [P.leaf, P.leafDk, '#9DBB86'], 7) + tree(200, -70, 170, 66, [P.leafDk, '#9DBB86', P.leaf], 11);
     s += `<g filter="url(#leafy)"><path d="${blob(110, -40, 40, 14, 0.2, 9, 2)}" fill="${P.leafDk}" opacity=".5"/><path d="${blob(-60, 0, 30, 10, 0.2, 9, 5)}" fill="${P.leaf}" opacity=".45"/></g>`;
-    s += g(person({ skin: SKIN[4], hair: 'braids', hairColor: HAIR.black, top: P.mustard, outfit: 'cardigan', bottom: P.navy, x: -26, y: -14, pose: 'walk', arms: 'carry', held: () => closedBook(14, -122, P.burgundy, -70), s: 0.95 }), 'class="a-bob"');
-    s += g(person({ ...ME, x: 28, y: -6, pose: 'walk', arms: 'gesture', armClass: 'a-gesture', s: 0.95 }), 'class="a-bob d2"');
+    s += g(person({ skin: SKIN[4], hair: 'braids', hairColor: HAIR.black, top: P.mustard, outfit: 'cardigan', bottom: P.navy, x: -26, y: -14, pose: 'walk', arms: 'carry', held: () => closedBook(14, -122, P.burgundy, -70), s: 0.95 }));
+    s += g(person({ ...ME, x: 28, y: -6, pose: 'walk', arms: 'gesture', s: 0.95 }));
     s += tree(270, -10, 120, 46, [P.leaf, P.leafDk], 13);
     ['#C9963F', P.terracotta, P.leaf].forEach((c, i) => { s += pivot(120 - i * 150, -230 + i * 20, `a-leaf d${i + 1}`, `<ellipse cx="${120 - i * 150}" cy="${-230 + i * 20}" rx="5" ry="3" fill="${c}"/>`); });
     s += [[-60, -290], [-36, -302]].map(([x, y], i) => `<g class="a-bird${i ? ' d2' : ''}">${pivot(x + 10, y, 'a-wing', `<path d="M${x},${y} q5,-5 10,0 q5,-5 10,0" fill="none" stroke="${INK}" stroke-width="1.2" stroke-linecap="round"/>`)}</g>`).join('');
@@ -645,8 +642,8 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     s += obj(() => rug(10, 10, 110, '#D8C3A0'));
     // couch against the back wall, two students on it
     s += obj(() => box(-60, -134, 0, 120, 44, 30, P.tealDk) + box(-60, -134, 30, 120, 10, 40, shade(P.tealDk, 0.05)) + box(-70, -134, 0, 10, 44, 46, shade(P.tealDk, -0.05)));
-    s += at(-30, -104, { skin: SKIN[5], hair: 'afro', hairColor: HAIR.black, top: P.mustard, bottom: P.denim, pose: 'sit', view: 'front', flip: true, arms: 'mug', held: () => path('M22,-128 l7,0 l-0.6,-8 l-5.8,0Z', P.paper, { iw: 0.7 }), s: 0.9, headClass: 'a-nod' });
-    s += at(24, -104, { skin: SKIN[0], hair: 'ponytail', hairColor: HAIR.blond, top: P.slate, bottom: P.charcoal, pose: 'sit', view: 'front', flip: true, arms: 'gesture', armClass: 'a-gesture', s: 0.9 });
+    s += at(-30, -104, { skin: SKIN[5], hair: 'afro', hairColor: HAIR.black, top: P.mustard, bottom: P.denim, pose: 'sit', view: 'front', flip: true, arms: 'mug', held: () => path('M22,-128 l7,0 l-0.6,-8 l-5.8,0Z', P.paper, { iw: 0.7 }), s: 0.9 });
+    s += at(24, -104, { skin: SKIN[0], hair: 'ponytail', hairColor: HAIR.blond, top: P.slate, bottom: P.charcoal, pose: 'sit', view: 'front', flip: true, arms: 'gesture', s: 0.9 });
     s += obj(() => box(60, -134, 0, 10, 44, 46, shade(P.tealDk, -0.05)));
     // coffee table
     s += obj(() => table(-10, -40, 60, 44, 28, P.wood) + mug(4, -26, 28, P.paper) + mug(32, -10, 28, P.burgundy) + closedBook(...iso(18, -34, 28), P.blue, -30) + face([[-4, -8, 28.5], [18, -8, 28.5], [18, 2, 28.5], [-4, 2, 28.5]], '#666B74', { iw: 0.7 }));
@@ -654,7 +651,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     const [bx, by] = iso(-86, 2, 0);
     s += obj(() => path(blob(bx - 14, by - 32, 30, 28, 0.12, 9, 31), shade(P.terracotta, 0.04)) + path(blob(bx + 2, by - 13, 42, 19, 0.1, 10, 32), P.terracotta)
       + path(`M${f(bx - 22)},${f(by - 22)} C${f(bx - 6)},${f(by - 16)} ${f(bx + 10)},${f(by - 18)} ${f(bx + 24)},${f(by - 24)}`, 'none', { iw: 0.8 }));
-    s += at(-84, 4, { ...ME, top: P.navy, outfit: 'hoodie', bottom: P.charcoal, pose: 'low', view: 'front', arms: 'open', armClass: 'a-gesture d2', lean: 4, s: 0.92 });
+    s += at(-84, 4, { ...ME, top: P.navy, outfit: 'hoodie', bottom: P.charcoal, pose: 'low', view: 'front', arms: 'open', lean: 4, s: 0.92 });
     // a student cross-legged on a floor cushion, back to us
     s += obj(() => ell(...iso(70, 50, 0), 26, 12, P.plum));
     s += at(70, 50, { skin: SKIN[2], hair: 'long', hairColor: HAIR.black, top: P.blush, bottom: P.navy, pose: 'floor', view: 'back', flip: true, arms: 'lap', s: 0.92 });
@@ -733,7 +730,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
      watercolor filters. Only the small moving parts stay live, in a thin SVG over each scene.
      Add ?live to the address to see everything drawn live (that is what the bake captures). */
   const LIVE = /[?&]live\b/.test(location.search);
-  const ART = '/studentexperience/art/', ART_V = '5';
+  const ART = '/studentexperience/art/', ART_V = '6';
   // Where each scene's art sits, recorded by the bake so the moving parts land exactly on the
   // painted image on every device (measuring live can differ slightly between browsers)
   const ART_FIT = {"0-0":"translate(-278.6 -63.4) scale(0.7173999999999999)","0-1":"translate(149.4 -53.5) scale(0.798)","1-0":"translate(-5.2 -45.1) scale(0.7841)","2-0":"translate(-249.1 -44) scale(1.0382)","2-1":"translate(176.1 -12.1) scale(1.0717)","3-0":"translate(-262 -49.1) scale(0.7736000000000001)","3-1":"translate(261.2 -85.6) scale(0.7825)"};
@@ -828,17 +825,15 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 
 
   /* ---------- Scene loops ----------
+     Only the scenery moves (steam, leaves, birds, screens, the sticky note); the people are
+     painted still, since parts laid over a body drifted off it on Apple devices.
      Moving parts are turned by setting their SVG transform attribute, never a CSS transform.
      Each part sits in a group whose origin is its pivot (see pivot()), and SVG attribute math is
      the same in every browser; Safari places CSS transform origins on SVG parts differently.
      Frames are [time 0..1, x, y, rotate, scaleX, scaleY, opacity?]; delays shift the d2/d3 copies. */
   const MOTION = {
-    gesture: { dur: 2.8, ease: 1, delays: [-1.3], f: [[0, 0, 0, 0, 1, 1], [0.5, 0, 0, -8, 1, 1], [1, 0, 0, 0, 1, 1]] },
-    nod: { dur: 3.4, ease: 1, delays: [-1.7], f: [[0, 0, 0, 0, 1, 1], [0.7, 0, 0, 0, 1, 1], [0.78, 0, 0, 5, 1, 1], [0.86, 0, 0, -1, 1, 1], [0.92, 0, 0, 4, 1, 1], [1, 0, 0, 0, 1, 1]] },
-    type: { dur: 0.5, ease: 1, alt: 1, f: [[0, 0, 0, 0, 1, 1], [1, 0, -1.6, 0, 1, 1]] },
     steam: { dur: 3.2, ease: 1, delays: [-1.6], f: [[0, 0, 3, 0, 1, 1, 0], [0.4, 0, -3, 0, 1, 1, 0.6], [1, 0, -14, 0, 1, 1, 0]] },
     mote: { dur: 7, delays: [-2.4, -4.8], f: [[0, 0, 0, 0, 1, 1, 0], [0.2, 2, -8, 0, 1, 1, 0.8], [0.7, 7, -28, 0, 1, 1, 0.8], [1, 10, -40, 0, 1, 1, 0]] },
-    page: { dur: 5, ease: 1, f: [[0, 0, 0, 0, 1, 1, 1], [0.6, 0, 0, 0, 1, 1, 1], [0.7, 0, 0, 0, -1, 1, 0.9], [0.72, 0, 0, 0, 0, 1, 0], [0.74, 0, 0, 0, 1, 1, 0], [0.8, 0, 0, 0, 1, 1, 1], [1, 0, 0, 0, 1, 1, 1]] },
     grow: { dur: 3.4, ease: 1, delays: [-1.1, -2.2], f: [[0, 0, 0, 0, 1, 0.6], [0.5, 0, 0, 0, 1, 1], [1, 0, 0, 0, 1, 0.6]] },
     scroll: { dur: 4, f: [[0, 0, 0, 0, 1, 1], [1, 0, -14.8, 0, 1, 1]] },
     dot: { dur: 1.2, ease: 1, delays: [0.2, 0.4], f: [[0, 0, 0, 0, 1, 1, 0.4], [0.5, 0, -2, 0, 1, 1, 1], [1, 0, 0, 0, 1, 1, 0.4]] },
@@ -846,8 +841,6 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     leaf: { dur: 7, delays: [-2.3, -4.6], f: [[0, 0, -30, 0, 1, 1, 0], [0.15, -6, -9, 30, 1, 1, 0.9], [0.8, -32, 82, 160, 1, 1, 0.9], [1, -40, 110, 200, 1, 1, 0]] },
     bird: { dur: 11, delays: [-0.6], f: [[0, -60, 10, 0, 1, 1, 0], [0.1, -28, 5, 0, 1, 1, 0.8], [0.85, 212, -32.5, 0, 1, 1, 0.8], [1, 260, -40, 0, 1, 1, 0]] },
     wing: { dur: 0.5, ease: 1, alt: 1, f: [[0, 0, 0, 0, 1, 1], [1, 0, 0, 0, 1, -0.6]] },
-    bob: { dur: 0.9, ease: 1, alt: 1, delays: [-0.45], f: [[0, 0, 0, 0, 1, 1], [1, 0, -1.5, 0, 1, 1]] },
-    write: { dur: 1.8, ease: 1, f: [[0, 0, 0, 0, 1, 1], [0.3, 3, -1, 0, 1, 1], [0.6, 6, 1, 0, 1, 1], [1, 0, 0, 0, 1, 1]] },
   };
   const parts = sceneEls.map(el => [...el.querySelectorAll('[class*="a-"]')].map(n => {
     const m = MOTION[[...n.classList].find(c => c.startsWith('a-')).slice(2)];

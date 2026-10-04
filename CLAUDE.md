@@ -93,8 +93,10 @@ Keep the captions in step with the program copy in the two-pager.
 The watercolor filters are far too slow to run live while scrolling, so the
 painted art (washes, scenes, the brushed timeline) ships as WebP images in
 `studentexperience/art/`, baked from the page's own drawing code by
-`tools/bake-student-experience.js`. Only the small moving parts (gestures,
-steam, leaves, scrolling code) stay live, drawn in the same SVG as the scene's
+`tools/bake-student-experience.js`. The people are painted still: heads and
+arms laid live over a baked body drifted off it on Apple devices, and Jon
+preferred still people to that. Only the scenery moves (steam, leaves, birds,
+scrolling code and charts, the sticky note, string lights), drawn in the same SVG as the scene's
 image and posed by a small script through SVG `transform` attributes (CSS
 transforms on SVG parts land in different places on Apple devices). After
 changing any drawing, re-run the bake (instructions at the top of the script).
