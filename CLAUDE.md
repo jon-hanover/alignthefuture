@@ -105,6 +105,19 @@ the page, so the moving parts line up with the image on every device. Add
 `?live` to the page address to see everything drawn live, which is what the
 bake captures.
 
+`v2/` is an alternative homepage, shared by link only (nothing links to it
+and it is marked noindex). It is Jon's synthesis of his homepage and Aaron's
+October 2026 funder-facing rewrite (the "Playing around with the website"
+email thread): Aaron's section order and copy, the watercolor brand, a few of
+Jon's two-pager lines where the urgency needed a long-horizon counterweight,
+and no new copy. Its hero circles drift together once and rest (calmer than the
+homepage duet, after Aaron's "human, not playful" note). Like `/landscape/`,
+it does not copy the student experience: it fetches `/studentexperience/` and
+brings in that page's styles, `#journey` section, filter definitions and
+script, so edits there show up in `v2/` too. Keep those ids and the single
+inline `<style>` and `<script>` in that page, or update the loader at the
+bottom of `v2/index.html`.
+
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and
 `mailto:` links, open in the same tab. Follow this on every new page.

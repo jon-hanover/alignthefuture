@@ -37,3 +37,5 @@ A few notes for people and agents new to the repo:
     `tools/bake-student-experience.js`, which rewrites the images, the
     `ART_FIT` placements and `ART_V` in the page: visitors see baked images of
     the art, so a drawing change does not show until it is baked.
+  - `v2/index.html` (a link-only alternative homepage) loads that animation
+    from `/studentexperience/` when it opens. Edit the animation there only.
