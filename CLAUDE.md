@@ -243,12 +243,11 @@ this file when either changes.
 ## Aaron homepage proposal (working branch)
 
 On `aaron/updated-homepage`, `/v2/` is Aaron's review-first proposal. Its hero
-is “The future is theirs to align.” and its circles make one slow movement
-into alignment. The program model presents a shared humanities foundation,
+is “The future is theirs to align.” and its circles approach, overlap, adjust, and settle over 13 seconds. The program model presents a shared humanities foundation,
 two specialties (AI research and engineering; alignment policy and governance),
-and a shared final project alongside specialty capstones. Career pathways
-and differentiation are consolidated; launch status sits in the partner
-invitation. The shared student experience captions describe that same model.
+and a shared final project alongside specialty capstones. The compact program diagram exposes longer specialty descriptions through native
+details disclosures. Four career destinations use a two-by-two grid. Team and
+the founding invitation share a single closing section with launch status. The shared student experience captions describe that same model.
 Only captions and layout changed; baked artwork is unchanged and needs no rebake.
 
 For Aaron, hold changes on his branch, preview desktop and mobile, and let him
