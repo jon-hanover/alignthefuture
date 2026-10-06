@@ -109,15 +109,15 @@ bake captures.
 and it is marked noindex). It started as Jon's synthesis of his homepage and
 Aaron's October 2026 funder-facing rewrite (the "Playing around with the
 website" email thread), using only their words, then took Jon's edits. Order:
-hero ("The next generation should not just inherit an AI future..."), the
+hero ("The next generation should not just inherit the AI future..."), the
 challenge, "But it does not have to be this way" (Jon's tightened version),
 "aligned to what?", the student experience animation, the model with the four
 fact boxes, guiding questions (the three discipline cards), theory of change,
 complementary role (links to `/landscape/`), road to summer 2027, team and the
 partner invitation. The hero pair is the homepage duet in plain flat color
-(Jon: no code-drawn watercolor), resting at the right with "Human literacy /
-AI Literacy, + agency, = Human flourishing" beneath; it holds 2 seconds,
-dances, and settles back. Like `/landscape/`, it does not copy the student
+(Jon: no code-drawn watercolor), resting at the right with "Human literacy" and "AI Literacy" beneath; it
+holds 2 seconds, dances for about 24 seconds (the homepage moves plus two),
+and settles back. Only "shape it." in the headline takes the gradient. Like `/landscape/`, it does not copy the student
 experience: it fetches `/studentexperience/` and brings in that page's styles,
 `#journey` section, filter definitions and script, so edits there show up in
 `v2/` too. It pins the key question ("What if we gathered...") above the

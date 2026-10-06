@@ -53,7 +53,7 @@
   .hero .button { margin-top: 36px; }
 
   /* The pair: plain Humanities and AI circles. They rest, hold, dance for
-     about 20 seconds (the homepage duet) and settle back where they began. */
+     about 24 seconds (the homepage duet, a little longer) and settle back. */
   .hero { overflow: hidden; }
   .hero .copy { position: relative; z-index: 1; }
   .pair-fig { margin: 0; display: flex; flex-direction: column; align-items: center; }
@@ -64,15 +64,11 @@
   .pair-fig .fields span { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
   .pair-fig .fields span:first-child { color: var(--blue); border-right: 1px solid var(--rule); }
   .pair-fig .fields span:last-child { color: #A8892A; }
-  .pair-fig .plus { margin-top: 6px; font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); }
-  .pair-fig .aim { font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: #5E8A55; }
-  .pair-fig .op { font-weight: 600; margin-right: 0.15em; }
 
   /* The challenge */
   .challenge { border-top: 1px solid var(--rule); }
   .challenge .wrap { padding-top: 104px; padding-bottom: 104px; }
   .challenge h2 { margin-top: 18px; font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.14; }
-  .challenge h2 em { font-style: normal; color: var(--blue); }
 
   /* It does not have to be this way, washed in the logo colors */
   .turn { background: linear-gradient(135deg, rgba(45, 94, 147, 0.07), rgba(117, 158, 117, 0.08) 55%, rgba(214, 178, 70, 0.12)); }
@@ -127,9 +123,6 @@
   @media (prefers-reduced-motion: no-preference) {
     .journey .stage { top: var(--qh, 0px); height: calc(100svh - var(--qh, 0px)); }
   }
-  .after-day { background: #FCFBF7; }
-  .after-day .wrap { padding-top: 24px; padding-bottom: 104px; }
-  .after-day p { max-width: 760px; }
 
   /* Theory of change */
   .change { border-top: 1px solid var(--rule); }
@@ -225,7 +218,6 @@
     .hero .wrap { padding-top: 40px; padding-bottom: 72px; }
     .challenge .wrap, .turn .wrap, .belief .wrap, .model .wrap, .change .wrap, .role .wrap, .road .wrap, .people .wrap, .partner .wrap { padding-top: 72px; padding-bottom: 72px; }
     .fields-sec .wrap { padding-top: 72px; padding-bottom: 56px; }
-    .after-day .wrap { padding-bottom: 72px; }
     .facts { grid-template-columns: minmax(0, 1fr); }
     .steps { grid-template-columns: minmax(0, 1fr); }
     .steps li, .steps li + li { padding-left: 0; border-left: 0; }
@@ -250,11 +242,11 @@
   <section class="hero" aria-label="Introduction">
     <div class="wrap">
       <div class="copy">
-        <h1>The next generation should not just inherit an AI future. <span class="ramp-text">They should shape it.</span></h1>
+        <h1>The next generation should not just inherit the AI future. They should <span class="ramp-text">shape it.</span></h1>
         <p class="intro">An international, experiential program preparing exceptional young people to align and govern AI through policy, technical research, and a foundation of human literacy.</p>
         <a class="button" href="#partner">Help build the founding cohort</a>
       </div>
-      <figure class="pair-fig" aria-label="Human literacy and AI literacy, plus agency, make human flourishing">
+      <figure class="pair-fig" aria-label="Human literacy and AI literacy">
         <div class="pair" aria-hidden="true">
           <!-- At rest without script; the duet script below moves them -->
           <svg class="dance" viewBox="0 0 440 290" focusable="false">
@@ -266,8 +258,6 @@
         </div>
         <figcaption>
           <div class="fields"><span>Human literacy</span><span>AI Literacy</span></div>
-          <p class="plus"><span class="op">+</span> agency</p>
-          <p class="aim"><span class="op">=</span> Human flourishing</p>
         </figcaption>
       </figure>
     </div>
@@ -277,7 +267,7 @@
     <div class="wrap split">
       <div>
         <p class="eyebrow">The challenge</p>
-        <h2 id="challenge-title">For young people, the future is happening to them, <em>not through them.</em></h2>
+        <h2 id="challenge-title">For young people, the future is happening to them, not through them.</h2>
       </div>
       <div class="stack">
         <p class="lead">Young people are being prepared to adapt to an AI-driven future. To use its tools. To compete in its economy.</p>
@@ -315,12 +305,6 @@
   <div class="journey-slot" id="journey-slot">
     <div class="wrap"><p><a href="/studentexperience/">See a day in the program</a></p></div>
   </div>
-
-  <section class="after-day" aria-label="Beyond the summer">
-    <div class="wrap">
-      <p class="lead">Alongside their capstones, students would develop a learning agenda and civic action plans, building relationships intended to continue beyond the summer.</p>
-    </div>
-  </section>
 
   <section class="model" aria-labelledby="model-title">
     <div class="wrap">
@@ -474,15 +458,16 @@
 <script>
 /* The hero duet: the homepage's Humanities and AI circles, in plain color.
    They rest where the static markup draws them, hold 2 seconds, flirt for
-   about 20 seconds (overlapping, twice passing through each other) and
-   settle back in the same spot. The keyframes are the homepage's; reduced
-   motion, or no script, keeps the pair at rest. */
+   about 24 seconds (overlapping, twice passing through each other) and
+   settle back in the same spot. The homepage's keyframes, with two more
+   moves while they are swapped; reduced motion, or no script, keeps the
+   pair at rest. */
 (function () {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   var svg = document.querySelector(".hero .dance");
   var box = svg.parentNode;
   var blue = svg.querySelector(".b"), yellow = svg.querySelector(".y");
-  var HOLD = 2, END = 20.5;
+  var HOLD = 2, END = 24.3;
   // [seconds, blue x, blue y, yellow x, yellow y]: x in pixels from the stage
   // width W, radius r and resting midpoint c; y as a fraction of r.
   function keys(W, r, c) {
@@ -496,10 +481,12 @@
       [11.4, 0.78 * W, 0.2, 0.2 * W, -0.2],
       [13.2, 0.6 * W, -0.1, 0.4 * W, 0.1],
       [14.7, 0.5 * W + 0.1 * r, 0.1, 0.5 * W - 0.1 * r, -0.1],
-      [16.3, 0.4 * W - 0.6 * r, -0.15, 0.62 * W + 0.4 * r, 0.2],
-      [18.3, c - 0.95 * r, 0.1, c + 0.85 * r, -0.15],
-      [19.6, c - 0.35 * r, -0.05, c + 0.35 * r, 0.05],
-      [20.5, c - 0.5 * r, 0, c + 0.5 * r, 0]
+      [16.6, 0.7 * W, -0.2, 0.3 * W, 0.15],
+      [18.4, 0.55 * W + 0.2 * r, 0.15, 0.45 * W - 0.2 * r, -0.15],
+      [20.1, 0.4 * W - 0.6 * r, -0.15, 0.62 * W + 0.4 * r, 0.2],
+      [22.1, c - 0.95 * r, 0.1, c + 0.85 * r, -0.15],
+      [23.4, c - 0.35 * r, -0.05, c + 0.35 * r, 0.05],
+      [24.3, c - 0.5 * r, 0, c + 0.5 * r, 0]
     ];
   }
   // Smooth path through the keyframes (cubic Hermite, Catmull-Rom tangents)
