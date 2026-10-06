@@ -259,6 +259,22 @@
   .specialties summary { cursor: pointer; color: var(--blue); font-weight: 600; }
   .specialties details p { margin-top: 10px; }
   @media(max-width:600px) { .program-map { padding: 28px 20px; } .specialties { grid-template-columns: 1fr; } .specialties article { padding: 24px 0; } .specialties article + article { padding: 24px 0; border-left: 0; border-top: 1px solid #D5D0C3; } .program-map h3 { font-size: 1.3rem; } }
+
+  /* Keep the section rhythm while reducing the distance between ideas. */
+  .challenge .wrap, .turn .wrap, .belief .wrap, .model .wrap, .change .wrap, .people .wrap { padding-top: 72px; padding-bottom: 72px; }
+  .partner .wrap { padding-top: 88px; padding-bottom: 88px; }
+  .bios { margin-top: 36px; }
+  .closing { margin-top: 32px; }
+  .destinations { margin-top: 28px; }
+  .program-details { margin-top: 28px; border-top: 1px solid var(--rule); }
+  .program-details > summary { cursor: pointer; padding: 20px 0; color: var(--blue); font-family: var(--display); font-weight: 700; font-size: 19px; }
+  .program-details > summary span { display: block; padding-left: 22px; margin-top: 4px; font-family: var(--sans); font-weight: 400; font-size: 15px; color: var(--muted); }
+  .program-details .program-map { margin-top: 0; }
+  @media(max-width:600px) {
+    .challenge .wrap, .turn .wrap, .belief .wrap, .model .wrap, .change .wrap, .people .wrap { padding-top: 48px; padding-bottom: 48px; }
+    .partner .wrap { padding-top: 64px; padding-bottom: 64px; }
+    .journey-q { padding: 20px 20px 12px; }
+  }
 </style>
 </head>
 <body class="v2">
@@ -348,11 +364,13 @@
         <li><b>Expert mentors</b><span>Researchers, educators, and policy practitioners</span></li>
         <li><b>Original work</b><span>A specialty capstone and a shared final project</span></li>
       </ul>
+      <details class="program-details"><summary>Explore the program <span>Shared foundation, specialties, and capstones</span></summary>
       <div class="program-map" aria-label="Everyone shares humanities training, specializes in one area, then collaborates on a shared project">
         <div class="common-ground"><p class="eyebrow">Everyone · Shared foundation</p><h3>Humanities &amp; human literacy</h3><p>Moral philosophy, human flourishing, and what AI should serve.</p></div>
         <div class="specialties"><article><p class="eyebrow">Technical specialty</p><h3>AI research &amp; engineering</h3><p>Investigate live AI safety questions through experiments, model evaluation, and engineering.</p><details><summary>Explore the work</summary><p>Develop fluency in AI safety concepts, tools, and methods. Formulate hypotheses, design experiments, and analyze evidence with expert mentors.</p></details><p class="capstone-note"><strong>Specialty capstone</strong><br>A research paper or engineering contribution.</p></article><article><p class="eyebrow">Civic specialty</p><h3>Alignment policy &amp; governance</h3><p>Turn technical evidence into proposals grounded in democratic and diplomatic realities.</p><details><summary>Explore the work</summary><p>Weigh institutional trade-offs and develop, debate, and defend evidence-based proposals with experienced policy practitioners.</p></details><p class="capstone-note"><strong>Specialty capstone</strong><br>An evidence-based policy proposal.</p></article></div>
         <div class="joint-work"><p class="eyebrow">Together · Shared final project</p><h3>One alignment challenge. A joint response.</h3><p>Mixed teams bring technical evidence and human judgment to the same problem.</p></div>
       </div>
+      </details>
     </div>
   </section>
   <section class="change" aria-labelledby="change-title">
@@ -469,7 +487,7 @@
       // The question's height changes once its font loads; lay out again
       if (document.fonts) document.fonts.ready.then(function () { fit(); window.dispatchEvent(new Event('resize')); });
       var run = document.createElement('script');
-      run.textContent = code.textContent;
+      run.textContent = code.textContent.replace('(STOPS.length + 0.6) * 100', '(STOPS.length + 0.6) * 55');
       document.body.appendChild(run);
     })
     .catch(function () {});
