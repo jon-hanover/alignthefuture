@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Root Node Sketches · Align the Future</title>
+<!-- Sketches shared by link only: kept out of search engines -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Three animated sketches of root node problems, after Jesper Lindborg's work for Google DeepMind's Visualising AI project.">
+<link rel="icon" href="/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/brand/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/brand/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/brand/png/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500..800&family=Manrope:wght@400..800&family=Caveat+Brush&display=swap">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+  .sketches { display: grid; gap: 80px; padding-top: 48px; padding-bottom: 104px; }
+  .sketch h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; color: var(--blue); }
+  .sketch p { max-width: 760px; margin-top: 10px; color: var(--muted); }
+  .stage {
+    position: relative;
+    margin-top: 24px;
+    aspect-ratio: 16 / 10;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #172F4A;
+  }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .again {
+    position: absolute; right: 14px; bottom: 14px;
+    font: 600 13px/1 var(--sans); letter-spacing: 0.02em;
+    color: var(--on-deep);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 9px 15px;
+    cursor: pointer;
+  }
+  .again:hover { background: rgba(255, 255, 255, 0.16); }
+  .again:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .credit { max-width: 760px; font-size: 15px; color: var(--muted); }
+  .credit a { color: var(--blue); text-decoration: underline; text-decoration-color: rgba(45, 94, 147, 0.35); text-underline-offset: 3px; }
+  .credit a:hover { text-decoration-color: var(--blue); }
+  @media (max-width: 600px) {
+    .sketches { gap: 60px; padding-top: 32px; padding-bottom: 72px; }
+    .stage { aspect-ratio: 4 / 5; border-radius: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="brand" href="/" aria-label="Align the Future home"><img src="/brand/logo.png" alt="Align the Future" width="939" height="137"></a>
+  <nav class="nav" aria-label="Site"><a href="/team/">Team</a><a href="/faqs/">FAQs</a></nav>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Sketches</p>
+      <h1>Root node problems</h1>
+      <p class="lede">A root node is the first question in a decision tree. Solve it, and everything above it can branch. Three animations on that idea, after Jesper Lindborg’s work for Google DeepMind, redrawn in Align the Future’s colors. Each one grows a new tree every time it plays.</p>
+    </div>
+  </section>
+
+  <div class="wrap sketches">
+    <section class="sketch" aria-labelledby="s1">
+      <h2 id="s1">Breakthrough</h2>
+      <p>A root node pushes up against concrete until it cracks. Everything above grows from that one break: Humanities blue to the left, AI Research gold to the right, and sage green where they meet.</p>
+      <div class="stage" data-scene="breakthrough">
+        <canvas role="img" aria-label="A glowing tree grows up from a single node, cracks a slab of concrete and branches out above it into blue, green and gold limbs ending in points of light."></canvas>
+        <button class="again" type="button">Grow again</button>
+      </div>
+    </section>
+
+    <section class="sketch" aria-labelledby="s2">
+      <h2 id="s2">Pathway</h2>
+      <p>A path learns its way through obstacles. The first try wanders down hundreds of dead ends. Each later try remembers the one before and finds the way in fewer steps.</p>
+      <div class="stage" data-scene="pathway">
+        <canvas role="img" aria-label="Thin lines spread from a blue starting point through walls of concrete blocks until one reaches a gold goal. The search runs three times, each time with fewer wrong turns."></canvas>
+        <button class="again" type="button">Grow again</button>
+      </div>
+    </section>
+
+    <section class="sketch" aria-labelledby="s3">
+      <h2 id="s3">Two roots</h2>
+      <p>Humanities and AI Research grow toward each other underground. When they meet, the trunk breaks through, and the canopy carries both colors.</p>
+      <div class="stage" data-scene="tworoots">
+        <canvas role="img" aria-label="A blue root system labeled Humanities and a gold one labeled AI Research grow toward each other beneath concrete. Where they meet, a trunk breaks through and branches into a canopy of both colors."></canvas>
+        <button class="again" type="button">Grow again</button>
+      </div>
+    </section>
+
+    <p class="credit">After Jesper Lindborg’s “Root node problems” for Google DeepMind’s <a href="https://deepmind.google/discover/visualising-ai/" target="_blank" rel="noopener">Visualising AI</a> project, as featured in <a href="https://www.itsnicethat.com/features/google-deepmind-visualising-ai-digital-sponsored-content-051224" target="_blank" rel="noopener">It’s Nice That</a>. These are new drawings, made in code in the browser.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/brand/logo.png" alt="Align the Future" width="939" height="137">
+    <a href="https://alignthefuture.org/">alignthefuture.org</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* Each stage is a canvas drawn every frame. Branches are translucent
+     filled outlines added together ('lighter'), so where they cross they
+     glow, like glass. A finished branch is painted once into a layer and
+     never redrawn. */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TAU = Math.PI * 2, UP = -Math.PI / 2, DOWN = Math.PI / 2;
+  var COL = {
+    blue: [104, 160, 232], teal: [112, 186, 198], sage: [146, 208, 136],
+    gold: [248, 202, 84], white: [246, 248, 250]
+  };
+
+  function mix(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+  function rgba(c, a) { return 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + a + ')'; }
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function easeOut(t) { t = clamp(t, 0, 1); return 1 - Math.pow(1 - t, 3); }
+  function easeBack(t) { t = clamp(t, 0, 1); var c = 1.7; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); }
+  // -1 is Humanities blue, 0 sage, +1 AI Research gold
+  function across(t) { return t < 0 ? mix(COL.sage, COL.blue, -t) : mix(COL.sage, COL.gold, t); }
+
+  function rngFrom(seed) {
+    var a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function range(r, a, b) { return a + (b - a) * r(); }
+  function gauss(r) { return (r() + r() + r() - 1.5) * 2; }
+  function turn(a, b) { var d = (b - a) % TAU; if (d > Math.PI) d -= TAU; if (d < -Math.PI) d += TAU; return d; }
+
+  function makeCanvas(w, h, dpr) {
+    var c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(w * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    return c;
+  }
+
+  /* ---------- Branches ---------- */
+
+  function finish(pts, o) {
+    var n = pts.length, cum = [0], w = [], nrm = [], i;
+    for (i = 1; i < n; i++) cum.push(cum[i - 1] + Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
+    for (i = 0; i < n; i++) {
+      var p = pts[Math.max(0, i - 1)], q = pts[Math.min(n - 1, i + 1)];
+      var dx = q.x - p.x, dy = q.y - p.y, d = Math.hypot(dx, dy) || 1;
+      nrm.push({ x: -dy / d, y: dx / d });
+      w.push(o.w0 + (o.w1 - o.w0) * (n > 1 ? i / (n - 1) : 0));
+    }
+    return {
+      pts: pts, cum: cum, w: w, nrm: nrm, total: cum[n - 1],
+      t0: o.t0, speed: o.speed, col: o.col || COL.sage, depth: o.depth || 0,
+      phase: o.phase || 0, hasEndKid: false, baked: false
+    };
+  }
+
+  // One wandering limb, cut short where it would leave its allowed space
+  function makeBranch(r, o) {
+    var pts = [{ x: o.x, y: o.y }], a = o.ang, x = o.x, y = o.y, L = 0;
+    while (L < o.len) {
+      a += gauss(r) * o.wander;
+      if (o.pull) a += turn(a, o.pull.ang) * o.pull.str;
+      var nx = x + Math.cos(a) * o.step, ny = y + Math.sin(a) * o.step;
+      if (o.valid && !o.valid(nx, ny)) break;
+      x = nx; y = ny; L += o.step;
+      pts.push({ x: x, y: y });
+    }
+    return finish(pts, o);
+  }
+
+  // A limb that steers ever harder toward a target point until it arrives
+  function seek(r, from, to, o) {
+    var pts = [{ x: from.x, y: from.y }], x = from.x, y = from.y;
+    var dist = Math.hypot(to.x - x, to.y - y);
+    var a = Math.atan2(to.y - y, to.x - x) + gauss(r) * 0.35, L = 0;
+    for (var i = 0; i < 4000; i++) {
+      var d = Math.hypot(to.x - x, to.y - y);
+      if (d < o.step * 1.3) break;
+      var k = Math.min(1, L / dist);
+      a += gauss(r) * o.wander * (1 - k) + turn(a, Math.atan2(to.y - y, to.x - x)) * (0.02 + 0.3 * k * k);
+      x += Math.cos(a) * o.step; y += Math.sin(a) * o.step; L += o.step;
+      pts.push({ x: x, y: y });
+    }
+    pts.push({ x: to.x, y: to.y });
+    return finish(pts, o);
+  }
+
+  function angleAt(b, i) {
+    var p = b.pts[Math.max(0, i - 1)], q = b.pts[Math.min(b.pts.length - 1, i + 1)];
+    return Math.atan2(q.y - p.y, q.x - p.x);
+  }
+  function tEnd(b) { return b.t0 + b.total / b.speed; }
+
+  /* A branching system: each limb sends out side shoots along its length and
+     forks in two at its end, until the depth or the branch budget runs out.
+     Specs are expanded mostly in order, with a little shuffle, so a budget
+     that runs out trims the outermost twigs evenly. */
+  function grow(r, seed, o) {
+    var out = [], queue = [seed];
+    while (queue.length && out.length < o.max) {
+      var spec = queue.splice(Math.floor(r() * Math.min(queue.length, 8)), 1)[0];
+      var b = makeBranch(r, spec);
+      if (b.pts.length < 3) continue;
+      b.phase = r() * TAU;
+      b.col = o.color ? o.color(b, spec, r) : spec.col;
+      if (spec.parent && spec.atEnd) spec.parent.hasEndKid = true;
+      out.push(b);
+      if (spec.depth >= o.maxDepth) continue;
+      var n = b.pts.length, side = r() < 0.5 ? -1 : 1, i;
+      var child = function (i, ang, lenK, atEnd) {
+        var w0 = Math.max(0.5, b.w[i] * 0.72);
+        queue.push({
+          x: b.pts[i].x, y: b.pts[i].y, ang: ang, len: spec.size * lenK, size: spec.size * 0.72,
+          step: spec.step, wander: spec.wander,
+          pull: spec.pull && { ang: spec.pull.ang, str: spec.pull.str * 0.85 },
+          valid: o.validKids || spec.valid,
+          w0: w0, w1: w0 * o.taper, t0: b.t0 + b.cum[i] / b.speed, speed: spec.speed * o.slow,
+          depth: spec.depth + 1, col: b.col, pcol: b.col, parent: b, atEnd: atEnd
+        });
+      };
+      for (i = Math.floor(n * range(r, 0.3, 0.5)); i < n - 3; i += Math.max(3, Math.floor(n * range(r, 0.25, 0.45)))) {
+        if (r() < o.sideP) child(i, angleAt(b, i) + side * range(r, 0.45, 0.95), range(r, 0.45, 0.65), false);
+        side = -side;
+      }
+      var sp = o.spread || [0.28, 0.55], ea = angleAt(b, n - 1), spread = range(r, sp[0], sp[1]);
+      child(n - 1, ea - spread + gauss(r) * 0.08, range(r, 0.62, 0.8), true);
+      child(n - 1, ea + spread + gauss(r) * 0.08, range(r, 0.62, 0.8), true);
+    }
+    return out;
+  }
+
+  // Draws a branch grown to length l, as glow, glassy body, core and a thin highlight
+  function drawBranch(ctx, b, l) {
+    if (l <= 0) return;
+    var n = b.pts.length, k = n - 1, tip = null, i;
+    if (l < b.total) {
+      k = 0;
+      while (k < n - 1 && b.cum[k + 1] <= l) k++;
+      var f = (l - b.cum[k]) / ((b.cum[k + 1] - b.cum[k]) || 1);
+      tip = { x: b.pts[k].x + (b.pts[k + 1].x - b.pts[k].x) * f, y: b.pts[k].y + (b.pts[k + 1].y - b.pts[k].y) * f };
+    }
+    function shape(m) {
+      ctx.beginPath();
+      for (i = 0; i <= k; i++) {
+        var p = b.pts[i], q = b.nrm[i], h = b.w[i] * m / 2;
+        if (i) ctx.lineTo(p.x + q.x * h, p.y + q.y * h); else ctx.moveTo(p.x + q.x * h, p.y + q.y * h);
+      }
+      if (tip) ctx.lineTo(tip.x, tip.y);
+      for (i = k; i >= 0; i--) {
+        var p2 = b.pts[i], q2 = b.nrm[i], h2 = b.w[i] * m / 2;
+        ctx.lineTo(p2.x - q2.x * h2, p2.y - q2.y * h2);
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+    var w = b.w[0];
+    if (w > 1.4) { ctx.fillStyle = rgba(b.col, 0.05); shape(3.4); }
+    ctx.fillStyle = rgba(b.col, 0.3 + 0.3 * (1 - Math.min(1, w / 2)));
+    shape(1);
+    if (w > 2) {
+      ctx.fillStyle = rgba(mix(b.col, COL.white, 0.35), 0.16); shape(0.4);
+      ctx.beginPath();
+      for (i = 0; i <= k; i++) {
+        var p3 = b.pts[i], q3 = b.nrm[i], h3 = -b.w[i] * 0.3;
+        if (i) ctx.lineTo(p3.x + q3.x * h3, p3.y + q3.y * h3); else ctx.moveTo(p3.x + q3.x * h3, p3.y + q3.y * h3);
+      }
+      if (tip) ctx.lineTo(tip.x, tip.y);
+      ctx.lineWidth = Math.max(0.5, w * 0.14);
+      ctx.strokeStyle = rgba(mix(b.col, COL.white, 0.7), 0.3);
+      ctx.stroke();
+    }
+    if (tip) {
+      var rr = 1.2 + b.w[k] * 0.6;
+      ctx.fillStyle = rgba(b.col, 0.12);
+      ctx.beginPath(); ctx.arc(tip.x, tip.y, rr * 3.2, 0, TAU); ctx.fill();
+      ctx.fillStyle = rgba(mix(b.col, COL.white, 0.6), 0.6);
+      ctx.beginPath(); ctx.arc(tip.x, tip.y, rr, 0, TAU); ctx.fill();
+    }
+  }
+
+  // Grown branches live in a layer; only the ones still growing are drawn each frame
+  function Growth(list, W, H, dpr) {
+    this.list = list; this.W = W; this.H = H; this.dpr = dpr;
+    this.layer = makeCanvas(W, H, dpr);
+    this.g = this.layer.getContext('2d');
+    this.g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    this.g.globalCompositeOperation = 'lighter';
+    this.end = 0;
+    for (var i = 0; i < list.length; i++) this.end = Math.max(this.end, tEnd(list[i]));
+  }
+  Growth.prototype.draw = function (ctx, t) {
+    var live = [], i, b;
+    for (i = 0; i < this.list.length; i++) {
+      b = this.list[i];
+      if (b.baked) continue;
+      if (t >= tEnd(b)) { drawBranch(this.g, b, b.total); b.baked = true; }
+      else if (t > b.t0) live.push(b);
+    }
+    ctx.drawImage(this.layer, 0, 0, this.W, this.H);
+    for (i = 0; i < live.length; i++) drawBranch(ctx, live[i], (t - live[i].t0) * live[i].speed);
+  };
+
+  // Points of light where limbs end: big at the outermost tips, small at forks
+  function drawNodes(ctx, list, t, s) {
+    for (var i = 0; i < list.length; i++) {
+      var b = list[i], te = tEnd(b);
+      if (t < te) continue;
+      var leaf = !b.hasEndKid, p = b.pts[b.pts.length - 1];
+      var k = easeBack((t - te) / 0.45);
+      var pulse = leaf ? 0.7 + 0.3 * Math.sin(t * 1.7 + b.phase) : 0.8;
+      var rad = (leaf ? 1.8 : 1) * s * k;
+      ctx.fillStyle = rgba(b.col, 0.09 * pulse);
+      ctx.beginPath(); ctx.arc(p.x, p.y, rad * 4.5, 0, TAU); ctx.fill();
+      ctx.fillStyle = rgba(b.col, 0.22 * pulse);
+      ctx.beginPath(); ctx.arc(p.x, p.y, rad * 2, 0, TAU); ctx.fill();
+      ctx.fillStyle = rgba(mix(b.col, COL.white, 0.45), 0.95);
+      ctx.beginPath(); ctx.arc(p.x, p.y, rad, 0, TAU); ctx.fill();
+    }
+  }
+
+  // Colors the canopy across its own spread: blue at the left edge, gold at the right
+  function colorAcross(list, cx) {
+    var lo = cx, hi = cx, i;
+    for (i = 0; i < list.length; i++) { var e = list[i].pts[list[i].pts.length - 1]; lo = Math.min(lo, e.x); hi = Math.max(hi, e.x); }
+    var half = Math.max(cx - lo, hi - cx, 1);
+    for (i = 0; i < list.length; i++) {
+      var b = list[i], ex = b.pts[b.pts.length - 1].x, d = clamp((ex - cx) / half, -1, 1);
+      if (b.depth > 0) b.col = across(Math.sign(d) * Math.pow(Math.abs(d), 0.7));
+    }
+  }
+
+  function glow(ctx, x, y, rad, col, a) {
+    if (a <= 0 || rad <= 0) return;
+    var g = ctx.createRadialGradient(x, y, 0, x, y, rad);
+    g.addColorStop(0, rgba(col, a));
+    g.addColorStop(1, rgba(col, 0));
+    ctx.fillStyle = g;
+    ctx.fillRect(x - rad, y - rad, rad * 2, rad * 2);
+  }
+
+  function seedNode(ctx, p, t, s, col, t0) {
+    var k = easeOut((t - t0) / 0.8);
+    if (k <= 0) return;
+    var pulse = 0.8 + 0.2 * Math.sin(t * 2.1);
+    glow(ctx, p.x, p.y, 34 * s * k, col, 0.35 * pulse);
+    ctx.strokeStyle = rgba(col, 0.55 * k);
+    ctx.lineWidth = 1.2 * s;
+    ctx.beginPath(); ctx.arc(p.x, p.y, 9 * s * k, 0, TAU); ctx.stroke();
+    ctx.fillStyle = rgba(mix(col, COL.white, 0.6), k);
+    ctx.beginPath(); ctx.arc(p.x, p.y, 4.5 * s * k, 0, TAU); ctx.fill();
+  }
+
+  /* ---------- Concrete ---------- */
+
+  function concrete(r, w, h, dpr) {
+    var c = makeCanvas(w, h, dpr), g = c.getContext('2d'), cw = c.width, ch = c.height, i, x, y, rad;
+    var lg = g.createLinearGradient(0, 0, 0, ch);
+    lg.addColorStop(0, '#a4a29b'); lg.addColorStop(0.1, '#93918b'); lg.addColorStop(1, '#6c6b67');
+    g.fillStyle = lg; g.fillRect(0, 0, cw, ch);
+    var area = w * h;
+    for (i = 0; i < area / 900; i++) {
+      x = r() * cw; y = r() * ch; rad = range(r, 8, 34) * dpr;
+      var light = r() < 0.5, rg = g.createRadialGradient(x, y, 0, x, y, rad);
+      rg.addColorStop(0, light ? 'rgba(255,253,246,0.07)' : 'rgba(30,30,28,0.08)');
+      rg.addColorStop(1, light ? 'rgba(255,253,246,0)' : 'rgba(30,30,28,0)');
+      g.fillStyle = rg; g.fillRect(x - rad, y - rad, rad * 2, rad * 2);
+    }
+    for (i = 0; i < area / 120; i++) {
+      var v = range(r, 95, 190) | 0;
+      g.fillStyle = 'rgba(' + v + ',' + v + ',' + (v - 4) + ',0.5)';
+      g.beginPath();
+      g.ellipse(r() * cw, r() * ch, range(r, 0.5, 2.2) * dpr, range(r, 0.4, 1.6) * dpr, r() * Math.PI, 0, TAU);
+      g.fill();
+    }
+    for (i = 0; i < area / 1100; i++) {
+      x = r() * cw; y = r() * ch; rad = range(r, 0.5, 1.7) * dpr;
+      g.fillStyle = 'rgba(205,203,196,0.35)';
+      g.beginPath(); g.arc(x, y + rad * 0.5, rad, 0, TAU); g.fill();
+      g.fillStyle = 'rgba(52,51,48,0.75)';
+      g.beginPath(); g.arc(x, y, rad, 0, TAU); g.fill();
+    }
+    var d = g.getImageData(0, 0, cw, ch), px = d.data;
+    for (i = 0; i < px.length; i += 4) {
+      var nse = (r() - 0.5) * 22;
+      px[i] += nse; px[i + 1] += nse; px[i + 2] += nse;
+    }
+    g.putImageData(d, 0, 0);
+    return c;
+  }
+
+  /* A slab seen in section. The trunk presses on its underside, a crack
+     climbs through it, and at tBreak the two halves tip up and apart, each
+     hinged at its far end, throwing off chips and dust. */
+  function Slab(r, W, H, s, dpr, y0, thick, cx, tCrack, tBreak) {
+    this.W = W; this.H = H; this.s = s; this.y0 = y0; this.thick = thick; this.y1 = y0 + thick;
+    this.tCrack = tCrack; this.tBreak = tBreak; this.cx = cx;
+    this.tex = concrete(r, W + 80, thick, dpr);
+    var c = [{ x: cx, y: this.y1 }], steps = 7, i, j;
+    for (i = 1; i <= steps; i++) c.push({ x: c[i - 1].x + gauss(r) * 4 * s, y: this.y1 - thick * i / steps });
+    this.crack = c;
+    this.sides = [];
+    for (i = 0; i < 5; i++) {
+      var from = i < 2 ? 0 : 1 + Math.floor(r() * (steps - 2));
+      var dir = r() < 0.5 ? -1 : 1, a = (dir < 0 ? Math.PI : 0) + gauss(r) * 0.5 + (i < 2 ? -dir * 0.7 : 0);
+      var pts = [c[from]], p = c[from];
+      for (j = 0; j < 4; j++) {
+        a += gauss(r) * 0.35;
+        var q = { x: p.x + Math.cos(a) * range(r, 6, 13) * s, y: clamp(p.y + Math.sin(a) * range(r, 4, 10) * s, y0 + 2, this.y1 - 1) };
+        pts.push(q); p = q;
+      }
+      this.sides.push({ pts: pts, at: from / steps });
+    }
+    this.lift = thick * 0.6;
+    this.debris = [];
+    for (i = 0; i < 34; i++) {
+      var verts = [], nv = 4 + Math.floor(r() * 3), rad = range(r, 1.4, 4.8) * s;
+      for (j = 0; j < nv; j++) verts.push({ a: j / nv * TAU + range(r, -0.3, 0.3), r: rad * range(r, 0.6, 1.1) });
+      var shade = range(r, 100, 175) | 0;
+      this.debris.push({
+        x: cx + gauss(r) * 6 * s, y: range(r, y0, this.y1), vx: gauss(r) * 110 * s, vy: -range(r, 110, 360) * s,
+        rot: r() * TAU, vr: gauss(r) * 7, verts: verts, fill: 'rgb(' + shade + ',' + shade + ',' + (shade - 5) + ')'
+      });
+    }
+    this.dust = [];
+    for (i = 0; i < 16; i++) this.dust.push({ x: cx + gauss(r) * 10 * s, y: range(r, y0, this.y1), vx: gauss(r) * 34 * s, vy: -range(r, 10, 60) * s, r0: range(r, 6, 14) * s });
+  }
+  Slab.prototype.polyline = function (ctx, pts, frac) {
+    var n = pts.length - 1, upto = frac * n;
+    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    for (var i = 1; i <= n; i++) {
+      if (i <= upto) ctx.lineTo(pts[i].x, pts[i].y);
+      else { var f = upto - (i - 1); if (f > 0) ctx.lineTo(pts[i - 1].x + (pts[i].x - pts[i - 1].x) * f, pts[i - 1].y + (pts[i].y - pts[i - 1].y) * f); break; }
+    }
+  };
+  Slab.prototype.cracks = function (ctx, p) {
+    var s = this.s, i;
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    for (var pass = 0; pass < 2; pass++) {
+      ctx.save();
+      if (pass === 0) { ctx.translate(0, 0.9 * s); ctx.strokeStyle = 'rgba(225,222,214,0.3)'; ctx.lineWidth = 0.8 * s; }
+      else { ctx.strokeStyle = 'rgba(28,28,30,0.85)'; ctx.lineWidth = 1.3 * s; }
+      this.polyline(ctx, this.crack, clamp(p / 0.8, 0, 1)); ctx.stroke();
+      for (i = 0; i < this.sides.length; i++) {
+        var sd = this.sides[i], f = clamp((p - sd.at * 0.8) / 0.35, 0, 1);
+        if (f > 0) { this.polyline(ctx, sd.pts, f); ctx.stroke(); }
+      }
+      ctx.restore();
+    }
+  };
+  Slab.prototype.face = function (ctx, dx, dy) {
+    var W = this.W, s = this.s;
+    ctx.drawImage(this.tex, -40 + dx, this.y0 + dy, W + 80, this.thick);
+    ctx.fillStyle = 'rgba(236,233,224,0.55)';
+    ctx.fillRect(-40 + dx, this.y0 + dy, W + 80, 1.5 * s);
+    ctx.fillStyle = 'rgba(20,20,22,0.35)';
+    ctx.fillRect(-40 + dx, this.y1 + dy - 1.5 * s, W + 80, 1.5 * s);
+  };
+  Slab.prototype.draw = function (ctx, t) {
+    var W = this.W, s = this.s, i;
+    if (t < this.tBreak) {
+      // soft shadow the whole slab casts on what is behind it
+      ctx.fillStyle = 'rgba(5,14,26,0.35)';
+      ctx.fillRect(0, this.y1, W, 6 * s);
+      var p = clamp((t - this.tCrack) / (this.tBreak - this.tCrack), 0, 1), shake = p * p * 1.4 * s;
+      var jx = (Math.sin(t * 91) + Math.sin(t * 57)) * 0.5 * shake, jy = Math.sin(t * 73) * 0.5 * shake;
+      ctx.save(); ctx.translate(jx, jy);
+      this.face(ctx, 0, 0);
+      if (p > 0) this.cracks(ctx, p);
+      ctx.restore();
+      return;
+    }
+    var k = easeBack((t - this.tBreak) / 0.7), c = this.crack, n = c.length;
+    for (var side = -1; side <= 1; side += 2) {
+      var px = side < 0 ? -40 : W + 40, py = this.y1;
+      var ang = side < 0 ? -this.lift / (this.cx + 40) : this.lift / (W + 40 - this.cx);
+      ctx.save();
+      ctx.translate(side * 5 * s * k, 0);
+      ctx.translate(px, py); ctx.rotate(ang * k); ctx.translate(-px, -py);
+      ctx.beginPath();
+      ctx.moveTo(px, this.y0 - 2);
+      for (i = n - 1; i >= 0; i--) ctx.lineTo(c[i].x, i === n - 1 ? this.y0 - 2 : i === 0 ? this.y1 + 2 : c[i].y);
+      ctx.lineTo(px, this.y1 + 2);
+      ctx.closePath();
+      ctx.clip();
+      this.face(ctx, 0, 0);
+      this.cracks(ctx, 1);
+      ctx.strokeStyle = 'rgba(30,30,32,0.7)'; ctx.lineWidth = 3.2 * s;
+      this.polyline(ctx, c, 1); ctx.stroke();
+      ctx.restore();
+    }
+  };
+  Slab.prototype.drawDebris = function (ctx, t) {
+    var dt = t - this.tBreak, s = this.s, i, j;
+    if (dt < 0 || dt > 2.8) return;
+    var g = 900 * s, fade = 1 - clamp((dt - 1.9) / 0.9, 0, 1);
+    for (i = 0; i < this.dust.length; i++) {
+      var u = this.dust[i], a = 0.16 * (1 - clamp(dt / 1.7, 0, 1));
+      if (a <= 0) break;
+      ctx.fillStyle = 'rgba(205,203,194,' + a + ')';
+      ctx.beginPath(); ctx.arc(u.x + u.vx * dt, u.y + u.vy * dt, u.r0 * (1 + dt * 1.6), 0, TAU); ctx.fill();
+    }
+    ctx.globalAlpha = fade;
+    for (i = 0; i < this.debris.length; i++) {
+      var d = this.debris[i], x = d.x + d.vx * dt, y = d.y + d.vy * dt + 0.5 * g * dt * dt;
+      if (y > this.H + 20) continue;
+      var rot = d.rot + d.vr * dt;
+      ctx.fillStyle = d.fill;
+      ctx.beginPath();
+      for (j = 0; j < d.verts.length; j++) {
+        var v = d.verts[j], vx = x + Math.cos(v.a + rot) * v.r, vy = y + Math.sin(v.a + rot) * v.r;
+        if (j) ctx.lineTo(vx, vy); else ctx.moveTo(vx, vy);
+      }
+      ctx.closePath(); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  };
+  // Pressure glow where the trunk meets the slab, then the flash of the break
+  Slab.prototype.light = function (ctx, t, tHit, col) {
+    var s = this.s;
+    if (t > tHit && t < this.tBreak + 0.6) {
+      var p = clamp((t - tHit) / (this.tBreak - tHit), 0, 1), out = 1 - clamp((t - this.tBreak) / 0.6, 0, 1);
+      glow(ctx, this.cx, this.y1, (14 + 30 * p) * s, col, (0.15 + 0.4 * p) * out);
+    }
+    var e = (t - this.tBreak) / 1.1;
+    if (e > 0 && e < 1) glow(ctx, this.crack[this.crack.length - 1].x, this.y0, (40 + 170 * easeOut(e)) * s, col, 0.4 * (1 - e));
+  };
+
+  // A canopy that grows up out of the slab from where the trunk broke through
+  function canopy(r, W, H, s, slab, t0, color) {
+    var top = H * 0.04, y0 = slab.y0;
+    var reach = y0 - top;
+    var inside = function (x, y) { return y > top && x > W * 0.025 && x < W * 0.975; };
+    return grow(r, {
+      x: slab.cx, y: slab.y1, ang: UP, len: slab.thick + reach * 0.2, size: reach * 0.36,
+      step: 3.5 * s, wander: 0.03, pull: { ang: UP, str: 0.025 }, valid: inside,
+      w0: 11 * s, w1: 8 * s, t0: t0, speed: (reach * 1.1 + slab.thick) / 7, depth: 0, col: COL.sage
+    }, {
+      maxDepth: 6, max: W < 520 ? 150 : 230, sideP: 0.5, taper: 0.55, slow: 0.94, spread: [0.4, 0.75], color: color,
+      validKids: function (x, y) { return inside(x, y) && y < y0 - 3; }
+    });
+  }
+
+  /* ---------- Scene 1: Breakthrough ---------- */
+
+  function Breakthrough(W, H, r, dpr) {
+    var s = Math.min(W, H) / 600;
+    this.W = W; this.H = H; this.s = s;
+    var thick = Math.max(24, 52 * s), y0 = H * 0.64, y1 = y0 + thick;
+    var root = { x: W * range(r, 0.44, 0.56), y: H - Math.max(30, H * 0.07) };
+    this.root = root;
+    var trunkW = 11 * s;
+    var lower = makeBranch(r, {
+      x: root.x, y: root.y, ang: UP, len: H, step: 3.5 * s, wander: 0.025, pull: { ang: UP, str: 0.12 },
+      valid: function (x, y) { return y > y1 + 1; }, w0: trunkW, w1: trunkW * 0.92, t0: 1.0,
+      speed: (root.y - y1) / 2.6, col: COL.sage
+    });
+    var tHit = tEnd(lower), hit = lower.pts[lower.pts.length - 1];
+    this.tHit = tHit;
+    this.slab = new Slab(r, W, H, s, dpr, y0, thick, hit.x, tHit + 0.3, tHit + 2.6);
+    var below = function (x, y) { return y > y1 + 2 && y < H + 10 && x > -10 && x < W + 10; };
+    var list = [lower], i, k;
+    // shoots that search sideways under the slab before it gives way
+    for (i = 0; i < 4; i++) {
+      k = Math.floor(lower.pts.length * range(r, 0.35, 0.85));
+      var dir = i % 2 ? 1 : -1;
+      list = list.concat(grow(r, {
+        x: lower.pts[k].x, y: lower.pts[k].y, ang: UP + dir * range(r, 0.8, 1.25), len: range(r, 60, 130) * s, size: 70 * s,
+        step: 3 * s, wander: 0.05, pull: { ang: UP, str: 0.02 }, valid: below,
+        w0: trunkW * 0.38, w1: trunkW * 0.22, t0: lower.t0 + lower.cum[k] / lower.speed, speed: 55 * s, depth: 1, col: COL.teal
+      }, { maxDepth: 2, max: 10, sideP: 0.3, taper: 0.6, slow: 0.95 }));
+    }
+    // fine roots below the root node
+    for (i = 0; i < 5; i++) {
+      list = list.concat(grow(r, {
+        x: root.x, y: root.y, ang: DOWN + range(r, -1.2, 1.2), len: range(r, 30, 70) * s, size: 40 * s,
+        step: 3 * s, wander: 0.08, pull: { ang: DOWN, str: 0.03 }, valid: function (x, y) { return y < H + 20; },
+        w0: 3 * s, w1: 1.2 * s, t0: 0.6, speed: 30 * s, depth: 1, col: mix(COL.sage, COL.gold, 0.4)
+      }, { maxDepth: 2, max: 6, sideP: 0.4, taper: 0.5, slow: 1 }));
+    }
+    var top = canopy(r, W, H, s, this.slab, this.slab.tBreak + 0.1);
+    colorAcross(top, hit.x);
+    this.nodes = top.filter(function (b) { return b.depth > 0; });
+    this.growth = new Growth(list.concat(top), W, H, dpr);
+    this.still = this.growth.end + 1;
+    this.duration = this.growth.end + 5.5;
+  }
+  Breakthrough.prototype.draw = function (ctx, t) {
+    this.slab.draw(ctx, t);
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    this.slab.light(ctx, t, this.tHit, COL.sage);
+    this.growth.draw(ctx, t);
+    seedNode(ctx, this.root, t, this.s, COL.sage, 0.2);
+    drawNodes(ctx, this.nodes, t, this.s);
+    ctx.restore();
+    this.slab.drawDebris(ctx, t);
+  };
+
+  /* ---------- Scene 3: Two roots ---------- */
+
+  function TwoRoots(W, H, r, dpr) {
+    var s = Math.min(W, H) / 600;
+    this.W = W; this.H = H; this.s = s;
+    var thick = Math.max(22, 46 * s), y0 = H * 0.5, y1 = y0 + thick;
+    var M = { x: W * range(r, 0.46, 0.54), y: y1 + (H - y1) * 0.36 };
+    var A = { x: W * 0.06, y: H - Math.max(72, H * 0.14) }, B = { x: W * 0.94, y: A.y };
+    this.M = M; this.A = A; this.B = B;
+    var tStart = 1.2, dur = 5.2;
+    this.tMeet = tStart + dur;
+    var below = function (x, y) { return y > y1 + 4 && y < H + 10 && x > -10 && x < W + 10; };
+    var list = [];
+    var mains = [[A, COL.blue], [B, COL.gold]].map(function (m) {
+      var b = seek(r, m[0], M, { step: 3.5 * s, wander: 0.07, w0: 6 * s, w1: 4.5 * s, col: m[1], t0: tStart, speed: 1, depth: 0 });
+      b.speed = b.total / dur;
+      list.push(b);
+      // rootlets feeding into the main root along its way
+      for (var i = Math.floor(b.pts.length * 0.06); i < b.pts.length * 0.85; i += Math.floor(b.pts.length * range(r, 0.07, 0.13))) {
+        var side = r() < 0.5 ? -1 : 1;
+        list = list.concat(grow(r, {
+          x: b.pts[i].x, y: b.pts[i].y, ang: angleAt(b, i) + side * range(r, 0.6, 1.2), len: range(r, 40, 110) * s, size: 60 * s,
+          step: 3 * s, wander: 0.07, pull: { ang: DOWN, str: 0.02 }, valid: below,
+          w0: 2.6 * s, w1: 1.2 * s, t0: b.t0 + b.cum[i] / b.speed, speed: 60 * s, depth: 1,
+          col: mix(m[1], COL.teal, r() * 0.3)
+        }, { maxDepth: 3, max: 9, sideP: 0.4, taper: 0.55, slow: 0.95 }));
+      }
+      return b;
+    });
+    var lower = makeBranch(r, {
+      x: M.x, y: M.y, ang: UP, len: H, step: 3.5 * s, wander: 0.02, pull: { ang: UP, str: 0.15 },
+      valid: function (x, y) { return y > y1 + 1; }, w0: 11 * s, w1: 10 * s, t0: this.tMeet + 0.5,
+      speed: (M.y - y1) / 1.2, col: COL.sage
+    });
+    list.push(lower);
+    var tHit = tEnd(lower), hit = lower.pts[lower.pts.length - 1];
+    this.tHit = tHit;
+    this.slab = new Slab(r, W, H, s, dpr, y0, thick, hit.x, tHit + 0.25, tHit + 2.1);
+    var top = canopy(r, W, H, s, this.slab, this.slab.tBreak + 0.1, function (b, spec, rr) {
+      return b.depth === 0 ? COL.sage : mix(spec.pcol, rr() < 0.5 ? COL.blue : COL.gold, 0.5);
+    });
+    this.nodes = top.filter(function (b) { return b.depth > 0; });
+    this.growth = new Growth(list.concat(top), W, H, dpr);
+    this.still = this.growth.end + 1;
+    this.duration = this.growth.end + 5.5;
+  }
+  TwoRoots.prototype.draw = function (ctx, t) {
+    var s = this.s;
+    this.slab.draw(ctx, t);
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    this.slab.light(ctx, t, this.tHit, COL.sage);
+    this.growth.draw(ctx, t);
+    seedNode(ctx, this.A, t, s, COL.blue, 0.4);
+    seedNode(ctx, this.B, t, s, COL.gold, 0.4);
+    if (t > this.tMeet) {
+      var e = (t - this.tMeet) / 1.2;
+      seedNode(ctx, this.M, t, s, COL.sage, this.tMeet);
+      if (e < 1) {
+        ctx.strokeStyle = rgba(COL.sage, 0.6 * (1 - e)); ctx.lineWidth = 1.5 * s;
+        ctx.beginPath(); ctx.arc(this.M.x, this.M.y, (10 + 60 * easeOut(e)) * s, 0, TAU); ctx.stroke();
+      }
+    }
+    drawNodes(ctx, this.nodes, t, s);
+    ctx.restore();
+    this.slab.drawDebris(ctx, t);
+    // names in the hand of the homepage circles, dimming once the roots meet
+    var a = clamp((t - 0.5) / 0.8, 0, 1) * (t > this.tMeet ? 1 - 0.45 * clamp((t - this.tMeet) / 1.5, 0, 1) : 1);
+    if (a > 0) {
+      ctx.font = Math.max(17, 26 * s) + 'px "Caveat Brush", cursive';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillStyle = rgba(mix(COL.blue, COL.white, 0.3), 0.9 * a);
+      ctx.textAlign = 'left';
+      ctx.fillText('Humanities', this.A.x - 4 * s, this.A.y - 24 * s);
+      ctx.fillStyle = rgba(mix(COL.gold, COL.white, 0.2), 0.9 * a);
+      ctx.textAlign = 'right';
+      ctx.fillText('AI Research', this.B.x + 4 * s, this.B.y - 24 * s);
+    }
+  };
+
+  /* ---------- Scene 2: Pathway ---------- */
+
+  // A rapidly exploring random tree: grow toward random points (or toward the
+  // goal, or near the last route found) until a branch reaches the goal.
+  function explore(r, start, goal, free, clear, o, prior) {
+    var nodes = [{ x: start.x, y: start.y, p: -1 }];
+    for (var it = 0; it < 12000 && nodes.length < 3200; it++) {
+      var q, u = r();
+      if (u < o.bias) q = goal;
+      else if (prior && u < o.bias + o.memory) {
+        var pp = prior[Math.floor(r() * prior.length)];
+        q = { x: pp.x + gauss(r) * o.jit, y: pp.y + gauss(r) * o.jit };
+      } else q = { x: r() * o.W, y: r() * o.H };
+      var best = 0, bd = Infinity;
+      for (var i = 0; i < nodes.length; i++) {
+        var dx = nodes[i].x - q.x, dy = nodes[i].y - q.y, d2 = dx * dx + dy * dy;
+        if (d2 < bd) { bd = d2; best = i; }
+      }
+      var nb = nodes[best], d = Math.sqrt(bd);
+      if (d < 1) continue;
+      var k = Math.min(1, o.step / d), nx = { x: nb.x + (q.x - nb.x) * k, y: nb.y + (q.y - nb.y) * k };
+      if (!free(nx.x, nx.y) || !clear(nb, nx)) continue;
+      nodes.push({ x: nx.x, y: nx.y, p: best });
+      if (Math.hypot(nx.x - goal.x, nx.y - goal.y) < o.step * 1.3 && clear(nx, goal)) {
+        nodes.push({ x: goal.x, y: goal.y, p: nodes.length - 1 });
+        var path = [];
+        for (var j = nodes.length - 1; j >= 0; j = nodes[j].p) path.push({ x: nodes[j].x, y: nodes[j].y });
+        path.reverse();
+        return { nodes: nodes, path: path };
+      }
+    }
+    return null;
+  }
+
+  // Corner cutting, then a dense sampling with running lengths for drawing
+  function soften(path) {
+    for (var it = 0; it < 3; it++) {
+      var out = [path[0]];
+      for (var i = 0; i < path.length - 1; i++) {
+        var a = path[i], b = path[i + 1];
+        out.push({ x: a.x * 0.75 + b.x * 0.25, y: a.y * 0.75 + b.y * 0.25 }, { x: a.x * 0.25 + b.x * 0.75, y: a.y * 0.25 + b.y * 0.75 });
+      }
+      out.push(path[path.length - 1]);
+      path = out;
+    }
+    var cum = [0];
+    for (var j = 1; j < path.length; j++) cum.push(cum[j - 1] + Math.hypot(path[j].x - path[j - 1].x, path[j].y - path[j - 1].y));
+    return { pts: path, cum: cum, total: cum[cum.length - 1] };
+  }
+
+  function roundRect(g, x, y, w, h, rad) {
+    g.beginPath();
+    g.moveTo(x + rad, y); g.arcTo(x + w, y, x + w, y + h, rad); g.arcTo(x + w, y + h, x, y + h, rad);
+    g.arcTo(x, y + h, x, y, rad); g.arcTo(x, y, x + w, y, rad); g.closePath();
+  }
+
+  function Pathway(W, H, r, dpr) {
+    var s = Math.min(W, H) / 600;
+    this.W = W; this.H = H; this.s = s;
+    for (var tries = 0; tries < 8; tries++) if (this.build(r, dpr)) break;
+  }
+  Pathway.prototype.build = function (r, dpr) {
+    var W = this.W, H = this.H, s = this.s, i, j;
+    // Lay the course out along its travel axis u and cross axis v; on tall
+    // screens it runs bottom to top instead of left to right.
+    var vert = H > W * 1.05, A = vert ? H : W, B = vert ? W : H;
+    var map = function (u, v) { return vert ? { x: v, y: H - u } : { x: u, y: v }; };
+    var mapRect = function (u, v, du, dv) { return vert ? { x: v, y: H - u - du, w: dv, h: du } : { x: u, y: v, w: du, h: dv }; };
+    // on tall screens keep the goal clear of the tally and the start clear of the button
+    var start = map(A * 0.07, B * (vert ? range(r, 0.25, 0.5) : range(r, 0.3, 0.7)));
+    var goal = map(A * 0.93, B * (vert ? range(r, 0.45, 0.75) : range(r, 0.3, 0.7)));
+    var lift = 5 * s, wallT = Math.max(16, 26 * s), gapW = Math.max(58 * s, B * 0.13), seam = 4 * s;
+    var rects = [], corridors = [];
+    [0.3, 0.52, 0.74].forEach(function (f) {
+      var u = A * (f + range(r, -0.03, 0.03));
+      var gaps = [range(r, B * 0.06, B * 0.94 - gapW)];
+      if (r() < 0.4) {
+        var g2 = range(r, B * 0.06, B * 0.94 - gapW);
+        if (Math.abs(g2 - gaps[0]) > gapW * 2) gaps.push(g2);
+      }
+      gaps.sort(function (a, b) { return a - b; });
+      var spans = [], v = -20;
+      gaps.forEach(function (g) { spans.push([v, g]); v = g + gapW; corridors.push({ u0: u - 50 * s, u1: u + wallT + 50 * s, v0: g, v1: g + gapW }); });
+      spans.push([v, B + 20]);
+      spans.forEach(function (sp) {
+        var v0 = sp[0];
+        while (v0 < sp[1] - 4) {
+          var len = Math.min(sp[1] - v0, range(r, 42, 95) * s);
+          if (sp[1] - v0 - len < 20 * s) len = sp[1] - v0;
+          rects.push(mapRect(u, v0, wallT, len));
+          v0 += len + seam;
+        }
+      });
+    });
+    var near = function (q, p, d) { return p.x > q.x - d && p.x < q.x + q.w + d && p.y > q.y - d && p.y < q.y + q.h + d; };
+    var overlap = function (a, b, d) { return a.x < b.x + b.w + d && b.x < a.x + a.w + d && a.y < b.y + b.h + d && b.y < a.y + a.h + d; };
+    for (i = 0; i < 40 && rects.length < 60; i++) {
+      var sz = range(r, 18, 40) * s, su = range(r, A * 0.13, A * 0.87 - sz), sv = range(r, B * 0.06, B * 0.94 - sz);
+      var q = mapRect(su, sv, sz, sz * range(r, 0.8, 1.4)), ok = true;
+      for (j = 0; j < rects.length && ok; j++) if (overlap(q, rects[j], 16 * s)) ok = false;
+      for (j = 0; j < corridors.length && ok; j++) {
+        var c = corridors[j], cr = mapRect(c.u0, c.v0, c.u1 - c.u0, c.v1 - c.v0);
+        if (overlap(q, cr, 6 * s)) ok = false;
+      }
+      if (ok && (near(q, start, 60 * s) || near(q, goal, 60 * s))) ok = false;
+      if (ok) rects.push(q);
+      if (rects.length > 0 && i > 14 && r() < 0.1) break;
+    }
+    var m = 10 * s, pad = 8 * s;
+    var free = function (x, y) {
+      if (x < pad || x > W - pad || y < pad || y > H - pad) return false;
+      for (var k = 0; k < rects.length; k++) {
+        var q = rects[k];
+        if (x > q.x - m && x < q.x + q.w + m && y > q.y - m && y < q.y + q.h + lift + m) return false;
+      }
+      return true;
+    };
+    var clear = function (a, b) {
+      var n = Math.ceil(Math.hypot(b.x - a.x, b.y - a.y) / 3);
+      for (var k = 1; k <= n; k++) if (!free(a.x + (b.x - a.x) * k / n, a.y + (b.y - a.y) * k / n)) return false;
+      return true;
+    };
+    var P = [
+      { bias: 0.02, memory: 0, step: 12 * s, dur: 7, col: COL.blue },
+      { bias: 0.12, memory: 0.4, step: 15 * s, dur: 4, col: COL.teal },
+      { bias: 0.3, memory: 0.55, step: 18 * s, dur: 2.4, col: COL.sage }
+    ];
+    var runs = [], prior = null, cursor = 1.0;
+    for (i = 0; i < P.length; i++) {
+      var res = explore(r, start, goal, free, clear, { bias: P[i].bias, memory: P[i].memory, step: P[i].step, jit: 26 * s, W: W, H: H }, prior);
+      if (!res) return false;
+      var path = soften(res.path);
+      prior = path.pts;
+      runs.push({ nodes: res.nodes, path: path, col: P[i].col, t0: cursor, tFound: cursor + P[i].dur, tTraced: cursor + P[i].dur + 1.3 });
+      cursor += P[i].dur + 1.3 + 1.0;
+    }
+    this.runs = runs; this.start = start; this.goal = goal; this.rects = rects; this.lift = lift;
+    this.still = cursor;
+    this.duration = cursor + 4;
+    this.field = this.paintField(r, dpr);
+    return true;
+  };
+  Pathway.prototype.paintField = function (r, dpr) {
+    var W = this.W, H = this.H, s = this.s, lift = this.lift;
+    var c = makeCanvas(W, H, dpr), g = c.getContext('2d'), tex = concrete(r, W, H, dpr);
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    this.rects.forEach(function (q) {
+      var rad = Math.min(4 * s, q.w / 3, q.h / 3);
+      g.save();
+      g.shadowColor = 'rgba(0,0,0,0.45)'; g.shadowBlur = 14 * s * dpr; g.shadowOffsetY = 8 * s * dpr;
+      g.fillStyle = '#4b4a47'; roundRect(g, q.x, q.y, q.w, q.h + lift, rad); g.fill();
+      g.restore();
+      g.fillStyle = '#5c5b57'; roundRect(g, q.x, q.y, q.w, q.h + lift, rad); g.fill();
+      g.save();
+      roundRect(g, q.x, q.y, q.w, q.h, rad); g.clip();
+      g.drawImage(tex, q.x * dpr, q.y * dpr, q.w * dpr, q.h * dpr, q.x, q.y, q.w, q.h);
+      g.restore();
+      g.strokeStyle = 'rgba(236,233,224,0.45)'; g.lineWidth = 1 * s;
+      g.beginPath(); g.moveTo(q.x + rad, q.y + 0.5 * s); g.lineTo(q.x + q.w - rad, q.y + 0.5 * s); g.stroke();
+    });
+    return c;
+  };
+  Pathway.prototype.drawPath = function (ctx, run, frac, bright) {
+    var p = run.path, upto = p.total * frac, s = this.s, i;
+    if (upto <= 0) return null;
+    ctx.beginPath(); ctx.moveTo(p.pts[0].x, p.pts[0].y);
+    var head = p.pts[0];
+    for (i = 1; i < p.pts.length; i++) {
+      if (p.cum[i] <= upto) { ctx.lineTo(p.pts[i].x, p.pts[i].y); head = p.pts[i]; }
+      else {
+        var f = (upto - p.cum[i - 1]) / (p.cum[i] - p.cum[i - 1]);
+        head = { x: p.pts[i - 1].x + (p.pts[i].x - p.pts[i - 1].x) * f, y: p.pts[i - 1].y + (p.pts[i].y - p.pts[i - 1].y) * f };
+        ctx.lineTo(head.x, head.y); break;
+      }
+    }
+    var grad = ctx.createLinearGradient(this.start.x, this.start.y, this.goal.x, this.goal.y);
+    grad.addColorStop(0, rgba(COL.blue, 1)); grad.addColorStop(0.35, rgba(COL.teal, 1));
+    grad.addColorStop(0.65, rgba(COL.sage, 1)); grad.addColorStop(1, rgba(COL.gold, 1));
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.strokeStyle = grad;
+    if (bright > 0.5) { ctx.globalAlpha = 0.16 * bright; ctx.lineWidth = 9 * s; ctx.stroke(); }
+    ctx.globalAlpha = bright; ctx.lineWidth = (bright > 0.5 ? 2.6 : 1.6) * s; ctx.stroke();
+    ctx.globalAlpha = 1;
+    return head;
+  };
+  Pathway.prototype.draw = function (ctx, t) {
+    var s = this.s, runs = this.runs, i, j;
+    ctx.drawImage(this.field, 0, 0, this.W, this.H);
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    var current = 0;
+    for (i = 0; i < runs.length; i++) if (t >= runs[i].t0) current = i;
+    for (i = 0; i <= current; i++) {
+      var run = runs[i], nodes = run.nodes;
+      var shown = Math.min(nodes.length, Math.floor(nodes.length * clamp((t - run.t0) / (run.tFound - run.t0), 0, 1)));
+      var dim = 1 - clamp((t - run.tTraced) / 1.0, 0, 1);
+      // the search, faint once a later try takes over
+      ctx.strokeStyle = rgba(run.col, 0.08 + 0.34 * dim);
+      ctx.lineWidth = Math.max(0.7, 1.05 * s);
+      ctx.beginPath();
+      for (j = 1; j < shown; j++) {
+        var nd = nodes[j], pa = nodes[nd.p];
+        ctx.moveTo(pa.x, pa.y); ctx.lineTo(nd.x, nd.y);
+      }
+      ctx.stroke();
+      if (t < run.tFound) {
+        ctx.fillStyle = rgba(mix(run.col, COL.white, 0.5), 0.8);
+        for (j = Math.max(1, shown - 14); j < shown; j++) { ctx.beginPath(); ctx.arc(nodes[j].x, nodes[j].y, 1.6 * s, 0, TAU); ctx.fill(); }
+      }
+      if (t >= run.tFound) {
+        var latest = i === current;
+        var head = this.drawPath(ctx, run, easeOut((t - run.tFound) / 1.2), latest ? 1 : 0.3);
+        if (head && t < run.tTraced) glow(ctx, head.x, head.y, 16 * s, COL.white, 0.7);
+        var e = (t - run.tTraced + 0.1) / 1.0;
+        if (e > 0 && e < 1) {
+          ctx.strokeStyle = rgba(COL.gold, 0.7 * (1 - e)); ctx.lineWidth = 1.5 * s;
+          ctx.beginPath(); ctx.arc(this.goal.x, this.goal.y, (10 + 40 * easeOut(e)) * s, 0, TAU); ctx.stroke();
+        }
+      }
+    }
+    seedNode(ctx, this.start, t, s, COL.blue, 0.2);
+    seedNode(ctx, this.goal, t, s, COL.gold, 0.5);
+    ctx.restore();
+    // a running tally of each try
+    var fs = Math.max(11, 12.5 * s);
+    ctx.font = '600 ' + fs + 'px Manrope, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    for (i = 0; i <= current; i++) {
+      var rn = runs[i];
+      var steps = Math.min(rn.nodes.length, Math.floor(rn.nodes.length * clamp((t - rn.t0) / (rn.tFound - rn.t0), 0, 1)));
+      ctx.fillStyle = i === current ? 'rgba(233,238,243,0.92)' : 'rgba(180,195,210,0.6)';
+      ctx.fillText('TRY ' + (i + 1) + '   ' + steps.toLocaleString('en-US') + ' steps', 16, 16 + i * fs * 1.55);
+    }
+  };
+
+  /* ---------- Stages ---------- */
+
+  function background(W, H, dpr) {
+    var c = makeCanvas(W, H, dpr), g = c.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var lg = g.createLinearGradient(0, 0, 0, H);
+    lg.addColorStop(0, '#1d3a5c'); lg.addColorStop(1, '#10223a');
+    g.fillStyle = lg; g.fillRect(0, 0, W, H);
+    var rg = g.createRadialGradient(W * 0.5, H * 0.42, 0, W * 0.5, H * 0.42, Math.max(W, H) * 0.75);
+    rg.addColorStop(0, 'rgba(120,160,200,0.10)'); rg.addColorStop(1, 'rgba(0,0,0,0.35)');
+    g.fillStyle = rg; g.fillRect(0, 0, W, H);
+    return c;
+  }
+
+  var grainTile = null;
+  function grain(ctx, W, H, dpr) {
+    if (!grainTile) {
+      grainTile = document.createElement('canvas');
+      grainTile.width = grainTile.height = 160;
+      var g = grainTile.getContext('2d'), d = g.createImageData(160, 160);
+      for (var i = 0; i < d.data.length; i += 4) {
+        var v = Math.random() * 255;
+        d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255;
+      }
+      g.putImageData(d, 0, 0);
+    }
+    if (!ctx.grainPattern) ctx.grainPattern = ctx.createPattern(grainTile, 'repeat');
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.globalAlpha = 0.07;
+    var ox = Math.floor(Math.random() * 160), oy = Math.floor(Math.random() * 160);
+    ctx.translate(-ox, -oy);
+    ctx.fillStyle = ctx.grainPattern;
+    ctx.fillRect(0, 0, W * dpr + 160, H * dpr + 160);
+    ctx.restore();
+  }
+
+  function newSeed() { return (Math.random() * 4294967296) >>> 0; }
+
+  function Stage(el, Scene) {
+    var self = this;
+    this.el = el; this.Scene = Scene;
+    this.canvas = el.querySelector('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.seed = newSeed(); this.t = 0; this.visible = false; this.raf = 0;
+    el.querySelector('.again').addEventListener('click', function () {
+      self.seed = newSeed(); self.build(); self.paint();
+    });
+    new ResizeObserver(function () { self.resize(); }).observe(el);
+    new IntersectionObserver(function (es) {
+      self.visible = es[es.length - 1].isIntersecting;
+      if (self.visible && !reduce) self.loop();
+    }, { threshold: 0.1 }).observe(el);
+  }
+  Stage.prototype.resize = function () {
+    var W = Math.round(this.el.clientWidth), H = Math.round(this.el.clientHeight);
+    if (!W || !H || (W === this.W && H === this.H)) return;
+    this.W = W; this.H = H;
+    this.dpr = Math.min(2, window.devicePixelRatio || 1);
+    this.canvas.width = Math.round(W * this.dpr); this.canvas.height = Math.round(H * this.dpr);
+    this.ctx.grainPattern = null;
+    this.bg = background(W, H, this.dpr);
+    this.build();
+    this.paint();
+  };
+  Stage.prototype.build = function () {
+    this.scene = new this.Scene(this.W, this.H, rngFrom(this.seed), this.dpr);
+    this.t = 0;
+  };
+  Stage.prototype.loop = function () {
+    var self = this;
+    if (this.raf) return;
+    var last = performance.now();
+    var tick = function (now) {
+      self.raf = 0;
+      if (!self.visible || !self.scene) return;
+      self.t += Math.min(0.05, (now - last) / 1000); last = now;
+      if (self.t > self.scene.duration) { self.seed = newSeed(); self.build(); }
+      self.paint();
+      self.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  };
+  Stage.prototype.paint = function () {
+    if (!this.scene) return;
+    var ctx = this.ctx, W = this.W, H = this.H, dpr = this.dpr, sc = this.scene;
+    var t = reduce ? sc.still : this.t;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    ctx.drawImage(this.bg, 0, 0, W, H);
+    sc.draw(ctx, t);
+    grain(ctx, W, H, dpr);
+    if (!reduce) {
+      var f = Math.max(1 - t / 0.8, (t - (sc.duration - 1.2)) / 1.2, 0);
+      if (f > 0) { ctx.globalAlpha = Math.min(1, f); ctx.drawImage(this.bg, 0, 0, W, H); ctx.globalAlpha = 1; }
+    }
+  };
+
+  var scenes = { breakthrough: Breakthrough, pathway: Pathway, tworoots: TwoRoots };
+  var stages = [];
+  document.querySelectorAll('.stage').forEach(function (el) {
+    stages.push(new Stage(el, scenes[el.getAttribute('data-scene')]));
+  });
+  // the canvas text waits on the web fonts; repaint still frames once they land
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () {
+    stages.forEach(function (st) { if (reduce) st.paint(); });
+  });
+})();
+</script>
+</body>
+</html>
