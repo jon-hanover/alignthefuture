@@ -106,17 +106,24 @@ the page, so the moving parts line up with the image on every device. Add
 bake captures.
 
 `v2/` is an alternative homepage, shared by link only (nothing links to it
-and it is marked noindex). It is Jon's synthesis of his homepage and Aaron's
-October 2026 funder-facing rewrite (the "Playing around with the website"
-email thread): Aaron's section order and copy, the watercolor brand, a few of
-Jon's two-pager lines where the urgency needed a long-horizon counterweight,
-and no new copy. Its hero circles drift together once and rest (calmer than the
-homepage duet, after Aaron's "human, not playful" note). Like `/landscape/`,
-it does not copy the student experience: it fetches `/studentexperience/` and
-brings in that page's styles, `#journey` section, filter definitions and
-script, so edits there show up in `v2/` too. Keep those ids and the single
-inline `<style>` and `<script>` in that page, or update the loader at the
-bottom of `v2/index.html`.
+and it is marked noindex). It started as Jon's synthesis of his homepage and
+Aaron's October 2026 funder-facing rewrite (the "Playing around with the
+website" email thread), using only their words, then took Jon's edits. Order:
+hero ("The next generation should not just inherit an AI future..."), the
+challenge, "But it does not have to be this way" (Jon's tightened version),
+"aligned to what?", the student experience animation, the model with the four
+fact boxes, guiding questions (the three discipline cards), theory of change,
+complementary role (links to `/landscape/`), road to summer 2027, team and the
+partner invitation. The hero pair is the homepage duet in plain flat color
+(Jon: no code-drawn watercolor), resting at the right with "Human literacy /
+AI Literacy, + agency, = Human flourishing" beneath; it holds 2 seconds,
+dances, and settles back. Like `/landscape/`, it does not copy the student
+experience: it fetches `/studentexperience/` and brings in that page's styles,
+`#journey` section, filter definitions and script, so edits there show up in
+`v2/` too. It pins the key question ("What if we gathered...") above the
+animation as a sticky header and shortens the sticky stage by its height
+(`--qh`). Keep those ids and the single inline `<style>` and `<script>` in the
+student experience page, or update the loader at the bottom of `v2/index.html`.
 
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and

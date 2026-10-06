@@ -52,26 +52,21 @@
   .button:hover, .button:focus-visible { background: var(--blue); }
   .hero .button { margin-top: 36px; }
 
-  /* The pair: two watercolor circles that drift together once and rest */
+  /* The pair: plain Humanities and AI circles. They rest, hold, dance for
+     about 20 seconds (the homepage duet) and settle back where they began. */
+  .hero { overflow: hidden; }
+  .hero .copy { position: relative; z-index: 1; }
   .pair-fig { margin: 0; display: flex; flex-direction: column; align-items: center; }
   .pair { position: relative; width: min(100%, 440px); aspect-ratio: 440 / 290; }
-  .pair svg { position: absolute; top: 0; width: 66%; height: auto; overflow: visible; mix-blend-mode: multiply; }
-  .pair .b { left: 0; }
-  .pair .y { right: 0; }
-  .pair-fig figcaption { margin-top: 18px; width: min(100%, 440px); text-align: center; }
-  .pair-fig .fields { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--rule); padding-top: 14px; }
+  .pair svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .pair-fig figcaption { margin-top: 18px; width: min(100%, 440px); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .pair-fig .fields { width: 100%; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--rule); padding-top: 14px; }
   .pair-fig .fields span { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
   .pair-fig .fields span:first-child { color: var(--blue); border-right: 1px solid var(--rule); }
   .pair-fig .fields span:last-child { color: #A8892A; }
-  .pair-fig .aim { margin-top: 10px; font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: #5E8A55; }
-  @media (prefers-reduced-motion: no-preference) {
-    .pair .b { animation: from-left 3.4s cubic-bezier(.22,.61,.36,1) .3s both; }
-    .pair .y { animation: from-right 3.4s cubic-bezier(.22,.61,.36,1) .3s both; }
-    .pair-fig figcaption { animation: rise 1.2s ease 3.1s both; }
-  }
-  @keyframes from-left { from { transform: translateX(-34%); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
-  @keyframes from-right { from { transform: translateX(34%); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
-  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .pair-fig .plus { margin-top: 6px; font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); }
+  .pair-fig .aim { font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: #5E8A55; }
+  .pair-fig .op { font-weight: 600; margin-right: 0.15em; }
 
   /* The challenge */
   .challenge { border-top: 1px solid var(--rule); }
@@ -79,8 +74,15 @@
   .challenge h2 { margin-top: 18px; font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.14; }
   .challenge h2 em { font-style: normal; color: var(--blue); }
 
-  /* Aligned to what? Washed in the logo colors */
-  .belief { background: linear-gradient(135deg, rgba(45, 94, 147, 0.07), rgba(117, 158, 117, 0.08) 55%, rgba(214, 178, 70, 0.12)); }
+  /* It does not have to be this way, washed in the logo colors */
+  .turn { background: linear-gradient(135deg, rgba(45, 94, 147, 0.07), rgba(117, 158, 117, 0.08) 55%, rgba(214, 178, 70, 0.12)); }
+  .turn .wrap { padding-top: 112px; padding-bottom: 112px; }
+  .turn h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.08; padding-bottom: 0.06em; }
+  .turn .stack { margin-top: 32px; max-width: 760px; gap: 18px; }
+  .turn .choose { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.2vw, 1.65rem); line-height: 1.35; color: var(--ink); }
+
+  /* Aligned to what? */
+  .belief { background: #fff; border-top: 1px solid var(--rule); }
   .belief .wrap { padding-top: 112px; padding-bottom: 112px; }
   .belief h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.12; }
   .belief h2 .setup { display: block; color: var(--muted); font-weight: 600; }
@@ -89,7 +91,8 @@
   .belief .gap h3 { margin: 0 0 12px; font-family: var(--display); font-size: 1.45rem; line-height: 1.3; color: var(--ink); }
 
   /* The model */
-  .model .wrap { padding-top: 112px; padding-bottom: 96px; }
+  .model { border-top: 1px solid var(--rule); }
+  .model .wrap { padding-top: 104px; padding-bottom: 96px; }
   .model h2 { margin-top: 18px; font-size: clamp(1.9rem, 3.6vw, 2.75rem); line-height: 1.16; }
   .model .status { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--rule); }
   .facts { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
@@ -113,11 +116,17 @@
   .pillar.h { border-color: var(--blue); } .pillar.h .kicker, .pillar.h .verbs { color: var(--blue); }
   .pillar.a { border-color: var(--sage); } .pillar.a .kicker, .pillar.a .verbs { color: #5E8A55; }
   .pillar.i { border-color: var(--gold); } .pillar.i .kicker, .pillar.i .verbs { color: #A8892A; }
-  .day-intro { margin-top: 88px; max-width: 760px; }
+  .fields-sec .lead { margin-top: 18px; max-width: 760px; }
 
   /* The student experience, loaded from /studentexperience/ */
   .journey-slot .wrap { padding-top: 24px; padding-bottom: 24px; }
   .journey-slot a { color: var(--blue); font-weight: 700; }
+  .journey-q { position: sticky; top: 0; z-index: 6; margin: 0; padding: 28px 24px 14px; background: #FCFBF7; text-align: center; }
+  .journey-q h2 { max-width: 920px; margin: 0 auto; font-size: clamp(1.2rem, 2.3vw, 1.85rem); line-height: 1.3; font-weight: 700; color: var(--ink); }
+  .journey-q .ramp-text { font-weight: 800; }
+  @media (prefers-reduced-motion: no-preference) {
+    .journey .stage { top: var(--qh, 0px); height: calc(100svh - var(--qh, 0px)); }
+  }
   .after-day { background: #FCFBF7; }
   .after-day .wrap { padding-top: 24px; padding-bottom: 104px; }
   .after-day p { max-width: 760px; }
@@ -182,15 +191,15 @@
   .bios .text-link { margin-top: 2px; align-self: flex-start; }
   .closing { margin-top: 56px; max-width: 860px; font-family: var(--display); font-weight: 600; font-size: clamp(1.3rem, 2.3vw, 1.7rem); line-height: 1.4; color: var(--ink); }
 
-  /* Partner */
-  .partner { background: var(--deep); color: var(--on-deep); }
-  .partner .wrap { padding-top: 112px; padding-bottom: 112px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
-  .partner h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.1; color: #fff; }
-  .partner h2 span { color: var(--gold); }
-  .partner p { max-width: 620px; font-size: clamp(1.1rem, 1.6vw, 1.25rem); color: var(--on-deep-muted); }
-  .partner .button { margin-top: 8px; background: var(--gold); color: var(--deep); }
-  .partner .button:hover, .partner .button:focus-visible { background: #E4C45F; }
-  .partner .mail { color: #fff; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; font-size: 16px; }
+  /* Partner: the circles again, faint and at rest behind the invitation */
+  .partner { background: var(--paper); border-top: 1px solid var(--rule); overflow: hidden; }
+  .partner .rest { position: absolute; left: 50%; top: 50%; width: min(760px, 150%); transform: translate(-50%, -50%); opacity: 0.13; pointer-events: none; }
+  .partner .wrap { position: relative; padding-top: 128px; padding-bottom: 128px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+  .partner h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.1; color: var(--ink); }
+  .partner h2 .ramp-text { padding-bottom: 0.06em; }
+  .partner p { max-width: 620px; font-size: clamp(1.1rem, 1.6vw, 1.25rem); color: var(--muted); }
+  .partner .button { margin-top: 8px; }
+  .partner .mail { color: var(--blue); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; font-size: 16px; }
 
   footer .tagline { font-family: var(--display); font-weight: 600; color: var(--ink); }
 
@@ -214,14 +223,13 @@
     .top .nav { gap: 14px; }
     .top .nav a:first-child { display: none; }
     .hero .wrap { padding-top: 40px; padding-bottom: 72px; }
-    .challenge .wrap, .belief .wrap, .model .wrap, .change .wrap, .role .wrap, .road .wrap, .people .wrap, .partner .wrap { padding-top: 72px; padding-bottom: 72px; }
+    .challenge .wrap, .turn .wrap, .belief .wrap, .model .wrap, .change .wrap, .role .wrap, .road .wrap, .people .wrap, .partner .wrap { padding-top: 72px; padding-bottom: 72px; }
     .fields-sec .wrap { padding-top: 72px; padding-bottom: 56px; }
     .after-day .wrap { padding-bottom: 72px; }
     .facts { grid-template-columns: minmax(0, 1fr); }
     .steps { grid-template-columns: minmax(0, 1fr); }
     .steps li, .steps li + li { padding-left: 0; border-left: 0; }
     .steps li + li { border-top: 1px solid var(--rule); }
-    .day-intro { margin-top: 64px; }
     .pair-fig { max-width: 300px; width: 100%; margin: 0 auto; }
     .partner .wrap { text-align: left; align-items: flex-start; }
     .button { padding: 14px 22px; font-size: 16px; }
@@ -241,19 +249,25 @@
 <main>
   <section class="hero" aria-label="Introduction">
     <div class="wrap">
-      <div>
-        <h1>Turning the generation inheriting the AI future into the one that’s <span class="ramp-text">shaping it.</span></h1>
+      <div class="copy">
+        <h1>The next generation should not just inherit an AI future. <span class="ramp-text">They should shape it.</span></h1>
         <p class="intro">An international, experiential program preparing exceptional young people to align and govern AI through policy, technical research, and a foundation of human literacy.</p>
         <a class="button" href="#partner">Help build the founding cohort</a>
       </div>
-      <figure class="pair-fig" aria-label="Humanities and AI Research, overlapping in human flourishing">
+      <figure class="pair-fig" aria-label="Human literacy and AI literacy, plus agency, make human flourishing">
         <div class="pair" aria-hidden="true">
-          <svg class="b" viewBox="-12 -12 224 224" focusable="false"><circle cx="100" cy="100" r="96" fill="#497AB9" opacity=".62" filter="url(#v2-wc)"/></svg>
-          <svg class="y" viewBox="-12 -12 224 224" focusable="false"><circle cx="100" cy="100" r="96" fill="#EDD742" opacity=".78" filter="url(#v2-wc)"/></svg>
+          <!-- At rest without script; the duet script below moves them -->
+          <svg class="dance" viewBox="0 0 440 290" focusable="false">
+            <g opacity="0.42">
+              <circle class="b" cx="148" cy="145" r="145" fill="#2D5E93"/>
+              <circle class="y" cx="292" cy="145" r="145" fill="#D6B246" style="mix-blend-mode: multiply"/>
+            </g>
+          </svg>
         </div>
         <figcaption>
-          <div class="fields"><span>Humanities</span><span>AI Research</span></div>
-          <p class="aim">Human flourishing.</p>
+          <div class="fields"><span>Human literacy</span><span>AI Literacy</span></div>
+          <p class="plus"><span class="op">+</span> agency</p>
+          <p class="aim"><span class="op">=</span> Human flourishing</p>
         </figcaption>
       </figure>
     </div>
@@ -272,6 +286,17 @@
     </div>
   </section>
 
+  <section class="turn" aria-labelledby="turn-title">
+    <div class="wrap">
+      <h2 id="turn-title" class="ramp-text">But it does not have to be this way.</h2>
+      <div class="stack">
+        <p class="lead">We could choose to confront this uncertain future together.</p>
+        <p class="lead soft">We could choose to do more than teach the next generation to “make do” with the AI future. Do more than help them become better consumers of AI. Do more than help them become more productive employees with AI.</p>
+        <p class="choose">We could choose instead to cultivate the sense of agency our generation has lost.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="belief" aria-labelledby="belief-title">
     <div class="wrap split">
       <h2 id="belief-title"><span class="setup">The question should not just be “is AI aligned,”</span> <span class="ramp-text">but aligned to what?</span></h2>
@@ -286,12 +311,23 @@
     </div>
   </section>
 
+  <!-- Replaced by the scroll animation from /studentexperience/ (see the script at the bottom) -->
+  <div class="journey-slot" id="journey-slot">
+    <div class="wrap"><p><a href="/studentexperience/">See a day in the program</a></p></div>
+  </div>
+
+  <section class="after-day" aria-label="Beyond the summer">
+    <div class="wrap">
+      <p class="lead">Alongside their capstones, students would develop a learning agenda and civic action plans, building relationships intended to continue beyond the summer.</p>
+    </div>
+  </section>
+
   <section class="model" aria-labelledby="model-title">
     <div class="wrap">
       <div class="split">
         <div>
           <p class="eyebrow">The Align the Future model</p>
-          <h2 id="model-title">What if we gathered the best minds of the next generation and prepared them to lead us into an aligned future together?</h2>
+          <h2 id="model-title">An international, experiential and cross-disciplinary youth program.</h2>
         </div>
         <div class="stack">
           <p>We believe transformative AI will arrive quickly. AI capabilities are far outpacing alignment. Preparing young people only to use it is not enough.</p>
@@ -309,9 +345,10 @@
     </div>
   </section>
 
-  <section class="fields-sec" aria-labelledby="experience-title">
+  <section class="fields-sec" aria-labelledby="questions-title">
     <div class="wrap">
-      <h2 class="eyebrow" id="experience-title">The experience</h2>
+      <h2 class="eyebrow" id="questions-title">Guiding questions</h2>
+      <p class="lead">Students would learn with humanities professors, policy makers and AI researchers. Shared inquiry connects technical work to questions of value, responsibility and collective action.</p>
       <ul class="pillars">
         <li class="pillar h">
           <span class="kicker">Understand humanity</span>
@@ -332,18 +369,6 @@
           <span class="verbs">Build. Test. Discover.</span>
         </li>
       </ul>
-      <p class="lead day-intro">Students would learn with humanities professors, policy makers and AI researchers. Shared inquiry connects technical work to questions of value, responsibility and collective action.</p>
-    </div>
-  </section>
-
-  <!-- Replaced by the scroll animation from /studentexperience/ (see the script at the bottom) -->
-  <div class="journey-slot" id="journey-slot">
-    <div class="wrap"><p><a href="/studentexperience/">See a day in the program</a></p></div>
-  </div>
-
-  <section class="after-day" aria-label="Beyond the summer">
-    <div class="wrap">
-      <p class="lead">Alongside their capstones, students would develop a learning agenda and civic action plans, building relationships intended to continue beyond the summer.</p>
     </div>
   </section>
 
@@ -425,8 +450,12 @@
   </section>
 
   <section class="partner" id="partner" aria-labelledby="partner-title">
+    <svg class="rest" viewBox="0 0 300 200" aria-hidden="true" focusable="false">
+      <circle cx="100" cy="100" r="100" fill="#2D5E93"/>
+      <circle cx="200" cy="100" r="100" fill="#D6B246" style="mix-blend-mode: multiply"/>
+    </svg>
     <div class="wrap">
-      <h2 id="partner-title">Help us shape the <span>founding program.</span></h2>
+      <h2 id="partner-title">Help us shape the <span class="ramp-text">founding program.</span></h2>
       <p>A rigorous curriculum, a community of mentors, and an international cohort prepared to shape the future.</p>
       <a class="button" href="mailto:team@alignthefuture.org?subject=Founding%20partner%20conversation">Become a founding partner</a>
       <a class="mail" href="mailto:team@alignthefuture.org">Talk with the team · team@alignthefuture.org</a>
@@ -442,29 +471,76 @@
   </div>
 </footer>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <!-- The hero circles: a soft, wobbled watercolor edge with a darker pooled rim -->
-    <filter id="v2-wc" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="7" result="warp"/>
-      <feDisplacementMap in="SourceGraphic" in2="warp" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feGaussianBlur in="d" stdDeviation="0.7" result="shape"/>
-      <feGaussianBlur in="shape" stdDeviation="3" result="soft"/>
-      <feComposite in="shape" in2="soft" operator="out" result="rim"/>
-      <feColorMatrix in="rim" type="matrix" values="0.8 0 0 0 0  0 0.8 0 0 0  0 0 0.8 0 0  0 0 0 0.7 0" result="rimDark"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="3" result="blot"/>
-      <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="blotA"/>
-      <feComposite in="shape" in2="blotA" operator="in" result="body"/>
-      <feMerge><feMergeNode in="body"/><feMergeNode in="rimDark"/></feMerge>
-    </filter>
-  </defs>
-</svg>
-
 <script>
+/* The hero duet: the homepage's Humanities and AI circles, in plain color.
+   They rest where the static markup draws them, hold 2 seconds, flirt for
+   about 20 seconds (overlapping, twice passing through each other) and
+   settle back in the same spot. The keyframes are the homepage's; reduced
+   motion, or no script, keeps the pair at rest. */
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var svg = document.querySelector(".hero .dance");
+  var box = svg.parentNode;
+  var blue = svg.querySelector(".b"), yellow = svg.querySelector(".y");
+  var HOLD = 2, END = 20.5;
+  // [seconds, blue x, blue y, yellow x, yellow y]: x in pixels from the stage
+  // width W, radius r and resting midpoint c; y as a fraction of r.
+  function keys(W, r, c) {
+    return [
+      [0.0, c - 0.5 * r, 0, c + 0.5 * r, 0],
+      [2.5, 0.22 * W, -0.15, 0.8 * W, 0.2],
+      [4.5, 0.5 * W - 0.7 * r, 0.1, 0.5 * W + 0.7 * r, -0.1],
+      [6.2, 0.38 * W - 0.4 * r, -0.2, 0.64 * W + 0.4 * r, 0.25],
+      [8.2, 0.5 * W, 0.05, 0.5 * W, -0.05],
+      [9.8, 0.66 * W + 0.3 * r, -0.15, 0.34 * W - 0.3 * r, 0.2],
+      [11.4, 0.78 * W, 0.2, 0.2 * W, -0.2],
+      [13.2, 0.6 * W, -0.1, 0.4 * W, 0.1],
+      [14.7, 0.5 * W + 0.1 * r, 0.1, 0.5 * W - 0.1 * r, -0.1],
+      [16.3, 0.4 * W - 0.6 * r, -0.15, 0.62 * W + 0.4 * r, 0.2],
+      [18.3, c - 0.95 * r, 0.1, c + 0.85 * r, -0.15],
+      [19.6, c - 0.35 * r, -0.05, c + 0.35 * r, 0.05],
+      [20.5, c - 0.5 * r, 0, c + 0.5 * r, 0]
+    ];
+  }
+  // Smooth path through the keyframes (cubic Hermite, Catmull-Rom tangents)
+  function at(K, t, i) {
+    var n = K.length - 1, k = 0;
+    if (t >= K[n][0]) return K[n][i];
+    while (t > K[k + 1][0]) k++;
+    function tan(j) {
+      if (j === 0 || j === n) return 0;
+      return (K[j + 1][i] - K[j - 1][i]) / (K[j + 1][0] - K[j - 1][0]);
+    }
+    var h = K[k + 1][0] - K[k][0], u = (t - K[k][0]) / h, u2 = u * u, u3 = u2 * u;
+    return (2 * u3 - 3 * u2 + 1) * K[k][i] + (u3 - 2 * u2 + u) * h * tan(k) +
+      (-2 * u3 + 3 * u2) * K[k + 1][i] + (u3 - u2) * h * tan(k + 1);
+  }
+  var start = null, T = 0;
+  function render() {
+    var W = box.clientWidth, H = box.clientHeight, r = 0.33 * W;
+    var K = keys(W, r, W / 2), t = Math.min(Math.max(T - HOLD, 0), END);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    blue.setAttribute("r", r); yellow.setAttribute("r", r);
+    blue.setAttribute("cx", at(K, t, 1)); blue.setAttribute("cy", H / 2 + at(K, t, 2) * r);
+    yellow.setAttribute("cx", at(K, t, 3)); yellow.setAttribute("cy", H / 2 + at(K, t, 4) * r);
+  }
+  function frame(now) {
+    if (start === null) start = now;
+    T = Math.min((now - start) / 1000, HOLD + END);
+    render();
+    if (T < HOLD + END) requestAnimationFrame(frame);
+  }
+  window.addEventListener("resize", render);
+  render();
+  requestAnimationFrame(frame);
+})();
+
 /* The student experience animation is written once, in /studentexperience/.
    This page fetches that page and brings in its styles, its #journey section,
    its watercolor filter definitions and its script, so edits there show up
-   here too. Without script, or if the fetch fails, a link to the page stays. */
+   here too. The key question is pinned above the animation as it plays: the
+   stage sits below it (--qh), and the animation sizes itself to the stage.
+   Without script, or if the fetch fails, a link to the page stays. */
 (function () {
   var slot = document.getElementById('journey-slot');
   fetch('/studentexperience/', { cache: 'no-cache' })
@@ -479,8 +555,20 @@
       var style = document.createElement('style');
       style.textContent = css.textContent;
       document.head.appendChild(style);
-      slot.replaceWith(document.importNode(journey, true));
+      journey = document.importNode(journey, true);
+      var q = document.createElement('div');
+      q.className = 'journey-q';
+      q.innerHTML = '<h2>What if we gathered the best minds of the next generation and prepared them to <span class="ramp-text">lead us into an aligned future together?</span></h2>';
+      journey.insertBefore(q, journey.firstChild);
+      slot.replaceWith(journey);
       document.body.appendChild(document.importNode(defs, true));
+      // Registered before the animation's own resize handler, so it lays out
+      // against the stage's new height
+      var fit = function () { journey.style.setProperty('--qh', q.offsetHeight + 'px'); };
+      fit();
+      window.addEventListener('resize', fit);
+      // The question's height changes once its font loads; lay out again
+      if (document.fonts) document.fonts.ready.then(function () { fit(); window.dispatchEvent(new Event('resize')); });
       var run = document.createElement('script');
       run.textContent = code.textContent;
       document.body.appendChild(run);
