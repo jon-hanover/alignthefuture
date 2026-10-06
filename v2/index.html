@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="An international, experiential program preparing exceptional young people to align and govern AI through policy, technical research, and a foundation of human literacy.">
 <meta property="og:title" content="Align the Future">
-<meta property="og:description" content="Turning the generation inheriting the AI future into the one that’s shaping it.">
+<meta property="og:description" content="The next generation should not inherit the AI future. They should align it to promote human flourishing.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://alignthefuture.org/brand/png/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -38,7 +38,9 @@
 
   /* Hero */
   .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 112px; }
-  .hero h1 { font-size: clamp(2.3rem, 5vw, 3.9rem); line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+  .hero h1 { font-size: clamp(2.1rem, 4.3vw, 3.4rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); text-wrap: pretty; }
+  /* "The next generation" stays on one line wherever it fits */
+  @media (min-width: 380px) { .hero h1 .keep { white-space: nowrap; } }
   .hero h1 .ramp-text { padding-bottom: 0.06em; }
   .hero .intro { margin-top: 28px; max-width: 560px; font-size: clamp(1.1rem, 1.6vw, 1.25rem); line-height: 1.6; color: var(--muted); }
   .button {
@@ -242,7 +244,7 @@
   <section class="hero" aria-label="Introduction">
     <div class="wrap">
       <div class="copy">
-        <h1>The next generation should not just inherit the AI future. They should <span class="ramp-text">shape it.</span></h1>
+        <h1><span class="keep">The next generation</span> should not inherit the AI future. They should <span class="ramp-text">align it</span> to promote human flourishing.</h1>
         <p class="intro">An international, experiential program preparing exceptional young people to align and govern AI through policy, technical research, and a foundation of human literacy.</p>
         <a class="button" href="#partner">Help build the founding cohort</a>
       </div>
