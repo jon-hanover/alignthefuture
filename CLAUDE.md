@@ -118,7 +118,8 @@ complementary role (links to `/landscape/`), road to summer 2027, team and the
 partner invitation. The hero pair is the homepage duet in plain flat color
 (Jon: no code-drawn watercolor), resting at the right with "Human literacy" and "AI Literacy" beneath; it
 holds 2 seconds, dances for about 24 seconds (the homepage moves plus two),
-and settles back. Only "align it." in the headline takes the gradient, set a size larger, and "The next
+and settles back. Only "align it." in the headline takes the gradient, handwritten in Caveat
+bold and set larger, and "The next
 generation" never breaks across lines (`.keep`) at 380px and wider. Like `/landscape/`, it does not copy the student
 experience: it fetches `/studentexperience/` and brings in that page's styles,
 `#journey` section, filter definitions and script, so edits there show up in
