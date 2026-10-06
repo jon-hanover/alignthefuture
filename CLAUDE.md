@@ -239,3 +239,18 @@ the internal collab doc) where the day-to-day work actually happens. Nothing in
 back here, with a few notes for collaborators new to the repo (preview through
 a local server, how the graphics are built). Keep those notes in step with
 this file when either changes.
+
+## Aaron homepage proposal (working branch)
+
+On `aaron/updated-homepage`, `/v2/` is Aaron's review-first proposal. Its hero
+is “The future is theirs to align.” and its circles make one slow movement
+into alignment. The program model presents a shared humanities foundation,
+two specialties (AI research and engineering; alignment policy and governance),
+and a shared final project alongside specialty capstones. Career pathways
+and differentiation are consolidated; launch status sits in the partner
+invitation. The shared student experience captions describe that same model.
+Only captions and layout changed; baked artwork is unchanged and needs no rebake.
+
+For Aaron, hold changes on his branch, preview desktop and mobile, and let him
+review and iterate before creating a pull request for Jon. Do not push or merge
+to `main` without Aaron's explicit request. The main homepage is unchanged.
