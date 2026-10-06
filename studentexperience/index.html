@@ -56,7 +56,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 .cap { position: absolute; top: 0; left: 0; width: min(560px, 88vw); text-align: center; pointer-events: none; will-change: transform, opacity; }
 .cap .icon { width: 58px; height: 58px; margin: 0 auto 6px; }
 .cap .icon svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.capstone { display: inline-flex; align-items: center; gap: 14px; margin-top: 18px; max-width: 500px; padding: 12px 20px 12px 12px; border-radius: 16px; border: 2px solid; text-align: left; font-size: 15.5px; font-weight: 600; line-height: 1.4; color: #24303D; text-wrap: pretty; box-shadow: 0 10px 24px -12px rgba(31, 45, 61, 0.45); transform: rotate(-0.6deg); }
+.capstone { display: inline-flex; align-items: center; gap: 14px; margin-top: 18px; max-width: 500px; padding: 12px 20px 12px 12px; border-radius: 4px; border: 1px solid; text-align: left; font-size: 15.5px; font-weight: 600; line-height: 1.4; color: #24303D; text-wrap: pretty; box-shadow: 0 10px 24px -12px rgba(31, 45, 61, 0.45);  }
 .capstone .seal { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; }
 .capstone .seal svg { width: 30px; height: 30px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -74,7 +74,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 .paper { position: absolute; inset: 0; pointer-events: none; z-index: 4; opacity: 0.3;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.5  0 0 0 0 0.42  0 0 0 0.16 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
 .cue { position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 2px; font-family: var(--display); font-weight: 700; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); transition: opacity 0.6s ease; pointer-events: none; }
-.cue svg { width: 18px; height: 18px; animation: nudge 1.8s ease-in-out infinite; }
+.cue svg { width: 18px; height: 18px;  }
 .cue.gone { opacity: 0; }
 @keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 .progress { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 8px; z-index: 5; }
@@ -97,8 +97,12 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 @media (max-width: 899px) { .cap .icon { width: 40px; height: 40px; margin-bottom: 2px; } }
 
 @media (max-width: 760px) {
-  .cap h2 { font-size: 22px; }
-  .cap p { font-size: 15px; }
+  .cap h2 { font-size: 20px; }
+  .cap p { font-size: 14px; }
+  .cap .icon { width: 32px; height: 32px; }
+  .capstone { margin-top: 12px; padding: 10px 12px; font-size: 14px; gap: 10px; }
+  .capstone .seal { width: 32px; height: 32px; }
+  .capstone .seal svg { width: 22px; height: 22px; }
 }
 
 /* Reduced motion: no scroll-jacking; the strip becomes a row you swipe sideways */
@@ -663,19 +667,19 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 
   /* Four parts of the day */
   const BLOBS = [
-    { lane: 'hum', head: 'Humanities', body: 'Mornings belong to the great thinkers and the permanent questions about being human and about thriving human communities, read slowly and then tested out loud in Socratic seminars led by university faculty.',
+    { lane: 'hum', head: 'Shared humanities foundation', body: 'Every student shares a foundation in human literacy. Close reading and faculty-led Socratic seminars examine moral philosophy, human flourishing, and the responsibilities of shaping AI.',
       capstone: 'A personal essay and oral defense of their perspective on being fully human in the age of AI.', scenes: [
       { draw: reading, w: 330, label: 'A student reads in an armchair beside a tall bookshelf and a reading lamp.' },
       { draw: seminar, label: 'Seven high school students and a professor sit in a circle around a low table of books, mid-discussion, beneath a chalkboard asking What makes us human? and How do humans flourish?' }] },
-    { lane: 'ai', head: 'AI research', body: 'Afternoons are for research on live AI safety questions alongside a mentor who does AI safety work. Students formulate and test hypotheses, then analyze and make sense of the results.',
-      capstone: 'A publication-ready paper with the results of their AI safety research.', scenes: [
+    { lane: 'ai', head: 'AI research &amp; engineering specialty', body: 'Afternoons move from technical instruction to original research. Students develop fluency in the core concepts, tools, and methods of AI safety, then work with expert mentors to investigate live questions and produce research-quality findings.',
+      capstone: 'A research paper or engineering contribution documenting methods, findings, and limitations.', scenes: [
       { draw: modelTest, label: 'Two students at laptops work through an experiment. A grey-haired researcher in glasses points to a results plot on a large dark screen with code running beside it, and a third student adds notes to a board headed What remains unsolved?' }] },
-    { lane: 'policy', head: 'Policy', body: 'Evenings bring elected officials and policy experts to the table for real conversation. Then small teams draft, debate and defend proposals of their own.',
+    { lane: 'policy', head: 'Policy &amp; governance specialty', body: 'Policy specialists examine technical evidence and institutional trade-offs with elected officials and expert practitioners, then draft, debate, and defend proposals. Students across specialties gain exposure to this work.',
       capstone: 'Policy recommendations developed by cross\u2011national groups.', scenes: [
       { draw: roundtable, label: 'A state senator in a burgundy skirt suit with a lapel pin talks with students around a table covered in papers and water glasses, a name card in front of her.' },
       { draw: drafting, label: 'Students stand around a flip chart headed What policies do we need?, one writing while the others argue a point.' }] },
-    { lane: 'home', head: 'A residential experience builds close international relationships', body: 'Students from around the world live together, so the arguments that start in seminar carry on across the campus, in the dining room and late into the night.',
-      outcome: 'A generation ready to lead together.', scenes: [
+    { lane: 'home', head: 'A community working across disciplines', body: 'Students live and learn together across national and disciplinary boundaries. Alongside specialty capstones, they work in mixed teams on a shared final project, bringing technical evidence and human judgment to one alignment challenge.',
+      outcome: 'Specialty depth. Shared judgment. A joint final project.', scenes: [
       { draw: walk, label: 'Two students walk along a wooded path, one carrying a book, deep in conversation.' },
       { draw: commonRoom, label: 'Four students talk intensely in a dorm common room, one on a bean bag, two on a couch and one on a floor cushion, with mugs on a coffee table and string lights. A bedroom door stands open.' }] },
   ];
@@ -890,10 +894,10 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
     vw = stage.clientWidth; vh = stage.clientHeight;
     wide = vw >= 900;
     // Wide screens show a whole part of the day at once; narrow ones step through its scenes
-    scale = wide ? Math.min(vh * 0.46 / ART_H, vw * 0.88 / BW) : Math.min(vh * 0.36 / ART_H, vw * 1.1 / VW);
+    scale = wide ? Math.min(vh * 0.46 / ART_H, vw * 0.88 / BW) : Math.min(vh * 0.25 / ART_H, vw * 1.1 / VW);
     if (reduce.matches) scale = Math.min(330 / ART_H, vw * 0.9 / VW);
     STOPS = wide ? BLOBS.map(b => b.x) : BLOBS.flatMap(b => b.vx);
-    lineScreenY = (reduce.matches ? 820 : vh) * (wide ? 0.5 : 0.38);
+    lineScreenY = (reduce.matches ? 820 : vh) * (wide ? 0.5 : 0.24);
     const W = WORLD_W * scale, H = WORLD_H * scale;
     world.style.width = W + 'px'; world.style.height = H + 'px';
     const bandTop = (LINE_Y - BAND) * scale + 'px', bandH = 2 * BAND * scale + 'px';
