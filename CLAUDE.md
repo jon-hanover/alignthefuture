@@ -253,3 +253,13 @@ Only captions and layout changed; baked artwork is unchanged and needs no rebake
 For Aaron, hold changes on his branch, preview desktop and mobile, and let him
 review and iterate before creating a pull request for Jon. Do not push or merge
 to `main` without Aaron's explicit request. The main homepage is unchanged.
+
+### Aaron review: editorial experience and program subpage
+
+The alternative homepage now uses a static editorial experience section with
+AI-generated conceptual imagery at `assets/editorial/shaping-the-future.webp`,
+rather than loading the shared animation. It is not documentary program photography.
+The standalone `/studentexperience/` remains available. The detailed foundation,
+specialties, and capstones diagram is at `/v2/program/`, linked from the short
+homepage model summary. Aaron's background link points to his consulting website.
+Keep the diagram styles in step with the homepage; both load shared site tokens.
