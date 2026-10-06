@@ -6,9 +6,9 @@
 <title>Align the Future</title>
 <!-- An alternative homepage, shared by link only: kept out of search engines -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="An international, experiential program preparing exceptional young people to align and govern AI through policy, technical research, and a foundation of human literacy.">
+<meta name="description" content="Rigorous technical study, original research, and humanistic judgment. An international program preparing emerging researchers, engineers, and civic leaders to shape and govern AI.">
 <meta property="og:title" content="Align the Future">
-<meta property="og:description" content="The next generation should not inherit the AI future. They should align it.">
+<meta property="og:description" content="The future is theirs to align.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://alignthefuture.org/brand/png/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,11 +39,7 @@
   /* Hero */
   .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 112px; }
   .hero h1 { font-size: clamp(2.1rem, 4.3vw, 3.4rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); text-wrap: pretty; }
-  /* "The next generation" stays on one line wherever it fits */
-  @media (min-width: 380px) { .hero h1 .keep { white-space: nowrap; } }
   .hero h1 .ramp-text { padding-bottom: 0.06em; }
-  /* The payoff, handwritten in Caveat (the student experience's handwriting) */
-  .hero h1 .big { font-family: "Caveat", "Bradley Hand", "Segoe Print", cursive; font-weight: 700; font-size: 1.8em; line-height: 0.95; letter-spacing: 0; padding: 0 0.04em 0.12em 0; }
   .hero .intro { margin-top: 28px; max-width: 560px; font-size: clamp(1.1rem, 1.6vw, 1.25rem); line-height: 1.6; color: var(--muted); }
   .button {
     display: inline-block;
@@ -104,20 +100,6 @@
   .facts b { display: block; margin-bottom: 6px; font-family: var(--display); font-size: 24px; font-weight: 800; color: var(--ink); font-variant-numeric: lining-nums; }
   .facts span { color: var(--muted); font-size: 16px; }
 
-  /* Three disciplines */
-  .fields-sec { background: #fff; border-top: 1px solid var(--rule); }
-  .fields-sec .wrap { padding-top: 104px; padding-bottom: 72px; }
-  .pillars { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  .pillar { border-top: 5px solid; padding-top: 22px; display: flex; flex-direction: column; gap: 14px; }
-  .pillar .kicker { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
-  .pillar h3 { margin: 0; font-family: var(--display); font-size: 1.75rem; line-height: 1.15; color: var(--ink); }
-  .pillar p { color: var(--muted); font-size: 17px; }
-  .pillar .verbs { margin-top: auto; padding-top: 12px; font-family: var(--display); font-weight: 800; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; }
-  .pillar.h { border-color: var(--blue); } .pillar.h .kicker, .pillar.h .verbs { color: var(--blue); }
-  .pillar.a { border-color: var(--sage); } .pillar.a .kicker, .pillar.a .verbs { color: #5E8A55; }
-  .pillar.i { border-color: var(--gold); } .pillar.i .kicker, .pillar.i .verbs { color: #A8892A; }
-  .fields-sec .lead { margin-top: 18px; max-width: 760px; }
-
   /* The student experience, loaded from /studentexperience/ */
   .journey-slot .wrap { padding-top: 24px; padding-bottom: 24px; }
   .journey-slot a { color: var(--blue); font-weight: 700; }
@@ -146,34 +128,7 @@
   .flagship strong { color: var(--ink); font-family: var(--display); font-size: 1.2rem; line-height: 1.35; }
   .flagship p { color: var(--muted); }
 
-  /* A complementary role */
-  .role { background: #fff; border-top: 1px solid var(--rule); }
-  .role .wrap { padding-top: 104px; padding-bottom: 104px; }
-  .role h2 { margin-top: 18px; font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.12; max-width: 640px; }
-  .marks { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
-  .marks article { border-top: 1px solid var(--rule); padding-top: 22px; }
-  .marks h3 { margin: 0 0 12px; font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 3vw, 2.3rem); line-height: 1.1; color: var(--blue); }
-  .marks article:nth-child(2) h3 { color: #5E8A55; }
-  .marks article:nth-child(3) h3 { color: #A8892A; }
-  .marks p { color: var(--muted); font-size: 17px; }
-  .role .landscape-note { margin-top: 56px; max-width: 720px; }
-  .text-link { display: inline-block; margin-top: 16px; font-family: var(--display); font-weight: 700; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
-  .text-link:hover { color: var(--ink); }
-
-  /* The road to launch */
-  .road { border-top: 1px solid var(--rule); }
-  .road .wrap { padding-top: 104px; padding-bottom: 104px; }
-  .road h2 { margin-top: 18px; font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.12; }
-  .road .status { margin-top: 48px; }
-  .miles { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--rule); }
-  .miles li { display: grid; grid-template-columns: 48px minmax(0, 1.1fr) minmax(0, 2fr) 170px; gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--rule); }
-  .miles .n { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--muted); }
-  .miles h3 { margin: 0; font-family: var(--display); font-size: 1.3rem; color: var(--ink); }
-  .miles p { color: var(--muted); }
-  .miles b { justify-self: end; text-align: right; font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--muted); }
-  .miles .now { color: var(--teal); }
-  .miles .target { color: #5E8A55; }
-
+  .text-link { display: inline-block; margin-top: 16px; color: var(--blue); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--gold); }
   /* Team */
   .people { background: #fff; border-top: 1px solid var(--rule); }
   .people .wrap { padding-top: 104px; padding-bottom: 104px; }
@@ -233,6 +188,17 @@
   @media (max-width: 400px) {
     .top .nav a:nth-child(2) { display: none; }
   }
+
+  .foundation, .shared-project { margin-top: 40px; padding: 28px 32px; border-left: 3px solid var(--blue); background: #F1EFE8; }
+  .foundation h3, .shared-project h3, .track h3 { font-family: var(--display); font-size: 1.5rem; line-height: 1.25; margin: 12px 0 16px; }
+  .foundation p:last-child, .shared-project p:last-child, .track p { color: var(--muted); }
+  .tracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 32px; }
+  .track { border-top: 3px solid var(--gold); padding-top: 24px; }
+  .track:last-child { border-color: var(--sage); }
+  .deliverable { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 16px; }
+  .shared-project { border-color: var(--sage); background: transparent; border-top: 1px solid var(--rule); }
+  .partner .note { font-size: 15px; }
+  @media (max-width: 600px) { .tracks { grid-template-columns: minmax(0, 1fr); gap: 32px; } .foundation, .shared-project { padding: 24px 20px; } }
 </style>
 </head>
 <body class="v2">
@@ -246,8 +212,8 @@
   <section class="hero" aria-label="Introduction">
     <div class="wrap">
       <div class="copy">
-        <h1><span class="keep">The next generation</span> should not inherit the AI future. They should <span class="ramp-text big">align it.</span></h1>
-        <p class="intro">An international, experiential program preparing exceptional young people to align and govern AI through policy, technical research, and a foundation of human literacy.</p>
+        <h1>The future is theirs <span class="ramp-text">to align.</span></h1>
+        <p class="intro">Rigorous technical study, original research, and humanistic judgment. An international program preparing emerging researchers, engineers, and civic leaders to shape and govern AI.</p>
         <a class="button" href="#partner">Help build the founding cohort</a>
       </div>
       <figure class="pair-fig" aria-label="Human literacy and AI literacy">
@@ -299,7 +265,7 @@
         <p class="soft">One grounded in the humanities, moral philosophy, and what makes a good life and a good society.</p>
         <div class="gap">
           <h3>That is the gap Align the Future exists to fill.</h3>
-          <p class="soft">One where those entering the fields shaping and governing AI are equipped not just with the required knowledge and skills, but the human literacy to create a world where we can flourish.</p>
+          <p class="soft">Those entering the fields shaping and governing AI need rigorous knowledge and practical skills, alongside a foundational grounding in human literacy. This is the missing ingredient in creating a world where we can flourish.</p>
         </div>
       </div>
     </div>
@@ -313,102 +279,37 @@
   <section class="model" aria-labelledby="model-title">
     <div class="wrap">
       <div class="split">
-        <div>
-          <p class="eyebrow">The Align the Future model</p>
-          <h2 id="model-title">An international, experiential and cross-disciplinary youth program.</h2>
-        </div>
-        <div class="stack">
-          <p>We believe transformative AI will arrive quickly. AI capabilities are far outpacing alignment. Preparing young people only to use it is not enough.</p>
-          <p>We propose a program that equips young minds with the intellectual foundations, practical experience, and relationships to directly enter fields to align AI with human flourishing. By ensuring technical alignment with human values and strengthening democratic and diplomatic processes, we can create a world where they, their children, their children’s children flourish.</p>
-          <p>The program will place graduates directly into labs, think tanks, and government positions where they can make a direct and immediate impact, while raising the level of political discourse and civic engagement for the long haul.</p>
-        </div>
+        <div><p class="eyebrow">The Align the Future model</p><h2 id="model-title">One shared foundation.<br>Distinct areas of depth.</h2></div>
+        <div class="stack"><p class="lead">Students apply to specialize in one area, developing depth through technical instruction, sustained inquiry, and expert mentorship.</p><p class="soft">Everyone shares a foundation in the humanities and gains exposure across disciplines. The aim is to prepare people who can investigate difficult questions, scrutinize evidence, and defend decisions with consequences for others.</p></div>
       </div>
-      <p class="note status">Pilot model in development for summer 2027. University host and mentor partnerships to be established.</p>
       <ul class="facts" aria-label="The initial concept at a glance">
-        <li><b>8–10 weeks</b><span>A summer program, hosted by a top university</span></li>
-        <li><b>~100 students</b><span>Rising high school seniors</span></li>
-        <li><b>Top mentors</b><span>Scientists, educators and policy makers at the top of their field</span></li>
-        <li><b>Direct impact</b><span>Graduates placed in labs, think tanks and government positions</span></li>
+        <li><b>8–10 weeks</b><span>A residential summer program</span></li>
+        <li><b>~100 students</b><span>Exceptional rising high school seniors</span></li>
+        <li><b>Expert mentors</b><span>Researchers, educators, and policy practitioners</span></li>
+        <li><b>Original work</b><span>A specialty capstone and a shared final project</span></li>
       </ul>
+      <div class="foundation">
+        <p class="eyebrow">Shared foundation · Everyone</p><h3>Humanities &amp; human literacy</h3>
+        <p>Moral philosophy, human flourishing, and the responsibilities of shaping the future. Through close reading, Socratic inquiry, and reasoned argument, every student examines what makes a good life and a good society—and what AI should serve.</p>
+      </div>
+      <div class="tracks">
+        <article class="track"><p class="eyebrow">Specialty · Technical</p><h3>AI research &amp; engineering</h3><p>Develop fluency in AI safety concepts, tools, and methods. Formulate hypotheses, design experiments, evaluate models, and analyze evidence with expert mentors working on live questions.</p><p class="deliverable"><strong>Specialty capstone</strong><br>A research paper or engineering contribution documenting methods, findings, and limitations.</p></article>
+        <article class="track"><p class="eyebrow">Specialty · Civic</p><h3>Alignment policy &amp; governance</h3><p>Investigate how institutions can govern AI in the public interest. Examine technical evidence, weigh trade-offs, and develop proposals with policy practitioners, grounded in democratic and diplomatic realities.</p><p class="deliverable"><strong>Specialty capstone</strong><br>A policy proposal supported by evidence and defended under scrutiny.</p></article>
+      </div>
+      <div class="shared-project"><p class="eyebrow">Shared final project · Across specialties</p><h3>Bring technical evidence and human judgment to the same challenge.</h3><p>Alongside their specialty capstones, students join peers across disciplines to investigate a shared alignment problem and develop a joint response. Each brings depth; together, they test what their findings mean for research, engineering, and governance.</p></div>
+      <p class="note status">Pilot model in development for summer 2027. University host and mentor partnerships to be established.</p>
     </div>
   </section>
-
-  <section class="fields-sec" aria-labelledby="questions-title">
-    <div class="wrap">
-      <h2 class="eyebrow" id="questions-title">Guiding questions</h2>
-      <p class="lead">Students would learn with humanities professors, policy makers and AI researchers. Shared inquiry connects technical work to questions of value, responsibility and collective action.</p>
-      <ul class="pillars">
-        <li class="pillar h">
-          <span class="kicker">Understand humanity</span>
-          <h3>Humanities</h3>
-          <p>What makes us human? What does it mean to live a good life? Build a good society? How do humans flourish? Why do we so often falter? What is our full potential as a species?</p>
-          <span class="verbs">Read. Question. Reflect.</span>
-        </li>
-        <li class="pillar a">
-          <span class="kicker">Shape the future</span>
-          <h3>Alignment &amp; Governance</h3>
-          <p>How do we ensure AI serves human ends? What laws do we need? What research do we need? Where is international cooperation most needed and most possible?</p>
-          <span class="verbs">Debate. Coordinate. Govern.</span>
-        </li>
-        <li class="pillar i">
-          <span class="kicker">Understand AI</span>
-          <h3>AI Research</h3>
-          <p>What are the most important, tractable questions? What needs to be solved theoretically? Empirically? What are the biggest open debates and questions?</p>
-          <span class="verbs">Build. Test. Discover.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
   <section class="change" aria-labelledby="change-title">
     <div class="wrap">
-      <div class="split">
-        <h2 id="change-title">Theory of Change</h2>
-        <p class="lead soft">Start with a cohort, build an immediate and lasting pipeline equipped to work across research, governance and civil society.</p>
-      </div>
+      <div class="split"><div><p class="eyebrow">Where this can lead</p><h2 id="change-title">Preparation for consequential work.</h2></div><p class="lead soft">We believe the work of aligning AI with human ends will be essential to human flourishing—and foundational to the future economy.</p></div>
       <ol class="steps">
-        <li><span class="n">01</span><h3>Find the talent</h3><p>Identify exceptional young people before college and career paths take shape.</p></li>
-        <li><span class="n">02</span><h3>Develop fluency</h3><p>Unite technical skill, humanistic judgment and the ability to act together.</p></li>
-        <li><span class="n">03</span><h3>Open pathways</h3><p>Build routes into labs, policy, academia and civil society.</p></li>
-        <li><span class="n">04</span><h3>Multiply the impact</h3><p>Grow an international network that carries this work into institutions.</p></li>
+        <li><span class="n">01</span><h3>Research &amp; engineering</h3><p>AI safety research, technical development, and the ongoing work of evaluating and aligning deployed systems.</p></li>
+        <li><span class="n">02</span><h3>Policy &amp; public service</h3><p>Government offices, think tanks, and nonprofits shaping the institutions and rules that govern AI.</p></li>
+        <li><span class="n">03</span><h3>Entrepreneurship</h3><p>New companies building the tools, infrastructure, and services needed for alignment.</p></li>
+        <li><span class="n">04</span><h3>Public engagement</h3><p>Media, advocacy, and civic leadership that help the public understand AI and shape its direction.</p></li>
       </ol>
-      <div class="flagship">
-        <strong>The flagship is the starting point.</strong>
-        <p>If successful, this flagship program will be a launchpad for a youth program with broader distribution and an awareness campaign that melts cynicism and helps the public recapture a sense of urgency and agency to build a more human future.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="role" aria-labelledby="role-title">
-    <div class="wrap">
-      <p class="eyebrow">A complementary role</p>
-      <h2 id="role-title">A distinctive place in a growing ecosystem.</h2>
-      <div class="marks">
-        <article><h3>Earlier.</h3><p>The need for diverse and well-equipped talent is urgent. Invest in the brightest young people before college, to accelerate their knowledge, impact, and purpose.</p></article>
-        <article><h3>Holistic.</h3><p>Bring humanities, technical alignment and governance together in one international, residential experience.</p></article>
-        <article><h3>More human.</h3><p>Pair technical capability with a deep understanding and appreciation of what humans value and how we flourish.</p></article>
-      </div>
-      <p class="lead landscape-note">ATF aims to complement existing research fellowships, youth programs and AI education efforts, and build pathways between them.</p>
-      <a class="text-link" href="/landscape/">Explore the existing landscape comparison</a>
-    </div>
-  </section>
-
-  <section class="road" aria-labelledby="road-title">
-    <div class="wrap">
-      <div class="split">
-        <div>
-          <p class="eyebrow">The road to launch</p>
-          <h2 id="road-title">Building toward summer 2027.</h2>
-        </div>
-        <p class="lead soft">We are seeking the partners, advisors and philanthropic support to make the founding cohort possible.</p>
-      </div>
-      <p class="note status">Planned milestones · launch depends on funding and institutional partnerships</p>
-      <ol class="miles">
-        <li><span class="n">01</span><h3>Program design</h3><p>Develop the curriculum, research challenges and pilot evaluation approach.</p><b class="now">In development</b></li>
-        <li><span class="n">02</span><h3>Institutional partners</h3><p>Establish a university host, mentor network and pathways for graduates.</p><b>Next milestone</b></li>
-        <li><span class="n">03</span><h3>Founding cohort</h3><p>Build international recruiting and selection for approximately 100 students.</p><b>Next milestone</b></li>
-        <li><span class="n">04</span><h3>Summer pilot</h3><p>Bring the model to life, evaluate the experience and learn what to scale.</p><b class="target">Target: summer 2027</b></li>
-      </ol>
+      <div class="flagship"><strong>The flagship is the starting point.</strong><div><p>By investing before college, we aim to connect rigorous specialty work with humanistic judgment and an international community. The program complements existing research fellowships and education efforts, building pathways into them and, over time, reaching a broader public.</p><a class="text-link" href="/landscape/">Explore the existing landscape comparison</a></div></div>
     </div>
   </section>
 
@@ -424,12 +325,12 @@
       <div class="bios">
         <article>
           <h3>Aaron Hoffman</h3>
-          <p>Aaron is a marketing leader with over 15 years of experience at Silicon Valley’s top companies, including Meta and OpenAI. He has built high-impact global teams, and scaled new technology and new categories from zero to billions of users. He now runs a consulting practice that brings marketing strategy, speed, and rigor to purpose-driven organizations, with a diverse network of C-suite allies across tech and nonprofit sectors.</p>
+          <p>Aaron is a marketing leader with over 15 years of experience at Meta and OpenAI, building global teams and bringing new technologies to billions of users. He now advises purpose-driven organizations on strategy and growth.</p>
           <a class="text-link" href="https://www.linkedin.com/in/aaron-hoffman-44b93815/" target="_blank" rel="noopener">Aaron’s background</a>
         </article>
         <article>
           <h3>Jon Hanover</h3>
-          <p>Jon is an educator and entrepreneur working with various philanthropic groups to reimagine public education for human flourishing in the age of AI. As a rising high school senior, Jon attended the <a href="https://www.cee.org/programs/research-science-institute" target="_blank" rel="noopener">Research Science Institute</a> (RSI) along with ~100 of the world’s most talented young scientists to conduct research at MIT and build community across boundaries. The structure of RSI is an inspiration for Align the Future.</p>
+          <p>Jon is an educator and entrepreneur working with philanthropic groups to reimagine education for human flourishing in the age of AI. His experience conducting research at MIT through the Research Science Institute helped inspire this program.</p>
           <a class="text-link" href="https://www.linkedin.com/in/jhanover/" target="_blank" rel="noopener">Jon’s background</a>
         </article>
       </div>
@@ -443,8 +344,8 @@
       <circle cx="200" cy="100" r="100" fill="#D6B246" style="mix-blend-mode: multiply"/>
     </svg>
     <div class="wrap">
-      <h2 id="partner-title">Help us shape the <span class="ramp-text">founding program.</span></h2>
-      <p>A rigorous curriculum, a community of mentors, and an international cohort prepared to shape the future.</p>
+      <h2 id="partner-title">Build the <span class="ramp-text">founding program.</span></h2>
+      <p>We are building toward summer 2027: developing the curriculum and research challenges, establishing a university host and mentor network, and preparing international recruitment.</p><p>We welcome institutional partners, research and policy mentors, and philanthropic support.</p><p class="note">The summer 2027 pilot depends on funding and institutional partnerships.</p>
       <a class="button" href="mailto:team@alignthefuture.org?subject=Founding%20partner%20conversation">Become a founding partner</a>
       <a class="mail" href="mailto:team@alignthefuture.org">Talk with the team · team@alignthefuture.org</a>
     </div>
@@ -460,69 +361,18 @@
 </footer>
 
 <script>
-/* The hero duet: the homepage's Humanities and AI circles, in plain color.
-   They rest where the static markup draws them, hold 2 seconds, flirt for
-   about 24 seconds (overlapping, twice passing through each other) and
-   settle back in the same spot. The homepage's keyframes, with two more
-   moves while they are swapped; reduced motion, or no script, keeps the
-   pair at rest. */
+/* A single measured movement into alignment. Reduced motion keeps the settled pair. */
 (function () {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  var svg = document.querySelector(".hero .dance");
-  var box = svg.parentNode;
-  var blue = svg.querySelector(".b"), yellow = svg.querySelector(".y");
-  var HOLD = 2, END = 24.3;
-  // [seconds, blue x, blue y, yellow x, yellow y]: x in pixels from the stage
-  // width W, radius r and resting midpoint c; y as a fraction of r.
-  function keys(W, r, c) {
-    return [
-      [0.0, c - 0.5 * r, 0, c + 0.5 * r, 0],
-      [2.5, 0.22 * W, -0.15, 0.8 * W, 0.2],
-      [4.5, 0.5 * W - 0.7 * r, 0.1, 0.5 * W + 0.7 * r, -0.1],
-      [6.2, 0.38 * W - 0.4 * r, -0.2, 0.64 * W + 0.4 * r, 0.25],
-      [8.2, 0.5 * W, 0.05, 0.5 * W, -0.05],
-      [9.8, 0.66 * W + 0.3 * r, -0.15, 0.34 * W - 0.3 * r, 0.2],
-      [11.4, 0.78 * W, 0.2, 0.2 * W, -0.2],
-      [13.2, 0.6 * W, -0.1, 0.4 * W, 0.1],
-      [14.7, 0.5 * W + 0.1 * r, 0.1, 0.5 * W - 0.1 * r, -0.1],
-      [16.6, 0.7 * W, -0.2, 0.3 * W, 0.15],
-      [18.4, 0.55 * W + 0.2 * r, 0.15, 0.45 * W - 0.2 * r, -0.15],
-      [20.1, 0.4 * W - 0.6 * r, -0.15, 0.62 * W + 0.4 * r, 0.2],
-      [22.1, c - 0.95 * r, 0.1, c + 0.85 * r, -0.15],
-      [23.4, c - 0.35 * r, -0.05, c + 0.35 * r, 0.05],
-      [24.3, c - 0.5 * r, 0, c + 0.5 * r, 0]
-    ];
-  }
-  // Smooth path through the keyframes (cubic Hermite, Catmull-Rom tangents)
-  function at(K, t, i) {
-    var n = K.length - 1, k = 0;
-    if (t >= K[n][0]) return K[n][i];
-    while (t > K[k + 1][0]) k++;
-    function tan(j) {
-      if (j === 0 || j === n) return 0;
-      return (K[j + 1][i] - K[j - 1][i]) / (K[j + 1][0] - K[j - 1][0]);
-    }
-    var h = K[k + 1][0] - K[k][0], u = (t - K[k][0]) / h, u2 = u * u, u3 = u2 * u;
-    return (2 * u3 - 3 * u2 + 1) * K[k][i] + (u3 - 2 * u2 + u) * h * tan(k) +
-      (-2 * u3 + 3 * u2) * K[k + 1][i] + (u3 - u2) * h * tan(k + 1);
-  }
-  var start = null, T = 0;
-  function render() {
-    var W = box.clientWidth, H = box.clientHeight, r = 0.33 * W;
-    var K = keys(W, r, W / 2), t = Math.min(Math.max(T - HOLD, 0), END);
-    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
-    blue.setAttribute("r", r); yellow.setAttribute("r", r);
-    blue.setAttribute("cx", at(K, t, 1)); blue.setAttribute("cy", H / 2 + at(K, t, 2) * r);
-    yellow.setAttribute("cx", at(K, t, 3)); yellow.setAttribute("cy", H / 2 + at(K, t, 4) * r);
-  }
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var blue = document.querySelector('.hero .b'), yellow = document.querySelector('.hero .y');
+  var start;
   function frame(now) {
-    if (start === null) start = now;
-    T = Math.min((now - start) / 1000, HOLD + END);
-    render();
-    if (T < HOLD + END) requestAnimationFrame(frame);
+    if (start === undefined) start = now;
+    var t = Math.min((now - start) / 5000, 1), ease = t * t * (3 - 2 * t);
+    blue.setAttribute('cx', 128 + 20 * ease);
+    yellow.setAttribute('cx', 312 - 20 * ease);
+    if (t < 1) requestAnimationFrame(frame);
   }
-  window.addEventListener("resize", render);
-  render();
   requestAnimationFrame(frame);
 })();
 
@@ -549,7 +399,7 @@
       journey = document.importNode(journey, true);
       var q = document.createElement('div');
       q.className = 'journey-q';
-      q.innerHTML = '<h2>What if we gathered the best minds of the next generation and prepared them to <span class="ramp-text">lead us into an aligned future together?</span></h2>';
+      q.innerHTML = '<h2>Shared foundations. Specialized work. <span class="ramp-text">A community built to act together.</span></h2>';
       journey.insertBefore(q, journey.firstChild);
       slot.replaceWith(journey);
       document.body.appendChild(document.importNode(defs, true));
