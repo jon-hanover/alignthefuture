@@ -39,6 +39,3 @@ A few notes for people and agents new to the repo:
     the art, so a drawing change does not show until it is baked.
   - `v2/index.html` (a link-only alternative homepage) loads that animation
     from `/studentexperience/` when it opens. Edit the animation there only.
-  - `roots/index.html` (link-only animated sketches) draws its three canvases
-    live from the inline script at the bottom of the page. There is no bake
-    step; edit the script and reload.

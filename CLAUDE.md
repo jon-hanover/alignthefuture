@@ -128,18 +128,6 @@ animation as a sticky header and shortens the sticky stage by its height
 (`--qh`). Keep those ids and the single inline `<style>` and `<script>` in the
 student experience page, or update the loader at the bottom of `v2/index.html`.
 
-`roots/` is a page of animated sketches, shared by link only (nothing links to
-it and it is marked noindex), after Jesper Lindborg's "Root node problems" for
-Google DeepMind's Visualising AI project. Jon asked for versions of that piece.
-Three canvases, all drawn by the one inline script in the page: Breakthrough (a
-glassy tree cracks a concrete slab and branches out, blue to the left and gold
-to the right), Pathway (a search finds its way through concrete walls three
-times, faster each try) and Two roots (Humanities and AI Research roots meet
-underground and break through together, with the names in Caveat Brush). Each
-grows a new random tree every time it plays, and "Grow again" reseeds it.
-Reduced-motion visitors get the finished frame. It is drawn live, so there is
-nothing to bake.
-
 **Links, site-wide:** any link to another site opens in a new tab
 (`target="_blank" rel="noopener"`). Links to pages on alignthefuture.org, and
 `mailto:` links, open in the same tab. Follow this on every new page.
