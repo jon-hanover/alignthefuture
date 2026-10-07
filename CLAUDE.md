@@ -263,3 +263,13 @@ by a rule, and a shared final project. Specialty details remain expandable.
 The repeated pilot note is removed; launch status stays in the closing invitation.
 Aaron's link points to hoffmanmarketingconsulting.com. The expansion and
 awareness copy is restored in the career section.
+
+## Approved homepage published October 2026
+
+Aaron and Jon approved the updated homepage, now served from `index.html` at `/`.
+The earlier homepage descriptions above are historical. The root uses the approved
+`v2/` layout and shared `/studentexperience/` loader. `/v2/` remains a noindex review copy.
+The comparison chart now lives once in `landscape/index.html`, directly in the page;
+it no longer fetches the root homepage. Edit that page to update the chart.
+Team and Build it with us remain separate homepage sections. Hosting settings,
+CNAME, .nojekyll, and the standalone align page are unchanged.
