@@ -239,3 +239,27 @@ the internal collab doc) where the day-to-day work actually happens. Nothing in
 back here, with a few notes for collaborators new to the repo (preview through
 a local server, how the graphics are built). Keep those notes in step with
 this file when either changes.
+
+## Aaron homepage proposal (working branch)
+
+On `aaron/updated-homepage`, `/v2/` is Aaron's review-first proposal. Its hero
+is “The future is theirs to align.” and its circles approach, overlap, adjust, and settle over 13 seconds. The program model presents a shared humanities foundation,
+two specialties (AI research and engineering; alignment policy and governance),
+and a shared final project alongside specialty capstones. The compact program diagram exposes longer specialty descriptions through native
+details disclosures. Four career destinations use a two-by-two grid. Team and
+the founding invitation share a single closing section with launch status. The shared student experience captions describe that same model.
+Only captions and layout changed; baked artwork is unchanged and needs no rebake.
+
+For Aaron, hold changes on his branch, preview desktop and mobile, and let him
+review and iterate before creating a pull request for Jon. Do not push or merge
+to `main` without Aaron's explicit request. The main homepage is unchanged.
+
+### Aaron review: cohesive program map
+
+The editorial imagery and program subpage experiment was reverted. `/v2/` again
+loads the shared student experience animation. The homepage program map uses
+one continuous surface: common humanities training, two specialties divided
+by a rule, and a shared final project. Specialty details remain expandable.
+The repeated pilot note is removed; launch status stays in the closing invitation.
+Aaron's link points to hoffmanmarketingconsulting.com. The expansion and
+awareness copy is restored in the career section.
