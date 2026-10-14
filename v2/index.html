@@ -33,9 +33,6 @@
   .v2 .stack { display: flex; flex-direction: column; gap: 20px; }
   .v2 .note { font-size: 15px; color: var(--muted); }
 
-  /* Header: the shared one, plus the invitation */
-  .nav a.invite { color: var(--blue); border-bottom-color: var(--gold); }
-
   /* Hero */
   .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 112px; }
   .hero h1 { font-size: clamp(2.1rem, 4.3vw, 3.4rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); text-wrap: pretty; }
@@ -172,8 +169,6 @@
     .bios { grid-template-columns: minmax(0, 1fr); }
   }
   @media (max-width: 600px) {
-    .top .nav { gap: 14px; }
-    .top .nav a:first-child { display: none; }
     .hero .wrap { padding-top: 40px; padding-bottom: 72px; }
     .challenge .wrap, .turn .wrap, .belief .wrap, .model .wrap, .change .wrap, .role .wrap, .road .wrap, .people .wrap, .partner .wrap { padding-top: 72px; padding-bottom: 72px; }
     .fields-sec .wrap { padding-top: 72px; padding-bottom: 56px; }
@@ -184,9 +179,6 @@
     .pair-fig { max-width: 300px; width: 100%; margin: 0 auto; }
     .partner .wrap { text-align: left; align-items: flex-start; }
     .button { padding: 14px 22px; font-size: 16px; }
-  }
-  @media (max-width: 400px) {
-    .top .nav a:nth-child(2) { display: none; }
   }
 
   .foundation, .shared-project { margin-top: 40px; padding: 28px 32px; border-left: 3px solid var(--blue); background: #F1EFE8; }
@@ -281,7 +273,7 @@
 
 <header class="wrap top">
   <a class="brand" href="/v2/" aria-label="Align the Future home"><img src="/brand/logo.png" alt="Align the Future" width="939" height="137"></a>
-  <nav class="nav" aria-label="Site"><a href="#team">Team</a><a href="/faqs/">FAQs</a><a class="invite" href="#partner">Partner with us</a></nav>
+  <nav class="nav" aria-label="Site"><a href="#team">Team</a><a href="/faqs/">FAQs</a></nav>
 </header>
 
 <main>
